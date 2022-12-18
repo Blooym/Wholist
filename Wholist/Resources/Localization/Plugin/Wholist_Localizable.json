@@ -1,0 +1,54 @@
+{
+  "Commands.Wholist.Help": {
+    "message": "Opens the Wholist window.",
+    "description": "TCommandHelp.get_WholistHelp"
+  },
+  "Window.Wholist": {
+    "message": "Wholist",
+    "description": "TWindowNames.get_Wholist"
+  },
+  "Window.Wholist.CantUseInPvP": {
+    "message": "You can't use the wholist whilst participating in PvP.",
+    "description": "TWholistWindow.get_CantUseInPvP"
+  },
+  "Window.Wholist.Name": {
+    "message": "Name",
+    "description": "TWholistWindow.get_Name"
+  },
+  "Window.Wholist.Company": {
+    "message": "Company",
+    "description": "TWholistWindow.get_Company"
+  },
+  "Window.Wholist.Level": {
+    "message": "Level",
+    "description": "TWholistWindow.get_Level"
+  },
+  "Window.Wholist.Class": {
+    "message": "Class",
+    "description": "TWholistWindow.get_Class"
+  },
+  "Window.Wholist.Total": {
+    "message": "Total: {0}",
+    "description": "TWholistWindow.Total"
+  },
+  "Window.Wholist.ActionsFor": {
+    "message": "Actions for {0}",
+    "description": "TWholistWindow.ActionsFor"
+  },
+  "Window.Wholist.Target": {
+    "message": "Target",
+    "description": "TWholistWindow.get_Target"
+  },
+  "Window.Wholist.Examine": {
+    "message": "Examine",
+    "description": "TWholistWindow.get_Examine"
+  },
+  "Window.Wholist.NoPlayersFound": {
+    "message": "No players found.",
+    "description": "TWholistWindow.get_NoPlayersFound"
+  },
+  "Window.Wholist.SearchForPlayer": {
+    "message": "Search for player...",
+    "description": "TWholistWindow.get_SearchForPlayer"
+  }
+}

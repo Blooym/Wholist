@@ -1,0 +1,8 @@
+{
+  "Author": "BitsOfAByte",
+  "Name": "Wholist",
+  "InternalName": "Wholist",
+  "Punchline": "Show which players are nearby to you, alike to World of Warcraft's \"/who\" command.",
+  "Description": "Show which players are nearby to you, alike to World of Warcraft's \"/who\" command.",
+  "RepoUrl": "https://github.com/BitsOfAByte/Wholist"
+}
