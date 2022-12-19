@@ -24,6 +24,7 @@ namespace Wholist.Base
         internal static WindowManager WindowManager { get; private set; }
         internal static ResourceManager ResourceManager { get; private set; }
         internal static XivCommonBase Common { get; private set; }
+        internal static Configuration Configuration { get; private set; }
 
         /// <summary>
         ///     Initializes the service class.
@@ -31,6 +32,7 @@ namespace Wholist.Base
         public static void Initialize()
         {
             ResourceManager = new ResourceManager();
+            Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
             WindowManager = new WindowManager();
             CommandManager = new CommandManager();
             Common = new XivCommonBase();

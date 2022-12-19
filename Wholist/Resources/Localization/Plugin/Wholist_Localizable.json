@@ -50,5 +50,9 @@
   "Window.Wholist.SearchForPlayer": {
     "message": "Search for player...",
     "description": "TWholistWindow.get_SearchForPlayer"
+  },
+  "Window.Wholist.SuspectedBot": {
+    "message": "This player could be a bot account (or a very new player matching bot behaviours).",
+    "description": "TWholistWindow.get_SuspectedBot"
   }
 }

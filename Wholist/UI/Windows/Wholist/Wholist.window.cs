@@ -2,6 +2,8 @@ using System;
 using System.Globalization;
 using System.Linq;
 using System.Numerics;
+using Dalamud.Game.ClientState.Objects.SubKinds;
+using Dalamud.Interface.Colors;
 using Dalamud.Interface.Windowing;
 using ImGuiNET;
 using Wholist.Base;
@@ -40,23 +42,25 @@ namespace Wholist.UI.Windows.Wholist
         /// </summary>
         public override void Draw()
         {
+            // Do not allow the plugin to be used in PvP.
             if (PluginService.ClientState.IsPvPExcludingDen)
             {
                 ImGui.TextWrapped(TWholistWindow.CantUseInPvP);
                 return;
             }
 
-            // Filter the player character objects down to the query and then take 50 of them.
+            // Get the bot objects and player objects and filter appropriately.
+            var suspectedBotObjects = Objects.BotPlayerCharacters;
             var objectsToDraw = Objects.PlayerCharacters.Where(x => x.Name.ToString().Contains(this.searchText, StringComparison.OrdinalIgnoreCase) ||
                                                              x.CompanyTag.ToString().Contains(this.searchText, StringComparison.OrdinalIgnoreCase) ||
                                                              x.Level.ToString(CultureInfo.InvariantCulture).Contains(this.searchText, StringComparison.OrdinalIgnoreCase) ||
                                                              x.ClassJob.GameData?.Name.ToString().Contains(this.searchText, StringComparison.OrdinalIgnoreCase) == true)
-                                                    .Take(50);
+                                                        .Except(PluginService.Configuration.FilterBots ? suspectedBotObjects : Enumerable.Empty<PlayerCharacter>())
+                                                        .Take(50);
 
-            // Draw the main characters child.
-            ImGui.BeginChild("##NearbyChild", new Vector2(0, -60), true);
 
-            // If there are objects to draw, draw the table.
+            // Draw the object table or "no players found" text.
+            ImGui.BeginChild("##NearbyChild", new Vector2(0, -80), true);
             if (objectsToDraw?.Any() == true)
             {
                 ImGui.BeginTable("##NearbyTable", 4, ImGuiTableFlags.ScrollY | ImGuiTableFlags.BordersInner);
@@ -77,6 +81,13 @@ namespace Wholist.UI.Windows.Wholist
                     if (ImGui.BeginPopupContextItem($"##NearbyTableRightClickMenu{obj.Name}"))
                     {
                         ImGui.TextDisabled(TWholistWindow.ActionsFor($"{obj.Name}@{obj.HomeWorld.GameData?.Name}"));
+
+                        // If suspected bots contains this object, add a warning.
+                        if (suspectedBotObjects.Contains(obj))
+                        {
+                            ImGui.TextColored(ImGuiColors.DalamudOrange, TWholistWindow.SuspectedBot);
+                        }
+
                         ImGui.Separator();
                         ImGui.Dummy(new Vector2(0, 5));
 
@@ -92,7 +103,6 @@ namespace Wholist.UI.Windows.Wholist
                         ImGui.EndPopup();
                     }
 
-
                     ImGui.TableSetColumnIndex(1);
                     ImGui.Text(obj.CompanyTag.ToString());
                     ImGui.TableSetColumnIndex(2);
@@ -103,7 +113,6 @@ namespace Wholist.UI.Windows.Wholist
 
                 ImGui.EndTable();
             }
-            // Otherwise, draw the no results text.
             else
             {
                 ImGui.SetCursorPosX((ImGui.GetWindowWidth() - ImGui.CalcTextSize(TWholistWindow.NoPlayersFound).X) / 2);
@@ -111,13 +120,23 @@ namespace Wholist.UI.Windows.Wholist
             }
             ImGui.EndChild();
 
+
             // Draw the "total: x" text.
             var totalTextSize = ImGui.CalcTextSize(TWholistWindow.Total(objectsToDraw?.Count() ?? 0));
             ImGui.SetCursorPosX((ImGui.GetWindowWidth() - totalTextSize.X) / 2);
             ImGui.Text(TWholistWindow.Total(objectsToDraw?.Count() ?? 0));
 
+            // Draw the search box;
             ImGui.SetNextItemWidth(-1);
             ImGui.InputTextWithHint("##NearbySearch", TWholistWindow.SearchForPlayer, ref this.searchText, 100);
+
+            // Draw the hide bots checkbox.
+            var hideSuspectedBots = PluginService.Configuration.FilterBots;
+            if (ImGui.Checkbox("Hide suspected bots", ref hideSuspectedBots))
+            {
+                PluginService.Configuration.FilterBots = hideSuspectedBots;
+                PluginService.Configuration.Save();
+            }
 
 #if DEBUG
             this.Presenter.DialogManager.Draw();
