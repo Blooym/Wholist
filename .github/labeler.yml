@@ -1,0 +1,8 @@
+changes | localization:
+  - "Wholist/Resources/Localization/**/*"
+
+changes | ci:
+  - ".github/workflows/**/*"
+
+changes | plugin:
+  - "Wholist/**/*"

@@ -1,0 +1,54 @@
+name: "PR: Plugin Code Changes"
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "Wholist/**.cs"
+      - "Wholist/**.csproj"
+    types: [ready_for_review, opened, synchronize]
+
+jobs:
+  Build:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Restore Dependencies
+        working-directory: Wholist
+        run: dotnet restore
+
+      - name: Download Dalamud Library
+        run: |
+          wget https://goatcorp.github.io/dalamud-distrib/latest.zip -O /tmp/dalamud.zip
+          unzip /tmp/dalamud.zip -d /tmp/dalamud
+
+      - name: Build Plugin (Dev)
+        working-directory: Wholist
+        run: dotnet build -c Debug
+        env:
+          DALAMUD_HOME: /tmp/dalamud
+          IsCI: true
+
+      - name: Build Plugin (Release)
+        working-directory: Wholist
+        run: dotnet build -c Release
+        env:
+          DALAMUD_HOME: /tmp/dalamud
+          IsCI: true
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: Wholist/bin/

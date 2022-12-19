@@ -1,0 +1,62 @@
+name: "Tag: Release"
+
+on:
+  push:
+    tags:
+      - "v*.*.*.*"
+
+permissions:
+  contents: write
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  Release-Plugin:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get Tag Name
+        run: echo "tag=$(echo ${{ github.ref }} | sed 's/refs\/tags\///' | sed 's/v//')" >> $GITHUB_ENV
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Restore Dependencies
+        working-directory: Wholist
+        run: dotnet restore
+
+      - name: Download Dalamud Library
+        working-directory: Wholist
+        run: |
+          wget https://goatcorp.github.io/dalamud-distrib/latest.zip -O /tmp/dalamud.zip
+          unzip /tmp/dalamud.zip -d /tmp/dalamud
+
+      - name: Build Plugin
+        shell: bash
+        working-directory: Wholist
+        run: |
+          dotnet build --configuration Release --nologo -p:AssemblyVersion=${{ env.tag }}
+          sha512sum bin/Release/Wholist/latest.zip  >> checksums.txt
+          sha512sum bin/Release/Wholist/Wholist.json >> checksums.txt
+          cat checksums.txt
+        env:
+          DALAMUD_HOME: /tmp/dalamud
+          IsCI: true
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          generate_release_notes: true
+          prerelease: false
+          files: |
+            Wholist/bin/Release/Wholist/latest.zip
+            Wholist/bin/Release/Wholist/Wholist.json
+            Wholist/checksums.txt
