@@ -47,16 +47,16 @@ namespace Wholist.Managers
 
                 if (resource == null)
                 {
-                    throw new FileNotFoundException($"ResourceManager(Setup): Could not find resource file for language {language}.");
+                    throw new FileNotFoundException($"Could not find resource file for language {language}.");
                 }
 
                 using var reader = new StreamReader(resource);
                 Loc.Setup(reader.ReadToEnd());
                 PluginLog.Information($"ResourceManager(Setup): Resource file for language {language} loaded successfully.");
             }
-            catch
+            catch (Exception e)
             {
-                PluginLog.Information("ResourceManager(Setup): Something went wrong while setting up localization (possibily missing a resource file or resource file is corrupt), falling back to English.");
+                PluginLog.Information($"ResourceManager(Setup): Falling back to English resource file. ({e.Message})");
                 Loc.SetupWithFallbacks();
             }
         }
