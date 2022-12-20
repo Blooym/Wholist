@@ -35,5 +35,9 @@ namespace Wholist.Localization
         public static string NoPlayersFound => Loc.Localize("Window.Wholist.NoPlayersFound", "No players found.");
         public static string SearchForPlayer => Loc.Localize("Window.Wholist.SearchForPlayer", "Search for player...");
         public static string SuspectedBot => Loc.Localize("Window.Wholist.SuspectedBot", "This player could be a bot account (or a very new player matching bot behaviours).");
+        public static string HideSuspectedBots => Loc.Localize("Window.Wholist.HideSuspectedBots", "Hide suspected bots");
+        public static string HideAfkPlayers => Loc.Localize("Window.Wholist.HideAfkPlayers", "Hide AFK players");
+        public static string PlayerIsAFK => Loc.Localize("Window.Wholist.PlayerIsAFK", "Player is AFK.");
+        public static string PlayerIsBusy => Loc.Localize("Window.Wholist.PlayerIsBusy", "Player is busy.");
     }
 }

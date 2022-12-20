@@ -54,5 +54,21 @@
   "Window.Wholist.SuspectedBot": {
     "message": "This player could be a bot account (or a very new player matching bot behaviours).",
     "description": "TWholistWindow.get_SuspectedBot"
+  },
+  "Window.Wholist.HideSuspectedBots": {
+    "message": "Hide suspected bots",
+    "description": "TWholistWindow.get_HideSuspectedBots"
+  },
+  "Window.Wholist.HideAfkPlayers": {
+    "message": "Hide AFK players",
+    "description": "TWholistWindow.get_HideAfkPlayers"
+  },
+  "Window.Wholist.PlayerIsAFK": {
+    "message": "Player is AFK.",
+    "description": "TWholistWindow.get_PlayerIsAFK"
+  },
+  "Window.Wholist.PlayerIsBusy": {
+    "message": "Player is busy.",
+    "description": "TWholistWindow.get_PlayerIsBusy"
   }
 }

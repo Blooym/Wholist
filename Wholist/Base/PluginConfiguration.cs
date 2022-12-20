@@ -20,6 +20,11 @@ namespace Wholist.Base
         public bool FilterBots { get; set; } = true;
 
         /// <summary>
+        ///   If the plugin should filter AFK players from the list.
+        /// </summary>
+        public bool FilterAfk { get; set; }
+
+        /// <summary>
         ///     Saves the current configuration to disk.
         /// </summary>
         internal void Save() => PluginService.PluginInterface.SavePluginConfig(this);
