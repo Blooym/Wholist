@@ -45,7 +45,6 @@ jobs:
         run: |
           dotnet build --configuration Release --nologo -p:AssemblyVersion=${{ env.tag }}
           sha512sum bin/x64/Release/Wholist/latest.zip  >> checksums.txt
-          sha512sum bin/x64/Release/Wholist/Wholist.json >> checksums.txt
           cat checksums.txt
         env:
           DALAMUD_HOME: /tmp/dalamud
@@ -58,5 +57,4 @@ jobs:
           prerelease: false
           files: |
             Wholist/bin/x64/Release/Wholist/latest.zip
-            Wholist/bin/x64/Release/Wholist/Wholist.json
             Wholist/checksums.txt
