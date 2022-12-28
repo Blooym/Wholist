@@ -35,7 +35,7 @@ namespace Wholist.Localization
         internal static string ViewAdventurerPlate => Loc.Localize("Window.Wholist.ViewAdventurerPlate", "View Adventurer Plate");
         internal static string Tell => Loc.Localize("Window.Wholist.Tell", "Tell");
         internal static string NoPlayersFound => Loc.Localize("Window.Wholist.NoPlayersFound", "No players found.");
-        internal static string SearchForPlayer => Loc.Localize("Window.Wholist.SearchForPlayer", "Search for player...");
+        internal static string SearchFor => Loc.Localize("Window.Wholist.SearchFor", "Search for...");
         internal static string SuspectedBot => Loc.Localize("Window.Wholist.SuspectedBot", "This player could be a bot account (or a very new player matching bot behaviours).");
         internal static string HideSuspectedBots => Loc.Localize("Window.Wholist.HideSuspectedBots", "Hide suspected bots");
         internal static string HideAfkPlayers => Loc.Localize("Window.Wholist.HideAfkPlayers", "Hide AFK players");

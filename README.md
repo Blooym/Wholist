@@ -24,5 +24,8 @@ Wholist re-implements the `/who` command from World of Warcraft and provides a v
 - Easy to read interface
 - Full localization support
 - Basic "bot filtering" capabilities
-- Context menu for examining and targeting players
+- Built in context menu for examining, targeting, viewing adventurer plates & sending tells
 - Customizable colours via Dalamud's built in style editor
+
+## Screenshots
+<img src="./.assets/screenshot1.png" alt="Screenshot 1">
