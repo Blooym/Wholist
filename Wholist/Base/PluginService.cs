@@ -1,5 +1,6 @@
 using Dalamud.Game.ClientState;
 using Dalamud.Game.ClientState.Objects;
+using Dalamud.Game.Gui;
 using Dalamud.IoC;
 using Dalamud.Logging;
 using Dalamud.Plugin;
@@ -19,6 +20,7 @@ namespace Wholist.Base
         [PluginService] internal static ObjectTable ObjectTable { get; private set; }
         [PluginService] internal static Dalamud.Game.Command.CommandManager Commands { get; private set; }
         [PluginService] internal static TargetManager TargetManager { get; private set; }
+        [PluginService] internal static ChatGui ChatGui { get; private set; }
 
         internal static CommandManager CommandManager { get; private set; }
         internal static WindowManager WindowManager { get; private set; }

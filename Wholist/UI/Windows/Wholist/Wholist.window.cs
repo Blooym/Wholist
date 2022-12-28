@@ -122,27 +122,36 @@ namespace Wholist.UI.Windows.Wholist
                         {
                             WholistPresenter.TargetManager.SetTarget(obj);
                         }
-                        // Make a hoverable option
+
                         if (ImGui.BeginMenu(TWholistWindow.Tell))
                         {
                             var message = this.Presenter.GetTell(obj.ObjectId);
+                            var maxMsgLength = (uint)380;
 
-                            if (ImGui.InputText("##TellMessage", ref message, 380))
+                            if (ImGui.InputText("##TellMessage", ref message, maxMsgLength))
                             {
                                 this.Presenter.SetTell(obj.ObjectId, message);
                             }
 
+                            ImGui.BeginDisabled(string.IsNullOrWhiteSpace(message) || message.Length > maxMsgLength);
                             if (ImGui.Button("Send Message"))
                             {
-                                WholistPresenter.GameFunctions.Chat.SendMessage($"/tell {obj.Name}@{obj.HomeWorld.GameData?.Name} {message}");
+                                try
+                                {
+                                    WholistPresenter.GameFunctions.Chat.SendMessage($"/tell {obj.Name}@{obj.HomeWorld.GameData?.Name} {message}");
+                                }
+                                catch (Exception e)
+                                {
+                                    WholistPresenter.ChatGui.PrintError($"Error sending tell: {e.Message}");
+                                }
                                 this.Presenter.RemoveTell(obj.ObjectId);
                             }
+                            ImGui.EndDisabled();
 
                             ImGui.SameLine();
-                            ImGui.Text($"({message.Length}/380)");
+                            ImGui.Text($"({message.Length}/{maxMsgLength})");
                             ImGui.EndMenu();
                         }
-
                         ImGui.EndPopup();
                     }
 
@@ -188,10 +197,10 @@ namespace Wholist.UI.Windows.Wholist
                 WholistPresenter.Configuration.FilterAfk = hideAfkPlayers;
                 WholistPresenter.Configuration.Save();
             }
+            ImGui.SameLine();
 
 #if DEBUG
             this.Presenter.DialogManager.Draw();
-            ImGui.SameLine();
             if (ImGui.Button("Export Localization"))
             {
                 this.Presenter.DialogManager.OpenFolderDialog("Export LOC", WholistPresenter.OnDirectoryPicked);
