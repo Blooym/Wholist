@@ -5,20 +5,19 @@ using System.Numerics;
 using Dalamud.Interface.Colors;
 using Dalamud.Interface.Windowing;
 using ImGuiNET;
-using Wholist.Base;
 using Wholist.Localization;
 using Wholist.UI.ImGuiBasicComponents;
 
 namespace Wholist.UI.Windows.Wholist
 {
-    public sealed class WholistWindow : Window, IDisposable
+    internal sealed class WholistWindow : Window, IDisposable
     {
-        public WholistPresenter Presenter { get; set; } = new();
+        internal WholistPresenter Presenter { get; set; } = new();
 
         /// <summary>
         ///     Constructor.
         /// </summary>
-        public WholistWindow() : base(TWindowNames.Wholist)
+        internal WholistWindow() : base(TWindowNames.Wholist)
         {
             this.Size = new Vector2(450, 400);
             this.SizeCondition = ImGuiCond.Always;
@@ -47,7 +46,11 @@ namespace Wholist.UI.Windows.Wholist
         /// <summary>
         ///     When the window is closed, stop the update timer.
         /// </summary>
-        public override void OnClose() => this.Presenter.UpdateTimer.Stop();
+        public override void OnClose()
+        {
+            this.Presenter.UpdateTimer.Stop();
+            this.Presenter.RemoveAllTells();
+        }
 
         /// <summary>
         ///     Draws the window.
@@ -55,7 +58,7 @@ namespace Wholist.UI.Windows.Wholist
         public override void Draw()
         {
             // Do not allow the plugin to be used in PvP.
-            if (PluginService.ClientState.IsPvPExcludingDen)
+            if (WholistPresenter.ClientState.IsPvPExcludingDen)
             {
                 ImGui.TextWrapped(TWholistWindow.CantUseInPvP);
                 return;
@@ -63,8 +66,8 @@ namespace Wholist.UI.Windows.Wholist
 
             // Get the bot objects and player objects and filter appropriately.
             var objectsToDraw = this.Presenter.PlayerCharacters
-                .Where(PluginService.Configuration.FilterBots ? o => WholistPresenter.IsPlayerBot(o) == false : o => true)
-                .Where(PluginService.Configuration.FilterAfk ? o => WholistPresenter.IsPlayerAfk(o) == false : o => true)
+                .Where(WholistPresenter.Configuration.FilterBots ? o => WholistPresenter.IsPlayerBot(o) == false : o => true)
+                .Where(WholistPresenter.Configuration.FilterAfk ? o => WholistPresenter.IsPlayerAfk(o) == false : o => true)
                 .Where(this.searchText.Length > 0 ? o => o.Name.ToString().Contains(this.searchText, StringComparison.OrdinalIgnoreCase)
                             || o.CompanyTag.ToString().Contains(this.searchText, StringComparison.OrdinalIgnoreCase)
                             || o.Level.ToString(CultureInfo.InvariantCulture).Contains(this.searchText, StringComparison.OrdinalIgnoreCase)
@@ -109,11 +112,35 @@ namespace Wholist.UI.Windows.Wholist
 
                         if (ImGui.Selectable(TWholistWindow.Examine))
                         {
-                            PluginService.Common.Functions.Examine.OpenExamineWindow(obj);
+                            WholistPresenter.GameFunctions.Examine.OpenExamineWindow(obj);
+                        }
+                        if (ImGui.Selectable(TWholistWindow.ViewAdventurerPlate))
+                        {
+                            WholistPresenter.OpenCharaCardFromAddress(obj.Address);
                         }
                         if (ImGui.Selectable(TWholistWindow.Target))
                         {
-                            PluginService.TargetManager.SetTarget(obj);
+                            WholistPresenter.TargetManager.SetTarget(obj);
+                        }
+                        // Make a hoverable option
+                        if (ImGui.BeginMenu(TWholistWindow.Tell))
+                        {
+                            var message = this.Presenter.GetTell(obj.ObjectId);
+
+                            if (ImGui.InputText("##TellMessage", ref message, 380))
+                            {
+                                this.Presenter.SetTell(obj.ObjectId, message);
+                            }
+
+                            if (ImGui.Button("Send Message"))
+                            {
+                                WholistPresenter.GameFunctions.Chat.SendMessage($"/tell {obj.Name}@{obj.HomeWorld.GameData?.Name} {message}");
+                                this.Presenter.RemoveTell(obj.ObjectId);
+                            }
+
+                            ImGui.SameLine();
+                            ImGui.Text($"({message.Length}/380)");
+                            ImGui.EndMenu();
                         }
 
                         ImGui.EndPopup();
@@ -147,19 +174,19 @@ namespace Wholist.UI.Windows.Wholist
             ImGui.InputTextWithHint("##NearbySearch", TWholistWindow.SearchForPlayer, ref this.searchText, 100);
 
             // Draw the hide bots checkbox.
-            var hideSuspectedBots = PluginService.Configuration.FilterBots;
+            var hideSuspectedBots = WholistPresenter.Configuration.FilterBots;
             if (ImGui.Checkbox(TWholistWindow.HideSuspectedBots, ref hideSuspectedBots))
             {
-                PluginService.Configuration.FilterBots = hideSuspectedBots;
-                PluginService.Configuration.Save();
+                WholistPresenter.Configuration.FilterBots = hideSuspectedBots;
+                WholistPresenter.Configuration.Save();
             }
             ImGui.SameLine();
 
-            var hideAfkPlayers = PluginService.Configuration.FilterAfk;
+            var hideAfkPlayers = WholistPresenter.Configuration.FilterAfk;
             if (ImGui.Checkbox(TWholistWindow.HideAfkPlayers, ref hideAfkPlayers))
             {
-                PluginService.Configuration.FilterAfk = hideAfkPlayers;
-                PluginService.Configuration.Save();
+                WholistPresenter.Configuration.FilterAfk = hideAfkPlayers;
+                WholistPresenter.Configuration.Save();
             }
 
 #if DEBUG

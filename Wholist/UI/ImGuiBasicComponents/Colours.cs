@@ -3,9 +3,9 @@ using Dalamud.Interface.Colors;
 
 namespace Wholist.UI.ImGuiBasicComponents
 {
-    public static class Colours
+    internal static class Colours
     {
-        public static Vector4 GetColourForRole(byte classID) => classID switch
+        internal static Vector4 GetColourForRole(byte classID) => classID switch
         {
             // 1 = Tank / Dark-ish Blue
             1 => ImGuiColors.TankBlue,

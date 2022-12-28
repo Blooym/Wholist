@@ -16,7 +16,7 @@ namespace Wholist.Managers
         /// <summary>
         ///     The windowing system service provided by Dalamud.
         /// </summary>
-        public readonly WindowSystem WindowSystem = new(PluginConstants.PluginName);
+        internal readonly WindowSystem WindowSystem = new(PluginConstants.PluginName);
 
         /// <summary>
         ///     All windows managed by the WindowManager.
@@ -53,7 +53,7 @@ namespace Wholist.Managers
         /// <summary>
         ///    Handles the OnLogout event.
         /// </summary>
-        public void OnLogout(object? e, EventArgs args)
+        private void OnLogout(object? e, EventArgs args)
         {
             foreach (var window in this.windows)
             {

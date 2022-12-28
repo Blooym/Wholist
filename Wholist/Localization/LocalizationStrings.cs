@@ -32,6 +32,8 @@ namespace Wholist.Localization
         public static string ActionsFor(string name) => string.Format(Loc.Localize("Window.Wholist.ActionsFor", "Actions for {0}"), name);
         public static string Target => Loc.Localize("Window.Wholist.Target", "Target");
         public static string Examine => Loc.Localize("Window.Wholist.Examine", "Examine");
+        public static string ViewAdventurerPlate => Loc.Localize("Window.Wholist.ViewAdventurerPlate", "View Adventurer Plate");
+        public static string Tell => Loc.Localize("Window.Wholist.Tell", "Tell");
         public static string NoPlayersFound => Loc.Localize("Window.Wholist.NoPlayersFound", "No players found.");
         public static string SearchForPlayer => Loc.Localize("Window.Wholist.SearchForPlayer", "Search for player...");
         public static string SuspectedBot => Loc.Localize("Window.Wholist.SuspectedBot", "This player could be a bot account (or a very new player matching bot behaviours).");

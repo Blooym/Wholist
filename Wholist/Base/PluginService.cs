@@ -23,19 +23,19 @@ namespace Wholist.Base
         internal static CommandManager CommandManager { get; private set; }
         internal static WindowManager WindowManager { get; private set; }
         internal static ResourceManager ResourceManager { get; private set; }
-        internal static XivCommonBase Common { get; private set; }
+        internal static XivCommonBase XivCommon { get; private set; }
         internal static Configuration Configuration { get; private set; }
 
         /// <summary>
         ///     Initializes the service class.
         /// </summary>
-        public static void Initialize()
+        internal static void Initialize()
         {
             ResourceManager = new ResourceManager();
             Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
             WindowManager = new WindowManager();
             CommandManager = new CommandManager();
-            Common = new XivCommonBase();
+            XivCommon = new XivCommonBase();
 
             PluginLog.Debug("PluginService(Initialize): Successfully initialized plugin services.");
         }
@@ -48,7 +48,7 @@ namespace Wholist.Base
             ResourceManager?.Dispose();
             WindowManager?.Dispose();
             CommandManager?.Dispose();
-            Common?.Dispose();
+            XivCommon?.Dispose();
 
             PluginLog.Debug("PluginService(Initialize): Successfully disposed of plugin services.");
         }

@@ -43,7 +43,7 @@ namespace Wholist.Managers
         {
             try
             {
-                using var resource = Assembly.GetExecutingAssembly().GetManifestResourceStream($"Wholist.Resources.Localization.Plugin.{language}.json");
+                using var resource = Assembly.GetExecutingAssembly().GetManifestResourceStream($"Wholist.Resources.Localization.{language}.json");
 
                 if (resource == null)
                 {

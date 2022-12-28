@@ -43,6 +43,14 @@
     "message": "Examine",
     "description": "TWholistWindow.get_Examine"
   },
+  "Window.Wholist.ViewAdventurerPlate": {
+    "message": "View Adventurer Plate",
+    "description": "TWholistWindow.get_ViewAdventurerPlate"
+  },
+  "Window.Wholist.Tell": {
+    "message": "Tell",
+    "description": "TWholistWindow.get_Tell"
+  },
   "Window.Wholist.NoPlayersFound": {
     "message": "No players found.",
     "description": "TWholistWindow.get_NoPlayersFound"

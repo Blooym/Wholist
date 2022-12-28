@@ -20,10 +20,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="Wholist.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <EmbeddedResource Include="Resources\**\*.*" />
+    <EmbeddedResource Include="Resources\**\*.*" Exclude="Resources\**\*Localizable.*" />
   </ItemGroup>
 
   <PropertyGroup>
