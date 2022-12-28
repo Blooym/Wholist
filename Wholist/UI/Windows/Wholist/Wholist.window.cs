@@ -95,14 +95,17 @@ namespace Wholist.UI.Windows.Wholist
 
                     if (ImGui.BeginPopupContextItem($"##NearbyTableRightClickMenu{obj.Name}"))
                     {
+                        var isAfk = WholistPresenter.IsPlayerAfk(obj);
+                        var isBusy = WholistPresenter.IsPlayerBusy(obj);
+
                         ImGui.TextDisabled(TWholistWindow.ActionsFor($"{obj.Name}@{obj.HomeWorld.GameData?.Name}"));
 
-                        if (WholistPresenter.IsPlayerAfk(obj))
+                        if (isAfk)
                         {
                             ImGui.TextColored(ImGuiColors.DalamudOrange, TWholistWindow.PlayerIsAFK);
                         }
 
-                        else if (WholistPresenter.IsPlayerBusy(obj))
+                        else if (isBusy)
                         {
                             ImGui.TextColored(ImGuiColors.DalamudRed, TWholistWindow.PlayerIsBusy);
                         }
@@ -123,34 +126,41 @@ namespace Wholist.UI.Windows.Wholist
                             WholistPresenter.TargetManager.SetTarget(obj);
                         }
 
-                        if (ImGui.BeginMenu(TWholistWindow.Tell))
+                        if (isBusy)
                         {
-                            var message = this.Presenter.GetTell(obj.ObjectId);
-                            var maxMsgLength = (uint)380;
-
-                            if (ImGui.InputText("##TellMessage", ref message, maxMsgLength))
+                            ImGui.TextDisabled(TWholistWindow.Tell);
+                        }
+                        else
+                        {
+                            if (ImGui.BeginMenu(TWholistWindow.Tell))
                             {
-                                this.Presenter.SetTell(obj.ObjectId, message);
-                            }
+                                var message = this.Presenter.GetTell(obj.ObjectId);
+                                var maxMsgLength = (uint)380;
 
-                            ImGui.BeginDisabled(string.IsNullOrWhiteSpace(message) || message.Length > maxMsgLength);
-                            if (ImGui.Button("Send Message"))
-                            {
-                                try
+                                if (ImGui.InputText("##TellMessage", ref message, maxMsgLength))
                                 {
-                                    WholistPresenter.GameFunctions.Chat.SendMessage($"/tell {obj.Name}@{obj.HomeWorld.GameData?.Name} {message}");
+                                    this.Presenter.SetTell(obj.ObjectId, message);
                                 }
-                                catch (Exception e)
-                                {
-                                    WholistPresenter.ChatGui.PrintError($"Error sending tell: {e.Message}");
-                                }
-                                this.Presenter.RemoveTell(obj.ObjectId);
-                            }
-                            ImGui.EndDisabled();
 
-                            ImGui.SameLine();
-                            ImGui.Text($"({message.Length}/{maxMsgLength})");
-                            ImGui.EndMenu();
+                                ImGui.BeginDisabled(string.IsNullOrWhiteSpace(message) || message.Length > maxMsgLength);
+                                if (ImGui.Button("Send Message"))
+                                {
+                                    try
+                                    {
+                                        WholistPresenter.GameFunctions.Chat.SendMessage($"/tell {obj.Name}@{obj.HomeWorld.GameData?.Name} {message}");
+                                    }
+                                    catch (Exception e)
+                                    {
+                                        WholistPresenter.ChatGui.PrintError($"Error sending tell: {e.Message}");
+                                    }
+                                    this.Presenter.RemoveTell(obj.ObjectId);
+                                }
+                                ImGui.EndDisabled();
+
+                                ImGui.SameLine();
+                                ImGui.Text($"({message.Length}/{maxMsgLength})");
+                                ImGui.EndMenu();
+                            }
                         }
                         ImGui.EndPopup();
                     }
@@ -180,7 +190,7 @@ namespace Wholist.UI.Windows.Wholist
 
             // Draw the search box;
             ImGui.SetNextItemWidth(-1);
-            ImGui.InputTextWithHint("##NearbySearch", TWholistWindow.SearchForPlayer, ref this.searchText, 100);
+            ImGui.InputTextWithHint("##NearbySearch", TWholistWindow.SearchFor, ref this.searchText, 100);
 
             // Draw the hide bots checkbox.
             var hideSuspectedBots = WholistPresenter.Configuration.FilterBots;
