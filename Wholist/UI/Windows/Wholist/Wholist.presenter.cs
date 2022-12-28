@@ -65,7 +65,7 @@ namespace Wholist.UI.Windows.Wholist
         /// </summary>
         /// <param name="targetId">The target id.</param>
         /// <returns>The message.</returns>
-        internal string GetTell(uint targetId) => this.tellMessages.TryGetValue(targetId, out var message) ? GameFunctions.Chat.SanitiseText(message) : string.Empty;
+        internal string GetTell(uint targetId) => this.tellMessages.TryGetValue(targetId, out var message) ? GameFunctions.Chat.SanitiseText(message.Trim()) : string.Empty;
 
         /// <summary>
         ///     Removes a message from the tell message dictionary.
