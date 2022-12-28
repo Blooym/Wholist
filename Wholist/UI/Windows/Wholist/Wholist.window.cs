@@ -137,13 +137,22 @@ namespace Wholist.UI.Windows.Wholist
                             {
                                 var message = this.Presenter.GetTell(obj.ObjectId);
                                 var maxMsgLength = (uint)380;
+                                var canSendMessage = !string.IsNullOrWhiteSpace(message) && message.Length <= maxMsgLength;
 
                                 if (ImGui.InputText("##TellMessage", ref message, maxMsgLength))
                                 {
                                     this.Presenter.SetTell(obj.ObjectId, message);
                                 }
+                                if (ImGui.IsItemDeactivated())
+                                {
+                                    if (ImGui.IsKeyPressed(ImGuiKey.Enter) && canSendMessage)
+                                    {
+                                        PlayerUtils.SendTell(obj, message);
+                                        this.Presenter.RemoveTell(obj.ObjectId);
+                                    }
+                                }
 
-                                ImGui.BeginDisabled(string.IsNullOrWhiteSpace(message) || message.Length > maxMsgLength);
+                                ImGui.BeginDisabled(!canSendMessage);
                                 if (ImGui.Button("Send Message"))
                                 {
                                     PlayerUtils.SendTell(obj, message);
