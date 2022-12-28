@@ -4,6 +4,7 @@ using Dalamud.Logging;
 using Wholist.Base;
 using Wholist.Localization;
 using Wholist.UI.Windows.Wholist;
+using Wholist.Utility;
 
 namespace Wholist.Managers
 {
@@ -45,9 +46,15 @@ namespace Wholist.Managers
             switch (command)
             {
                 case WhoCommand:
+                    if (!PlayerUtils.PlayerLoggedIn)
+                    {
+                        PluginLog.Information(TWholistWindow.MustBeLoggedIn);
+                        return;
+                    }
+
                     if (windowSystem.GetWindow(TWindowNames.Wholist) is WholistWindow settingsWindow)
                     {
-                        settingsWindow.IsOpen = !settingsWindow.IsOpen;
+                        settingsWindow.Toggle();
                     }
                     break;
                 default:

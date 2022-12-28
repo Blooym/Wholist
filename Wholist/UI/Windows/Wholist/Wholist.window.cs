@@ -7,6 +7,7 @@ using Dalamud.Interface.Windowing;
 using ImGuiNET;
 using Wholist.Localization;
 using Wholist.UI.ImGuiBasicComponents;
+using Wholist.Utility;
 
 namespace Wholist.UI.Windows.Wholist
 {
@@ -66,8 +67,8 @@ namespace Wholist.UI.Windows.Wholist
 
             // Get the bot objects and player objects and filter appropriately.
             var objectsToDraw = this.Presenter.PlayerCharacters
-                .Where(WholistPresenter.Configuration.FilterBots ? o => WholistPresenter.IsPlayerBot(o) == false : o => true)
-                .Where(WholistPresenter.Configuration.FilterAfk ? o => WholistPresenter.IsPlayerAfk(o) == false : o => true)
+                .Where(WholistPresenter.Configuration.FilterBots ? o => PlayerUtils.IsPlayerBot(o) == false : o => true)
+                .Where(WholistPresenter.Configuration.FilterAfk ? o => PlayerUtils.IsPlayerAFK(o) == false : o => true)
                 .Where(this.searchText.Length > 0 ? o => o.Name.ToString().Contains(this.searchText, StringComparison.OrdinalIgnoreCase)
                             || o.CompanyTag.ToString().Contains(this.searchText, StringComparison.OrdinalIgnoreCase)
                             || o.Level.ToString(CultureInfo.InvariantCulture).Contains(this.searchText, StringComparison.OrdinalIgnoreCase)
@@ -95,8 +96,8 @@ namespace Wholist.UI.Windows.Wholist
 
                     if (ImGui.BeginPopupContextItem($"##NearbyTableRightClickMenu{obj.Name}"))
                     {
-                        var isAfk = WholistPresenter.IsPlayerAfk(obj);
-                        var isBusy = WholistPresenter.IsPlayerBusy(obj);
+                        var isAfk = PlayerUtils.IsPlayerAFK(obj);
+                        var isBusy = PlayerUtils.IsPlayerBusy(obj);
 
                         ImGui.TextDisabled(TWholistWindow.ActionsFor($"{obj.Name}@{obj.HomeWorld.GameData?.Name}"));
 
@@ -115,15 +116,15 @@ namespace Wholist.UI.Windows.Wholist
 
                         if (ImGui.Selectable(TWholistWindow.Examine))
                         {
-                            WholistPresenter.GameFunctions.Examine.OpenExamineWindow(obj);
+                            PlayerUtils.OpenPlayerExamine(obj);
                         }
                         if (ImGui.Selectable(TWholistWindow.ViewAdventurerPlate))
                         {
-                            WholistPresenter.OpenCharaCardFromAddress(obj.Address);
+                            PlayerUtils.OpenPlayerPlate(obj.Address);
                         }
                         if (ImGui.Selectable(TWholistWindow.Target))
                         {
-                            WholistPresenter.TargetManager.SetTarget(obj);
+                            PlayerUtils.SetPlayerTarget(obj);
                         }
 
                         if (isBusy)
@@ -145,14 +146,7 @@ namespace Wholist.UI.Windows.Wholist
                                 ImGui.BeginDisabled(string.IsNullOrWhiteSpace(message) || message.Length > maxMsgLength);
                                 if (ImGui.Button("Send Message"))
                                 {
-                                    try
-                                    {
-                                        WholistPresenter.GameFunctions.Chat.SendMessage($"/tell {obj.Name}@{obj.HomeWorld.GameData?.Name} {message}");
-                                    }
-                                    catch (Exception e)
-                                    {
-                                        WholistPresenter.ChatGui.PrintError($"Error sending tell: {e.Message}");
-                                    }
+                                    PlayerUtils.SendTell(obj, message);
                                     this.Presenter.RemoveTell(obj.ObjectId);
                                 }
                                 ImGui.EndDisabled();

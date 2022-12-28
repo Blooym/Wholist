@@ -5,29 +5,14 @@ using System.Linq;
 using System.Timers;
 using CheapLoc;
 using Dalamud.Game.ClientState;
-using Dalamud.Game.ClientState.Objects;
 using Dalamud.Game.ClientState.Objects.SubKinds;
-using Dalamud.Game.Gui;
 using Dalamud.Interface.ImGuiFileDialog;
-using FFXIVClientStructs.FFXIV.Client.Game.Object;
-using FFXIVClientStructs.FFXIV.Client.UI.Agent;
 using Wholist.Base;
-using XivCommon;
 
 namespace Wholist.UI.Windows.Wholist
 {
     internal sealed class WholistPresenter : IDisposable
     {
-        /// <summary>
-        ///   The service instance of <see cref="XivCommon.GameFunctions" />.
-        /// </summary>
-        internal static GameFunctions GameFunctions => PluginService.XivCommon.Functions;
-
-        /// <summary>
-        ///    The service instance of <see cref="TargetManager" />.
-        /// </summary>
-        internal static TargetManager TargetManager => PluginService.TargetManager;
-
         /// <summary>
         ///    The service instance of <see cref="Configuration" />.
         /// </summary>
@@ -39,16 +24,6 @@ namespace Wholist.UI.Windows.Wholist
         internal static ClientState ClientState => PluginService.ClientState;
 
         /// <summary>
-        ///    The service instance of <see cref="ChatGui" />.
-        /// </summary>
-        internal static ChatGui ChatGui => PluginService.ChatGui;
-
-        /// <summary>
-        ///    The instance of <See cref="OpenCharaCardFromAddress" />.
-        /// </summary>
-        internal static unsafe void OpenCharaCardFromAddress(IntPtr address) => AgentCharaCard.Instance()->OpenCharaCard((GameObject*)address);
-
-        /// <summary>
         ///     A dictionary of messages that have been typed to certain players, alongside the date of the last time an entry was modified.
         /// </summary>
         private readonly Dictionary<uint, string> tellMessages = new();
@@ -58,14 +33,14 @@ namespace Wholist.UI.Windows.Wholist
         /// </summary>
         /// <param name="targetId">The target id.</param>
         /// <param name="message">The message.</param>
-        internal void SetTell(uint targetId, string message) => this.tellMessages[targetId] = GameFunctions.Chat.SanitiseText(message.Trim());
+        internal void SetTell(uint targetId, string message) => this.tellMessages[targetId] = message;
 
         /// <summary>
         ///     Gets a message from the tell message dictionary.
         /// </summary>
         /// <param name="targetId">The target id.</param>
         /// <returns>The message.</returns>
-        internal string GetTell(uint targetId) => this.tellMessages.TryGetValue(targetId, out var message) ? GameFunctions.Chat.SanitiseText(message.Trim()) : string.Empty;
+        internal string GetTell(uint targetId) => this.tellMessages.TryGetValue(targetId, out var message) ? message : string.Empty;
 
         /// <summary>
         ///     Removes a message from the tell message dictionary.
@@ -122,21 +97,6 @@ namespace Wholist.UI.Windows.Wholist
         /// <param name="sender">The sender.</param>
         /// <param name="e">The event args.</param>
         private void UpdateTimerOnElapsed(object? sender, ElapsedEventArgs e) => this.UpdatePlayerList();
-
-        /// <summary>
-        ///     Returns a boolean of whether or not the player is AFK.
-        /// </summary>
-        internal static bool IsPlayerAfk(PlayerCharacter player) => player.OnlineStatus.Id == 17;
-
-        /// <summary>
-        ///     Returns a boolean of whether the player is a bot or not.
-        /// </summary>
-        internal static bool IsPlayerBot(PlayerCharacter player) => player.Level <= 4 && player.ClassJob.Id == 3;
-
-        /// <summary>
-        ///     Returns a boolean of whether the player is on busy mode or not.
-        /// </summary>
-        internal static bool IsPlayerBusy(PlayerCharacter player) => player.OnlineStatus.Id == 12;
 
 #if DEBUG
         /// <summary>

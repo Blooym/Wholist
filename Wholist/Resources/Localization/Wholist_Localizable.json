@@ -78,5 +78,9 @@
   "Window.Wholist.PlayerIsBusy": {
     "message": "Player is busy.",
     "description": "TWholistWindow.get_PlayerIsBusy"
+  },
+  "Window.Wholist.MustBeLoggedIn": {
+    "message": "You must be logged in to a character to use this.",
+    "description": "TWholistWindow.get_MustBeLoggedIn"
   }
 }
