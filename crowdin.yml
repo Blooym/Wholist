@@ -1,0 +1,7 @@
+files:
+  - source: /Wholist/Resources/Localization/*_Localizable.json
+    translation: /%original_path%/%two_letters_code%.json
+
+pull_request_title: "chore(i18n): Translation updates (Crowdin)"
+commit_message: "chore(i18n): translations updates for %original_file_name% [skip ci]"
+append_commit_message: false
