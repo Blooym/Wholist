@@ -1,0 +1,86 @@
+{
+  "Commands.Wholist.Help": {
+    "message": "Opens the Wholist window.",
+    "description": "TCommandHelp.get_WholistHelp"
+  },
+  "Window.Wholist": {
+    "message": "Wholist",
+    "description": "TWindowNames.get_Wholist"
+  },
+  "Window.Wholist.CantUseInPvP": {
+    "message": "You can't use the wholist whilst participating in PvP.",
+    "description": "TWholistWindow.get_CantUseInPvP"
+  },
+  "Window.Wholist.Name": {
+    "message": "Name",
+    "description": "TWholistWindow.get_Name"
+  },
+  "Window.Wholist.Company": {
+    "message": "Company",
+    "description": "TWholistWindow.get_Company"
+  },
+  "Window.Wholist.Level": {
+    "message": "Level",
+    "description": "TWholistWindow.get_Level"
+  },
+  "Window.Wholist.Class": {
+    "message": "Class",
+    "description": "TWholistWindow.get_Class"
+  },
+  "Window.Wholist.Total": {
+    "message": "Total: {0}",
+    "description": "TWholistWindow.Total"
+  },
+  "Window.Wholist.ActionsFor": {
+    "message": "Actions for {0}",
+    "description": "TWholistWindow.ActionsFor"
+  },
+  "Window.Wholist.Target": {
+    "message": "Target",
+    "description": "TWholistWindow.get_Target"
+  },
+  "Window.Wholist.Examine": {
+    "message": "Examine",
+    "description": "TWholistWindow.get_Examine"
+  },
+  "Window.Wholist.ViewAdventurerPlate": {
+    "message": "View Adventurer Plate",
+    "description": "TWholistWindow.get_ViewAdventurerPlate"
+  },
+  "Window.Wholist.Tell": {
+    "message": "Tell",
+    "description": "TWholistWindow.get_Tell"
+  },
+  "Window.Wholist.NoPlayersFound": {
+    "message": "No players found.",
+    "description": "TWholistWindow.get_NoPlayersFound"
+  },
+  "Window.Wholist.SearchFor": {
+    "message": "Search for...",
+    "description": "TWholistWindow.get_SearchFor"
+  },
+  "Window.Wholist.SuspectedBot": {
+    "message": "This player could be a bot account (or a very new player matching bot behaviours).",
+    "description": "TWholistWindow.get_SuspectedBot"
+  },
+  "Window.Wholist.HideSuspectedBots": {
+    "message": "Hide suspected bots",
+    "description": "TWholistWindow.get_HideSuspectedBots"
+  },
+  "Window.Wholist.HideAfkPlayers": {
+    "message": "Hide AFK players",
+    "description": "TWholistWindow.get_HideAfkPlayers"
+  },
+  "Window.Wholist.PlayerIsAFK": {
+    "message": "Player is AFK.",
+    "description": "TWholistWindow.get_PlayerIsAFK"
+  },
+  "Window.Wholist.PlayerIsBusy": {
+    "message": "Player is busy.",
+    "description": "TWholistWindow.get_PlayerIsBusy"
+  },
+  "Window.Wholist.MustBeLoggedIn": {
+    "message": "You must be logged in to a character to use this.",
+    "description": "TWholistWindow.get_MustBeLoggedIn"
+  }
+}
