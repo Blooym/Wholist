@@ -1,6 +1,6 @@
 {
   "Commands.Wholist.Help": {
-    "message": "Opens the Wholist window.",
+    "message": "Wholistを開く",
     "description": "TCommandHelp.get_WholistHelp"
   },
   "Window.Wholist": {
@@ -8,79 +8,79 @@
     "description": "TWindowNames.get_Wholist"
   },
   "Window.Wholist.CantUseInPvP": {
-    "message": "You can't use the wholist whilst participating in PvP.",
+    "message": "PvPコンテンツ中は、Wholistを使用できません。",
     "description": "TWholistWindow.get_CantUseInPvP"
   },
   "Window.Wholist.Name": {
-    "message": "Name",
+    "message": "キャラクター名",
     "description": "TWholistWindow.get_Name"
   },
   "Window.Wholist.Company": {
-    "message": "Company",
+    "message": "FC(略称)",
     "description": "TWholistWindow.get_Company"
   },
   "Window.Wholist.Level": {
-    "message": "Level",
+    "message": "レベル",
     "description": "TWholistWindow.get_Level"
   },
   "Window.Wholist.Class": {
-    "message": "Class",
+    "message": "クラス/ジョブ",
     "description": "TWholistWindow.get_Class"
   },
   "Window.Wholist.Total": {
-    "message": "Total: {0}",
+    "message": "合計:{0}",
     "description": "TWholistWindow.Total"
   },
   "Window.Wholist.ActionsFor": {
-    "message": "Actions for {0}",
+    "message": "アクションを実行:{0}",
     "description": "TWholistWindow.ActionsFor"
   },
   "Window.Wholist.Target": {
-    "message": "Target",
+    "message": "ターゲット",
     "description": "TWholistWindow.get_Target"
   },
   "Window.Wholist.Examine": {
-    "message": "Examine",
+    "message": "調べる",
     "description": "TWholistWindow.get_Examine"
   },
   "Window.Wholist.ViewAdventurerPlate": {
-    "message": "View Adventurer Plate",
+    "message": "アドベンチャラープレートを見る",
     "description": "TWholistWindow.get_ViewAdventurerPlate"
   },
   "Window.Wholist.Tell": {
-    "message": "Tell",
+    "message": "Tellを送る",
     "description": "TWholistWindow.get_Tell"
   },
   "Window.Wholist.NoPlayersFound": {
-    "message": "No players found.",
+    "message": "近くにプレイヤーが見つかりません",
     "description": "TWholistWindow.get_NoPlayersFound"
   },
   "Window.Wholist.SearchFor": {
-    "message": "Search for...",
+    "message": "検索...",
     "description": "TWholistWindow.get_SearchFor"
   },
   "Window.Wholist.SuspectedBot": {
-    "message": "This player could be a bot account (or a very new player matching bot behaviours).",
+    "message": "このプレイヤーは、BOTアカウント（もしくは新規アカウント）の可能性があります。",
     "description": "TWholistWindow.get_SuspectedBot"
   },
   "Window.Wholist.HideSuspectedBots": {
-    "message": "Hide suspected bots",
+    "message": "BOT疑惑のプレイヤーを非表示",
     "description": "TWholistWindow.get_HideSuspectedBots"
   },
   "Window.Wholist.HideAfkPlayers": {
-    "message": "Hide AFK players",
+    "message": "離席中のプレイヤーを非表示",
     "description": "TWholistWindow.get_HideAfkPlayers"
   },
   "Window.Wholist.PlayerIsAFK": {
-    "message": "Player is AFK.",
+    "message": "プレイヤーは離席中です。",
     "description": "TWholistWindow.get_PlayerIsAFK"
   },
   "Window.Wholist.PlayerIsBusy": {
-    "message": "Player is busy.",
+    "message": "プレイヤーは取り込み中です。",
     "description": "TWholistWindow.get_PlayerIsBusy"
   },
   "Window.Wholist.MustBeLoggedIn": {
-    "message": "You must be logged in to a character to use this.",
+    "message": "この機能を使用するには、キャラクターにログインする必要があります。",
     "description": "TWholistWindow.get_MustBeLoggedIn"
   }
 }
