@@ -82,5 +82,9 @@
   "Window.Wholist.MustBeLoggedIn": {
     "message": "この機能を使用するには、キャラクターにログインする必要があります。",
     "description": "TWholistWindow.get_MustBeLoggedIn"
+  },
+  "Window.Wholist.SendMessage": {
+    "message": "メッセージを送信",
+    "description": "TWholistWindow.get_SendMessage"
   }
 }
