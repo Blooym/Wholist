@@ -82,5 +82,9 @@
   "Window.Wholist.MustBeLoggedIn": {
     "message": "You must be logged in to a character to use this.",
     "description": "TWholistWindow.get_MustBeLoggedIn"
+  },
+  "Window.Wholist.SendMessage": {
+    "message": "Send Message",
+    "description": "TWholistWindow.get_SendMessage"
   }
 }

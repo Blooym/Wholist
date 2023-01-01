@@ -153,7 +153,7 @@ namespace Wholist.UI.Windows.Wholist
                                 }
 
                                 ImGui.BeginDisabled(!canSendMessage);
-                                if (ImGui.Button("Send Message"))
+                                if (ImGui.Button(TWholistWindow.SendMessage))
                                 {
                                     PlayerUtils.SendTell(obj, message);
                                     this.Presenter.RemoveTell(obj.ObjectId);

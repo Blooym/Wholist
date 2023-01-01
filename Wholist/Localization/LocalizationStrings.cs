@@ -42,5 +42,6 @@ namespace Wholist.Localization
         internal static string PlayerIsAFK => Loc.Localize("Window.Wholist.PlayerIsAFK", "Player is AFK.");
         internal static string PlayerIsBusy => Loc.Localize("Window.Wholist.PlayerIsBusy", "Player is busy.");
         internal static string MustBeLoggedIn => Loc.Localize("Window.Wholist.MustBeLoggedIn", "You must be logged in to a character to use this.");
+        internal static string SendMessage => Loc.Localize("Window.Wholist.SendMessage", "Send Message");
     }
 }
