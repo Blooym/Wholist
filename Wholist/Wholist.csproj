@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AssemblyName>Wholist</AssemblyName>
-    <Version>0.0.0.1</Version>
+    <Version>0.0.0.2</Version>
     <PackageProjectUrl>https://github.com/BitsOfAByte/Wholist</PackageProjectUrl>
   </PropertyGroup>
 
