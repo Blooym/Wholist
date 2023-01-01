@@ -84,7 +84,10 @@ namespace Wholist.UI.Windows.Wholist
         ///     Pulls the list of players from the ObjectTable.
         /// </summary>
         /// <returns>The list of players.</returns>
-        private static IEnumerable<PlayerCharacter> GetPlayerCharacters() => PluginService.ObjectTable.Where(o => o is PlayerCharacter && o != ClientState.LocalPlayer).Cast<PlayerCharacter>();
+        private static IEnumerable<PlayerCharacter> GetPlayerCharacters() => PluginService.ObjectTable
+            .Where(o => o is PlayerCharacter)
+            .Cast<PlayerCharacter>()
+            .Where(o => o.Level > 0 && o != ClientState.LocalPlayer);
 
         /// <summary>
         ///     Updates the list of players.
