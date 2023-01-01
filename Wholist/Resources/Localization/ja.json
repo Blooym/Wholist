@@ -84,7 +84,7 @@
     "description": "TWholistWindow.get_MustBeLoggedIn"
   },
   "Window.Wholist.SendMessage": {
-    "message": "Send Message",
+    "message": "メッセージを送信",
     "description": "TWholistWindow.get_SendMessage"
   }
 }
