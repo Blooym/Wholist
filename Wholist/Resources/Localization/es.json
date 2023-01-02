@@ -1,6 +1,6 @@
 {
   "Commands.Wholist.Help": {
-    "message": "Opens the Wholist window.",
+    "message": "Abre la ventana de Wholist.",
     "description": "TCommandHelp.get_WholistHelp"
   },
   "Window.Wholist": {
@@ -8,23 +8,23 @@
     "description": "TWindowNames.get_Wholist"
   },
   "Window.Wholist.CantUseInPvP": {
-    "message": "You can't use the wholist whilst participating in PvP.",
+    "message": "Wholist no puede ser utilizado mientras participas en PvP.",
     "description": "TWholistWindow.get_CantUseInPvP"
   },
   "Window.Wholist.Name": {
-    "message": "Name",
+    "message": "Nombre",
     "description": "TWholistWindow.get_Name"
   },
   "Window.Wholist.Company": {
-    "message": "Company",
+    "message": "Compañía",
     "description": "TWholistWindow.get_Company"
   },
   "Window.Wholist.Level": {
-    "message": "Level",
+    "message": "Nivel",
     "description": "TWholistWindow.get_Level"
   },
   "Window.Wholist.Class": {
-    "message": "Class",
+    "message": "Clase",
     "description": "TWholistWindow.get_Class"
   },
   "Window.Wholist.Total": {
@@ -32,59 +32,59 @@
     "description": "TWholistWindow.Total"
   },
   "Window.Wholist.ActionsFor": {
-    "message": "Actions for {0}",
+    "message": "Acciones para {0}",
     "description": "TWholistWindow.ActionsFor"
   },
   "Window.Wholist.Target": {
-    "message": "Target",
+    "message": "Objetivo",
     "description": "TWholistWindow.get_Target"
   },
   "Window.Wholist.Examine": {
-    "message": "Examine",
+    "message": "Examinar",
     "description": "TWholistWindow.get_Examine"
   },
   "Window.Wholist.ViewAdventurerPlate": {
-    "message": "View Adventurer Plate",
+    "message": "Ver Placa de Aventurero",
     "description": "TWholistWindow.get_ViewAdventurerPlate"
   },
   "Window.Wholist.Tell": {
-    "message": "Tell",
+    "message": "Mensaje Privado",
     "description": "TWholistWindow.get_Tell"
   },
   "Window.Wholist.NoPlayersFound": {
-    "message": "No players found.",
+    "message": "No se han encontrado jugadores.",
     "description": "TWholistWindow.get_NoPlayersFound"
   },
   "Window.Wholist.SearchFor": {
-    "message": "Search for...",
+    "message": "Buscar...",
     "description": "TWholistWindow.get_SearchFor"
   },
   "Window.Wholist.SuspectedBot": {
-    "message": "This player could be a bot account (or a very new player matching bot behaviours).",
+    "message": "Es posible que este jugador sea un bot (o un jugador nuevo con comportamientos típicos de bot).",
     "description": "TWholistWindow.get_SuspectedBot"
   },
   "Window.Wholist.HideSuspectedBots": {
-    "message": "Hide suspected bots",
+    "message": "Ocultar posibles bots",
     "description": "TWholistWindow.get_HideSuspectedBots"
   },
   "Window.Wholist.HideAfkPlayers": {
-    "message": "Hide AFK players",
+    "message": "Ocultar jugadores ausentes",
     "description": "TWholistWindow.get_HideAfkPlayers"
   },
   "Window.Wholist.PlayerIsAFK": {
-    "message": "Player is AFK.",
+    "message": "Este jugador está ausente.",
     "description": "TWholistWindow.get_PlayerIsAFK"
   },
   "Window.Wholist.PlayerIsBusy": {
-    "message": "Player is busy.",
+    "message": "Este jugador está ocupado.",
     "description": "TWholistWindow.get_PlayerIsBusy"
   },
   "Window.Wholist.MustBeLoggedIn": {
-    "message": "You must be logged in to a character to use this.",
+    "message": "Debes haber iniciado sesión con un personaje para usar esto.",
     "description": "TWholistWindow.get_MustBeLoggedIn"
   },
   "Window.Wholist.SendMessage": {
-    "message": "Send Message",
+    "message": "Mandar Mensaje",
     "description": "TWholistWindow.get_SendMessage"
   }
 }
