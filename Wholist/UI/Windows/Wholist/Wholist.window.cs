@@ -21,8 +21,7 @@ namespace Wholist.UI.Windows.Wholist
         internal WholistWindow() : base(TWindowNames.Wholist)
         {
             this.Size = new Vector2(450, 400);
-            this.SizeCondition = ImGuiCond.Always;
-            this.Flags |= ImGuiWindowFlags.NoResize;
+            this.SizeCondition = ImGuiCond.FirstUseEver;
         }
 
         /// <summary>
@@ -51,6 +50,11 @@ namespace Wholist.UI.Windows.Wholist
         {
             this.Presenter.UpdateTimer.Stop();
             this.Presenter.RemoveAllTells();
+        }
+
+        public override void Update()
+        {
+
         }
 
         /// <summary>
