@@ -3,7 +3,7 @@
   <!-- Project Configuration -->
   <PropertyGroup>
     <AssemblyName>Wholist</AssemblyName>
-    <Version>0.0.0.2</Version>
+    <Version>0.0.0.3</Version>
     <PackageProjectUrl>https://github.com/BitsOfAByte/Wholist</PackageProjectUrl>
   </PropertyGroup>
 
