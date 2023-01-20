@@ -50,8 +50,6 @@ jobs:
           dotnet build --configuration Release --nologo -p:AssemblyVersion=${{ env.tag }}
           sha512sum bin/x64/Release/Wholist/latest.zip  >> checksums.txt
           cat checksums.txt
-        env:
-
 
       - name: Release
         uses: softprops/action-gh-release@v1
