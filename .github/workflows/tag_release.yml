@@ -15,6 +15,9 @@ env:
 jobs:
   Release-Plugin:
     runs-on: ubuntu-latest
+    env:
+        DALAMUD_HOME: /tmp/dalamud
+        IsCI: true
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -29,15 +32,15 @@ jobs:
         with:
           dotnet-version: 7.0.x
 
-      - name: Restore Dependencies
-        working-directory: Wholist
-        run: dotnet restore
-
       - name: Download Dalamud Library
         working-directory: Wholist
         run: |
-          wget https://goatcorp.github.io/dalamud-distrib/latest.zip -O /tmp/dalamud.zip
-          unzip /tmp/dalamud.zip -d /tmp/dalamud
+          wget https://goatcorp.github.io/dalamud-distrib/latest.zip -O ${{ env.DALAMUD_HOME }}.zip
+          unzip ${{ env.DALAMUD_HOME }}.zip -d ${{ env.DALAMUD_HOME }}
+
+      - name: Restore Dependencies
+        working-directory: Wholist
+        run: dotnet restore
 
       - name: Build Plugin
         shell: bash
@@ -47,8 +50,7 @@ jobs:
           sha512sum bin/x64/Release/Wholist/latest.zip  >> checksums.txt
           cat checksums.txt
         env:
-          DALAMUD_HOME: /tmp/dalamud
-          IsCI: true
+
 
       - name: Release
         uses: softprops/action-gh-release@v1
