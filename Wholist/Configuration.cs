@@ -1,5 +1,6 @@
 using System;
 using Dalamud.Configuration;
+using Wholist.Base;
 
 namespace Wholist
 {

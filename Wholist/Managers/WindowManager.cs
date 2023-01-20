@@ -1,6 +1,7 @@
 using System;
 using Sirensong;
 using Sirensong.UserInterface.Windowing;
+using Wholist.Base;
 using Wholist.UI.Windows.Wholist;
 
 namespace Wholist.Managers

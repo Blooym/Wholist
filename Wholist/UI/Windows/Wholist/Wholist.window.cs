@@ -7,6 +7,8 @@ using ImGuiNET;
 using Sirensong.Game.Enums;
 using Sirensong.Game.Extensions;
 using Sirensong.UserInterface;
+using Sirensong.UserInterface.Components;
+using Wholist.Base;
 
 namespace Wholist.UI.Windows.Wholist
 {
@@ -49,98 +51,101 @@ namespace Wholist.UI.Windows.Wholist
             }
             var playersToDraw = WholistPresenter.GetOTPlayers(this.searchText);
 
-            ImGui.BeginChild("##NearbyChild", new Vector2(0, -80), true);
-            ImGui.BeginTable("##NearbyTable", 4, ImGuiTableFlags.ScrollY | ImGuiTableFlags.BordersInner | ImGuiTableFlags.Hideable);
-            ImGui.TableSetupColumn(LStrings.WholistWindow.Name, ImGuiTableColumnFlags.WidthStretch, 250);
-            ImGui.TableSetupColumn(LStrings.WholistWindow.Company, ImGuiTableColumnFlags.WidthStretch, 100);
-            ImGui.TableSetupColumn(LStrings.WholistWindow.Level, ImGuiTableColumnFlags.WidthStretch, 50);
-            ImGui.TableSetupColumn(LStrings.WholistWindow.Class, ImGuiTableColumnFlags.WidthStretch, 150);
-            ImGui.TableSetupScrollFreeze(0, 1);
-            ImGui.TableHeadersRow();
-
-            // Draw players.
-            foreach (var obj in playersToDraw)
+            if (ImGui.BeginChild("##NearbyChild", new Vector2(0, -105), true))
             {
-                var classJob = WholistPresenter.ClassJobCache.GetRow(obj.ClassJob.Id);
-
-                ImGui.TableNextColumn();
-                ImGui.TextUnformatted(obj.Name.ToString());
-
-                if (ImGui.BeginPopupContextItem(obj.ObjectId + "##WholistPopContext"))
+                if (ImGui.BeginTable("##NearbyTable", 4, ImGuiTableFlags.ScrollY | ImGuiTableFlags.BordersInner | ImGuiTableFlags.Hideable))
                 {
-                    // Heading.
-                    ImGui.TextDisabled(LStrings.WholistWindow.ActionsFor($"{obj.Name}@{WholistPresenter.WorldCache.GetRow(obj.HomeWorld.Id)?.Name}"));
-                    switch (obj.OnlineStatus.Id)
-                    {
-                        case (uint)OnlineStatuses.AFK:
-                            ImGui.TextColored(ImGuiColors.DalamudOrange, LStrings.WholistWindow.PlayerIsAFK);
-                            break;
-                        case (uint)OnlineStatuses.Busy:
-                            ImGui.TextColored(ImGuiColors.DalamudRed, LStrings.WholistWindow.PlayerIsBusy);
-                            break;
-                        default:
-                            break;
-                    }
-                    ImGui.Separator();
-                    ImGui.Dummy(new Vector2(0, 5));
+                    ImGui.TableSetupColumn(LStrings.WholistWindow.Name, ImGuiTableColumnFlags.WidthStretch, 250);
+                    ImGui.TableSetupColumn(LStrings.WholistWindow.Company, ImGuiTableColumnFlags.WidthStretch, 100);
+                    ImGui.TableSetupColumn(LStrings.WholistWindow.Level, ImGuiTableColumnFlags.WidthStretch, 50);
+                    ImGui.TableSetupColumn(LStrings.WholistWindow.Class, ImGuiTableColumnFlags.WidthStretch, 150);
+                    ImGui.TableSetupScrollFreeze(0, 1);
+                    ImGui.TableHeadersRow();
 
-                    // Selectable items.
-                    if (ImGui.Selectable(LStrings.WholistWindow.Examine))
+                    // Draw players.
+                    foreach (var obj in playersToDraw)
                     {
-                        obj.OpenExamine();
-                    }
-                    if (ImGui.Selectable(LStrings.WholistWindow.ViewAdventurerPlate))
-                    {
-                        obj.OpenCharaCard();
-                    }
-                    if (ImGui.Selectable(LStrings.WholistWindow.Target))
-                    {
-                        obj.SetAsLPTarget();
-                    }
+                        var classJob = WholistPresenter.ClassJobCache.GetRow(obj.ClassJob.Id);
 
-                    if (ImGui.BeginMenu(LStrings.WholistWindow.Tell))
-                    {
-                        var message = this.Presenter.GetTell(obj.ObjectId);
-                        var canSendMessage = WholistPresenter.IsMessageValid(message);
+                        ImGui.TableNextColumn();
+                        ImGui.TextUnformatted(obj.Name.ToString());
 
-                        if (ImGui.InputText("##TellMessage", ref message, WholistPresenter.MaxMsgLength))
+                        if (ImGui.BeginPopupContextItem(obj.ObjectId + "##WholistPopContext"))
                         {
-                            this.Presenter.SetTell(obj.ObjectId, message);
-                        }
-                        if (ImGui.IsItemDeactivated())
-                        {
-                            if (ImGui.IsKeyPressed(ImGuiKey.Enter) && canSendMessage)
+                            // Heading.
+                            ImGui.TextDisabled(LStrings.WholistWindow.ActionsFor($"{obj.Name}@{WholistPresenter.WorldCache.GetRow(obj.HomeWorld.Id)?.Name}"));
+                            switch (obj.OnlineStatus.Id)
                             {
-                                WholistPresenter.SendTell(obj, message);
-                                this.Presenter.RemoveTell(obj.ObjectId);
+                                case (uint)OnlineStatuses.AFK:
+                                    ImGui.TextColored(ImGuiColors.DalamudOrange, LStrings.WholistWindow.PlayerIsAFK);
+                                    break;
+                                case (uint)OnlineStatuses.Busy:
+                                    ImGui.TextColored(ImGuiColors.DalamudRed, LStrings.WholistWindow.PlayerIsBusy);
+                                    break;
+                                default:
+                                    break;
                             }
+                            ImGui.Separator();
+                            ImGui.Dummy(new Vector2(0, 5));
+
+                            // Selectable items.
+                            if (ImGui.Selectable(LStrings.WholistWindow.Examine))
+                            {
+                                obj.OpenExamine();
+                            }
+                            if (ImGui.Selectable(LStrings.WholistWindow.ViewAdventurerPlate))
+                            {
+                                obj.OpenCharaCard();
+                            }
+                            if (ImGui.Selectable(LStrings.WholistWindow.Target))
+                            {
+                                obj.SetAsLPTarget();
+                            }
+
+                            if (ImGui.BeginMenu(LStrings.WholistWindow.Tell))
+                            {
+                                var message = this.Presenter.GetTell(obj.ObjectId);
+                                var canSendMessage = WholistPresenter.IsMessageValid(message);
+
+                                if (ImGui.InputText("##TellMessage", ref message, WholistPresenter.MaxMsgLength))
+                                {
+                                    this.Presenter.SetTell(obj.ObjectId, message);
+                                }
+                                if (ImGui.IsItemDeactivated())
+                                {
+                                    if (ImGui.IsKeyPressed(ImGuiKey.Enter) && canSendMessage)
+                                    {
+                                        WholistPresenter.SendTell(obj, message);
+                                        this.Presenter.RemoveTell(obj.ObjectId);
+                                    }
+                                }
+
+                                ImGui.BeginDisabled(!canSendMessage);
+                                if (ImGui.Button(LStrings.WholistWindow.SendMessage))
+                                {
+                                    WholistPresenter.SendTell(obj, message);
+                                    this.Presenter.RemoveTell(obj.ObjectId);
+                                }
+                                ImGui.EndDisabled();
+
+                                ImGui.SameLine();
+                                ImGui.TextUnformatted($"({message.Length}/{WholistPresenter.MaxMsgLength})");
+                                ImGui.EndMenu();
+                            }
+                            ImGui.EndPopup();
                         }
 
-                        ImGui.BeginDisabled(!canSendMessage);
-                        if (ImGui.Button(LStrings.WholistWindow.SendMessage))
-                        {
-                            WholistPresenter.SendTell(obj, message);
-                            this.Presenter.RemoveTell(obj.ObjectId);
-                        }
-                        ImGui.EndDisabled();
-
-                        ImGui.SameLine();
-                        ImGui.TextUnformatted($"({message.Length}/{WholistPresenter.MaxMsgLength})");
-                        ImGui.EndMenu();
+                        ImGui.TableNextColumn();
+                        ImGui.TextUnformatted(obj.CompanyTag.ToString());
+                        ImGui.TableNextColumn();
+                        ImGui.TextUnformatted(obj.Level.ToString());
+                        ImGui.TableNextColumn();
+                        ImGui.TextColored(SiUI.GetColourForRole(classJob?.Role ?? 0), CultureInfo.CurrentCulture.TextInfo.ToTitleCase(classJob?.Name.ToString() ?? string.Empty));
                     }
-                    ImGui.EndPopup();
+                    ImGui.EndTable();
                 }
-
-                ImGui.TableNextColumn();
-                ImGui.TextUnformatted(obj.CompanyTag.ToString());
-                ImGui.TableNextColumn();
-                ImGui.TextUnformatted(obj.Level.ToString());
-                ImGui.TableNextColumn();
-                ImGui.TextColored(SiUI.GetColourForRole(classJob?.Role ?? 0), CultureInfo.CurrentCulture.TextInfo.ToTitleCase(classJob?.Name.ToString() ?? string.Empty));
+                ImGui.EndChild();
             }
-
-            ImGui.EndTable();
-            ImGui.EndChild();
 
             // Draw the "total: x" text.
             var totalTextSize = ImGui.CalcTextSize(LStrings.WholistWindow.Total(playersToDraw?.Count() ?? 0));
@@ -158,9 +163,12 @@ namespace Wholist.UI.Windows.Wholist
                 WholistPresenter.Configuration.FilterAfk = hideAfkPlayers;
                 WholistPresenter.Configuration.Save();
             }
-            ImGui.SameLine();
+
+            // Version info.
+            SiUIComponents.Version(Constants.Version, Constants.GitCommitHash);
 
 #if DEBUG
+            ImGui.SameLine();
             this.Presenter.DialogManager.Draw();
             if (ImGui.Button(LStrings.WholistWindow.ExportLocalization))
             {

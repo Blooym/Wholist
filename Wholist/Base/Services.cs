@@ -6,7 +6,7 @@ using Sirensong;
 using Wholist.Managers;
 using XivCommon;
 
-namespace Wholist
+namespace Wholist.Base
 {
     /// <summary>
     ///     Provides access to necessary instances and services.

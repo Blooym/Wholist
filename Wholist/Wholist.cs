@@ -1,6 +1,7 @@
 using Dalamud.IoC;
 using Dalamud.Plugin;
 using Sirensong;
+using Wholist.Base;
 
 namespace Wholist
 {
@@ -9,7 +10,7 @@ namespace Wholist
         /// <summary>
         ///     The plugin's name.
         /// </summary>
-        public string Name => "Wholist";
+        public string Name => Constants.Name;
 
         /// <summary>
         ///     The plugin's main entry point.

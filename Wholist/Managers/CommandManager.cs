@@ -1,5 +1,6 @@
 using System;
 using Dalamud.Game.Command;
+using Wholist.Base;
 using Wholist.UI.Windows.Wholist;
 
 namespace Wholist.Managers

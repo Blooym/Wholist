@@ -21,6 +21,31 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
 
+  <!-- Custom Runtime Variables -->
+  <Target Name="SetCustomVars" BeforeTargets="BeforeBuild">
+    <Exec Command="git rev-parse --short HEAD" ConsoleToMSBuild="true" IgnoreExitCode="true">
+      <Output TaskParameter="ConsoleOutput" PropertyName="GitHash" />
+    </Exec>
+    <Exec Command="git show -s --format=%ci HEAD" ConsoleToMSBuild="true" IgnoreExitCode="true">
+      <Output TaskParameter="ConsoleOutput" PropertyName="BuildTime" />
+    </Exec>
+    <Exec Command="git rev-parse --abbrev-ref HEAD" ConsoleToMSBuild="true" IgnoreExitCode="true">
+      <Output TaskParameter="ConsoleOutput" PropertyName="GitBranch" />
+    </Exec>
+
+    <ItemGroup>
+      <AssemblyAttribute Include="Wholist.Base.GitHash">
+          <_Parameter1>$(GitHash)</_Parameter1>
+      </AssemblyAttribute>
+      <AssemblyAttribute Include="Wholist.Base.GitCommitDate">
+          <_Parameter1>$(BuildTime)</_Parameter1>
+      </AssemblyAttribute>
+      <AssemblyAttribute Include="Wholist.Base.GitBranch">
+          <_Parameter1>$(GitBranch)</_Parameter1>
+      </AssemblyAttribute>
+    </ItemGroup>
+  </Target>
+
   <!-- Plugin Resources -->
   <ItemGroup>
     <EmbeddedResource Include="Resources\**\*.*" Exclude="Resources\**\*Localizable.*" />
@@ -36,11 +61,15 @@
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
-  <!-- Dalamud References -->
+  <!-- Packages -->
   <ItemGroup>
-    <ProjectReference Include="../Sirensong/Sirensong/Sirensong.csproj" />
     <PackageReference Include="DalamudPackager" Version="2.1.10" />
     <PackageReference Include="XivCommon" Version="7.0.0-alpha.1" />
+    <ProjectReference Include="../Sirensong/Sirensong/Sirensong.csproj" />
+  </ItemGroup>
+
+  <!-- Dalamud References -->
+  <ItemGroup>
     <Reference Include="FFXIVClientStructs">
       <HintPath>$(DalamudLibPath)FFXIVClientStructs.dll</HintPath>
       <Private>false</Private>

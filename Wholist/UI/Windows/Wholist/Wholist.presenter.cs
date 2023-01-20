@@ -15,6 +15,7 @@ using Sirensong.Game.Enums;
 using Sirensong.Game.Extensions;
 using Sirensong.Game.UI;
 using Sirensong.UserInterface;
+using Wholist.Base;
 
 namespace Wholist.UI.Windows.Wholist
 {
