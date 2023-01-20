@@ -1,6 +1,5 @@
 using System;
 using Dalamud.Game.Command;
-using Dalamud.Logging;
 using Wholist.UI.Windows.Wholist;
 
 namespace Wholist.Managers
@@ -29,7 +28,7 @@ namespace Wholist.Managers
         {
             if (!Services.ClientState.IsLoggedIn)
             {
-                PluginLog.Information(LStrings.WholistWindow.MustBeLoggedIn);
+                BetterLog.Information(LStrings.WholistWindow.MustBeLoggedIn);
                 return;
             }
             Services.WindowManager.WindowSystem.GetWindow<WholistWindow>()?.Toggle();

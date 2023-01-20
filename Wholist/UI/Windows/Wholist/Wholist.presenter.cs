@@ -101,7 +101,8 @@ namespace Wholist.UI.Windows.Wholist
             }
             catch (Exception ex)
             {
-                Toasts.ShowErrorToast(LStrings.WholistWindow.ErrorSendingTell(ex.Message));
+                BetterLog.Error("Failed to send tell: " + ex);
+                GameToasts.ShowErrorToast(LStrings.WholistWindow.ErrorSendingTell(ex.Message));
                 return false;
             }
         }

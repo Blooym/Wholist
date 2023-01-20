@@ -17,13 +17,16 @@ namespace Wholist
         public Plugin([RequiredVersion("1.0")] DalamudPluginInterface pluginInterface)
         {
             SirenCore.Initialize(pluginInterface, this.Name);
-            pluginInterface.Create<Services>();
-            Services.Initialize();
+            Services.Initialize(pluginInterface);
         }
 
         /// <summary>
         ///     Disposes of the plugin.
         /// </summary>
-        public void Dispose() => Services.Dispose();
+        public void Dispose()
+        {
+            SirenCore.Dispose();
+            Services.Dispose();
+        }
     }
 }

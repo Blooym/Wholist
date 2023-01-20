@@ -2,6 +2,7 @@ using Dalamud.Game.ClientState;
 using Dalamud.Game.ClientState.Objects;
 using Dalamud.IoC;
 using Dalamud.Plugin;
+using Sirensong;
 using Wholist.Managers;
 using XivCommon;
 
@@ -27,13 +28,19 @@ namespace Wholist
         /// <summary>
         ///     Initializes the service class.
         /// </summary>
-        internal static void Initialize()
+        internal static void Initialize(DalamudPluginInterface pluginInterface)
         {
+            BetterLog.Debug("Initializing services.");
+
+            SirenCore.InjectServices<Services>();
+            pluginInterface.Create<Services>();
+
             ResourceManager = new ResourceManager();
             Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
             WindowManager = new WindowManager();
             CommandManager = new CommandManager();
             XivCommon = new XivCommonBase();
+
         }
 
         /// <summary>
@@ -41,6 +48,8 @@ namespace Wholist
         /// </summary>
         internal static void Dispose()
         {
+            BetterLog.Debug("Disposing of services.");
+
             ResourceManager?.Dispose();
             WindowManager?.Dispose();
             CommandManager?.Dispose();

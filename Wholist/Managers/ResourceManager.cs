@@ -41,9 +41,11 @@ namespace Wholist.Managers
 
                 using var reader = new StreamReader(resource);
                 Loc.Setup(reader.ReadToEnd());
+                BetterLog.Debug($"Loaded localization for language {language}.");
             }
             catch (Exception)
             {
+                BetterLog.Debug("Using fallback language for localization.");
                 Loc.SetupWithFallbacks();
             }
         }
