@@ -1,7 +1,7 @@
 using System;
 using Dalamud.Configuration;
 
-namespace Wholist.Base
+namespace Wholist
 {
     /// <summary>
     ///     Provides access to and determines the Plugin configuration.
@@ -15,11 +15,6 @@ namespace Wholist.Base
         public int Version { get; set; }
 
         /// <summary>
-        ///    If the plugin should filter "bot-like" players from the list.
-        /// </summary>
-        public bool FilterBots { get; set; } = true;
-
-        /// <summary>
         ///   If the plugin should filter AFK players from the list.
         /// </summary>
         public bool FilterAfk { get; set; }
@@ -27,6 +22,6 @@ namespace Wholist.Base
         /// <summary>
         ///     Saves the current configuration to disk.
         /// </summary>
-        internal void Save() => PluginService.PluginInterface.SavePluginConfig(this);
+        internal void Save() => Services.PluginInterface.SavePluginConfig(this);
     }
 }

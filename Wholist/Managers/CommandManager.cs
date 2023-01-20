@@ -1,10 +1,8 @@
 using System;
 using Dalamud.Game.Command;
 using Dalamud.Logging;
-using Wholist.Base;
 using Wholist.Localization;
 using Wholist.UI.Windows.Wholist;
-using Wholist.Utility;
 
 namespace Wholist.Managers
 {
@@ -16,49 +14,28 @@ namespace Wholist.Managers
         private const string WhoCommand = "/who";
 
         /// <summary>
-        ///     Initializes the CommandManager and its resources.
+        ///     Initializes a new instance of <see cref="CommandManager" />
         /// </summary>
-        internal CommandManager()
-        {
-            PluginLog.Debug("CommandManager(Constructor): Initializing...");
-
-            PluginService.Commands.AddHandler(WhoCommand, new CommandInfo(this.OnCommand) { HelpMessage = TCommandHelp.WholistHelp });
-
-            PluginLog.Debug("CommandManager(Constructor): Initialization complete.");
-        }
+        internal CommandManager() => Services.Commands.AddHandler(WhoCommand, new CommandInfo(this.OnWhoCommand) { HelpMessage = TCommandHelp.WholistHelp });
 
         /// <summary>
-        ///     Dispose of the PluginCommandManager and its resources.
+        ///     Dispose of the <see cref="CommandManager" />
         /// </summary>
-        public void Dispose()
-        {
-            PluginService.Commands.RemoveHandler(WhoCommand);
-
-            PluginLog.Debug("CommandManager(Dispose): Successfully disposed.");
-        }
+        public void Dispose() => Services.Commands.RemoveHandler(WhoCommand);
 
         /// <summary>
-        ///     Event handler for when a command is issued by the user.
+        ///     /Who command handler.
         /// </summary>
-        private void OnCommand(string command, string args)
+        private void OnWhoCommand(string command, string args)
         {
-            var windowSystem = PluginService.WindowManager.WindowSystem;
-            switch (command)
+            if (!Services.ClientState.IsLoggedIn)
             {
-                case WhoCommand:
-                    if (!PlayerUtils.PlayerLoggedIn)
-                    {
-                        PluginLog.Information(TWholistWindow.MustBeLoggedIn);
-                        return;
-                    }
-
-                    if (windowSystem.GetWindow(TWindowNames.Wholist) is WholistWindow settingsWindow)
-                    {
-                        settingsWindow.Toggle();
-                    }
-                    break;
-                default:
-                    break;
+                PluginLog.Information(TWholistWindow.MustBeLoggedIn);
+                return;
+            }
+            if (Services.WindowManager.WindowSystem.GetWindow(TWindowNames.Wholist) is WholistWindow settingsWindow)
+            {
+                settingsWindow.Toggle();
             }
         }
     }

@@ -2,43 +2,32 @@ using System;
 using System.IO;
 using System.Reflection;
 using CheapLoc;
-using Dalamud.Logging;
-using Wholist.Base;
 
 namespace Wholist.Managers
 {
     /// <summary>
-    ///     Sets up and manages the plugin's resources and localization.
+    ///     Manages resources and localization for the plugin.
     /// </summary>
     internal sealed class ResourceManager : IDisposable
     {
         /// <summary>
-        ///     Initializes the ResourceManager and associated resources.
+        ///     Initializes the ResourceManager and loads localization.
         /// </summary>
         internal ResourceManager()
         {
-            PluginLog.Debug("ResourceManager(Constructor): Initializing...");
-
-            this.Setup(PluginService.PluginInterface.UiLanguage);
-            PluginService.PluginInterface.LanguageChanged += this.Setup;
-
-            PluginLog.Debug("ResourceManager(Constructor): Initialization complete.");
+            this.Setup(Services.PluginInterface.UiLanguage);
+            Services.PluginInterface.LanguageChanged += this.Setup;
         }
 
         /// <summary>
         //      Disposes of the ResourceManager and associated resources.
         /// </summary>
-        public void Dispose()
-        {
-            PluginService.PluginInterface.LanguageChanged -= this.Setup;
-
-            PluginLog.Debug("ResourceManager(Dispose): Successfully disposed.");
-        }
+        public void Dispose() => Services.PluginInterface.LanguageChanged -= this.Setup;
 
         /// <summary>
-        ///     Sets up the plugin's resources.
+        ///     Sets up the plugin's localization.
         /// </summary>
-        /// <param name="language">The new language 2-letter code.</param>
+        /// <param name="language">The ISO language code.</param>
         private void Setup(string language)
         {
             try
@@ -52,11 +41,9 @@ namespace Wholist.Managers
 
                 using var reader = new StreamReader(resource);
                 Loc.Setup(reader.ReadToEnd());
-                PluginLog.Information($"ResourceManager(Setup): Resource file for language {language} loaded successfully.");
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                PluginLog.Information($"ResourceManager(Setup): Falling back to English resource file. ({e.Message})");
                 Loc.SetupWithFallbacks();
             }
         }

@@ -2,31 +2,64 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Timers;
 using CheapLoc;
 using Dalamud.Game.ClientState;
 using Dalamud.Game.ClientState.Objects.SubKinds;
 using Dalamud.Interface.ImGuiFileDialog;
-using Wholist.Base;
+using Dalamud.Interface.Internal.Notifications;
+using Dalamud.Utility;
+using Lumina.Excel.GeneratedSheets;
+using Sirensong;
+using Sirensong.Caching;
+using Sirensong.Game.Enums;
+using Sirensong.Game.Extensions;
+using Sirensong.Game.UI;
+using Sirensong.UserInterface;
 
 namespace Wholist.UI.Windows.Wholist
 {
-    internal sealed class WholistPresenter : IDisposable
+    internal sealed class WholistPresenter
     {
-        /// <summary>
-        ///    The service instance of <see cref="Configuration" />.
-        /// </summary>
-        internal static Configuration Configuration => PluginService.Configuration;
+        /// <inheritdoc cref="Configuration" />
+        internal static Configuration Configuration => Services.Configuration;
+
+        /// <inheritdoc cref="ClientState" />
+        internal static ClientState ClientState => Services.ClientState;
+
+        /// <inheritdoc cref="LuminaCacheService{T}" />
+        internal static LuminaCacheService<World> WorldCache => SirenCore.GetOrCreateService<LuminaCacheService<World>>();
+
+        /// <inheritdoc cref="LuminaCacheService{T}" />
+        internal static LuminaCacheService<ClassJob> ClassJobCache => SirenCore.GetOrCreateService<LuminaCacheService<ClassJob>>();
 
         /// <summary>
-        ///    The service instance of <see cref="ClientState" />.
+        ///     Pulls a list of <see cref="PlayerCharacter" /> from the object table any applies the filter & configuration.
         /// </summary>
-        internal static ClientState ClientState => PluginService.ClientState;
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        internal static IEnumerable<PlayerCharacter> GetOTPlayers(string filter)
+            => Services.ObjectTable.GetPlayerCharacters(false)
+                .Where(o => !Configuration.FilterAfk || !o.HasOnlineStatus(OnlineStatuses.AFK))
+                .Where(o => o.Level >= 4 && o.ClassJob.Id != 3)
+                .Where(o => filter.IsNullOrWhitespace() || o.Name.ToString().Contains(filter, StringComparison.OrdinalIgnoreCase)
+                    || ClassJobCache.GetRow(o.ClassJob.Id)?.Name.ToString().Contains(filter, StringComparison.OrdinalIgnoreCase) == true);
 
         /// <summary>
-        ///     A dictionary of messages that have been typed to certain players, alongside the date of the last time an entry was modified.
+        ///     All stored tell messages. Key is ContentID, value is message.
         /// </summary>
         private readonly Dictionary<uint, string> tellMessages = new();
+
+        /// <summary>
+        ///     The maximum length of a tell message.
+        /// </summary>
+        internal const int MaxMsgLength = 400;
+
+        /// <summary>
+        ///     Whether or not the given message is valid.
+        /// </summary>
+        /// <param name="message">The message.</param>s
+        /// <returns>True if valid, false otherwise.</returns>
+        internal static bool IsMessageValid(string message) => string.IsNullOrWhiteSpace(message) && message.Length <= MaxMsgLength;
 
         /// <summary>
         ///     Adds a message to the tell message dictionary.
@@ -49,57 +82,29 @@ namespace Wholist.UI.Windows.Wholist
         internal void RemoveTell(uint targetId) => this.tellMessages.Remove(targetId);
 
         /// <summary>
-        ///     Remove all messages from the tell message dictionary.
+        ///     Clears all messages from the tell message dictionary.
         /// </summary>
-        internal void RemoveAllTells() => this.tellMessages.Clear();
+        internal void ClearTells() => this.tellMessages.Clear();
 
         /// <summary>
-        ///     The timer used to update the list of players from the ObjectTable.
-        ///     Note: This only updates the memory addresses, so if an object gets replaced at the same address, it will be drawn immediately.
+        ///     Sanitizes text & sends a tell to the given player.
         /// </summary>
-        internal Timer UpdateTimer { get; } = new(1500);
-
-        /// <summary>
-        ///     The list of player characters from the last update.
-        /// </summary>
-        internal IEnumerable<PlayerCharacter> PlayerCharacters { get; private set; } = Enumerable.Empty<PlayerCharacter>();
-
-        /// <summary>
-        ///     Constructor.
-        /// </summary>
-        internal WholistPresenter() => this.UpdateTimer.Elapsed += this.UpdateTimerOnElapsed;
-
-        /// <summary>
-        ///     Disposes of the presenter and its resources.
-        /// </summary>
-        public void Dispose()
+        /// <param name="playerObject">The player object.</param>
+        /// <param name="message">The message.</param>
+        internal static bool SendTell(PlayerCharacter playerCharacter, string message)
         {
-            this.UpdateTimer.Elapsed -= this.UpdateTimerOnElapsed;
-
-            this.UpdateTimer.Stop();
-            this.UpdateTimer.Dispose();
+            try
+            {
+                message = Services.XivCommon.Functions.Chat.SanitiseText(message).Trim();
+                Services.XivCommon.Functions.Chat.SendMessage($"/tell {playerCharacter.Name}@{playerCharacter.HomeWorld.GameData?.Name} {message}");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Toasts.ShowErrorToast($"Error sending tell to player: {ex.Message}");
+                return false;
+            }
         }
-
-        /// <summary>
-        ///     Pulls the list of players from the ObjectTable.
-        /// </summary>
-        /// <returns>The list of players.</returns>
-        private static IEnumerable<PlayerCharacter> GetPlayerCharacters() => PluginService.ObjectTable
-            .Where(o => o is PlayerCharacter)
-            .Cast<PlayerCharacter>()
-            .Where(o => o.Level > 0 && o != ClientState.LocalPlayer);
-
-        /// <summary>
-        ///     Updates the list of players.
-        /// </summary>
-        internal void UpdatePlayerList() => this.PlayerCharacters = GetPlayerCharacters();
-
-        /// <summary>
-        ///     When the timer elapses, update the list of players.
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The event args.</param>
-        private void UpdateTimerOnElapsed(object? sender, ElapsedEventArgs e) => this.UpdatePlayerList();
 
 #if DEBUG
         /// <summary>
@@ -124,7 +129,7 @@ namespace Wholist.UI.Windows.Wholist
             Loc.ExportLocalizable();
             File.Copy(Path.Combine(path, "Wholist_Localizable.json"), Path.Combine(path, "en.json"), true);
             Directory.SetCurrentDirectory(directory);
-            PluginService.PluginInterface.UiBuilder.AddNotification("Localization exported successfully.", PluginConstants.PluginName, Dalamud.Interface.Internal.Notifications.NotificationType.Success);
+            SiUI.ShowToast("Localization exported successfully.", NotificationType.Success);
         }
 #endif
     }

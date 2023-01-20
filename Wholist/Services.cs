@@ -1,26 +1,22 @@
 using Dalamud.Game.ClientState;
 using Dalamud.Game.ClientState.Objects;
-using Dalamud.Game.Gui;
 using Dalamud.IoC;
-using Dalamud.Logging;
 using Dalamud.Plugin;
 using Wholist.Managers;
 using XivCommon;
 
-namespace Wholist.Base
+namespace Wholist
 {
     /// <summary>
     ///     Provides access to necessary instances and services.
     /// </summary>
 #pragma warning disable CS8618 // Injection is handled by the Dalamud Plugin Framework here.
-    internal sealed class PluginService
+    internal sealed class Services
     {
         [PluginService] internal static DalamudPluginInterface PluginInterface { get; private set; }
         [PluginService] internal static ClientState ClientState { get; private set; }
         [PluginService] internal static ObjectTable ObjectTable { get; private set; }
         [PluginService] internal static Dalamud.Game.Command.CommandManager Commands { get; private set; }
-        [PluginService] internal static TargetManager TargetManager { get; private set; }
-        [PluginService] internal static ChatGui ChatGui { get; private set; }
 
         internal static CommandManager CommandManager { get; private set; }
         internal static WindowManager WindowManager { get; private set; }
@@ -38,8 +34,6 @@ namespace Wholist.Base
             WindowManager = new WindowManager();
             CommandManager = new CommandManager();
             XivCommon = new XivCommonBase();
-
-            PluginLog.Debug("PluginService(Initialize): Successfully initialized plugin services.");
         }
 
         /// <summary>
@@ -51,8 +45,6 @@ namespace Wholist.Base
             WindowManager?.Dispose();
             CommandManager?.Dispose();
             XivCommon?.Dispose();
-
-            PluginLog.Debug("PluginService(Initialize): Successfully disposed of plugin services.");
         }
     }
 }

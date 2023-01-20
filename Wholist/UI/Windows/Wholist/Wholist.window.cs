@@ -5,18 +5,26 @@ using System.Numerics;
 using Dalamud.Interface.Colors;
 using Dalamud.Interface.Windowing;
 using ImGuiNET;
+using Sirensong.Game.Enums;
+using Sirensong.Game.Extensions;
+using Sirensong.UserInterface;
 using Wholist.Localization;
-using Wholist.UI.ImGuiBasicComponents;
-using Wholist.Utility;
 
 namespace Wholist.UI.Windows.Wholist
 {
     internal sealed class WholistWindow : Window, IDisposable
     {
-        internal WholistPresenter Presenter { get; set; } = new();
+        /// <summary>
+        ///     The search text to apply to the object table.
+        /// </summary>
+        private string searchText = string.Empty;
 
         /// <summary>
-        ///     Constructor.
+        ///     The presenter for the window.
+        /// </summary>
+        internal WholistPresenter Presenter { get; set; } = new();
+        /// <summary>
+        ///     Creates a new instance of the <see cref="WholistWindow" />.
         /// </summary>
         internal WholistWindow() : base(TWindowNames.Wholist)
         {
@@ -29,32 +37,11 @@ namespace Wholist.UI.Windows.Wholist
         /// </summary>
         public void Dispose() { }
 
-        /// <summary>
-        ///     The text to search for.
-        /// </summary>
-        private string searchText = string.Empty;
-
-        /// <summary>
-        ///     When the window is opened, start the update timer.
-        /// </summary>
-        public override void OnOpen()
-        {
-            this.Presenter.UpdatePlayerList();
-            this.Presenter.UpdateTimer.Start();
-        }
-
-        /// <summary>
-        ///     When the window is closed, stop the update timer.
-        /// </summary>
+        /// <inheritdoc cref="Window.OnClose" />
         public override void OnClose()
         {
-            this.Presenter.UpdateTimer.Stop();
-            this.Presenter.RemoveAllTells();
-        }
-
-        public override void Update()
-        {
-
+            this.Presenter.ClearTells();
+            base.OnClose();
         }
 
         /// <summary>
@@ -62,152 +49,116 @@ namespace Wholist.UI.Windows.Wholist
         /// </summary>
         public override void Draw()
         {
-            // Do not allow the plugin to be used in PvP.
             if (WholistPresenter.ClientState.IsPvPExcludingDen)
             {
                 ImGui.TextWrapped(TWholistWindow.CantUseInPvP);
                 return;
             }
+            var playersToDraw = WholistPresenter.GetOTPlayers(this.searchText);
 
-            // Get the bot objects and player objects and filter appropriately.
-            var objectsToDraw = this.Presenter.PlayerCharacters
-                .Where(WholistPresenter.Configuration.FilterBots ? o => PlayerUtils.IsPlayerBot(o) == false : o => true)
-                .Where(WholistPresenter.Configuration.FilterAfk ? o => PlayerUtils.IsPlayerAFK(o) == false : o => true)
-                .Where(this.searchText.Length > 0 ? o => o.Name.ToString().Contains(this.searchText, StringComparison.OrdinalIgnoreCase)
-                            || o.CompanyTag.ToString().Contains(this.searchText, StringComparison.OrdinalIgnoreCase)
-                            || o.Level.ToString(CultureInfo.InvariantCulture).Contains(this.searchText, StringComparison.OrdinalIgnoreCase)
-                            || o.ClassJob.GameData?.Name.ToString().Contains(this.searchText, StringComparison.OrdinalIgnoreCase) == true : o => true)
-                .Take(100);
-
-            // Draw the object table or "no players found" text.
             ImGui.BeginChild("##NearbyChild", new Vector2(0, -80), true);
-            if (objectsToDraw?.Any() == true)
+            ImGui.BeginTable("##NearbyTable", 4, ImGuiTableFlags.ScrollY | ImGuiTableFlags.BordersInner | ImGuiTableFlags.Hideable);
+            ImGui.TableSetupColumn(TWholistWindow.Name, ImGuiTableColumnFlags.WidthStretch, 250);
+            ImGui.TableSetupColumn(TWholistWindow.Company, ImGuiTableColumnFlags.WidthStretch, 100);
+            ImGui.TableSetupColumn(TWholistWindow.Level, ImGuiTableColumnFlags.WidthStretch, 50);
+            ImGui.TableSetupColumn(TWholistWindow.Class, ImGuiTableColumnFlags.WidthStretch, 150);
+            ImGui.TableSetupScrollFreeze(0, 1);
+            ImGui.TableHeadersRow();
+
+            // Draw players.
+            foreach (var obj in playersToDraw)
             {
-                ImGui.BeginTable("##NearbyTable", 4, ImGuiTableFlags.ScrollY | ImGuiTableFlags.BordersInner);
-                ImGui.TableSetupColumn(TWholistWindow.Name, ImGuiTableColumnFlags.WidthStretch, 250);
-                ImGui.TableSetupColumn(TWholistWindow.Company, ImGuiTableColumnFlags.WidthStretch, 100);
-                ImGui.TableSetupColumn(TWholistWindow.Level, ImGuiTableColumnFlags.WidthStretch, 50);
-                ImGui.TableSetupColumn(TWholistWindow.Class, ImGuiTableColumnFlags.WidthStretch, 150);
-                ImGui.TableSetupScrollFreeze(0, 1);
-                ImGui.TableHeadersRow();
+                var classJob = WholistPresenter.ClassJobCache.GetRow(obj.ClassJob.Id);
 
-                // Draw the objects.
-                foreach (var obj in objectsToDraw)
+                ImGui.TableNextColumn();
+                ImGui.TextUnformatted(obj.Name.ToString());
+
+                if (ImGui.BeginPopupContextItem(obj.ObjectId + "##WholistPopContext"))
                 {
-                    ImGui.TableNextRow();
-                    ImGui.TableSetColumnIndex(0);
-                    ImGui.Text(obj.Name.ToString());
-
-                    if (ImGui.BeginPopupContextItem($"##NearbyTableRightClickMenu{obj.Name}"))
+                    // Heading.
+                    ImGui.TextDisabled(TWholistWindow.ActionsFor($"{obj.Name}@{WholistPresenter.WorldCache.GetRow(obj.HomeWorld.Id)?.Name}"));
+                    switch (obj.OnlineStatus.Id)
                     {
-                        var isAfk = PlayerUtils.IsPlayerAFK(obj);
-                        var isBusy = PlayerUtils.IsPlayerBusy(obj);
-
-                        ImGui.TextDisabled(TWholistWindow.ActionsFor($"{obj.Name}@{obj.HomeWorld.GameData?.Name}"));
-
-                        if (isAfk)
-                        {
+                        case (uint)OnlineStatuses.AFK:
                             ImGui.TextColored(ImGuiColors.DalamudOrange, TWholistWindow.PlayerIsAFK);
-                        }
-
-                        else if (isBusy)
-                        {
+                            break;
+                        case (uint)OnlineStatuses.Busy:
                             ImGui.TextColored(ImGuiColors.DalamudRed, TWholistWindow.PlayerIsBusy);
-                        }
+                            break;
+                        default:
+                            break;
+                    }
+                    ImGui.Separator();
+                    ImGui.Dummy(new Vector2(0, 5));
 
-                        ImGui.Separator();
-                        ImGui.Dummy(new Vector2(0, 5));
-
-                        if (ImGui.Selectable(TWholistWindow.Examine))
-                        {
-                            PlayerUtils.OpenPlayerExamine(obj);
-                        }
-                        if (ImGui.Selectable(TWholistWindow.ViewAdventurerPlate))
-                        {
-                            PlayerUtils.OpenPlayerPlate(obj.Address);
-                        }
-                        if (ImGui.Selectable(TWholistWindow.Target))
-                        {
-                            PlayerUtils.SetPlayerTarget(obj);
-                        }
-
-                        if (isBusy)
-                        {
-                            ImGui.TextDisabled(TWholistWindow.Tell);
-                        }
-                        else
-                        {
-                            if (ImGui.BeginMenu(TWholistWindow.Tell))
-                            {
-                                var message = this.Presenter.GetTell(obj.ObjectId);
-                                var maxMsgLength = (uint)380;
-                                var canSendMessage = !string.IsNullOrWhiteSpace(message) && message.Length <= maxMsgLength;
-
-                                if (ImGui.InputText("##TellMessage", ref message, maxMsgLength))
-                                {
-                                    this.Presenter.SetTell(obj.ObjectId, message);
-                                }
-                                if (ImGui.IsItemDeactivated())
-                                {
-                                    if (ImGui.IsKeyPressed(ImGuiKey.Enter) && canSendMessage)
-                                    {
-                                        PlayerUtils.SendTell(obj, message);
-                                        this.Presenter.RemoveTell(obj.ObjectId);
-                                    }
-                                }
-
-                                ImGui.BeginDisabled(!canSendMessage);
-                                if (ImGui.Button(TWholistWindow.SendMessage))
-                                {
-                                    PlayerUtils.SendTell(obj, message);
-                                    this.Presenter.RemoveTell(obj.ObjectId);
-                                }
-                                ImGui.EndDisabled();
-
-                                ImGui.SameLine();
-                                ImGui.Text($"({message.Length}/{maxMsgLength})");
-                                ImGui.EndMenu();
-                            }
-                        }
-                        ImGui.EndPopup();
+                    // Selectable items.
+                    if (ImGui.Selectable(TWholistWindow.Examine))
+                    {
+                        obj.OpenExamine();
+                    }
+                    if (ImGui.Selectable(TWholistWindow.ViewAdventurerPlate))
+                    {
+                        obj.OpenCharaCard();
+                    }
+                    if (ImGui.Selectable(TWholistWindow.Target))
+                    {
+                        obj.SetAsLPTarget();
                     }
 
-                    ImGui.TableSetColumnIndex(1);
-                    ImGui.Text(obj.CompanyTag.ToString());
-                    ImGui.TableSetColumnIndex(2);
-                    ImGui.Text(obj.Level.ToString());
-                    ImGui.TableSetColumnIndex(3);
-                    ImGui.TextColored(Colours.GetColourForRole(obj.ClassJob.GameData?.Role ?? 0), CultureInfo.CurrentCulture.TextInfo.ToTitleCase(obj.ClassJob.GameData?.Name.ToString() ?? string.Empty));
+                    if (ImGui.BeginMenu(TWholistWindow.Tell))
+                    {
+                        var message = this.Presenter.GetTell(obj.ObjectId);
+                        var canSendMessage = WholistPresenter.IsMessageValid(message);
+
+                        if (ImGui.InputText("##TellMessage", ref message, WholistPresenter.MaxMsgLength))
+                        {
+                            this.Presenter.SetTell(obj.ObjectId, message);
+                        }
+                        if (ImGui.IsItemDeactivated())
+                        {
+                            if (ImGui.IsKeyPressed(ImGuiKey.Enter) && canSendMessage)
+                            {
+                                WholistPresenter.SendTell(obj, message);
+                                this.Presenter.RemoveTell(obj.ObjectId);
+                            }
+                        }
+
+                        ImGui.BeginDisabled(!canSendMessage);
+                        if (ImGui.Button(TWholistWindow.SendMessage))
+                        {
+                            WholistPresenter.SendTell(obj, message);
+                            this.Presenter.RemoveTell(obj.ObjectId);
+                        }
+                        ImGui.EndDisabled();
+
+                        ImGui.SameLine();
+                        ImGui.TextUnformatted($"({message.Length}/{WholistPresenter.MaxMsgLength})");
+                        ImGui.EndMenu();
+                    }
+                    ImGui.EndPopup();
                 }
 
-                ImGui.EndTable();
+                ImGui.TableNextColumn();
+                ImGui.TextUnformatted(obj.CompanyTag.ToString());
+                ImGui.TableNextColumn();
+                ImGui.TextUnformatted(obj.Level.ToString());
+                ImGui.TableNextColumn();
+                ImGui.TextColored(SiUI.GetColourForRole(classJob?.Role ?? 0), CultureInfo.CurrentCulture.TextInfo.ToTitleCase(classJob?.Name.ToString() ?? string.Empty));
             }
-            else
-            {
-                ImGui.SetCursorPosX((ImGui.GetWindowWidth() - ImGui.CalcTextSize(TWholistWindow.NoPlayersFound).X) / 2);
-                ImGui.Text(TWholistWindow.NoPlayersFound);
-            }
+
+            ImGui.EndTable();
             ImGui.EndChild();
 
-
             // Draw the "total: x" text.
-            var totalTextSize = ImGui.CalcTextSize(TWholistWindow.Total(objectsToDraw?.Count() ?? 0));
+            var totalTextSize = ImGui.CalcTextSize(TWholistWindow.Total(playersToDraw?.Count() ?? 0));
             ImGui.SetCursorPosX((ImGui.GetWindowWidth() - totalTextSize.X) / 2);
-            ImGui.Text(TWholistWindow.Total(objectsToDraw?.Count() ?? 0));
+            ImGui.TextUnformatted(TWholistWindow.Total(playersToDraw?.Count() ?? 0));
 
-            // Draw the search box;
+            // Draw the search box.
             ImGui.SetNextItemWidth(-1);
             ImGui.InputTextWithHint("##NearbySearch", TWholistWindow.SearchFor, ref this.searchText, 100);
 
-            // Draw the hide bots checkbox.
-            var hideSuspectedBots = WholistPresenter.Configuration.FilterBots;
-            if (ImGui.Checkbox(TWholistWindow.HideSuspectedBots, ref hideSuspectedBots))
-            {
-                WholistPresenter.Configuration.FilterBots = hideSuspectedBots;
-                WholistPresenter.Configuration.Save();
-            }
-            ImGui.SameLine();
-
+            // Draw the hide afk checkbox.
             var hideAfkPlayers = WholistPresenter.Configuration.FilterAfk;
             if (ImGui.Checkbox(TWholistWindow.HideAfkPlayers, ref hideAfkPlayers))
             {
