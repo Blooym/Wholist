@@ -101,7 +101,7 @@ namespace Wholist.UI.Windows.Wholist
             }
             catch (Exception ex)
             {
-                Toasts.ShowErrorToast($"Error sending tell to player: {ex.Message}");
+                Toasts.ShowErrorToast(LStrings.WholistWindow.ErrorSendingTell(ex.Message));
                 return false;
             }
         }

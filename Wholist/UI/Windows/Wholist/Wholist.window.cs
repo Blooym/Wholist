@@ -8,7 +8,6 @@ using ImGuiNET;
 using Sirensong.Game.Enums;
 using Sirensong.Game.Extensions;
 using Sirensong.UserInterface;
-using Wholist.Localization;
 
 namespace Wholist.UI.Windows.Wholist
 {
@@ -26,7 +25,7 @@ namespace Wholist.UI.Windows.Wholist
         /// <summary>
         ///     Creates a new instance of the <see cref="WholistWindow" />.
         /// </summary>
-        internal WholistWindow() : base(TWindowNames.Wholist)
+        internal WholistWindow() : base(LStrings.WholistWindow.WindowName)
         {
             this.Size = new Vector2(450, 400);
             this.SizeCondition = ImGuiCond.FirstUseEver;
@@ -51,17 +50,17 @@ namespace Wholist.UI.Windows.Wholist
         {
             if (WholistPresenter.ClientState.IsPvPExcludingDen)
             {
-                ImGui.TextWrapped(TWholistWindow.CantUseInPvP);
+                ImGui.TextWrapped(LStrings.WholistWindow.CantUseInPvP);
                 return;
             }
             var playersToDraw = WholistPresenter.GetOTPlayers(this.searchText);
 
             ImGui.BeginChild("##NearbyChild", new Vector2(0, -80), true);
             ImGui.BeginTable("##NearbyTable", 4, ImGuiTableFlags.ScrollY | ImGuiTableFlags.BordersInner | ImGuiTableFlags.Hideable);
-            ImGui.TableSetupColumn(TWholistWindow.Name, ImGuiTableColumnFlags.WidthStretch, 250);
-            ImGui.TableSetupColumn(TWholistWindow.Company, ImGuiTableColumnFlags.WidthStretch, 100);
-            ImGui.TableSetupColumn(TWholistWindow.Level, ImGuiTableColumnFlags.WidthStretch, 50);
-            ImGui.TableSetupColumn(TWholistWindow.Class, ImGuiTableColumnFlags.WidthStretch, 150);
+            ImGui.TableSetupColumn(LStrings.WholistWindow.Name, ImGuiTableColumnFlags.WidthStretch, 250);
+            ImGui.TableSetupColumn(LStrings.WholistWindow.Company, ImGuiTableColumnFlags.WidthStretch, 100);
+            ImGui.TableSetupColumn(LStrings.WholistWindow.Level, ImGuiTableColumnFlags.WidthStretch, 50);
+            ImGui.TableSetupColumn(LStrings.WholistWindow.Class, ImGuiTableColumnFlags.WidthStretch, 150);
             ImGui.TableSetupScrollFreeze(0, 1);
             ImGui.TableHeadersRow();
 
@@ -76,14 +75,14 @@ namespace Wholist.UI.Windows.Wholist
                 if (ImGui.BeginPopupContextItem(obj.ObjectId + "##WholistPopContext"))
                 {
                     // Heading.
-                    ImGui.TextDisabled(TWholistWindow.ActionsFor($"{obj.Name}@{WholistPresenter.WorldCache.GetRow(obj.HomeWorld.Id)?.Name}"));
+                    ImGui.TextDisabled(LStrings.WholistWindow.ActionsFor($"{obj.Name}@{WholistPresenter.WorldCache.GetRow(obj.HomeWorld.Id)?.Name}"));
                     switch (obj.OnlineStatus.Id)
                     {
                         case (uint)OnlineStatuses.AFK:
-                            ImGui.TextColored(ImGuiColors.DalamudOrange, TWholistWindow.PlayerIsAFK);
+                            ImGui.TextColored(ImGuiColors.DalamudOrange, LStrings.WholistWindow.PlayerIsAFK);
                             break;
                         case (uint)OnlineStatuses.Busy:
-                            ImGui.TextColored(ImGuiColors.DalamudRed, TWholistWindow.PlayerIsBusy);
+                            ImGui.TextColored(ImGuiColors.DalamudRed, LStrings.WholistWindow.PlayerIsBusy);
                             break;
                         default:
                             break;
@@ -92,20 +91,20 @@ namespace Wholist.UI.Windows.Wholist
                     ImGui.Dummy(new Vector2(0, 5));
 
                     // Selectable items.
-                    if (ImGui.Selectable(TWholistWindow.Examine))
+                    if (ImGui.Selectable(LStrings.WholistWindow.Examine))
                     {
                         obj.OpenExamine();
                     }
-                    if (ImGui.Selectable(TWholistWindow.ViewAdventurerPlate))
+                    if (ImGui.Selectable(LStrings.WholistWindow.ViewAdventurerPlate))
                     {
                         obj.OpenCharaCard();
                     }
-                    if (ImGui.Selectable(TWholistWindow.Target))
+                    if (ImGui.Selectable(LStrings.WholistWindow.Target))
                     {
                         obj.SetAsLPTarget();
                     }
 
-                    if (ImGui.BeginMenu(TWholistWindow.Tell))
+                    if (ImGui.BeginMenu(LStrings.WholistWindow.Tell))
                     {
                         var message = this.Presenter.GetTell(obj.ObjectId);
                         var canSendMessage = WholistPresenter.IsMessageValid(message);
@@ -124,7 +123,7 @@ namespace Wholist.UI.Windows.Wholist
                         }
 
                         ImGui.BeginDisabled(!canSendMessage);
-                        if (ImGui.Button(TWholistWindow.SendMessage))
+                        if (ImGui.Button(LStrings.WholistWindow.SendMessage))
                         {
                             WholistPresenter.SendTell(obj, message);
                             this.Presenter.RemoveTell(obj.ObjectId);
@@ -150,17 +149,17 @@ namespace Wholist.UI.Windows.Wholist
             ImGui.EndChild();
 
             // Draw the "total: x" text.
-            var totalTextSize = ImGui.CalcTextSize(TWholistWindow.Total(playersToDraw?.Count() ?? 0));
+            var totalTextSize = ImGui.CalcTextSize(LStrings.WholistWindow.Total(playersToDraw?.Count() ?? 0));
             ImGui.SetCursorPosX((ImGui.GetWindowWidth() - totalTextSize.X) / 2);
-            ImGui.TextUnformatted(TWholistWindow.Total(playersToDraw?.Count() ?? 0));
+            ImGui.TextUnformatted(LStrings.WholistWindow.Total(playersToDraw?.Count() ?? 0));
 
             // Draw the search box.
             ImGui.SetNextItemWidth(-1);
-            ImGui.InputTextWithHint("##NearbySearch", TWholistWindow.SearchFor, ref this.searchText, 100);
+            ImGui.InputTextWithHint("##NearbySearch", LStrings.WholistWindow.SearchFor, ref this.searchText, 100);
 
             // Draw the hide afk checkbox.
             var hideAfkPlayers = WholistPresenter.Configuration.FilterAfk;
-            if (ImGui.Checkbox(TWholistWindow.HideAfkPlayers, ref hideAfkPlayers))
+            if (ImGui.Checkbox(LStrings.WholistWindow.HideAfkPlayers, ref hideAfkPlayers))
             {
                 WholistPresenter.Configuration.FilterAfk = hideAfkPlayers;
                 WholistPresenter.Configuration.Save();
@@ -169,9 +168,9 @@ namespace Wholist.UI.Windows.Wholist
 
 #if DEBUG
             this.Presenter.DialogManager.Draw();
-            if (ImGui.Button("Export Localization"))
+            if (ImGui.Button(LStrings.WholistWindow.ExportLocalization))
             {
-                this.Presenter.DialogManager.OpenFolderDialog("Export LOC", WholistPresenter.OnDirectoryPicked);
+                this.Presenter.DialogManager.OpenFolderDialog(LStrings.WholistWindow.ExportLocalization, WholistPresenter.OnDirectoryPicked);
             }
 #endif
         }
