@@ -1,4 +1,3 @@
-using System;
 using System.Globalization;
 using System.Linq;
 using System.Numerics;
@@ -11,7 +10,7 @@ using Sirensong.UserInterface;
 
 namespace Wholist.UI.Windows.Wholist
 {
-    internal sealed class WholistWindow : Window, IDisposable
+    internal sealed class WholistWindow : Window
     {
         /// <summary>
         ///     The search text to apply to the object table.
@@ -30,11 +29,6 @@ namespace Wholist.UI.Windows.Wholist
             this.Size = new Vector2(450, 400);
             this.SizeCondition = ImGuiCond.FirstUseEver;
         }
-
-        /// <summary>
-        ///     Disposes of the window.
-        /// </summary>
-        public void Dispose() { }
 
         /// <inheritdoc cref="Window.OnClose" />
         public override void OnClose()
