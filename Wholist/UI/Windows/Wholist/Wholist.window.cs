@@ -148,9 +148,10 @@ namespace Wholist.UI.Windows.Wholist
             }
 
             // Draw the "total: x" text.
-            var totalTextSize = ImGui.CalcTextSize(LStrings.WholistWindow.Total(playersToDraw?.Count() ?? 0));
+            var totalText = LStrings.WholistWindow.Total(playersToDraw.Count());
+            var totalTextSize = ImGui.CalcTextSize(totalText);
             ImGui.SetCursorPosX((ImGui.GetWindowWidth() - totalTextSize.X) / 2);
-            ImGui.TextUnformatted(LStrings.WholistWindow.Total(playersToDraw?.Count() ?? 0));
+            ImGui.TextUnformatted(totalText);
 
             // Draw the search box.
             ImGui.SetNextItemWidth(-1);
