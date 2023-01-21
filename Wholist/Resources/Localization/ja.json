@@ -1,90 +1,98 @@
 {
   "Commands.Wholist.Help": {
     "message": "Wholistを開く",
-    "description": "TCommandHelp.get_WholistHelp"
+    "description": "Commands.get_WhoHelp"
   },
   "Window.Wholist": {
     "message": "Wholist",
-    "description": "TWindowNames.get_Wholist"
+    "description": "WholistWindow.get_WindowName"
   },
   "Window.Wholist.CantUseInPvP": {
     "message": "PvPコンテンツ中は、Wholistを使用できません。",
-    "description": "TWholistWindow.get_CantUseInPvP"
+    "description": "WholistWindow.get_CantUseInPvP"
   },
   "Window.Wholist.Name": {
     "message": "キャラクター名",
-    "description": "TWholistWindow.get_Name"
+    "description": "WholistWindow.get_Name"
   },
   "Window.Wholist.Company": {
     "message": "FC(略称)",
-    "description": "TWholistWindow.get_Company"
+    "description": "WholistWindow.get_Company"
   },
   "Window.Wholist.Level": {
     "message": "レベル",
-    "description": "TWholistWindow.get_Level"
+    "description": "WholistWindow.get_Level"
   },
   "Window.Wholist.Class": {
     "message": "クラス/ジョブ",
-    "description": "TWholistWindow.get_Class"
+    "description": "WholistWindow.get_Class"
   },
   "Window.Wholist.Total": {
     "message": "合計:{0}",
-    "description": "TWholistWindow.Total"
+    "description": "WholistWindow.Total"
   },
   "Window.Wholist.ActionsFor": {
     "message": "アクションを実行:{0}",
-    "description": "TWholistWindow.ActionsFor"
+    "description": "WholistWindow.ActionsFor"
   },
   "Window.Wholist.Target": {
     "message": "ターゲット",
-    "description": "TWholistWindow.get_Target"
+    "description": "WholistWindow.get_Target"
   },
   "Window.Wholist.Examine": {
     "message": "調べる",
-    "description": "TWholistWindow.get_Examine"
+    "description": "WholistWindow.get_Examine"
   },
   "Window.Wholist.ViewAdventurerPlate": {
     "message": "アドベンチャラープレートを見る",
-    "description": "TWholistWindow.get_ViewAdventurerPlate"
+    "description": "WholistWindow.get_ViewAdventurerPlate"
   },
   "Window.Wholist.Tell": {
     "message": "Tellを送る",
-    "description": "TWholistWindow.get_Tell"
+    "description": "WholistWindow.get_Tell"
   },
   "Window.Wholist.NoPlayersFound": {
     "message": "近くにプレイヤーが見つかりません",
-    "description": "TWholistWindow.get_NoPlayersFound"
+    "description": "WholistWindow.get_NoPlayersFound"
   },
   "Window.Wholist.SearchFor": {
     "message": "検索...",
-    "description": "TWholistWindow.get_SearchFor"
+    "description": "WholistWindow.get_SearchFor"
   },
   "Window.Wholist.SuspectedBot": {
     "message": "このプレイヤーは、BOTアカウント（もしくは新規アカウント）の可能性があります。",
-    "description": "TWholistWindow.get_SuspectedBot"
+    "description": "WholistWindow.get_SuspectedBot"
   },
   "Window.Wholist.HideSuspectedBots": {
     "message": "BOT疑惑のプレイヤーを非表示",
-    "description": "TWholistWindow.get_HideSuspectedBots"
+    "description": "WholistWindow.get_HideSuspectedBots"
   },
   "Window.Wholist.HideAfkPlayers": {
     "message": "離席中のプレイヤーを非表示",
-    "description": "TWholistWindow.get_HideAfkPlayers"
+    "description": "WholistWindow.get_HideAfkPlayers"
   },
   "Window.Wholist.PlayerIsAFK": {
     "message": "プレイヤーは離席中です。",
-    "description": "TWholistWindow.get_PlayerIsAFK"
+    "description": "WholistWindow.get_PlayerIsAFK"
   },
   "Window.Wholist.PlayerIsBusy": {
     "message": "プレイヤーは取り込み中です。",
-    "description": "TWholistWindow.get_PlayerIsBusy"
+    "description": "WholistWindow.get_PlayerIsBusy"
   },
   "Window.Wholist.MustBeLoggedIn": {
     "message": "この機能を使用するには、キャラクターにログインする必要があります。",
-    "description": "TWholistWindow.get_MustBeLoggedIn"
+    "description": "WholistWindow.get_MustBeLoggedIn"
   },
   "Window.Wholist.SendMessage": {
     "message": "メッセージを送信",
-    "description": "TWholistWindow.get_SendMessage"
+    "description": "WholistWindow.get_SendMessage"
+  },
+  "Window.Wholist.ExportLocalization": {
+    "message": "Export Localization",
+    "description": "WholistWindow.get_ExportLocalization"
+  },
+  "Window.Wholist.ErrorSendingTell": {
+    "message": "Error sending tell: {0}",
+    "description": "WholistWindow.ErrorSendingTell"
   }
 }
