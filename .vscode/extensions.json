@@ -1,6 +1,7 @@
 {
     "recommendations": [
-        "editorconfig.editorconfig",
+        "tintoy.msbuild-project-tools",
+        "kreativ-software.csharpextensions",
         "ms-dotnettools.csharp"
     ]
 }
