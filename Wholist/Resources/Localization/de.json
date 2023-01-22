@@ -88,11 +88,11 @@
     "description": "WholistWindow.get_SendMessage"
   },
   "Window.Wholist.ExportLocalization": {
-    "message": "Export Localization",
+    "message": "Lokalisierung exportieren",
     "description": "WholistWindow.get_ExportLocalization"
   },
   "Window.Wholist.ErrorSendingTell": {
-    "message": "Error sending tell: {0}",
+    "message": "Fehler beim Senden: {0}",
     "description": "WholistWindow.ErrorSendingTell"
   }
 }
