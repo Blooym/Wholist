@@ -131,7 +131,7 @@ namespace Wholist.UI.Windows.Wholist
             Loc.ExportLocalizable();
             File.Copy(Path.Combine(path, "Wholist_Localizable.json"), Path.Combine(path, "en.json"), true);
             Directory.SetCurrentDirectory(directory);
-            SiUI.ShowToast("Localization exported successfully.", NotificationType.Success);
+            SiGui.ShowToast("Localization exported successfully.", NotificationType.Success);
         }
 #endif
     }

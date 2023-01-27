@@ -6,7 +6,6 @@ using Dalamud.Interface.Windowing;
 using ImGuiNET;
 using Sirensong.Game.Enums;
 using Sirensong.Game.Extensions;
-using Sirensong.UserInterface;
 using Sirensong.UserInterface.Components;
 using Wholist.Base;
 
@@ -140,7 +139,7 @@ namespace Wholist.UI.Windows.Wholist
                         ImGui.TableNextColumn();
                         ImGui.TextUnformatted(obj.Level.ToString());
                         ImGui.TableNextColumn();
-                        ImGui.TextColored(SiUI.GetColourForRole(classJob?.Role ?? 0), CultureInfo.CurrentCulture.TextInfo.ToTitleCase(classJob?.Name.ToString() ?? string.Empty));
+                        ImGui.TextColored(ClassJobRoleExtensions.GetColourForRole((ClassJobRole?)classJob?.Role ?? 0), CultureInfo.CurrentCulture.TextInfo.ToTitleCase(classJob?.Name.ToString() ?? string.Empty));
                     }
                     ImGui.EndTable();
                 }
@@ -166,7 +165,7 @@ namespace Wholist.UI.Windows.Wholist
             }
 
             // Version info.
-            SiUIComponents.Version(Constants.Version, Constants.GitCommitHash);
+            SiGUIComponent.VersionInfo(Constants.Version, Constants.GitCommitHash);
 
 #if DEBUG
             ImGui.SameLine();

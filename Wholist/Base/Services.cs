@@ -11,19 +11,18 @@ namespace Wholist.Base
     /// <summary>
     ///     Provides access to necessary instances and services.
     /// </summary>
-#pragma warning disable CS8618 // Injection is handled by the Dalamud Plugin Framework here.
     internal sealed class Services
     {
-        [PluginService] internal static DalamudPluginInterface PluginInterface { get; private set; }
-        [PluginService] internal static ClientState ClientState { get; private set; }
-        [PluginService] internal static ObjectTable ObjectTable { get; private set; }
-        [PluginService] internal static Dalamud.Game.Command.CommandManager Commands { get; private set; }
+        [PluginService] internal static DalamudPluginInterface PluginInterface { get; private set; } = null!;
+        [PluginService] internal static ClientState ClientState { get; private set; } = null!;
+        [PluginService] internal static ObjectTable ObjectTable { get; private set; } = null!;
+        [PluginService] internal static Dalamud.Game.Command.CommandManager Commands { get; private set; } = null!;
 
-        internal static CommandManager CommandManager { get; private set; }
-        internal static WindowManager WindowManager { get; private set; }
-        internal static ResourceManager ResourceManager { get; private set; }
-        internal static XivCommonBase XivCommon { get; private set; }
-        internal static Configuration Configuration { get; private set; }
+        internal static CommandManager CommandManager { get; private set; } = null!;
+        internal static WindowManager WindowManager { get; private set; } = null!;
+        internal static ResourceManager ResourceManager { get; private set; } = null!;
+        internal static XivCommonBase XivCommon { get; private set; } = null!;
+        internal static Configuration Configuration { get; private set; } = null!;
 
         /// <summary>
         ///     Initializes the service class.

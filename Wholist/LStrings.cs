@@ -7,12 +7,12 @@ namespace Wholist
     /// </summary>
     internal static class LStrings
     {
-        internal sealed class Commands
+        internal static class Commands
         {
             internal static string WhoHelp => Loc.Localize("Commands.Wholist.Help", "Opens the Wholist window.");
         }
 
-        internal sealed class WholistWindow
+        internal static class WholistWindow
         {
             internal static string WindowName => Loc.Localize("Window.Wholist", "Wholist");
             internal static string CantUseInPvP => Loc.Localize("Window.Wholist.CantUseInPvP", "You can't use the wholist whilst participating in PvP.");

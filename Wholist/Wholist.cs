@@ -5,6 +5,8 @@ using Wholist.Base;
 
 namespace Wholist
 {
+    // TODO: Refactor plugin internals
+    // TODO: Use ImGuiListClipper for list to optimize draw times.
     internal sealed class Plugin : IDalamudPlugin
     {
         /// <summary>
