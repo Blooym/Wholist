@@ -1,6 +1,6 @@
 {
   "Commands.Wholist.Help": {
-    "message": "Opens the Wholist window.",
+    "message": "Ouvre la fenêtre Wholist.",
     "description": "Commands.get_WhoHelp"
   },
   "Window.Wholist": {
@@ -8,19 +8,19 @@
     "description": "WholistWindow.get_WindowName"
   },
   "Window.Wholist.CantUseInPvP": {
-    "message": "You can't use the wholist whilst participating in PvP.",
+    "message": "Vous ne pouvez pas utiliser la wholist en participant en JcJ.",
     "description": "WholistWindow.get_CantUseInPvP"
   },
   "Window.Wholist.Name": {
-    "message": "Name",
+    "message": "Nom",
     "description": "WholistWindow.get_Name"
   },
   "Window.Wholist.Company": {
-    "message": "Company",
+    "message": "Compagnie",
     "description": "WholistWindow.get_Company"
   },
   "Window.Wholist.Level": {
-    "message": "Level",
+    "message": "Niveau",
     "description": "WholistWindow.get_Level"
   },
   "Window.Wholist.Class": {
@@ -28,7 +28,7 @@
     "description": "WholistWindow.get_Class"
   },
   "Window.Wholist.Total": {
-    "message": "Total: {0}",
+    "message": "Total : {0}",
     "description": "WholistWindow.Total"
   },
   "Window.Wholist.ActionsFor": {
