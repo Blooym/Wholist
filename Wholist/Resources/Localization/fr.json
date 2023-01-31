@@ -24,7 +24,7 @@
     "description": "WholistWindow.get_Level"
   },
   "Window.Wholist.Class": {
-    "message": "Class",
+    "message": "Classe",
     "description": "WholistWindow.get_Class"
   },
   "Window.Wholist.Total": {
@@ -32,67 +32,67 @@
     "description": "WholistWindow.Total"
   },
   "Window.Wholist.ActionsFor": {
-    "message": "Actions for {0}",
+    "message": "Actions pour {0}",
     "description": "WholistWindow.ActionsFor"
   },
   "Window.Wholist.Target": {
-    "message": "Target",
+    "message": "Cible",
     "description": "WholistWindow.get_Target"
   },
   "Window.Wholist.Examine": {
-    "message": "Examine",
+    "message": "Examiner",
     "description": "WholistWindow.get_Examine"
   },
   "Window.Wholist.ViewAdventurerPlate": {
-    "message": "View Adventurer Plate",
+    "message": "Voir la plaque d'aventurier",
     "description": "WholistWindow.get_ViewAdventurerPlate"
   },
   "Window.Wholist.Tell": {
-    "message": "Tell",
+    "message": "Dire",
     "description": "WholistWindow.get_Tell"
   },
   "Window.Wholist.NoPlayersFound": {
-    "message": "No players found.",
+    "message": "Aucuns joueurs trouvés",
     "description": "WholistWindow.get_NoPlayersFound"
   },
   "Window.Wholist.SearchFor": {
-    "message": "Search for...",
+    "message": "Rechercher...",
     "description": "WholistWindow.get_SearchFor"
   },
   "Window.Wholist.SuspectedBot": {
-    "message": "This player could be a bot account (or a very new player matching bot behaviours).",
+    "message": "Ce joueur pourrait être un bot (ou un tout nouveau joueur correspondant aux comportements des bots).",
     "description": "WholistWindow.get_SuspectedBot"
   },
   "Window.Wholist.HideSuspectedBots": {
-    "message": "Hide suspected bots",
+    "message": "Masquer les bots suspects",
     "description": "WholistWindow.get_HideSuspectedBots"
   },
   "Window.Wholist.HideAfkPlayers": {
-    "message": "Hide AFK players",
+    "message": "Masquer les joueurs AFK",
     "description": "WholistWindow.get_HideAfkPlayers"
   },
   "Window.Wholist.PlayerIsAFK": {
-    "message": "Player is AFK.",
+    "message": "Le joueur est AFK.",
     "description": "WholistWindow.get_PlayerIsAFK"
   },
   "Window.Wholist.PlayerIsBusy": {
-    "message": "Player is busy.",
+    "message": "Le joueur est occupé.",
     "description": "WholistWindow.get_PlayerIsBusy"
   },
   "Window.Wholist.MustBeLoggedIn": {
-    "message": "You must be logged in to a character to use this.",
+    "message": "Vous devez être connecté avec un personnage pour utiliser ceci.",
     "description": "WholistWindow.get_MustBeLoggedIn"
   },
   "Window.Wholist.SendMessage": {
-    "message": "Send Message",
+    "message": "Envoyer un message",
     "description": "WholistWindow.get_SendMessage"
   },
   "Window.Wholist.ExportLocalization": {
-    "message": "Export Localization",
+    "message": "Exporter la localisation",
     "description": "WholistWindow.get_ExportLocalization"
   },
   "Window.Wholist.ErrorSendingTell": {
-    "message": "Error sending tell: {0}",
+    "message": "Erreur lors de l'envoi du message : {0}",
     "description": "WholistWindow.ErrorSendingTell"
   }
 }
