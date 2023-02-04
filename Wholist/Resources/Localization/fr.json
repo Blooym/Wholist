@@ -52,7 +52,7 @@
     "description": "WholistWindow.get_Tell"
   },
   "Window.Wholist.NoPlayersFound": {
-    "message": "Aucuns joueurs trouvés",
+    "message": "Aucuns joueurs trouvés.",
     "description": "WholistWindow.get_NoPlayersFound"
   },
   "Window.Wholist.SearchFor": {
