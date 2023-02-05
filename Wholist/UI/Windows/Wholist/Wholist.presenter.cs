@@ -11,9 +11,9 @@ using Dalamud.Utility;
 using Lumina.Excel.GeneratedSheets;
 using Sirensong;
 using Sirensong.Caching;
+using Sirensong.Game;
 using Sirensong.Game.Enums;
 using Sirensong.Game.Extensions;
-using Sirensong.Game.UI;
 using Sirensong.UserInterface;
 using Wholist.Base;
 
@@ -40,7 +40,7 @@ namespace Wholist.UI.Windows.Wholist
         /// <returns></returns>
         internal static IEnumerable<PlayerCharacter> GetOTPlayers(string filter)
             => Services.ObjectTable.GetPlayerCharacters(false)
-                .Where(o => !Configuration.FilterAfk || !o.HasOnlineStatus(OnlineStatuses.AFK))
+                .Where(o => !Configuration.FilterAfk || !o.HasOnlineStatus(OnlineStatusType.AFK))
                 .Where(o => o.Level >= 4 && o.ClassJob.Id != 3)
                 .Where(o => filter.IsNullOrWhitespace() || o.Name.ToString().Contains(filter, StringComparison.OrdinalIgnoreCase)
                     || ClassJobCache.GetRow(o.ClassJob.Id)?.Name.ToString().Contains(filter, StringComparison.OrdinalIgnoreCase) == true);
@@ -103,7 +103,7 @@ namespace Wholist.UI.Windows.Wholist
             catch (Exception ex)
             {
                 BetterLog.Error("Failed to send tell: " + ex);
-                GameToasts.ShowErrorToast(LStrings.WholistWindow.ErrorSendingTell(ex.Message));
+                GameToast.ShowErrorToast(LStrings.WholistWindow.ErrorSendingTell(ex.Message));
                 return false;
             }
         }

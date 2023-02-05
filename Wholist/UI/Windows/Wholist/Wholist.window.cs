@@ -6,8 +6,6 @@ using Dalamud.Interface.Windowing;
 using ImGuiNET;
 using Sirensong.Game.Enums;
 using Sirensong.Game.Extensions;
-using Sirensong.UserInterface.Components;
-using Wholist.Base;
 
 namespace Wholist.UI.Windows.Wholist
 {
@@ -75,10 +73,10 @@ namespace Wholist.UI.Windows.Wholist
                             ImGui.TextDisabled(LStrings.WholistWindow.ActionsFor($"{obj.Name}@{WholistPresenter.WorldCache.GetRow(obj.HomeWorld.Id)?.Name}"));
                             switch (obj.OnlineStatus.Id)
                             {
-                                case (uint)OnlineStatuses.AFK:
+                                case (uint)OnlineStatusType.AFK:
                                     ImGui.TextColored(ImGuiColors.DalamudOrange, LStrings.WholistWindow.PlayerIsAFK);
                                     break;
-                                case (uint)OnlineStatuses.Busy:
+                                case (uint)OnlineStatusType.Busy:
                                     ImGui.TextColored(ImGuiColors.DalamudRed, LStrings.WholistWindow.PlayerIsBusy);
                                     break;
                                 default:
@@ -98,7 +96,7 @@ namespace Wholist.UI.Windows.Wholist
                             }
                             if (ImGui.Selectable(LStrings.WholistWindow.Target))
                             {
-                                obj.SetAsLPTarget();
+                                obj.Target();
                             }
 
                             if (ImGui.BeginMenu(LStrings.WholistWindow.Tell))
@@ -163,9 +161,6 @@ namespace Wholist.UI.Windows.Wholist
                 WholistPresenter.Configuration.FilterAfk = hideAfkPlayers;
                 WholistPresenter.Configuration.Save();
             }
-
-            // Version info.
-            SiGUIComponent.VersionInfo(Constants.Version, Constants.GitCommitHash);
 
 #if DEBUG
             ImGui.SameLine();
