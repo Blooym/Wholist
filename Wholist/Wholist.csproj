@@ -32,23 +32,39 @@
     <Exec Command="git rev-parse --abbrev-ref HEAD" ConsoleToMSBuild="true" IgnoreExitCode="true">
       <Output TaskParameter="ConsoleOutput" PropertyName="GitBranch" />
     </Exec>
+    <Exec Command="git show -s --format=%ci HEAD" ConsoleToMSBuild="true" IgnoreExitCode="true">
+      <Output TaskParameter="ConsoleOutput" PropertyName="LastCommitMessage" />
+    </Exec>
 
     <ItemGroup>
-      <AssemblyAttribute Include="Wholist.Base.GitHash">
+      <AssemblyAttribute Include="Wholist.Common.GitHash">
           <_Parameter1>$(GitHash)</_Parameter1>
       </AssemblyAttribute>
-      <AssemblyAttribute Include="Wholist.Base.GitCommitDate">
+      <AssemblyAttribute Include="Wholist.Common.GitCommitDate">
           <_Parameter1>$(BuildTime)</_Parameter1>
       </AssemblyAttribute>
-      <AssemblyAttribute Include="Wholist.Base.GitBranch">
+      <AssemblyAttribute Include="Wholist.Common.GitBranch">
           <_Parameter1>$(GitBranch)</_Parameter1>
+      </AssemblyAttribute>
+      <AssemblyAttribute Include="Wholist.Common.GitCommitMessage">
+          <_Parameter1>$(LastCommitMessage)</_Parameter1>
       </AssemblyAttribute>
     </ItemGroup>
   </Target>
 
-  <!-- Plugin Resources -->
+  <!-- Localization -->
   <ItemGroup>
-    <EmbeddedResource Include="Resources\**\*.*" Exclude="Resources\**\*Localizable.*" />
+    <EmbeddedResource Update="Resources\Localization\Strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\Localization\Strings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <!-- Dalamud Path -->
@@ -98,9 +114,5 @@
       <HintPath>$(DalamudLibPath)Lumina.Excel.dll</HintPath>
       <Private>false</Private>
     </Reference>
-	  <Reference Include="CheapLoc">
-		  <Private>false</Private>
-		  <HintPath>$(DalamudLibPath)CheapLoc.dll</HintPath>
-	  </Reference>
   </ItemGroup>
 </Project>

@@ -1,17 +1,17 @@
 using System;
 using Dalamud.Configuration;
-using Wholist.Base;
+using Wholist.Common;
 
-namespace Wholist
+namespace Wholist.Configuration
 {
     /// <summary>
-    ///     Provides access to and determines the Plugin configuration.
+    /// Provides access to and determines the Plugin configuration.
     /// </summary>
     [Serializable]
-    public sealed class Configuration : IPluginConfiguration
+    public sealed class PluginConfiguration : IPluginConfiguration
     {
         /// <summary>
-        ///     The current configuration version, incremented on breaking changes.
+        /// The current configuration version, incremented on breaking changes.
         /// </summary>
         public int Version { get; set; }
 
@@ -21,7 +21,7 @@ namespace Wholist
         public bool FilterAfk { get; set; }
 
         /// <summary>
-        ///     Saves the current configuration to disk.
+        /// Saves the current configuration to disk.
         /// </summary>
         internal void Save() => Services.PluginInterface.SavePluginConfig(this);
     }

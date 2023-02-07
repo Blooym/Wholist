@@ -44,5 +44,137 @@ namespace Wholist.Resources.Localization {
                 resourceCulture = value;
             }
         }
+        
+        internal static string Commands_Who_Help {
+            get {
+                return ResourceManager.GetString("Commands_Who_Help", resourceCulture);
+            }
+        }
+        
+        internal static string Windows_Who_Title {
+            get {
+                return ResourceManager.GetString("Windows_Who_Title", resourceCulture);
+            }
+        }
+        
+        internal static string Errors_NoUseInPvP {
+            get {
+                return ResourceManager.GetString("Errors_NoUseInPvP", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Who_Players_Name {
+            get {
+                return ResourceManager.GetString("UserInterface_Who_Players_Name", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Who_Players_Company {
+            get {
+                return ResourceManager.GetString("UserInterface_Who_Players_Company", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Who_Players_Level {
+            get {
+                return ResourceManager.GetString("UserInterface_Who_Players_Level", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Who_Players_Class {
+            get {
+                return ResourceManager.GetString("UserInterface_Who_Players_Class", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Who_Players_Total {
+            get {
+                return ResourceManager.GetString("UserInterface_Who_Players_Total", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Who_Players_Submenu_Heading {
+            get {
+                return ResourceManager.GetString("UserInterface_Who_Players_Submenu_Heading", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Who_Players_Submenu_Target {
+            get {
+                return ResourceManager.GetString("UserInterface_Who_Players_Submenu_Target", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Who_Players_Submenu_Examine {
+            get {
+                return ResourceManager.GetString("UserInterface_Who_Players_Submenu_Examine", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Who_Players_AdventurePlate {
+            get {
+                return ResourceManager.GetString("UserInterface_Who_Players_AdventurePlate", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Who_Players_Submenu_Tell {
+            get {
+                return ResourceManager.GetString("UserInterface_Who_Players_Submenu_Tell", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Who_Players_None {
+            get {
+                return ResourceManager.GetString("UserInterface_Who_Players_None", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Who_Search {
+            get {
+                return ResourceManager.GetString("UserInterface_Who_Search", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Who_Configuration_HideAfkPlayers {
+            get {
+                return ResourceManager.GetString("UserInterface_Who_Configuration_HideAfkPlayers", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Who_Players_Submenu_AFK {
+            get {
+                return ResourceManager.GetString("UserInterface_Who_Players_Submenu_AFK", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Who_Players_Submenu_Busy {
+            get {
+                return ResourceManager.GetString("UserInterface_Who_Players_Submenu_Busy", resourceCulture);
+            }
+        }
+        
+        internal static string Errors_NotLoggedIn {
+            get {
+                return ResourceManager.GetString("Errors_NotLoggedIn", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Who_Players_Submenu_Tell_Send {
+            get {
+                return ResourceManager.GetString("UserInterface_Who_Players_Submenu_Tell_Send", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Misc_ExportLocalization {
+            get {
+                return ResourceManager.GetString("UserInterface_Misc_ExportLocalization", resourceCulture);
+            }
+        }
+        
+        internal static string Errors_CantSendTell {
+            get {
+                return ResourceManager.GetString("Errors_CantSendTell", resourceCulture);
+            }
+        }
     }
 }

@@ -18,4 +18,70 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Commands_Who_Help" xml:space="preserve">
+    <value>Opens the Wholist window.</value>
+  </data>
+  <data name="Windows_Who_Title" xml:space="preserve">
+    <value>[{0}] Who</value>
+  </data>
+  <data name="Errors_NoUseInPvP" xml:space="preserve">
+    <value>You can't use the who window hilst participating in PvP.</value>
+  </data>
+  <data name="UserInterface_Who_Players_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="UserInterface_Who_Players_Company" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="UserInterface_Who_Players_Level" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="UserInterface_Who_Players_Class" xml:space="preserve">
+    <value>Class</value>
+  </data>
+  <data name="UserInterface_Who_Players_Total" xml:space="preserve">
+    <value>Total: {0}</value>
+  </data>
+  <data name="UserInterface_Who_Players_Submenu_Heading" xml:space="preserve">
+    <value>Actions for {0}</value>
+  </data>
+  <data name="UserInterface_Who_Players_Submenu_Target" xml:space="preserve">
+    <value>Target</value>
+  </data>
+  <data name="UserInterface_Who_Players_Submenu_Examine" xml:space="preserve">
+    <value>Examine</value>
+  </data>
+  <data name="UserInterface_Who_Players_AdventurePlate" xml:space="preserve">
+    <value>View Adventure Plate</value>
+  </data>
+  <data name="UserInterface_Who_Players_Submenu_Tell" xml:space="preserve">
+    <value>Send Tell</value>
+  </data>
+  <data name="UserInterface_Who_Players_None" xml:space="preserve">
+    <value>No players are nearby.</value>
+  </data>
+  <data name="UserInterface_Who_Search" xml:space="preserve">
+    <value>Search for...</value>
+  </data>
+  <data name="UserInterface_Who_Configuration_HideAfkPlayers" xml:space="preserve">
+    <value>Hide AFK players</value>
+  </data>
+  <data name="UserInterface_Who_Players_Submenu_AFK" xml:space="preserve">
+    <value>Player is AFK.</value>
+  </data>
+  <data name="UserInterface_Who_Players_Submenu_Busy" xml:space="preserve">
+    <value>Player is busy.</value>
+  </data>
+  <data name="Errors_NotLoggedIn" xml:space="preserve">
+    <value>You must be logged in to a character to use this.</value>
+  </data>
+  <data name="UserInterface_Who_Players_Submenu_Tell_Send" xml:space="preserve">
+    <value>Send Message</value>
+  </data>
+  <data name="UserInterface_Misc_ExportLocalization" xml:space="preserve">
+    <value>Export Localization</value>
+  </data>
+  <data name="Errors_CantSendTell" xml:space="preserve">
+    <value>Error sending tell: {0}</value>
+  </data>
 </root>
