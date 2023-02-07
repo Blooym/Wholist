@@ -9,7 +9,7 @@ namespace Wholist.CommandHandling.Commands
     internal sealed class WhoCommand : ICommand
     {
         /// <inheritdoc />
-        public string Name => Constants.Commands.WhoCommand;
+        public string Name { get; } = Constants.Commands.WhoCommand;
 
         /// <inheritdoc />
         public CommandInfo Command => new(this.OnExecute)
