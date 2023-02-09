@@ -57,7 +57,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             this.RespectCloseHotkey = !NearbyPlayersLogic.DisableEscClose;
 
             var playersToDraw = this.logic.GetNearbyPlayers();
-            if (ImGui.BeginChild("##NearbyChild", this.childSize, true))
+            if (ImGui.BeginChild("##NearbyChild", this.childSize, false))
             {
                 DrawNearbyPlayersTable(playersToDraw);
             }
@@ -76,7 +76,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// <param name="playersToDraw"></param>
         private static void DrawNearbyPlayersTable(List<PlayerInfoSlim> playersToDraw)
         {
-            if (ImGui.BeginTable("##NearbyTable", 4, ImGuiTableFlags.ScrollY | ImGuiTableFlags.BordersInner | ImGuiTableFlags.Hideable | ImGuiTableFlags.Reorderable))
+            if (ImGui.BeginTable("##NearbyTable", 4, ImGuiTableFlags.ScrollY | ImGuiTableFlags.Borders | ImGuiTableFlags.Hideable | ImGuiTableFlags.Reorderable))
             {
                 ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Name, ImGuiTableColumnFlags.WidthStretch, 250);
                 ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Company, ImGuiTableColumnFlags.WidthStretch, 100);
