@@ -272,5 +272,83 @@ namespace Wholist.Resources.Localization {
                 return ResourceManager.GetString("UserInterface_Settings_Donate_GitHubSponsors", resourceCulture);
             }
         }
+        
+        internal static string UserInterface_NearbyPlayers_SetChatTarget {
+            get {
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_SetChatTarget", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_Colours_Friend {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Colours_Friend", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_Colours_Party {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Colours_Party", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_Colours_FreeCompany {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Colours_FreeCompany", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_Colours_MeleeDPS {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Colours_MeleeDPS", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_Colours_RangedDPS {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Colours_RangedDPS", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_Colours_Healer {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Colours_Healer", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_Colours_Tank {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Colours_Tank", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_Colours_Other {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Colours_Other", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_Colours_JobsColours {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Colours_JobsColours", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_Colours_NameColours {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Colours_NameColours", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_Colours_OtherOptions {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Colours_OtherOptions", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_Colours_ResetAll {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Colours_ResetAll", resourceCulture);
+            }
+        }
     }
 }

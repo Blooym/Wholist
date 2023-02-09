@@ -1,5 +1,8 @@
 using Dalamud.Interface.Windowing;
+using Dalamud.Utility;
 using ImGuiNET;
+using Sirensong.UserInterface.Windowing;
+using Wholist.Common;
 using Wholist.Resources.Localization;
 using Wholist.UserInterface.Windows.Settings.TableParts;
 
@@ -11,7 +14,7 @@ namespace Wholist.UserInterface.Windows.Settings
         public SettingsLogic Logic { get; } = new();
 
         /// <inheritdoc/>
-        public SettingsWindow() : base(Strings.Windows_Settings_Title)
+        public SettingsWindow() : base(Strings.Windows_Settings_Title.Format(Constants.PluginName))
         {
             this.Size = new(600, 400);
             this.SizeConstraints = new WindowSizeConstraints()
@@ -20,7 +23,7 @@ namespace Wholist.UserInterface.Windows.Settings
                 MaximumSize = new(1200, 700),
             };
             this.SizeCondition = ImGuiCond.FirstUseEver;
-            this.Flags = ImGuiWindowFlags.NoScrollbar;
+            this.Flags = ImGuiWindowFlagExtras.NoScroll;
         }
 
         /// <inheritdoc/>

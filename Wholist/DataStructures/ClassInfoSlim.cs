@@ -4,6 +4,7 @@ using Lumina.Excel.GeneratedSheets;
 using Sirensong.Extensions;
 using Sirensong.Game.Enums;
 using Sirensong.Game.Extensions;
+using Wholist.Common;
 
 namespace Wholist.DataStructures
 {
@@ -18,7 +19,7 @@ namespace Wholist.DataStructures
         public readonly string Name;
 
         /// <summary>
-        /// The role colour of the class.
+        /// The colour of the role.
         /// </summary>
         public readonly Vector4 RoleColour;
 
@@ -29,7 +30,15 @@ namespace Wholist.DataStructures
         public ClassInfoSlim(ClassJob classJob)
         {
             this.Name = classJob!.Name.ToDalamudString().ToString().ToTitleCase();
-            this.RoleColour = classJob.GetJobRole().GetColourForRole();
+            this.RoleColour = classJob.GetJobRole() switch
+            {
+                ClassJobRole.Tank => Services.Configuration.Colours.Tank,
+                ClassJobRole.Healer => Services.Configuration.Colours.Healer,
+                ClassJobRole.MeleeDPS => Services.Configuration.Colours.MeleeDPS,
+                ClassJobRole.RangedDPS => Services.Configuration.Colours.RangedDPS,
+                ClassJobRole.Misc => Services.Configuration.Colours.Other,
+                _ => Services.Configuration.Colours.Other,
+            };
         }
     }
 }

@@ -1,3 +1,4 @@
+using System.Linq;
 using Dalamud.Game.ClientState.Objects.SubKinds;
 using FFXIVClientStructs.FFXIV.Client.UI.Agent;
 using Sirensong.Game.Extensions;
@@ -30,6 +31,9 @@ namespace Wholist.DataStructures
             this.Level = basePlayer.Level;
             this.CompanyTag = basePlayer.CompanyTag.TextValue;
             this.OnlineStatusId = basePlayer.OnlineStatus.Id;
+            this.IsFriend = Services.XivCommon.Functions.FriendList.List.Any(x => x.Name.TextValue == basePlayer.Name.TextValue && x.HomeWorld == basePlayer.HomeWorld.Id);
+            this.IsInParty = Services.PartyList.Where(x => x != null).Any(x => x.ObjectId == basePlayer.ObjectId);
+            this.IsInFreeCompany = basePlayer.CompanyTag.TextValue == Services.ClientState.LocalPlayer?.CompanyTag.TextValue && basePlayer.HomeWorld.Id == Services.ClientState.LocalPlayer?.HomeWorld.Id;
         }
 
         /// <summary>
@@ -61,6 +65,21 @@ namespace Wholist.DataStructures
         /// The homeworld of the player.
         /// </summary>
         public readonly WorldInfoSlim Homeworld;
+
+        /// <summary>
+        /// Whether or not the player is a friend of the local player.
+        /// </summary>
+        public readonly bool IsFriend;
+
+        /// <summary>
+        /// Whether or not the player is in the local player's party.
+        /// </summary>
+        public readonly bool IsInParty;
+
+        /// <summary>
+        /// Whether or not the player is in a free company.
+        /// </summary>
+        public readonly bool IsInFreeCompany;
 
         /// <summary>
         /// Opens the examine window for the player.

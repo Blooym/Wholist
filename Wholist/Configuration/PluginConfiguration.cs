@@ -1,4 +1,5 @@
 using System;
+using System.Numerics;
 using Dalamud.Configuration;
 using Wholist.Common;
 
@@ -19,6 +20,11 @@ namespace Wholist.Configuration
         /// The configuration for the "Nearby Players" window.
         /// </summary>
         public NearbyPlayersConfiguration NearbyPlayers = new();
+
+        /// <summary>
+        /// The configuration for colours used in the plugin.
+        /// </summary>
+        public ColourConfiguration Colours = new();
 
         /// <summary>
         /// Saves the current configuration to disk.
@@ -59,6 +65,21 @@ namespace Wholist.Configuration
             /// Whether to hide the "Nearby Players" window in instances.
             /// </summary>
             public bool HideInInstance;
+        }
+
+        /// <summary>
+        /// The configuration for colours used in the plugin.
+        /// </summary>
+        internal sealed class ColourConfiguration
+        {
+            public Vector4 Friend = new(1.0f, 0.5f, 0.0f, 1.0f);
+            public Vector4 Party = new(0.0f, 0.7f, 1.0f, 1.0f);
+            public Vector4 FreeCompany = new(0.0f, 1.0f, 0.0f, 1.0f);
+            public Vector4 MeleeDPS = new(0.7058824f, 0f, 0f, 1f);
+            public Vector4 RangedDPS = new(0.7058824f, 0f, 0f, 1f);
+            public Vector4 Healer = new(0f, 0.8f, 0.1333333f, 1f);
+            public Vector4 Tank = new(0f, 0.6f, 1f, 1f);
+            public Vector4 Other = new(0.5f, 0.5f, 0.5f, 1f);
         }
     }
 }

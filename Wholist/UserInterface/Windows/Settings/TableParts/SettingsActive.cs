@@ -17,6 +17,9 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts
                 case SettingsLogic.ConfigurationTabs.Debug:
                     DebugTab.Draw(logic);
                     break;
+                case SettingsLogic.ConfigurationTabs.Colours:
+                    ColoursTab.Draw(logic);
+                    break;
                 default:
                     break;
             }

@@ -49,7 +49,7 @@ namespace Wholist.ObjectManagement
         public List<PlayerInfoSlim> GetNearbyPlayers()
         {
             var nearbyPlayers = new List<PlayerInfoSlim>();
-            foreach (var player in Services.ObjectTable.GetPlayerCharacters(false))
+            foreach (var player in Services.ObjectTable.GetPlayerCharacters(true))
             {
                 if (player.Level > 3)
                 {

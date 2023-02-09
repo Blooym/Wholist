@@ -1,5 +1,6 @@
 using Dalamud.Game.ClientState;
 using Dalamud.Game.ClientState.Objects;
+using Dalamud.Game.ClientState.Party;
 using Dalamud.IoC;
 using Dalamud.Plugin;
 using Lumina.Excel.GeneratedSheets;
@@ -28,6 +29,7 @@ namespace Wholist.Common
         [PluginService] internal static Dalamud.Game.Command.CommandManager Commands { get; private set; } = null!;
         [PluginService] internal static TargetManager TargetManager { get; private set; } = null!;
         [PluginService] internal static Dalamud.Game.ClientState.Conditions.Condition Condition { get; private set; } = null!;
+        [PluginService] internal static PartyList PartyList { get; private set; } = null!;
 
         // Sirensong services
         [SirenService] internal static LuminaCacheService<World> WorldCache { get; private set; } = null!;

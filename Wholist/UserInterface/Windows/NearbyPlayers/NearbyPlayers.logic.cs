@@ -2,14 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Dalamud.Game.ClientState.Objects.SubKinds;
+using Dalamud.Interface.Colors;
 using Dalamud.Utility;
 using FFXIVClientStructs.FFXIV.Client.UI;
+using FFXIVClientStructs.FFXIV.Common.Math;
 using ImGuiNET;
 using Sirensong.Game;
 using Sirensong.Game.Enums;
 using Wholist.Common;
 using Wholist.Configuration;
 using Wholist.DataStructures;
+using Wholist.Resources.Localization;
 
 namespace Wholist.UserInterface.Windows.NearbyPlayers
 {
@@ -77,8 +80,33 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         internal static unsafe void SetChatTellTarget(string name, string homeworldName)
         {
             Services.XivCommon.Functions.Chat.SendMessage($"/tell {name}@{homeworldName} ");
-            GameChat.Print($"Set chat target to {name}@{homeworldName}.");
+            GameChat.Print(Strings.UserInterface_NearbyPlayers_SetChatTarget.Format($"{name}@{homeworldName}"));
             UIModule.PlaySound((int)SoundEffect.Se16, 0, 0, 0);
+        }
+
+        /// <summary>
+        /// Gets the colour for the given player.
+        /// </summary>
+        /// <param name="playerInfo"></param>
+        /// <returns>The colour for the player.</returns>
+        internal static Vector4 GetColourForPlayer(PlayerInfoSlim playerInfo)
+        {
+            if (playerInfo.IsInParty)
+            {
+                return Configuration.Colours.Party;
+            }
+            else if (playerInfo.IsFriend)
+            {
+                return Configuration.Colours.Friend;
+            }
+            else if (playerInfo.IsInFreeCompany)
+            {
+                return Configuration.Colours.FreeCompany;
+            }
+            else
+            {
+                return ImGuiColors.DalamudWhite;
+            }
         }
     }
 }
