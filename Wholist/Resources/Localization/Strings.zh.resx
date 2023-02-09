@@ -68,43 +68,40 @@
   <data name="UserInterface_Settings_Heading" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="UserInterface_Settings_General_Heading" xml:space="preserve">
-    <value>General</value>
-  </data>
-  <data name="UserInterface_Settings_General_OpenOnLogin" xml:space="preserve">
+  <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin" xml:space="preserve">
     <value>Open window on login</value>
   </data>
-  <data name="UserInterface_Settings_General_HideInCombat" xml:space="preserve">
+  <data name="UserInterface_Settings_NearbyPlayers_HideInCombat" xml:space="preserve">
     <value>Hide in combat</value>
   </data>
-  <data name="UserInterface_Settings_General_HideInInstance" xml:space="preserve">
+  <data name="UserInterface_Settings_NearbyPlayers_HideInInstance" xml:space="preserve">
     <value>Hide in instances</value>
   </data>
-  <data name="UserInterface_Settings_General_FilterAFKPlayers" xml:space="preserve">
+  <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers" xml:space="preserve">
     <value>Filter AFK Players</value>
   </data>
-  <data name="UserInterface_Settings_General_LockPosition" xml:space="preserve">
+  <data name="UserInterface_Settings_NearbyPlayers_LockPosition" xml:space="preserve">
     <value>Disable window moving</value>
   </data>
-  <data name="UserInterface_Settings_General_LockSize" xml:space="preserve">
+  <data name="UserInterface_Settings_NearbyPlayers_LockSize" xml:space="preserve">
     <value>Disable window resizing</value>
   </data>
-  <data name="UserInterface_Settings_General_FilterAFKPlayers_Description" xml:space="preserve">
+  <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description" xml:space="preserve">
     <value>Remove AFK players from the nearby players list.</value>
   </data>
-  <data name="UserInterface_Settings_General_HideInCombat_Description" xml:space="preserve">
+  <data name="UserInterface_Settings_NearbyPlayers_HideInCombat_Description" xml:space="preserve">
     <value>Automatically hide the window when in combat.</value>
   </data>
-  <data name="UserInterface_Settings_General_HideInInstance_Description" xml:space="preserve">
+  <data name="UserInterface_Settings_NearbyPlayers_HideInInstance_Description" xml:space="preserve">
     <value>Automatically hide the window when inside of instances</value>
   </data>
-  <data name="UserInterface_Settings_General_LockPosition_Description" xml:space="preserve">
+  <data name="UserInterface_Settings_NearbyPlayers_LockPosition_Description" xml:space="preserve">
     <value>Prevent the window from being moved.</value>
   </data>
-  <data name="UserInterface_Settings_General_LockSize_Description" xml:space="preserve">
+  <data name="UserInterface_Settings_NearbyPlayers_LockSize_Description" xml:space="preserve">
     <value>Prevent the window from being resized.</value>
   </data>
-  <data name="UserInterface_Settings_General_OpenOnLogin_Description" xml:space="preserve">
+  <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin_Description" xml:space="preserve">
     <value>Automatically open the window when logging in/restarting the plugin whilst logged in.</value>
   </data>
   <data name="UserInterface_Settings_Debug_Disclaimer" xml:space="preserve">

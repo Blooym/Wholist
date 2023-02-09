@@ -11,23 +11,13 @@ namespace Wholist.DataStructures
     /// <summary>
     /// Represents a pre-formatted version of a <see cref="ClassJob" /> with slimmed down information.
     /// </summary>
-    internal readonly struct ClassInfoSlim
+    internal readonly struct JobInfoSlim
     {
         /// <summary>
-        /// The name of the class.
+        /// Creates a new <see cref="JobInfoSlim" />.
         /// </summary>
-        public readonly string Name;
-
-        /// <summary>
-        /// The colour of the role.
-        /// </summary>
-        public readonly Vector4 RoleColour;
-
-        /// <summary>
-        /// Creates a new <see cref="ClassInfoSlim" />.
-        /// </summary>
-        /// <param name="classJob">The <see cref="ClassJob" /> to create the <see cref="ClassInfoSlim" /> from.</param>
-        public ClassInfoSlim(ClassJob classJob)
+        /// <param name="classJob">The <see cref="ClassJob" /> to create the <see cref="JobInfoSlim" /> from.</param>
+        public JobInfoSlim(ClassJob classJob)
         {
             this.Name = classJob!.Name.ToDalamudString().ToString().ToTitleCase();
             this.RoleColour = classJob.GetJobRole() switch
@@ -40,5 +30,15 @@ namespace Wholist.DataStructures
                 _ => Services.Configuration.Colours.Other,
             };
         }
+
+        /// <summary>
+        /// The name of the job.
+        /// </summary>
+        public readonly string Name;
+
+        /// <summary>
+        /// The colour of the role.
+        /// </summary>
+        public readonly Vector4 RoleColour;
     }
 }

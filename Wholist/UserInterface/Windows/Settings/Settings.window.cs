@@ -16,12 +16,7 @@ namespace Wholist.UserInterface.Windows.Settings
         /// <inheritdoc/>
         public SettingsWindow() : base(Strings.Windows_Settings_Title.Format(Constants.PluginName))
         {
-            this.Size = new(600, 400);
-            this.SizeConstraints = new WindowSizeConstraints()
-            {
-                MinimumSize = new(600, 400),
-                MaximumSize = new(1200, 700),
-            };
+            this.Size = new(700, 450);
             this.SizeCondition = ImGuiCond.FirstUseEver;
             this.Flags = ImGuiWindowFlagExtras.NoScroll;
         }
@@ -31,8 +26,8 @@ namespace Wholist.UserInterface.Windows.Settings
         {
             if (ImGui.BeginTable("PluginSettings", 2, ImGuiTableFlags.BordersInnerV))
             {
-                ImGui.TableSetupColumn("PluginSettingsSidebar", ImGuiTableColumnFlags.WidthFixed, ImGui.GetContentRegionAvail().X * 0.3f);
-                ImGui.TableSetupColumn("PluginSettingsList", ImGuiTableColumnFlags.WidthFixed, ImGui.GetContentRegionAvail().X * 0.7f);
+                ImGui.TableSetupColumn("PluginSettingsSidebar", ImGuiTableColumnFlags.WidthFixed, ImGui.GetContentRegionAvail().X * 0.25f);
+                ImGui.TableSetupColumn("PluginSettingsList", ImGuiTableColumnFlags.WidthFixed, ImGui.GetContentRegionAvail().X * 0.75f);
                 ImGui.TableNextRow();
 
                 // Sidebar

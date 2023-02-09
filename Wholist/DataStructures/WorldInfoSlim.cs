@@ -10,16 +10,6 @@ namespace Wholist.DataStructures
     internal readonly struct WorldInfoSlim
     {
         /// <summary>
-        /// The name of the world.
-        /// </summary>
-        public readonly string Name;
-
-        /// <summary>
-        /// The id of the world.
-        /// </summary>
-        public readonly uint Id;
-
-        /// <summary>
         /// Creates a new <see cref="WorldInfoSlim" />.
         /// </summary>
         /// <param name="world">The <see cref="World" /> to create the <see cref="WorldInfoSlim" /> from.</param>
@@ -28,5 +18,15 @@ namespace Wholist.DataStructures
             this.Name = Services.WorldCache.GetRow(world.RowId)!.Name.ToDalamudString().ToString();
             this.Id = world.RowId;
         }
+
+        /// <summary>
+        /// The name of the world.
+        /// </summary>
+        public readonly string Name;
+
+        /// <summary>
+        /// The id of the world.
+        /// </summary>
+        public readonly uint Id;
     }
 }

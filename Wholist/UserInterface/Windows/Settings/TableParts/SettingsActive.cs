@@ -4,12 +4,19 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts
 {
     internal sealed class SettingsActive
     {
+        /// <summary>
+        /// Draws the active tab of the settings window.
+        /// </summary>
+        /// <param name="logic"></param>
         public static void Draw(SettingsLogic logic)
         {
             switch (logic.SelectedTab)
             {
-                case SettingsLogic.ConfigurationTabs.General:
-                    GeneralTab.Draw(logic);
+                case SettingsLogic.ConfigurationTabs.NearbyPlayers:
+                    NearbyPlayersTab.Draw(logic);
+                    break;
+                case SettingsLogic.ConfigurationTabs.Colours:
+                    ColoursTab.Draw(logic);
                     break;
                 case SettingsLogic.ConfigurationTabs.Donation:
                     DonationTab.Draw(logic);
@@ -17,14 +24,9 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts
                 case SettingsLogic.ConfigurationTabs.Debug:
                     DebugTab.Draw(logic);
                     break;
-                case SettingsLogic.ConfigurationTabs.Colours:
-                    ColoursTab.Draw(logic);
-                    break;
                 default:
                     break;
             }
         }
-
-
     }
 }

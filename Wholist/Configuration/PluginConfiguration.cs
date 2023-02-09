@@ -65,6 +65,11 @@ namespace Wholist.Configuration
             /// Whether to hide the "Nearby Players" window in instances.
             /// </summary>
             public bool HideInInstance;
+
+            /// <summary>
+            /// The maximum number of players to show in the "Nearby Players" window.
+            /// </summary>
+            public int MaxPlayersToShow = 60;
         }
 
         /// <summary>
@@ -72,6 +77,7 @@ namespace Wholist.Configuration
         /// </summary>
         internal sealed class ColourConfiguration
         {
+            public Vector4 Default = new(1.0f, 1.0f, 1.0f, 1.0f);
             public Vector4 Friend = new(1.0f, 0.5f, 0.0f, 1.0f);
             public Vector4 Party = new(0.0f, 0.7f, 1.0f, 1.0f);
             public Vector4 MeleeDPS = new(0.7058824f, 0f, 0f, 1f);

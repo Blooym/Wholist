@@ -1,8 +1,9 @@
-using System.Linq;
 using Dalamud.Game.ClientState.Objects.SubKinds;
 using FFXIVClientStructs.FFXIV.Client.UI.Agent;
+using FFXIVClientStructs.FFXIV.Common.Math;
 using Sirensong.Game.Extensions;
 using Wholist.Common;
+using Wholist.ObjectManagement;
 
 namespace Wholist.DataStructures
 {
@@ -25,21 +26,26 @@ namespace Wholist.DataStructures
             this.playerCharacter = basePlayer;
 
             this.Homeworld = new WorldInfoSlim(basePlayer.HomeWorld.GameData!);
-            this.Class = new ClassInfoSlim(basePlayer.ClassJob.GameData!);
+            this.Class = new JobInfoSlim(basePlayer.ClassJob.GameData!);
 
             this.Name = basePlayer.Name.TextValue;
             this.Level = basePlayer.Level;
             this.CompanyTag = basePlayer.CompanyTag.TextValue;
             this.OnlineStatusId = basePlayer.OnlineStatus.Id;
-            this.IsFriend = Services.XivCommon.Functions.FriendList.List.Any(x => x.Name.TextValue == basePlayer.Name.TextValue && x.HomeWorld == basePlayer.HomeWorld.Id);
-            this.IsInParty = Services.PartyList.Where(x => x != null).Any(x => x.ObjectId == basePlayer.ObjectId);
-            this.IsInFreeCompany = basePlayer.CompanyTag.TextValue == Services.ClientState.LocalPlayer?.CompanyTag.TextValue && basePlayer.HomeWorld.Id == Services.ClientState.LocalPlayer?.HomeWorld.Id;
+            this.IsFriend = PlayerManager.IsPlayerOnFriendlist(basePlayer);
+            this.IsInParty = PlayerManager.IsPlayerInParty(basePlayer);
+            this.NameColour = PlayerManager.GetColourForPlayer(this);
         }
 
         /// <summary>
         /// The name of the player.
         /// </summary>
         public readonly string Name;
+
+        /// <summary>
+        /// The colour of the player's name.
+        /// </summary>
+        public readonly Vector4 NameColour;
 
         /// <summary>
         /// The level of the player.
@@ -49,7 +55,7 @@ namespace Wholist.DataStructures
         /// <summary>
         /// The class information of the player.
         /// </summary>
-        public readonly ClassInfoSlim Class;
+        public readonly JobInfoSlim Class;
 
         /// <summary>
         /// The company tag of the player.
@@ -75,11 +81,6 @@ namespace Wholist.DataStructures
         /// Whether or not the player is in the local player's party.
         /// </summary>
         public readonly bool IsInParty;
-
-        /// <summary>
-        /// Whether or not the player is in a free company.
-        /// </summary>
-        public readonly bool IsInFreeCompany;
 
         /// <summary>
         /// Opens the examine window for the player.
