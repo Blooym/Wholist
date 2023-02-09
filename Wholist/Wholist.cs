@@ -1,21 +1,19 @@
 using Dalamud.IoC;
 using Dalamud.Plugin;
 using Sirensong;
-using Wholist.Base;
+using Wholist.Common;
 
 namespace Wholist
 {
-    // TODO: Refactor plugin internals
-    // TODO: Use ImGuiListClipper for list to optimize draw times.
     internal sealed class Plugin : IDalamudPlugin
     {
         /// <summary>
-        ///     The plugin's name.
+        /// The plugin's name.
         /// </summary>
-        public string Name => Constants.Name;
+        public string Name => Constants.PluginName;
 
         /// <summary>
-        ///     The plugin's main entry point.
+        /// The plugin's main entry point.
         /// </summary>
         public Plugin([RequiredVersion("1.0")] DalamudPluginInterface pluginInterface)
         {
@@ -24,7 +22,7 @@ namespace Wholist
         }
 
         /// <summary>
-        ///     Disposes of the plugin.
+        /// Disposes of the plugin.
         /// </summary>
         public void Dispose()
         {

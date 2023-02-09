@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Commands_Who_Help" xml:space="preserve">
+    <value>Opens the nearby players window.</value>
+  </data>
+  <data name="Windows_Who_Title" xml:space="preserve">
+    <value>[{0}] Nearby Players</value>
+  </data>
+  <data name="Errors_NoUseInPvP" xml:space="preserve">
+    <value>You can't view nearby players whilst participating in PvP.</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Company" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Level" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Class" xml:space="preserve">
+    <value>Class</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Total" xml:space="preserve">
+    <value>Total: {0}</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_Heading" xml:space="preserve">
+    <value>Actions for {0}</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_Target" xml:space="preserve">
+    <value>Target</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_Examine" xml:space="preserve">
+    <value>Examine</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_AdventurePlate" xml:space="preserve">
+    <value>View Adventure Plate</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_Tell" xml:space="preserve">
+    <value>Set Active Chat</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Search" xml:space="preserve">
+    <value>Search for...</value>
+  </data>
+  <data name="Windows_Settings_Title" xml:space="preserve">
+    <value>[{0}] Settings</value>
+  </data>
+  <data name="Commands_WhoSettings_Help" xml:space="preserve">
+    <value>Opens the plugin settings window.</value>
+  </data>
+  <data name="UserInterface_Settings_Heading" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="UserInterface_Settings_General_Heading" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="UserInterface_Settings_General_OpenOnLogin" xml:space="preserve">
+    <value>Open window on login</value>
+  </data>
+  <data name="UserInterface_Settings_General_HideInCombat" xml:space="preserve">
+    <value>Hide in combat</value>
+  </data>
+  <data name="UserInterface_Settings_General_HideInInstance" xml:space="preserve">
+    <value>Hide in instances</value>
+  </data>
+  <data name="UserInterface_Settings_General_FilterAFKPlayers" xml:space="preserve">
+    <value>Filter AFK Players</value>
+  </data>
+  <data name="UserInterface_Settings_General_LockPosition" xml:space="preserve">
+    <value>Disable window moving</value>
+  </data>
+  <data name="UserInterface_Settings_General_LockSize" xml:space="preserve">
+    <value>Disable window resizing</value>
+  </data>
+  <data name="UserInterface_Settings_General_FilterAFKPlayers_Description" xml:space="preserve">
+    <value>Remove AFK players from the nearby players list.</value>
+  </data>
+  <data name="UserInterface_Settings_General_HideInCombat_Description" xml:space="preserve">
+    <value>Automatically hide the window when in combat.</value>
+  </data>
+  <data name="UserInterface_Settings_General_HideInInstance_Description" xml:space="preserve">
+    <value>Automatically hide the window when inside of instances</value>
+  </data>
+  <data name="UserInterface_Settings_General_LockPosition_Description" xml:space="preserve">
+    <value>Prevent the window from being moved.</value>
+  </data>
+  <data name="UserInterface_Settings_General_LockSize_Description" xml:space="preserve">
+    <value>Prevent the window from being resized.</value>
+  </data>
+  <data name="UserInterface_Settings_General_OpenOnLogin_Description" xml:space="preserve">
+    <value>Automatically open the window when logging in/restarting the plugin whilst logged in.</value>
+  </data>
+  <data name="UserInterface_Settings_Debug_Disclaimer" xml:space="preserve">
+    <value>The information below should be attached alongside any bug reports/support requests to help diagnose any problems you may be having, you can see a preview of the information below before copying it to your clipboard if you wish.</value>
+  </data>
+  <data name="UserInterface_Settings_Debug_Copy" xml:space="preserve">
+    <value>Copy Debug Information</value>
+  </data>
+  <data name="UserInterface_Settings_Debug_Info" xml:space="preserve">
+    <value>Information Snapshot</value>
+  </data>
+  <data name="UserInterface_Settings_Debug_Heading" xml:space="preserve">
+    <value>Debug</value>
+  </data>
+</root>
