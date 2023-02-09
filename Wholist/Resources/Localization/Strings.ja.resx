@@ -27,28 +27,28 @@
     <value>You can't view nearby players whilst participating in PvP.</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Name" xml:space="preserve">
-    <value>Name</value>
+    <value>キャラクター名</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Company" xml:space="preserve">
-    <value>Company</value>
+    <value>FC(略称)</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Level" xml:space="preserve">
-    <value>Level</value>
+    <value>レベル</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Class" xml:space="preserve">
-    <value>Class</value>
+    <value>クラス/ジョブ</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Total" xml:space="preserve">
-    <value>Total: {0}</value>
+    <value>合計:{0}</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Heading" xml:space="preserve">
-    <value>Actions for {0}</value>
+    <value>アクションを実行:{0}</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Target" xml:space="preserve">
-    <value>Target</value>
+    <value>ターゲット</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Examine" xml:space="preserve">
-    <value>Examine</value>
+    <value>調べる</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_AdventurePlate" xml:space="preserve">
     <value>View Adventure Plate</value>
@@ -57,19 +57,19 @@
     <value>Send Tell</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Search" xml:space="preserve">
-    <value>Search for...</value>
+    <value>検索...</value>
   </data>
   <data name="Windows_Settings_Title" xml:space="preserve">
-    <value>[{0}] Settings</value>
+    <value>[{0}] の設定</value>
   </data>
   <data name="Commands_WhoSettings_Help" xml:space="preserve">
     <value>Opens the plugin settings window.</value>
   </data>
   <data name="UserInterface_Settings_Heading" xml:space="preserve">
-    <value>Settings</value>
+    <value>設定</value>
   </data>
   <data name="UserInterface_Settings_General_Heading" xml:space="preserve">
-    <value>General</value>
+    <value>基本設定</value>
   </data>
   <data name="UserInterface_Settings_General_OpenOnLogin" xml:space="preserve">
     <value>Open window on login</value>
@@ -117,6 +117,6 @@
     <value>Information Snapshot</value>
   </data>
   <data name="UserInterface_Settings_Debug_Heading" xml:space="preserve">
-    <value>Debug</value>
+    <value>デバッグ</value>
   </data>
 </root>
