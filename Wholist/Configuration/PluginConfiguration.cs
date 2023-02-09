@@ -74,7 +74,6 @@ namespace Wholist.Configuration
         {
             public Vector4 Friend = new(1.0f, 0.5f, 0.0f, 1.0f);
             public Vector4 Party = new(0.0f, 0.7f, 1.0f, 1.0f);
-            public Vector4 FreeCompany = new(0.0f, 1.0f, 0.0f, 1.0f);
             public Vector4 MeleeDPS = new(0.7058824f, 0f, 0f, 1f);
             public Vector4 RangedDPS = new(0.7058824f, 0f, 0f, 1f);
             public Vector4 Healer = new(0f, 0.8f, 0.1333333f, 1f);

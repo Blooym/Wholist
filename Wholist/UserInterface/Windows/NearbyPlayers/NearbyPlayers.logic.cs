@@ -99,10 +99,6 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             {
                 return Configuration.Colours.Friend;
             }
-            else if (playerInfo.IsInFreeCompany)
-            {
-                return Configuration.Colours.FreeCompany;
-            }
             else
             {
                 return ImGuiColors.DalamudWhite;

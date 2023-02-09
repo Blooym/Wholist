@@ -22,10 +22,6 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
-            if (ColourEdit.Draw(Strings.UserInterface_Settings_Colours_FreeCompany, ref NearbyPlayersLogic.Configuration.Colours.FreeCompany))
-            {
-                NearbyPlayersLogic.Configuration.Save();
-            }
             ImGui.Dummy(Spacing.SectionSpacing);
 
             SiGui.Heading(Strings.UserInterface_Settings_Colours_JobsColours);
