@@ -116,4 +116,70 @@
   <data name="UserInterface_Settings_Debug_Heading" xml:space="preserve">
     <value>デバッグ</value>
   </data>
+  <data name="UserInterface_Settings_Donate_Heading" xml:space="preserve">
+    <value>Donate</value>
+  </data>
+  <data name="UserInterface_Settings_Donate_Description" xml:space="preserve">
+    <value>If you like this plugin and wish to support the developer, you can do so below.</value>
+  </data>
+  <data name="UserInterface_Settings_Donate_Kofi" xml:space="preserve">
+    <value>Ko-Fi</value>
+  </data>
+  <data name="UserInterface_Settings_Donate_GitHubSponsors" xml:space="preserve">
+    <value>GitHub Sponsors</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_SetChatTarget" xml:space="preserve">
+    <value>Set chat target to {0}</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_Friend" xml:space="preserve">
+    <value>Friend</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_Party" xml:space="preserve">
+    <value>Party</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_MeleeDPS" xml:space="preserve">
+    <value>Melee DPS</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_RangedDPS" xml:space="preserve">
+    <value>Ranged DPS</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_Healer" xml:space="preserve">
+    <value>Healer</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_Tank" xml:space="preserve">
+    <value>Tank</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_Other" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_JobsColours" xml:space="preserve">
+    <value>Job Colours</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_NameColours" xml:space="preserve">
+    <value>Name Colours</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_OtherOptions" xml:space="preserve">
+    <value>Other Options</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_ResetAll" xml:space="preserve">
+    <value>Reset all colours</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers" xml:space="preserve">
+    <value>Max players to show</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers_Description" xml:space="preserve">
+    <value>The maximum amount of players to be shown on the nearby players list.</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_Default" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_UpdateTimeNotice_Text" xml:space="preserve">
+    <value>Please note that it may take some time for the user interface to visually reflect your colour changes.</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_UpdateTimeNotice_Title" xml:space="preserve">
+    <value>Notice</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_Heading" xml:space="preserve">
+    <value>Colours</value>
+  </data>
 </root>
