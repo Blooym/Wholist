@@ -50,6 +50,11 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         }
 
         /// <summary>
+        /// Whether or not the window should be closed when the escape key is pressed.
+        /// </summary>
+        internal static bool DisableEscClose => Configuration.NearbyPlayers.LockPosition;
+
+        /// <summary>
         /// The search text to apply to the object table.
         /// </summary>
         internal string SearchText = string.Empty;

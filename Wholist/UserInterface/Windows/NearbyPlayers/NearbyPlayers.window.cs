@@ -54,6 +54,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         public override void Draw()
         {
             this.Flags = NearbyPlayersLogic.ApplyFlagConfiguration(this.Flags);
+            this.RespectCloseHotkey = !NearbyPlayersLogic.DisableEscClose;
 
             var playersToDraw = this.logic.GetNearbyPlayers();
             if (ImGui.BeginChild("##NearbyChild", this.childSize, true))
