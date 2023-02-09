@@ -118,7 +118,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         {
             // Name.
             ImGui.TableNextColumn();
-            SiGui.TextColoured(NearbyPlayersLogic.GetColourForPlayer(obj), obj.Name);
+            SiGui.TextColoured(obj.NameColour, obj.Name);
 
             // Context menu.
             DrawContextMenu(obj);

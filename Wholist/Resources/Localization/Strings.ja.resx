@@ -68,9 +68,6 @@
   <data name="UserInterface_Settings_Heading" xml:space="preserve">
     <value>設定</value>
   </data>
-  <data name="UserInterface_Settings_NearbyPlayers_Heading" xml:space="preserve">
-    <value>Nearby Players</value>
-  </data>
   <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin" xml:space="preserve">
     <value>Open window on login</value>
   </data>

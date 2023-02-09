@@ -10,10 +10,23 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
 {
     internal sealed class ColoursTab
     {
+        /// <summary>
+        /// Draws the colours tab of the settings window.
+        /// </summary>
+        /// <param name="_"></param>
         public static void Draw(SettingsLogic _)
         {
-            SiGui.Heading(Strings.UserInterface_Settings_Colours_NameColours);
+            // Colour notice.
+            SiGui.Heading(Strings.UserInterface_Settings_Colours_UpdateTimeNotice_Title);
+            SiGui.TextWrapped(Strings.UserInterface_Settings_Colours_UpdateTimeNotice_Text);
+            ImGui.Dummy(Spacing.SectionSpacing);
 
+            // Name colour settings.
+            SiGui.Heading(Strings.UserInterface_Settings_Colours_NameColours);
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_Colours_Default, ref NearbyPlayersLogic.Configuration.Colours.Default))
+            {
+                NearbyPlayersLogic.Configuration.Save();
+            }
             if (ColourEdit.Draw(Strings.UserInterface_Settings_Colours_Friend, ref NearbyPlayersLogic.Configuration.Colours.Friend))
             {
                 NearbyPlayersLogic.Configuration.Save();
@@ -24,6 +37,7 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             }
             ImGui.Dummy(Spacing.SectionSpacing);
 
+            // Job colours.
             SiGui.Heading(Strings.UserInterface_Settings_Colours_JobsColours);
             if (ColourEdit.Draw(Strings.UserInterface_Settings_Colours_MeleeDPS, ref NearbyPlayersLogic.Configuration.Colours.MeleeDPS))
             {
@@ -47,6 +61,7 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             }
             ImGui.Dummy(Spacing.SectionSpacing);
 
+            // Other options.
             SiGui.Heading(Strings.UserInterface_Settings_Colours_OtherOptions);
             if (ImGui.Button(Strings.UserInterface_Settings_Colours_ResetAll))
             {

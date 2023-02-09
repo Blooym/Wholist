@@ -1,11 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using Dalamud.Game.ClientState.Objects.SubKinds;
-using Dalamud.Interface.Colors;
 using Dalamud.Utility;
 using FFXIVClientStructs.FFXIV.Client.UI;
-using FFXIVClientStructs.FFXIV.Common.Math;
 using ImGuiNET;
 using Sirensong.Game;
 using Sirensong.Game.Enums;
@@ -18,11 +14,21 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
 {
     internal sealed class NearbyPlayersLogic
     {
+        /// <summary>
+        /// The search text to apply to the object table.
+        /// </summary>
+        internal string SearchText = string.Empty;
+
         /// <inheritdoc cref="Configuration" />
         internal static PluginConfiguration Configuration => Services.Configuration;
 
         /// <inheritdoc cref="IsPvPExcludingDen" />
         internal static bool IsPvPExcludingDen => Services.ClientState.IsPvPExcludingDen;
+
+        /// <summary>
+        /// Whether or not the window should be closed when the escape key is pressed.
+        /// </summary>
+        internal static bool DisableEscClose => Configuration.NearbyPlayers.LockPosition;
 
         /// <summary>
         /// Applies the current flag configuration to the window.
@@ -53,23 +59,33 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         }
 
         /// <summary>
-        /// Whether or not the window should be closed when the escape key is pressed.
-        /// </summary>
-        internal static bool DisableEscClose => Configuration.NearbyPlayers.LockPosition;
-
-        /// <summary>
-        /// The search text to apply to the object table.
-        /// </summary>
-        internal string SearchText = string.Empty;
-
-        /// <summary>
-        /// Pulls a list of <see cref="PlayerCharacter" /> from the object table any applies the filter & configuration.
+        /// Pulls <see cref="PlayerCharacter" />s from the object table any applies the filter & configuration.
         /// </summary>
         /// <returns></returns>
-        internal List<PlayerInfoSlim> GetNearbyPlayers() => Services.NearbyPlayerManager.GetNearbyPlayers()
-                .Where(o => !Configuration.NearbyPlayers.FilterAfk || o.OnlineStatusId != (uint)OnlineStatusType.AFK)
-                .Where(o => this.SearchText.IsNullOrWhitespace() || o.Name.ToString().Contains(this.SearchText, StringComparison.OrdinalIgnoreCase))
-                .ToList();
+        internal List<PlayerInfoSlim> GetNearbyPlayers()
+        {
+            var players = new List<PlayerInfoSlim>();
+            foreach (var player in Services.NearbyPlayerManager.GetNearbyPlayers())
+            {
+                if (players.Count >= Configuration.NearbyPlayers.MaxPlayersToShow)
+                {
+                    break;
+                }
+
+                if (Configuration.NearbyPlayers.FilterAfk && player.OnlineStatusId == (uint)OnlineStatusType.AFK)
+                {
+                    continue;
+                }
+
+                if (!this.SearchText.IsNullOrWhitespace() && !player.Name.ToString().Contains(this.SearchText, StringComparison.OrdinalIgnoreCase))
+                {
+                    continue;
+                }
+
+                players.Add(player);
+            }
+            return players;
+        }
 
         /// <summary>
         /// Sets the chat target to the given player.
@@ -82,27 +98,6 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             Services.XivCommon.Functions.Chat.SendMessage($"/tell {name}@{homeworldName} ");
             GameChat.Print(Strings.UserInterface_NearbyPlayers_SetChatTarget.Format($"{name}@{homeworldName}"));
             UIModule.PlaySound((int)SoundEffect.Se16, 0, 0, 0);
-        }
-
-        /// <summary>
-        /// Gets the colour for the given player.
-        /// </summary>
-        /// <param name="playerInfo"></param>
-        /// <returns>The colour for the player.</returns>
-        internal static Vector4 GetColourForPlayer(PlayerInfoSlim playerInfo)
-        {
-            if (playerInfo.IsInParty)
-            {
-                return Configuration.Colours.Party;
-            }
-            else if (playerInfo.IsFriend)
-            {
-                return Configuration.Colours.Friend;
-            }
-            else
-            {
-                return ImGuiColors.DalamudWhite;
-            }
         }
     }
 }

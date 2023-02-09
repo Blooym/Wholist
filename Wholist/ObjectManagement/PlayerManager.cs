@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Numerics;
 using Dalamud.Game.ClientState.Objects.SubKinds;
 using Sirensong.Caching.Collections;
 using Sirensong.Game.Extensions;
@@ -17,8 +18,8 @@ namespace Wholist.ObjectManagement
         /// </summary>
         private readonly CacheCollection<PlayerCharacter, PlayerInfoSlim> nearbyPlayersCache = new(new CacheOptions<PlayerCharacter, PlayerInfoSlim>()
         {
-            AbsoluteExpiry = TimeSpan.FromSeconds(3),
-            ExpireInterval = TimeSpan.FromSeconds(1),
+            AbsoluteExpiry = TimeSpan.FromSeconds(5),
+            ExpireInterval = TimeSpan.FromSeconds(5),
         });
 
         /// <summary>
@@ -65,5 +66,60 @@ namespace Wholist.ObjectManagement
         /// <param name="player">The <see cref="PlayerCharacter" /> to get the <see cref="PlayerInfoSlim" /> for.</param>
         /// <returns>The <see cref="PlayerInfoSlim" /> for the given <see cref="PlayerCharacter" />.</returns>
         public PlayerInfoSlim GetSlimInfo(PlayerCharacter player) => this.nearbyPlayersCache.GetOrAdd(player, value => new PlayerInfoSlim(player));
+
+        /// <summary>
+        /// Checks if the given <see cref="PlayerCharacter" /> is in the party from its ObjectId.
+        /// </summary>
+        /// <param name="player">The <see cref="PlayerCharacter" /> to check.</param>
+        /// <returns>True if the <see cref="PlayerCharacter" /> is in the party, otherwise false.</returns>
+        public static bool IsPlayerInParty(PlayerCharacter playerCharacter)
+        {
+            foreach (var member in Services.PartyList)
+            {
+                if (member.ObjectId == playerCharacter.ObjectId)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Checks if the given <see cref="PlayerCharacter" /> is on the friendlist.
+        /// </summary>
+        /// <param name="player">The <see cref="PlayerCharacter" /> to check.</param>
+        /// <returns>True if the <see cref="PlayerCharacter" /> is on the friendlist, otherwise false.</returns>
+        public static bool IsPlayerOnFriendlist(PlayerCharacter player)
+        {
+            foreach (var friend in Services.XivCommon.Functions.FriendList.List)
+            {
+                if (friend.Name.TextValue == player.Name.TextValue && friend.HomeWorld == player.HomeWorld.Id)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Gets the colour for the given player.
+        /// </summary>
+        /// <param name="playerInfo"></param>
+        /// <returns>The colour for the player.</returns>
+        internal static Vector4 GetColourForPlayer(PlayerInfoSlim playerInfo)
+        {
+            if (playerInfo.IsInParty)
+            {
+                return Services.Configuration.Colours.Party;
+            }
+            else if (playerInfo.IsFriend)
+            {
+                return Services.Configuration.Colours.Friend;
+            }
+            else
+            {
+                return Services.Configuration.Colours.Default;
+            }
+        }
     }
 }

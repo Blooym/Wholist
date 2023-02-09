@@ -8,11 +8,17 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
 {
     internal sealed class DonationTab
     {
+        /// <summary>
+        /// Draws the donation tab of the settings window.
+        /// </summary>
+        /// <param name="_"></param>
         public static void Draw(SettingsLogic _)
         {
+            // Donate heading.
             SiGui.Heading(Strings.UserInterface_Settings_Donate_Heading);
             SiGui.TextWrapped(Strings.UserInterface_Settings_Donate_Description);
 
+            // KoFi button.
             if (ImGui.Button(Strings.UserInterface_Settings_Donate_Kofi))
             {
                 Util.OpenLink(Constants.Links.KoFi);
@@ -20,6 +26,7 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             SiGui.TooltipLast(Constants.Links.KoFi);
             ImGui.SameLine();
 
+            // GitHub sponsors button.
             if (ImGui.Button(Strings.UserInterface_Settings_Donate_GitHubSponsors))
             {
                 Util.OpenLink(Constants.Links.GitHubSponsors);
