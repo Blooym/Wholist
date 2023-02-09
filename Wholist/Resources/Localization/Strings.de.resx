@@ -119,4 +119,55 @@
   <data name="UserInterface_Settings_Debug_Heading" xml:space="preserve">
     <value>Debuggen</value>
   </data>
+  <data name="UserInterface_Settings_Donate_Heading" xml:space="preserve">
+    <value>Donate</value>
+  </data>
+  <data name="UserInterface_Settings_Donate_Description" xml:space="preserve">
+    <value>If you like this plugin and wish to support the developer, you can do so below.</value>
+  </data>
+  <data name="UserInterface_Settings_Donate_Kofi" xml:space="preserve">
+    <value>Ko-Fi</value>
+  </data>
+  <data name="UserInterface_Settings_Donate_GitHubSponsors" xml:space="preserve">
+    <value>GitHub Sponsors</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_SetChatTarget" xml:space="preserve">
+    <value>Set chat target to {0}</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_Friend" xml:space="preserve">
+    <value>Friend</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_Party" xml:space="preserve">
+    <value>Party</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_FreeCompany" xml:space="preserve">
+    <value>Free Company</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_MeleeDPS" xml:space="preserve">
+    <value>Melee DPS</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_RangedDPS" xml:space="preserve">
+    <value>Ranged DPS</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_Healer" xml:space="preserve">
+    <value>Healer</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_Tank" xml:space="preserve">
+    <value>Tank</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_Other" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_JobsColours" xml:space="preserve">
+    <value>Job Colours</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_NameColours" xml:space="preserve">
+    <value>Name Colours</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_OtherOptions" xml:space="preserve">
+    <value>Other Options</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_ResetAll" xml:space="preserve">
+    <value>Reset all colours</value>
+  </data>
 </root>
