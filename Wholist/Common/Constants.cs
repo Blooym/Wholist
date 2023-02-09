@@ -109,6 +109,12 @@ namespace Wholist.Common
                 """;
         }
 
+        internal static class Links
+        {
+            internal const string KoFi = "https://ko-fi.com/BitsOfAByte";
+            internal const string GitHubSponsors = "https://github.com/sponsors/BitsOfAByte";
+        }
+
         internal static class Commands
         {
             internal const string WhoCommand = "/who";

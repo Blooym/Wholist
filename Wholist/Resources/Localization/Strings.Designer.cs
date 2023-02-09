@@ -248,5 +248,29 @@ namespace Wholist.Resources.Localization {
                 return ResourceManager.GetString("UserInterface_Settings_Debug_Heading", resourceCulture);
             }
         }
+        
+        internal static string UserInterface_Settings_Donate_Heading {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Donate_Heading", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_Donate_Description {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Donate_Description", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_Donate_Kofi {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Donate_Kofi", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_Donate_GitHubSponsors {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Donate_GitHubSponsors", resourceCulture);
+            }
+        }
     }
 }

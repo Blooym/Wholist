@@ -13,6 +13,7 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             SiGui.Heading(Strings.UserInterface_Settings_Debug_Heading);
             SiGui.TextWrapped(Strings.UserInterface_Settings_Debug_Disclaimer);
             ImGui.Dummy(Spacing.CollapsibleHeaderSpacing);
+
             if (ImGui.Button(Strings.UserInterface_Settings_Debug_Copy))
             {
                 Services.Clipboard.Copy(Constants.Build.DebugString);
@@ -20,11 +21,11 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             ImGui.Dummy(Spacing.SectionSpacing);
 
             SiGui.Heading(Strings.UserInterface_Settings_Debug_Info);
-
             if (ImGui.BeginChild("DebugInformation"))
             {
                 SiGui.TextWrapped(Constants.Build.DebugString);
             };
+
             ImGui.EndChild();
         }
     }

@@ -23,12 +23,14 @@ namespace Wholist.UserInterface.Windows.Settings
         {
             General,
             Debug,
+            Donation,
         }
 
         public static string ConfigTabName(ConfigurationTabs tab)
         => tab switch
         {
             ConfigurationTabs.General => Strings.UserInterface_Settings_General_Heading,
+            ConfigurationTabs.Donation => Strings.UserInterface_Settings_Donate_Heading,
             ConfigurationTabs.Debug => Strings.UserInterface_Settings_Debug_Heading,
             _ => tab.ToString(),
         };

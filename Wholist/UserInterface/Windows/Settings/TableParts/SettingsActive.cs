@@ -11,6 +11,9 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts
                 case SettingsLogic.ConfigurationTabs.General:
                     GeneralTab.Draw(logic);
                     break;
+                case SettingsLogic.ConfigurationTabs.Donation:
+                    DonationTab.Draw(logic);
+                    break;
                 case SettingsLogic.ConfigurationTabs.Debug:
                     DebugTab.Draw(logic);
                     break;

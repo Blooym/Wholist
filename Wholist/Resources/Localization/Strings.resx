@@ -120,4 +120,16 @@
   <data name="UserInterface_Settings_Debug_Heading" xml:space="preserve">
     <value>Debug</value>
   </data>
+  <data name="UserInterface_Settings_Donate_Heading" xml:space="preserve">
+    <value>Donate</value>
+  </data>
+  <data name="UserInterface_Settings_Donate_Description" xml:space="preserve">
+    <value>If you like this plugin and wish to support the developer, you can do so below.</value>
+  </data>
+  <data name="UserInterface_Settings_Donate_Kofi" xml:space="preserve">
+    <value>Ko-Fi</value>
+  </data>
+  <data name="UserInterface_Settings_Donate_GitHubSponsors" xml:space="preserve">
+    <value>GitHub Sponsors</value>
+  </data>
 </root>
