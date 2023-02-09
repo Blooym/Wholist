@@ -78,13 +78,14 @@ namespace Wholist.Common
             internal static readonly string DebugString =
                 $"""
                 Git Information:
+
                 ```
                 Git Branch: {GitBranch}
                 Git Commit Hash: #{GitCommitHash}
                 Git Commit Date: {GitCommitDate}
                 Git Commit Message: {GitCommitMessage}
                 ```
-                
+
                 Build Information:
                 ```
                 Plugin Version: {VersionInformational}
@@ -94,10 +95,12 @@ namespace Wholist.Common
                 Build Configuration: {BuildConfiguration}
                 Is Pre-Release: {IsPreRelease}
                 ```
+
                 Plugin Information:
                 ```
                 Repository/Source: {Services.PluginInterface.SourceRepository}
                 ```
+
                 Environment Information:
                 ```
                 Real Operating System: {Sirensong.Utility.Common.GetOS()}
@@ -109,6 +112,7 @@ namespace Wholist.Common
         internal static class Commands
         {
             internal const string WhoCommand = "/who";
+            internal const string WhoSettingsCommand = "/whosettings";
         }
     }
 

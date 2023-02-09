@@ -5,7 +5,7 @@ namespace Wholist.CommandHandling.Interfaces
     /// <summary>
     /// Represents a command.
     /// </summary>
-    internal interface ICommand
+    internal interface IDalamudCommand
     {
         /// <summary>
         /// The name of the command (including the /)

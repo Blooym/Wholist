@@ -63,117 +63,189 @@ namespace Wholist.Resources.Localization {
             }
         }
         
-        internal static string UserInterface_Who_Players_Name {
+        internal static string UserInterface_NearbyPlayers_Players_Name {
             get {
-                return ResourceManager.GetString("UserInterface_Who_Players_Name", resourceCulture);
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Name", resourceCulture);
             }
         }
         
-        internal static string UserInterface_Who_Players_Company {
+        internal static string UserInterface_NearbyPlayers_Players_Company {
             get {
-                return ResourceManager.GetString("UserInterface_Who_Players_Company", resourceCulture);
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Company", resourceCulture);
             }
         }
         
-        internal static string UserInterface_Who_Players_Level {
+        internal static string UserInterface_NearbyPlayers_Players_Level {
             get {
-                return ResourceManager.GetString("UserInterface_Who_Players_Level", resourceCulture);
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Level", resourceCulture);
             }
         }
         
-        internal static string UserInterface_Who_Players_Class {
+        internal static string UserInterface_NearbyPlayers_Players_Class {
             get {
-                return ResourceManager.GetString("UserInterface_Who_Players_Class", resourceCulture);
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Class", resourceCulture);
             }
         }
         
-        internal static string UserInterface_Who_Players_Total {
+        internal static string UserInterface_NearbyPlayers_Players_Total {
             get {
-                return ResourceManager.GetString("UserInterface_Who_Players_Total", resourceCulture);
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Total", resourceCulture);
             }
         }
         
-        internal static string UserInterface_Who_Players_Submenu_Heading {
+        internal static string UserInterface_NearbyPlayers_Players_Submenu_Heading {
             get {
-                return ResourceManager.GetString("UserInterface_Who_Players_Submenu_Heading", resourceCulture);
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Submenu_Heading", resourceCulture);
             }
         }
         
-        internal static string UserInterface_Who_Players_Submenu_Target {
+        internal static string UserInterface_NearbyPlayers_Players_Submenu_Target {
             get {
-                return ResourceManager.GetString("UserInterface_Who_Players_Submenu_Target", resourceCulture);
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Submenu_Target", resourceCulture);
             }
         }
         
-        internal static string UserInterface_Who_Players_Submenu_Examine {
+        internal static string UserInterface_NearbyPlayers_Players_Submenu_Examine {
             get {
-                return ResourceManager.GetString("UserInterface_Who_Players_Submenu_Examine", resourceCulture);
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Submenu_Examine", resourceCulture);
             }
         }
         
-        internal static string UserInterface_Who_Players_AdventurePlate {
+        internal static string UserInterface_NearbyPlayers_Players_AdventurePlate {
             get {
-                return ResourceManager.GetString("UserInterface_Who_Players_AdventurePlate", resourceCulture);
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_AdventurePlate", resourceCulture);
             }
         }
         
-        internal static string UserInterface_Who_Players_Submenu_Tell {
+        internal static string UserInterface_NearbyPlayers_Players_Submenu_Tell {
             get {
-                return ResourceManager.GetString("UserInterface_Who_Players_Submenu_Tell", resourceCulture);
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Submenu_Tell", resourceCulture);
             }
         }
         
-        internal static string UserInterface_Who_Players_None {
+        internal static string UserInterface_NearbyPlayers_Search {
             get {
-                return ResourceManager.GetString("UserInterface_Who_Players_None", resourceCulture);
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Search", resourceCulture);
             }
         }
         
-        internal static string UserInterface_Who_Search {
+        internal static string Windows_Settings_Title {
             get {
-                return ResourceManager.GetString("UserInterface_Who_Search", resourceCulture);
+                return ResourceManager.GetString("Windows_Settings_Title", resourceCulture);
             }
         }
         
-        internal static string UserInterface_Who_Configuration_HideAfkPlayers {
+        internal static string Commands_WhoSettings_Help {
             get {
-                return ResourceManager.GetString("UserInterface_Who_Configuration_HideAfkPlayers", resourceCulture);
+                return ResourceManager.GetString("Commands_WhoSettings_Help", resourceCulture);
             }
         }
         
-        internal static string UserInterface_Who_Players_Submenu_AFK {
+        internal static string UserInterface_Settings_Heading {
             get {
-                return ResourceManager.GetString("UserInterface_Who_Players_Submenu_AFK", resourceCulture);
+                return ResourceManager.GetString("UserInterface_Settings_Heading", resourceCulture);
             }
         }
         
-        internal static string UserInterface_Who_Players_Submenu_Busy {
+        internal static string UserInterface_Settings_General_Heading {
             get {
-                return ResourceManager.GetString("UserInterface_Who_Players_Submenu_Busy", resourceCulture);
+                return ResourceManager.GetString("UserInterface_Settings_General_Heading", resourceCulture);
             }
         }
         
-        internal static string Errors_NotLoggedIn {
+        internal static string UserInterface_Settings_General_OpenOnLogin {
             get {
-                return ResourceManager.GetString("Errors_NotLoggedIn", resourceCulture);
+                return ResourceManager.GetString("UserInterface_Settings_General_OpenOnLogin", resourceCulture);
             }
         }
         
-        internal static string UserInterface_Who_Players_Submenu_Tell_Send {
+        internal static string UserInterface_Settings_General_HideInCombat {
             get {
-                return ResourceManager.GetString("UserInterface_Who_Players_Submenu_Tell_Send", resourceCulture);
+                return ResourceManager.GetString("UserInterface_Settings_General_HideInCombat", resourceCulture);
             }
         }
         
-        internal static string UserInterface_Misc_ExportLocalization {
+        internal static string UserInterface_Settings_General_HideInInstance {
             get {
-                return ResourceManager.GetString("UserInterface_Misc_ExportLocalization", resourceCulture);
+                return ResourceManager.GetString("UserInterface_Settings_General_HideInInstance", resourceCulture);
             }
         }
         
-        internal static string Errors_CantSendTell {
+        internal static string UserInterface_Settings_General_FilterAFKPlayers {
             get {
-                return ResourceManager.GetString("Errors_CantSendTell", resourceCulture);
+                return ResourceManager.GetString("UserInterface_Settings_General_FilterAFKPlayers", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_General_LockPosition {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_General_LockPosition", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_General_LockSize {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_General_LockSize", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_General_FilterAFKPlayers_Description {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_General_FilterAFKPlayers_Description", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_General_HideInCombat_Description {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_General_HideInCombat_Description", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_General_HideInInstance_Description {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_General_HideInInstance_Description", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_General_LockPosition_Description {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_General_LockPosition_Description", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_General_LockSize_Description {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_General_LockSize_Description", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_General_OpenOnLogin_Description {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_General_OpenOnLogin_Description", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_Debug_Disclaimer {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Debug_Disclaimer", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_Debug_Copy {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Debug_Copy", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_Debug_Info {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Debug_Info", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_Debug_Heading {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Debug_Heading", resourceCulture);
             }
         }
     }

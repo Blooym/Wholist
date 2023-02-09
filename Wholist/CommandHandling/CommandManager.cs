@@ -12,13 +12,14 @@ namespace Wholist.CommandHandling
         /// <summary>
         /// The list of registered commands.
         /// </summary>
-        private ICommand[] commands = new ICommand[]
+        private IDalamudCommand[] commands = new IDalamudCommand[]
         {
             new WhoCommand(),
+            new WhoSettingsCommand(),
         };
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CommandManager"/> class.
+        /// Initializes a new instance of the <see cref="CommandManager" /> class.
         /// </summary>
         private CommandManager()
         {
@@ -39,7 +40,7 @@ namespace Wholist.CommandHandling
                 {
                     Services.Commands.RemoveHandler(command.Name);
                 }
-                this.commands = Array.Empty<ICommand>();
+                this.commands = Array.Empty<IDalamudCommand>();
 
                 this.disposedValue = true;
             }

@@ -1,12 +1,13 @@
 using Dalamud.Game.Command;
+using Sirensong.Game;
 using Wholist.CommandHandling.Interfaces;
 using Wholist.Common;
 using Wholist.Resources.Localization;
-using Wholist.UserInterface.Windows.WhoWindow;
+using Wholist.UserInterface.Windows.NearbyPlayers;
 
 namespace Wholist.CommandHandling.Commands
 {
-    internal sealed class WhoCommand : ICommand
+    internal sealed class WhoCommand : IDalamudCommand
     {
         /// <inheritdoc />
         public string Name { get; } = Constants.Commands.WhoCommand;
@@ -23,7 +24,14 @@ namespace Wholist.CommandHandling.Commands
         {
             if (command == Constants.Commands.WhoCommand)
             {
-                Services.WindowManager.WindowingSystem.GetWindow<WhoWindow>()?.Toggle();
+                if (Services.ClientState.IsPvP)
+                {
+                    BetterLog.Information(Strings.Errors_NoUseInPvP);
+                    GameChat.PrintError(Strings.Errors_NoUseInPvP);
+                    return;
+                }
+
+                Services.WindowManager.WindowingSystem.GetWindow<NearbyPlayersWindow>()?.Toggle();
             }
         };
     }
