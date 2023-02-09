@@ -68,7 +68,7 @@
   <data name="UserInterface_Settings_Heading" xml:space="preserve">
     <value>Einstellungen</value>
   </data>
-  <data name="UserInterface_Setthttps://github.com/BitsOfAByte/Wholist/pull/15/conflict?name=Wholist%252FResources%252FLocalization%252FStrings.es.resx&ancestor_oid=00b71adeb983eea036f820880c429ffb6258cfc1&base_oid=7247b879b799b44673c309d99ec0b8e7191ec8b2&head_oid=baef7be9828b7c7478c5d30b49df0032b05a2f02ings_NearbyPlayers_OpenOnLogin" xml:space="preserve">
+  <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin" xml:space="preserve">
     <value>Open window on login</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInCombat" xml:space="preserve">
