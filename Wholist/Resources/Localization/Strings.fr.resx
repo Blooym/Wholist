@@ -54,7 +54,7 @@
     <value>Voir la plaque d'aventurier</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Tell" xml:space="preserve">
-    <value>Set Active Chat</value>
+    <value>Send Tell</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Search" xml:space="preserve">
     <value>Rechercher...</value>
