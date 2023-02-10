@@ -5,11 +5,9 @@ changes | ci:
   - ".github/workflows/**/*"
 
 changes | source:
-  - "Wholist/**/*"
-  - !"Wholist/Resources/Localization/**/*.resx"
-  - !"Wholist/Resources/Localization/**/Strings.Designer.*"
-  - !"**/*.md"
-  - !"**/*.txt"
+  - "**/*.cs"
+  - "**/*.csproj"
+  - "**/packages.lock.json"
 
 changes | docs:
   - "**/*.md"
