@@ -1,6 +1,5 @@
 using Dalamud.Utility;
 using Lumina.Excel.GeneratedSheets;
-using Wholist.Common;
 
 namespace Wholist.DataStructures
 {
@@ -15,7 +14,7 @@ namespace Wholist.DataStructures
         /// <param name="world">The <see cref="World" /> to create the <see cref="WorldInfoSlim" /> from.</param>
         public WorldInfoSlim(World world)
         {
-            this.Name = Services.WorldCache.GetRow(world.RowId)!.Name.ToDalamudString().ToString();
+            this.Name = world.Name.ToDalamudString().ToString();
             this.Id = world.RowId;
         }
 

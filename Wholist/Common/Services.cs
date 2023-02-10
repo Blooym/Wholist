@@ -3,9 +3,7 @@ using Dalamud.Game.ClientState.Objects;
 using Dalamud.Game.ClientState.Party;
 using Dalamud.IoC;
 using Dalamud.Plugin;
-using Lumina.Excel.GeneratedSheets;
 using Sirensong;
-using Sirensong.Caching;
 using Sirensong.IoC;
 using Sirensong.UserInterface.Services;
 using Wholist.CommandHandling;
@@ -32,10 +30,6 @@ namespace Wholist.Common
         [PluginService] internal static PartyList PartyList { get; private set; } = null!;
 
         // Sirensong services
-        [SirenService] internal static LuminaCacheService<World> WorldCache { get; private set; } = null!;
-        [SirenService] internal static LuminaCacheService<ClassJob> ClassJobCache { get; private set; } = null!;
-        [SirenService] internal static LuminaCacheService<Map> MapCache { get; private set; } = null!;
-        [SirenService] internal static LuminaCacheService<TerritoryTypeTransient> TerritoryTransientCache { get; private set; } = null!;
         [SirenService] internal static ClipboardService Clipboard { get; private set; } = null!;
 
         // Plugin services

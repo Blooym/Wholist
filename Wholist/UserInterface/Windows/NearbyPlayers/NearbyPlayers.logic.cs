@@ -95,7 +95,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// <exception cref="InvalidOperationException"></exception>
         internal static unsafe void SetChatTellTarget(string name, string homeworldName)
         {
-            Services.XivCommon.Functions.Chat.SendMessage($"/tell {name}@{homeworldName} ");
+            Services.XivCommon.Functions.Chat.SendMessage($"/tell {name}@{homeworldName}");
             GameChat.Print(Strings.UserInterface_NearbyPlayers_SetChatTarget.Format($"{name}@{homeworldName}"));
             UIModule.PlaySound((int)SoundEffect.Se16, 0, 0, 0);
         }

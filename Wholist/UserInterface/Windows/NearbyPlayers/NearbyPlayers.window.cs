@@ -153,25 +153,28 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 {
                     obj.OpenExamine();
                 }
+
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_AdventurePlate))
                 {
                     obj.OpenCharaCard();
                 }
+
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_Target))
                 {
                     obj.Target();
                 }
+
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_Tell))
                 {
                     NearbyPlayersLogic.SetChatTellTarget(obj.Name, obj.Homeworld.Name);
                 }
+
                 ImGui.BeginDisabled(obj.Position == null);
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap))
                 {
                     MapHelper.FlagAndOpen(obj.Position!.Value, obj.Name);
                 }
                 ImGui.EndDisabled();
-
                 ImGui.EndPopup();
             }
         }
