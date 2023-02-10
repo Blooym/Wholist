@@ -6,10 +6,10 @@ changes | ci:
 
 changes | source:
   - "Wholist/**/*"
-  - "!Wholist/Resources/Localization/**/*.resx"
-  - "!Wholist/Resources/Localization/**/Strings.Designer.*"
-  - "!**/*.md"
-  - "!**/*.txt"
+  - !"Wholist/Resources/Localization/**/*.resx"
+  - !"Wholist/Resources/Localization/**/Strings.Designer.*"
+  - !"**/*.md"
+  - !"**/*.txt"
 
 changes | docs:
   - "**/*.md"
