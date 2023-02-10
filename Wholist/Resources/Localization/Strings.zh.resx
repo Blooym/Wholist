@@ -68,6 +68,9 @@
   <data name="UserInterface_Settings_Heading" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Heading" xml:space="preserve">
+    <value>Nearby Players</value>
+  </data>
   <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin" xml:space="preserve">
     <value>Open window on login</value>
   </data>
@@ -181,5 +184,8 @@
   </data>
   <data name="UserInterface_Settings_Colours_Heading" xml:space="preserve">
     <value>Colours</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap" xml:space="preserve">
+    <value>Find on Map</value>
   </data>
 </root>
