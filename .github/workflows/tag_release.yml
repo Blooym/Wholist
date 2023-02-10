@@ -8,12 +8,11 @@ on:
 permissions:
   contents: write
 
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
-
 jobs:
   Release-Plugin:
+      concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     env:
         DALAMUD_HOME: /tmp/dalamud
@@ -33,17 +32,17 @@ jobs:
         with:
           dotnet-version: 7.0.x
 
-      - name: Download Dalamud Library
+      - name: Download Dalamud Latest
         working-directory: Wholist
         run: |
           wget https://goatcorp.github.io/dalamud-distrib/latest.zip -O ${{ env.DALAMUD_HOME }}.zip
           unzip ${{ env.DALAMUD_HOME }}.zip -d ${{ env.DALAMUD_HOME }}
 
-      - name: Restore Dependencies
+      - name: Restore Project
         working-directory: Wholist
         run: dotnet restore
 
-      - name: Build Plugin
+      - name: Build Project
         shell: bash
         working-directory: Wholist
         run: |

@@ -1,8 +1,16 @@
-changes | localization:
+changes | l10n/i18n:
   - "Wholist/Resources/Localization/**/*"
 
 changes | ci:
   - ".github/workflows/**/*"
 
-changes | plugin:
+changes | source:
   - "Wholist/**/*"
+  - "!Wholist/Resources/Localization/**/*.resx"
+  - "!Wholist/Resources/Localization/**/Strings.Designer.*"
+  - "!**/*.md"
+  - "!**/*.txt"
+
+changes | docs:
+  - "**/*.md"
+  - "**/*.txt"

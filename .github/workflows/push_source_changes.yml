@@ -1,0 +1,76 @@
+name: "Push: Source Changes"
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Wholist/**.cs"
+      - "Wholist/**.csproj"
+      - "Wholist/**.resx"
+  pull_request:
+    branches: [main]
+    paths:
+      - "Wholist/**.cs"
+      - "Wholist/**.csproj"
+      - "Wholist/**.resx"
+    types: [ready_for_review, opened, synchronize, reopened]
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+    env:
+        DALAMUD_HOME: /tmp/dalamud
+        IsCI: true
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          submodules: true
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 7.0.x
+
+      - name: Download Dalamud
+        run: |
+          wget https://goatcorp.github.io/dalamud-distrib/latest.zip -O ${{ env.DALAMUD_HOME }}.zip
+          unzip ${{ env.DALAMUD_HOME }}.zip -d ${{ env.DALAMUD_HOME }}
+
+      - name: Check for Lint Errors
+        working-directory: Wholist
+        continue-on-error: true
+        run: | 
+          dotnet format --verify-no-changes > lint.txt 2>&1
+
+      - name: Report Lint Errors
+        working-directory: Wholist
+        if: ${{ failure() }}
+        run: |
+          echo "::warning::Linting problems found when running dotnet format. echo $(cat lint.txt)"
+
+      - name: Restore Project
+        working-directory: Wholist
+        run: dotnet restore
+
+      - name: Build Project (Debug)
+        working-directory: Wholist
+        run: | 
+          dotnet build -c Debug
+          echo "Checksum: $(sha512sum bin/x64/Debug/Wholist/latest.zip)"
+
+      - name: Build Project (Release)
+        working-directory: Wholist
+        run: |
+          dotnet build -c Release
+          echo "Checksum: $(sha512sum bin/x64/Release/Wholist/latest.zip)"
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: Wholist/bin/
