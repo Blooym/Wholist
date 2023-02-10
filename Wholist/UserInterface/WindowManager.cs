@@ -23,8 +23,8 @@ namespace Wholist.UserInterface
         /// </summary>
         private readonly Dictionary<Window, bool> windows = new()
         {
+            { new NearbyPlayersWindow(), false },
             { new SettingsWindow(), true },
-            { new NearbyPlayersWindow(), false }
         };
 
         /// <summary>
