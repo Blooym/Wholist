@@ -71,6 +71,7 @@ jobs:
           echo "Checksum: $(sha512sum bin/x64/Release/Wholist/latest.zip)"
 
       - name: Upload Artifacts
+        if: ${{ github.event_name != 'pull_request' }}
         uses: actions/upload-artifact@v3
         with:
           name: build
