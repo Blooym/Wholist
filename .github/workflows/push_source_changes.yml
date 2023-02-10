@@ -42,6 +42,7 @@ jobs:
           unzip ${{ env.DALAMUD_HOME }}.zip -d ${{ env.DALAMUD_HOME }}
 
       - name: Check for Lint Errors
+        id: lint
         working-directory: Wholist
         continue-on-error: true
         run: | 
@@ -49,7 +50,7 @@ jobs:
 
       - name: Report Lint Errors
         working-directory: Wholist
-        if: ${{ failure() }}
+        if : steps.lint.outcome == 'failure'
         run: |
           echo "::warning::Linting problems found when running dotnet format. echo $(cat lint.txt)"
 
