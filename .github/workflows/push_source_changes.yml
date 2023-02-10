@@ -52,7 +52,7 @@ jobs:
         working-directory: Wholist
         if : steps.lint.outcome == 'failure'
         run: |
-          echo "::warning::Linting problems found when running dotnet format. echo $(cat lint.txt)"
+          cat lint.txt | sed -E 's/^(.*)$/::warning:: \1/g'
 
       - name: Restore Project
         working-directory: Wholist
