@@ -180,10 +180,10 @@
     <value>Please note that it may take some time for the user interface to visually reflect your colour changes.</value>
   </data>
   <data name="UserInterface_Settings_Colours_UpdateTimeNotice_Title" xml:space="preserve">
-    <value>Notice</value>
+    <value>Notification</value>
   </data>
   <data name="UserInterface_Settings_Colours_Heading" xml:space="preserve">
-    <value>Colours</value>
+    <value>Couleurs</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap" xml:space="preserve">
     <value>Find on Map</value>
