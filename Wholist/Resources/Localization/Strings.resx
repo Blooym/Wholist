@@ -186,4 +186,7 @@
   <data name="UserInterface_Settings_Colours_Heading" xml:space="preserve">
     <value>Colours</value>
   </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap" xml:space="preserve">
+    <value>Find on Map</value>
+  </data>
 </root>

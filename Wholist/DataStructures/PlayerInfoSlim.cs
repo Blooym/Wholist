@@ -1,9 +1,9 @@
+using System.Numerics;
 using Dalamud.Game.ClientState.Objects.SubKinds;
 using FFXIVClientStructs.FFXIV.Client.UI.Agent;
-using FFXIVClientStructs.FFXIV.Common.Math;
 using Sirensong.Game.Extensions;
 using Wholist.Common;
-using Wholist.ObjectManagement;
+using Wholist.Game;
 
 namespace Wholist.DataStructures
 {
@@ -81,6 +81,11 @@ namespace Wholist.DataStructures
         /// Whether or not the player is in the local player's party.
         /// </summary>
         public readonly bool IsInParty;
+
+        /// <summary>
+        /// The location of the player.
+        /// </summary>
+        public Vector3? Position => this.playerCharacter.Position;
 
         /// <summary>
         /// Opens the examine window for the player.

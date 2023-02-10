@@ -7,7 +7,7 @@ using Sirensong.Game.Extensions;
 using Wholist.Common;
 using Wholist.DataStructures;
 
-namespace Wholist.ObjectManagement
+namespace Wholist.Game
 {
     internal sealed class PlayerManager : IDisposable
     {

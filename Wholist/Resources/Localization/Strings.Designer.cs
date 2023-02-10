@@ -380,5 +380,11 @@ namespace Wholist.Resources.Localization {
                 return ResourceManager.GetString("UserInterface_Settings_Colours_Heading", resourceCulture);
             }
         }
+        
+        internal static string UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap {
+            get {
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap", resourceCulture);
+            }
+        }
     }
 }

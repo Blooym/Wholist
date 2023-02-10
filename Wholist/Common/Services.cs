@@ -10,7 +10,7 @@ using Sirensong.IoC;
 using Sirensong.UserInterface.Services;
 using Wholist.CommandHandling;
 using Wholist.Configuration;
-using Wholist.ObjectManagement;
+using Wholist.Game;
 using Wholist.Resources.Localization;
 using Wholist.UserInterface;
 using XivCommon;
@@ -34,6 +34,8 @@ namespace Wholist.Common
         // Sirensong services
         [SirenService] internal static LuminaCacheService<World> WorldCache { get; private set; } = null!;
         [SirenService] internal static LuminaCacheService<ClassJob> ClassJobCache { get; private set; } = null!;
+        [SirenService] internal static LuminaCacheService<Map> MapCache { get; private set; } = null!;
+        [SirenService] internal static LuminaCacheService<TerritoryTypeTransient> TerritoryTransientCache { get; private set; } = null!;
         [SirenService] internal static ClipboardService Clipboard { get; private set; } = null!;
 
         // Plugin services

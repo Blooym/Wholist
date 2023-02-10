@@ -9,6 +9,7 @@ using Sirensong.Game.Utility;
 using Sirensong.UserInterface;
 using Wholist.Common;
 using Wholist.DataStructures;
+using Wholist.Game;
 using Wholist.Resources.Localization;
 
 namespace Wholist.UserInterface.Windows.NearbyPlayers
@@ -164,6 +165,12 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 {
                     NearbyPlayersLogic.SetChatTellTarget(obj.Name, obj.Homeworld.Name);
                 }
+                ImGui.BeginDisabled(obj.Position == null);
+                if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap))
+                {
+                    MapHelper.FlagAndOpen(obj.Position!.Value, obj.Name);
+                }
+                ImGui.EndDisabled();
 
                 ImGui.EndPopup();
             }
