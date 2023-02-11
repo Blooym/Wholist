@@ -35,7 +35,7 @@ namespace Wholist.Common
         // Plugin services
         internal static WindowManager WindowManager { get; private set; } = null!;
         internal static XivCommonBase XivCommon { get; private set; } = null!;
-        internal static PlayerManager NearbyPlayerManager { get; private set; } = null!;
+        internal static PlayerManager PlayerManager { get; private set; } = null!;
         internal static PluginConfiguration Configuration { get; private set; } = null!;
 
         // Additional services
@@ -52,11 +52,11 @@ namespace Wholist.Common
             pluginInterface.Create<Services>();
 
             Configuration = PluginInterface.GetPluginConfig() as PluginConfiguration ?? new PluginConfiguration();
-            XivCommon = new XivCommonBase();
+            XivCommon = new();
             ServiceContainer.GetOrCreateService<LocalizationManager>();
             WindowManager = ServiceContainer.GetOrCreateService<WindowManager>();
             ServiceContainer.CreateService<CommandManager>();
-            NearbyPlayerManager = ServiceContainer.GetOrCreateService<PlayerManager>();
+            PlayerManager = ServiceContainer.GetOrCreateService<PlayerManager>();
         }
 
         /// <summary>

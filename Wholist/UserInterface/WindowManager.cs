@@ -19,7 +19,7 @@ namespace Wholist.UserInterface
         public WindowingSystem WindowingSystem { get; } = SirenCore.GetOrCreateService<WindowingSystem>();
 
         /// <summary>
-        /// All windows to add to the windowing system.
+        /// All windows to add to the windowing system, holds all references.
         /// </summary>
         private readonly Dictionary<Window, bool> windows = new()
         {
@@ -78,12 +78,14 @@ namespace Wholist.UserInterface
         /// </summary>
         private void OnLogin(object? sender, EventArgs e)
         {
-            if (Services.Configuration.NearbyPlayers.OpenOnLogin)
+            if (!Services.Configuration.NearbyPlayers.OpenOnLogin)
             {
-                if (this.WindowingSystem.TryGetWindow<NearbyPlayersWindow>(out var window))
-                {
-                    window.IsOpen = true;
-                }
+                return;
+            }
+
+            if (this.WindowingSystem.TryGetWindow<NearbyPlayersWindow>(out var window))
+            {
+                window.IsOpen = true;
             }
         }
 

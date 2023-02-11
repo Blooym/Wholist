@@ -75,7 +75,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         internal List<PlayerInfoSlim> GetNearbyPlayers()
         {
             var players = new List<PlayerInfoSlim>();
-            foreach (var player in Services.NearbyPlayerManager.GetNearbyPlayers())
+            foreach (var player in Services.PlayerManager.GetNearbyPlayers())
             {
                 if (players.Count >= Configuration.NearbyPlayers.MaxPlayersToShow)
                 {
@@ -103,7 +103,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// <param name="name">The name of the player.</param>
         /// <param name="homeworldName">The homeworld name of the player.</param>
         /// <exception cref="InvalidOperationException"></exception>
-        internal static unsafe void SetChatTellTarget(string name, string homeworldName)
+        internal static void SetChatTellTarget(string name, string homeworldName)
         {
             Services.XivCommon.Functions.Chat.SendMessage($"/tell {name}@{homeworldName}");
             GameChat.Print(Strings.UserInterface_NearbyPlayers_SetChatTarget.Format($"{name}@{homeworldName}"));

@@ -10,7 +10,7 @@ namespace Wholist.CommandHandling
         private bool disposedValue;
 
         /// <summary>
-        /// The list of registered commands.
+        /// All  commands to register with the <see cref="Dalamud.Game.Command.CommandManager" />, holds all references.
         /// </summary>
         private IDalamudCommand[] commands = {
             new WhoCommand(),
