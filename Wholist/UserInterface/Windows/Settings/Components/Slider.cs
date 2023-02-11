@@ -15,7 +15,7 @@ namespace Wholist.UserInterface.Windows.Settings.Components
         /// <param name="min">The minimum slider value</param>
         /// <param name="max">The maximum slider value</param>
         /// <returns>If the slider has changed.</returns>
-        public static bool Draw(string label, string description, ref int value, int min, int max)
+        internal static bool Draw(string label, string description, ref int value, int min, int max)
         {
             SiGui.Text(label);
             var sliderChanged = ImGui.SliderInt($"##{label}", ref value, min, max);

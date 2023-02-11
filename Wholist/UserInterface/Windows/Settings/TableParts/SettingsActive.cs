@@ -2,13 +2,13 @@ using Wholist.UserInterface.Windows.Settings.TableParts.Sidebar;
 
 namespace Wholist.UserInterface.Windows.Settings.TableParts
 {
-    internal sealed class SettingsActive
+    internal static class SettingsActive
     {
         /// <summary>
         /// Draws the active tab of the settings window.
         /// </summary>
         /// <param name="logic"></param>
-        public static void Draw(SettingsLogic logic)
+        internal static void Draw(SettingsLogic logic)
         {
             switch (logic.SelectedTab)
             {

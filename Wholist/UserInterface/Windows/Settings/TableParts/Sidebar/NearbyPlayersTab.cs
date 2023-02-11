@@ -4,13 +4,13 @@ using Wholist.UserInterface.Windows.Settings.Components;
 
 namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
 {
-    internal sealed class NearbyPlayersTab
+    internal static class NearbyPlayersTab
     {
         /// <summary>
         /// Draws the nearby players tab of the settings window.
         /// </summary>
         /// <param name="_"></param>
-        public static void Draw(SettingsLogic _)
+        internal static void Draw(SettingsLogic _)
         {
             // Heading.
             SiGui.Heading(Strings.UserInterface_Settings_NearbyPlayers_Heading);

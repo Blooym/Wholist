@@ -12,8 +12,7 @@ namespace Wholist.CommandHandling
         /// <summary>
         /// The list of registered commands.
         /// </summary>
-        private IDalamudCommand[] commands = new IDalamudCommand[]
-        {
+        private IDalamudCommand[] commands = {
             new WhoCommand(),
             new WhoSettingsCommand(),
         };

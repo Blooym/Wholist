@@ -13,7 +13,7 @@ namespace Wholist.UserInterface.Windows.Settings.Components
         /// <param name="hint">The hint of the checkbox.</param>
         /// <param name="value">The value of the checkbox.</param>
         /// <returns>Whether the checkbox was updated.</returns>
-        public static bool Draw(string label, string hint, ref bool value)
+        internal static bool Draw(string label, string hint, ref bool value)
         {
             var checkbox = ImGui.Checkbox(label, ref value);
             if (checkbox)

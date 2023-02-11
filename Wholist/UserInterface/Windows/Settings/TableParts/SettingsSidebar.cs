@@ -5,13 +5,13 @@ using Wholist.Resources.Localization;
 
 namespace Wholist.UserInterface.Windows.Settings.TableParts
 {
-    internal sealed class SettingsSidebar
+    internal static class SettingsSidebar
     {
         /// <summary>
         /// Draws the sidebar of the settings window.
         /// </summary>
         /// <param name="logic"></param>
-        public static void Draw(SettingsLogic logic)
+        internal static void Draw(SettingsLogic logic)
         {
             SiGui.Heading(Strings.UserInterface_Settings_Heading);
 

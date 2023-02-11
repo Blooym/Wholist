@@ -6,7 +6,7 @@ namespace Wholist.UserInterface.Windows.Settings.Components
 {
     internal static class TextWithDescription
     {
-        public static void Draw(string text, string description)
+        internal static void Draw(string text, string description)
         {
             SiGui.Text(text);
             SiGui.TextDisabledWrapped(description);

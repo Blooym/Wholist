@@ -12,7 +12,7 @@ namespace Wholist.DataStructures
         /// Creates a new <see cref="WorldInfoSlim" />.
         /// </summary>
         /// <param name="world">The <see cref="World" /> to create the <see cref="WorldInfoSlim" /> from.</param>
-        public WorldInfoSlim(World world)
+        internal WorldInfoSlim(World world)
         {
             this.Name = world.Name.ToDalamudString().ToString();
             this.Id = world.RowId;
@@ -21,11 +21,11 @@ namespace Wholist.DataStructures
         /// <summary>
         /// The name of the world.
         /// </summary>
-        public readonly string Name;
+        internal readonly string Name;
 
         /// <summary>
         /// The id of the world.
         /// </summary>
-        public readonly uint Id;
+        internal readonly uint Id;
     }
 }

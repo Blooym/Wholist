@@ -21,7 +21,7 @@ namespace Wholist.DataStructures
         /// Creates a new <see cref="PlayerInfoSlim" />.
         /// </summary>
         /// <param name="basePlayer">The base player to create the <see cref="PlayerInfoSlim" /> from.</param>
-        public PlayerInfoSlim(PlayerCharacter basePlayer)
+        internal PlayerInfoSlim(PlayerCharacter basePlayer)
         {
             this.playerCharacter = basePlayer;
 
@@ -40,66 +40,66 @@ namespace Wholist.DataStructures
         /// <summary>
         /// The name of the player.
         /// </summary>
-        public readonly string Name;
+        internal readonly string Name;
 
         /// <summary>
         /// The colour of the player's name.
         /// </summary>
-        public readonly Vector4 NameColour;
+        internal readonly Vector4 NameColour;
 
         /// <summary>
         /// The level of the player.
         /// </summary>
-        public readonly byte Level;
+        internal readonly byte Level;
 
         /// <summary>
         /// The class information of the player.
         /// </summary>
-        public readonly JobInfoSlim Class;
+        internal readonly JobInfoSlim Class;
 
         /// <summary>
         /// The company tag of the player.
         /// </summary>
-        public readonly string CompanyTag;
+        internal readonly string CompanyTag;
 
         /// <summary>
         /// The online status id of the player.
         /// </summary>
-        public readonly uint OnlineStatusId;
+        internal readonly uint OnlineStatusId;
 
         /// <summary>
         /// The homeworld of the player.
         /// </summary>
-        public readonly WorldInfoSlim Homeworld;
+        internal readonly WorldInfoSlim Homeworld;
 
         /// <summary>
         /// Whether or not the player is a friend of the local player.
         /// </summary>
-        public readonly bool IsFriend;
+        internal readonly bool IsFriend;
 
         /// <summary>
         /// Whether or not the player is in the local player's party.
         /// </summary>
-        public readonly bool IsInParty;
+        internal readonly bool IsInParty;
 
         /// <summary>
         /// The location of the player.
         /// </summary>
-        public Vector3? Position => this.playerCharacter.Position;
+        internal Vector3? Position => this.playerCharacter.Position;
 
         /// <summary>
         /// Opens the examine window for the player.
         /// </summary>
-        public void OpenExamine() => AgentInspect.Instance()->ExamineCharacter(this.playerCharacter.ObjectId);
+        internal void OpenExamine() => AgentInspect.Instance()->ExamineCharacter(this.playerCharacter.ObjectId);
 
         /// <summary>
         /// Targets the player.
         /// </summary>
-        public void Target() => Services.TargetManager.SetTarget(this.playerCharacter.Address);
+        internal void Target() => Services.TargetManager.SetTarget(this.playerCharacter.Address);
 
         /// <summary>
         /// Opens the character card for the player.
         /// </summary>
-        public void OpenCharaCard() => AgentCharaCard.Instance()->OpenCharaCard(this.playerCharacter.ToCSGameObject());
+        internal void OpenCharaCard() => AgentCharaCard.Instance()->OpenCharaCard(this.playerCharacter.ToCSGameObject());
     }
 }

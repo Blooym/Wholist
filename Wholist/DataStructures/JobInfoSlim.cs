@@ -17,7 +17,7 @@ namespace Wholist.DataStructures
         /// Creates a new <see cref="JobInfoSlim" />.
         /// </summary>
         /// <param name="classJob">The <see cref="ClassJob" /> to create the <see cref="JobInfoSlim" /> from.</param>
-        public JobInfoSlim(ClassJob classJob)
+        internal JobInfoSlim(ClassJob classJob)
         {
             this.Name = classJob!.Name.ToDalamudString().ToString().ToTitleCase();
             this.RoleColour = classJob.GetJobRole() switch
@@ -34,11 +34,11 @@ namespace Wholist.DataStructures
         /// <summary>
         /// The name of the job.
         /// </summary>
-        public readonly string Name;
+        internal readonly string Name;
 
         /// <summary>
         /// The colour of the role.
         /// </summary>
-        public readonly Vector4 RoleColour;
+        internal readonly Vector4 RoleColour;
     }
 }

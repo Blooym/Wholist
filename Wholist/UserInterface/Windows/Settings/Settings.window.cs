@@ -10,8 +10,8 @@ namespace Wholist.UserInterface.Windows.Settings
 {
     internal sealed class SettingsWindow : Window
     {
-        /// <inheritdoc/>
-        public SettingsLogic Logic { get; } = new();
+        /// <inheritdoc cref="SettingsLogic"/>
+        private SettingsLogic Logic { get; } = new();
 
         /// <inheritdoc/>
         public SettingsWindow() : base(Strings.Windows_Settings_Title.Format(Constants.PluginName))

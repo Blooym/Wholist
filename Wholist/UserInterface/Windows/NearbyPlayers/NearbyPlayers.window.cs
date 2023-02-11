@@ -15,6 +15,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
 {
     internal sealed class NearbyPlayersWindow : Window
     {
+        /// <inheritdoc cref="NearbyPlayersLogic"/>
         private readonly NearbyPlayersLogic logic = new();
 
         /// <summary>
@@ -46,6 +47,9 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             return true;
         }
 
+        /// <summary>
+        /// The size of the content child.
+        /// </summary>
         private readonly Vector2 childSize = new(0, -60);
 
         /// <summary>

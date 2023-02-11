@@ -23,7 +23,7 @@ namespace Wholist.Game
         });
 
         /// <summary>
-        /// Creates a new instance of the <see cref="PlayerManager" />.
+        /// Creates a new instance of the <see />.
         /// </summary>
         private PlayerManager()
         {
@@ -44,10 +44,10 @@ namespace Wholist.Game
         }
 
         /// <summary>
-        /// Gets nearby players from the <see cref="ObjectTable" /> and turns them into <see cref="PlayerInfoSlim" />s.
+        /// Gets nearby players from the <see cref="Dalamud.Game.ClientState.Objects.ObjectTable" /> and turns them into <see cref="PlayerInfoSlim" />s.
         /// </summary>
         /// <returns></returns>
-        public List<PlayerInfoSlim> GetNearbyPlayers()
+        internal List<PlayerInfoSlim> GetNearbyPlayers()
         {
             var nearbyPlayers = new List<PlayerInfoSlim>();
             foreach (var player in Services.ObjectTable.GetPlayerCharacters(false))
@@ -65,14 +65,14 @@ namespace Wholist.Game
         /// </summary>
         /// <param name="player">The <see cref="PlayerCharacter" /> to get the <see cref="PlayerInfoSlim" /> for.</param>
         /// <returns>The <see cref="PlayerInfoSlim" /> for the given <see cref="PlayerCharacter" />.</returns>
-        public PlayerInfoSlim GetSlimInfo(PlayerCharacter player) => this.nearbyPlayersCache.GetOrAdd(player, value => new PlayerInfoSlim(player));
+        internal PlayerInfoSlim GetSlimInfo(PlayerCharacter player) => this.nearbyPlayersCache.GetOrAdd(player, value => new PlayerInfoSlim(player));
 
         /// <summary>
         /// Checks if the given <see cref="PlayerCharacter" /> is in the party from its ObjectId.
         /// </summary>
         /// <param name="player">The <see cref="PlayerCharacter" /> to check.</param>
         /// <returns>True if the <see cref="PlayerCharacter" /> is in the party, otherwise false.</returns>
-        public static bool IsPlayerInParty(PlayerCharacter playerCharacter)
+        internal static bool IsPlayerInParty(PlayerCharacter playerCharacter)
         {
             foreach (var member in Services.PartyList)
             {
@@ -89,7 +89,7 @@ namespace Wholist.Game
         /// </summary>
         /// <param name="player">The <see cref="PlayerCharacter" /> to check.</param>
         /// <returns>True if the <see cref="PlayerCharacter" /> is on the friendlist, otherwise false.</returns>
-        public static bool IsPlayerOnFriendlist(PlayerCharacter player)
+        internal static bool IsPlayerOnFriendlist(PlayerCharacter player)
         {
             foreach (var friend in Services.XivCommon.Functions.FriendList.List)
             {

@@ -6,13 +6,13 @@ using Wholist.Resources.Localization;
 
 namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
 {
-    internal sealed class DebugTab
+    internal static class DebugTab
     {
         /// <summary>
         /// Draws the debug tab of the settings window.
         /// </summary>
         /// <param name="_"></param>
-        public static void Draw(SettingsLogic _)
+        internal static void Draw(SettingsLogic _)
         {
             // Heading.
             SiGui.Heading(Strings.UserInterface_Settings_Debug_Heading);

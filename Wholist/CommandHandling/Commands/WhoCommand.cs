@@ -22,17 +22,19 @@ namespace Wholist.CommandHandling.Commands
         /// <inheritdoc />
         public CommandInfo.HandlerDelegate OnExecute => (command, arguments) =>
         {
-            if (command == Constants.Commands.WhoCommand)
+            if (command != Constants.Commands.WhoCommand)
             {
-                if (Services.ClientState.IsPvP)
-                {
-                    BetterLog.Information(Strings.Errors_NoUseInPvP);
-                    GameChat.PrintError(Strings.Errors_NoUseInPvP);
-                    return;
-                }
-
-                Services.WindowManager.WindowingSystem.GetWindow<NearbyPlayersWindow>()?.Toggle();
+                return;
             }
+
+            if (Services.ClientState.IsPvP)
+            {
+                BetterLog.Information(Strings.Errors_NoUseInPvP);
+                GameChat.PrintError(Strings.Errors_NoUseInPvP);
+                return;
+            }
+
+            Services.WindowManager.WindowingSystem.GetWindow<NearbyPlayersWindow>()?.Toggle();
         };
     }
 }
