@@ -1,5 +1,6 @@
 using ImGuiNET;
 using Sirensong.UserInterface;
+using Sirensong.UserInterface.Style;
 
 namespace Wholist.UserInterface.Windows.Settings.Components
 {
@@ -32,6 +33,7 @@ namespace Wholist.UserInterface.Windows.Settings.Components
             }
 
             SiGui.TextDisabledWrapped(description);
+            ImGui.Dummy(Spacing.SectionSpacing);
             return sliderChanged;
         }
     }

@@ -386,5 +386,17 @@ namespace Wholist.Resources.Localization {
                 return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap", resourceCulture);
             }
         }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_ShownContent_Description {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_ShownContent_Description", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_ShownContent {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_ShownContent", resourceCulture);
+            }
+        }
     }
 }

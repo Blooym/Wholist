@@ -1,10 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Numerics;
+using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Utility;
 using FFXIVClientStructs.FFXIV.Client.UI;
+using FFXIVClientStructs.FFXIV.Client.UI.Agent;
 using ImGuiNET;
 using Sirensong.Game;
 using Sirensong.Game.Enums;
+using Sirensong.Game.Helpers;
 using Wholist.Common;
 using Wholist.Configuration;
 using Wholist.DataStructures;
@@ -22,8 +26,14 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// <inheritdoc cref="Configuration" />
         internal static PluginConfiguration Configuration => Services.Configuration;
 
-        /// <inheritdoc cref="IsPvPExcludingDen" />
-        internal static bool IsPvPExcludingDen => Services.ClientState.IsPvPExcludingDen;
+        /// <inheritdoc cref="IsPvP" />
+        internal static bool IsPvP => Services.ClientState.IsPvP;
+
+        /// <inheritdoc cref="Condition" />
+        internal static Condition Condition => Services.Condition;
+
+        /// <inheritdoc cref="MapHelper.FlagAndOpenCurrentMap(Vector3, string?, MapType)" />
+        internal static void FlagAndOpen(Vector3 position, string? title = null, MapType mapType = MapType.FlagMarker) => MapHelper.FlagAndOpenCurrentMap(position, title, mapType);
 
         /// <summary>
         /// Whether or not the window should be closed when the escape key is pressed.

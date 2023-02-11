@@ -62,8 +62,8 @@ jobs:
         working-directory: Wholist
         run: | 
           dotnet build -c Debug
-          echo "Checksum: $(sha512sum bin/x64/Debug/Wholist/latest.zip)"
-
+          echo "Checksum: $(sha512sum bin/x64/Debug/Wholist.dll)"
+ 
       - name: Build Project (Release)
         working-directory: Wholist
         run: |

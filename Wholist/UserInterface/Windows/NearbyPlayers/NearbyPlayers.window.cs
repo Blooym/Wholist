@@ -28,7 +28,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
 
         public override bool DrawConditions()
         {
-            if (NearbyPlayersLogic.Configuration.NearbyPlayers.HideInCombat && Services.Condition[ConditionFlag.InCombat])
+            if (NearbyPlayersLogic.Configuration.NearbyPlayers.HideInCombat && NearbyPlayersLogic.Condition[ConditionFlag.InCombat])
             {
                 return false;
             }
@@ -38,7 +38,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 return false;
             }
 
-            if (Services.ClientState.IsPvP)
+            if (NearbyPlayersLogic.IsPvP)
             {
                 return false;
             }
@@ -76,12 +76,13 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// <param name="playersToDraw"></param>
         private static void DrawNearbyPlayersTable(List<PlayerInfoSlim> playersToDraw)
         {
-            if (ImGui.BeginTable("##NearbyTable", 4, ImGuiTableFlags.ScrollY | ImGuiTableFlags.Borders | ImGuiTableFlags.Hideable | ImGuiTableFlags.Reorderable))
+            if (ImGui.BeginTable("##NearbyTable", 5, ImGuiTableFlags.ScrollY | ImGuiTableFlags.Borders | ImGuiTableFlags.Hideable | ImGuiTableFlags.Reorderable))
             {
-                ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Name, ImGuiTableColumnFlags.WidthStretch, 250);
-                ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Company, ImGuiTableColumnFlags.WidthStretch, 100);
-                ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Level, ImGuiTableColumnFlags.WidthStretch, 50);
+                ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Name, ImGuiTableColumnFlags.WidthStretch, 220);
                 ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Class, ImGuiTableColumnFlags.WidthStretch, 150);
+                ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Level, ImGuiTableColumnFlags.WidthStretch, 80);
+                ImGui.TableSetupColumn("Homeworld", ImGuiTableColumnFlags.WidthStretch, 150);
+                ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Company, ImGuiTableColumnFlags.WidthStretch, 120);
                 ImGui.TableSetupScrollFreeze(0, 1);
                 ImGui.TableHeadersRow();
 
@@ -119,28 +120,30 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             // Name.
             ImGui.TableNextColumn();
             SiGui.TextColoured(obj.NameColour, obj.Name);
-
-            // Context menu.
-            DrawContextMenu(obj);
+            DrawPlayerContextMenu(obj);
             ImGui.TableNextColumn();
 
-            // Company.
-            SiGui.Text(obj.CompanyTag);
+            // Class.
+            SiGui.TextColoured(obj.Class.RoleColour, obj.Class.Name);
             ImGui.TableNextColumn();
 
             // Level.
             SiGui.Text(obj.Level.ToString());
             ImGui.TableNextColumn();
 
-            // Class.
-            SiGui.TextColoured(obj.Class.RoleColour, obj.Class.Name);
+            // Homeworld.
+            SiGui.Text(obj.Homeworld.Name);
+            ImGui.TableNextColumn();
+
+            // Company.
+            SiGui.Text(obj.CompanyTag);
         }
 
         /// <summary>
         /// Draws the context menu for a player.
         /// </summary>
         /// <param name="obj"></param>
-        private static void DrawContextMenu(PlayerInfoSlim obj)
+        private static void DrawPlayerContextMenu(PlayerInfoSlim obj)
         {
             if (ImGui.BeginPopupContextItem($"{obj.Name}##WholistPopContext"))
             {
@@ -171,7 +174,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 ImGui.BeginDisabled(obj.Position == null);
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap))
                 {
-                    MapHelper.FlagAndOpenCurrentMap(obj.Position!.Value, obj.Name);
+                    NearbyPlayersLogic.FlagAndOpen(obj.Position!.Value, obj.Name);
                 }
                 ImGui.EndDisabled();
                 ImGui.EndPopup();
