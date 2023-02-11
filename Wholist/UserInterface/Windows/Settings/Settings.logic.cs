@@ -38,7 +38,6 @@ namespace Wholist.UserInterface.Windows.Settings
         {
             NearbyPlayers,
             Colours,
-            Integrations,
             Donation,
             Debug,
         }

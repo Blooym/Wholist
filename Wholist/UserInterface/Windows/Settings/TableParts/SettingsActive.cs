@@ -23,8 +23,6 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts
                 case SettingsLogic.ConfigurationTabs.Donation:
                     DonationTab.Draw(logic);
                     break;
-                case SettingsLogic.ConfigurationTabs.Integrations:
-                    break;
                 case SettingsLogic.ConfigurationTabs.Debug:
                     DebugTab.Draw(logic);
                     break;
