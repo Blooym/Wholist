@@ -13,11 +13,7 @@ namespace Wholist.CommandHandling.Commands
         public string Name { get; } = Constants.Commands.WhoCommand;
 
         /// <inheritdoc />
-        public CommandInfo Command => new(this.OnExecute)
-        {
-            HelpMessage = Strings.Commands_Who_Help,
-            ShowInHelp = true,
-        };
+        public CommandInfo Command => new(this.OnExecute) { HelpMessage = Strings.Commands_Who_Help, ShowInHelp = true };
 
         /// <inheritdoc />
         public CommandInfo.HandlerDelegate OnExecute => (command, arguments) =>

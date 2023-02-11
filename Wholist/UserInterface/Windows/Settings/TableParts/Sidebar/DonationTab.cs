@@ -9,7 +9,7 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
     internal static class DonationTab
     {
         /// <summary>
-        /// Draws the donation tab of the settings window.
+        ///     Draws the donation tab of the settings window.
         /// </summary>
         /// <param name="_"></param>
         internal static void Draw(SettingsLogic _)

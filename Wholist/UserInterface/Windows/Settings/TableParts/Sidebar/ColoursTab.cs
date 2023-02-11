@@ -11,7 +11,7 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
     internal static class ColoursTab
     {
         /// <summary>
-        /// Draws the colours tab of the settings window.
+        ///     Draws the colours tab of the settings window.
         /// </summary>
         /// <param name="_"></param>
         internal static void Draw(SettingsLogic _)

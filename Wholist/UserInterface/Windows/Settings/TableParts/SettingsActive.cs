@@ -1,3 +1,5 @@
+using Sirensong.UserInterface;
+using Wholist.Resources.Localization;
 using Wholist.UserInterface.Windows.Settings.TableParts.Sidebar;
 
 namespace Wholist.UserInterface.Windows.Settings.TableParts
@@ -5,7 +7,7 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts
     internal static class SettingsActive
     {
         /// <summary>
-        /// Draws the active tab of the settings window.
+        ///     Draws the active tab of the settings window.
         /// </summary>
         /// <param name="logic"></param>
         internal static void Draw(SettingsLogic logic)
@@ -21,10 +23,13 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts
                 case SettingsLogic.ConfigurationTabs.Donation:
                     DonationTab.Draw(logic);
                     break;
+                case SettingsLogic.ConfigurationTabs.Integrations:
+                    break;
                 case SettingsLogic.ConfigurationTabs.Debug:
                     DebugTab.Draw(logic);
                     break;
                 default:
+                    SiGui.TextDisabledWrapped(Strings.UserInterface_Settings_UnknownTab);
                     break;
             }
         }

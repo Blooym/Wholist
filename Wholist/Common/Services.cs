@@ -1,12 +1,13 @@
 using Dalamud.Game.ClientState;
+using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Game.ClientState.Objects;
 using Dalamud.Game.ClientState.Party;
+using Dalamud.Game.Command;
 using Dalamud.IoC;
 using Dalamud.Plugin;
 using Sirensong;
 using Sirensong.IoC;
 using Sirensong.UserInterface.Services;
-using Wholist.CommandHandling;
 using Wholist.Configuration;
 using Wholist.Game;
 using Wholist.Resources.Localization;
@@ -16,21 +17,24 @@ using XivCommon;
 namespace Wholist.Common
 {
     /// <summary>
-    /// Provides access to necessary instances and services.
+    ///     Provides access to necessary instances and services.
     /// </summary>
     internal sealed class Services
     {
+        /// <inheritdoc cref="MiniServiceContainer" />
+        private static readonly MiniServiceContainer ServiceContainer = new();
+
         // Dalamud services
-        [PluginService] internal static DalamudPluginInterface PluginInterface { get; private set; } = null!;
-        [PluginService] internal static ClientState ClientState { get; private set; } = null!;
-        [PluginService] internal static ObjectTable ObjectTable { get; private set; } = null!;
-        [PluginService] internal static Dalamud.Game.Command.CommandManager Commands { get; private set; } = null!;
-        [PluginService] internal static TargetManager TargetManager { get; private set; } = null!;
-        [PluginService] internal static Dalamud.Game.ClientState.Conditions.Condition Condition { get; private set; } = null!;
-        [PluginService] internal static PartyList PartyList { get; private set; } = null!;
+        [PluginService] internal static DalamudPluginInterface PluginInterface { get; set; } = null!;
+        [PluginService] internal static ClientState ClientState { get; set; } = null!;
+        [PluginService] internal static ObjectTable ObjectTable { get; set; } = null!;
+        [PluginService] internal static CommandManager Commands { get; set; } = null!;
+        [PluginService] internal static TargetManager TargetManager { get; set; } = null!;
+        [PluginService] internal static Condition Condition { get; set; } = null!;
+        [PluginService] internal static PartyList PartyList { get; set; } = null!;
 
         // Sirensong services
-        [SirenService] internal static ClipboardService Clipboard { get; private set; } = null!;
+        [SirenService] internal static ClipboardService Clipboard { get; set; } = null!;
 
         // Plugin services
         internal static WindowManager WindowManager { get; private set; } = null!;
@@ -38,11 +42,8 @@ namespace Wholist.Common
         internal static PlayerManager PlayerManager { get; private set; } = null!;
         internal static PluginConfiguration Configuration { get; private set; } = null!;
 
-        // Additional services
-        private static readonly MiniServiceContainer ServiceContainer = new();
-
         /// <summary>
-        /// Initializes the service class.
+        ///     Initializes the service class.
         /// </summary>
         internal static void Initialize(DalamudPluginInterface pluginInterface)
         {
@@ -52,15 +53,15 @@ namespace Wholist.Common
             pluginInterface.Create<Services>();
 
             Configuration = PluginInterface.GetPluginConfig() as PluginConfiguration ?? new PluginConfiguration();
-            XivCommon = new();
+            XivCommon = new XivCommonBase();
             ServiceContainer.GetOrCreateService<LocalizationManager>();
             WindowManager = ServiceContainer.GetOrCreateService<WindowManager>();
-            ServiceContainer.CreateService<CommandManager>();
+            ServiceContainer.CreateService<CommandHandling.CommandManager>();
             PlayerManager = ServiceContainer.GetOrCreateService<PlayerManager>();
         }
 
         /// <summary>
-        /// Disposes of the service class.
+        ///     Disposes of the service class.
         /// </summary>
         internal static void Dispose()
         {

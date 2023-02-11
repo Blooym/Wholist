@@ -11,24 +11,16 @@ namespace Wholist.UserInterface
 {
     internal sealed class WindowManager : IDisposable
     {
+
+        /// <summary>
+        ///     All windows to add to the windowing system, holds all references.
+        /// </summary>
+        private readonly Dictionary<Window, bool> windows = new() { { new NearbyPlayersWindow(), false }, { new SettingsWindow(), true } };
+
         private bool disposedValue;
 
         /// <summary>
-        /// The windowing system.
-        /// </summary>
-        public WindowingSystem WindowingSystem { get; } = SirenCore.GetOrCreateService<WindowingSystem>();
-
-        /// <summary>
-        /// All windows to add to the windowing system, holds all references.
-        /// </summary>
-        private readonly Dictionary<Window, bool> windows = new()
-        {
-            { new NearbyPlayersWindow(), false },
-            { new SettingsWindow(), true },
-        };
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="WindowManager" /> class.
+        ///     Initializes a new instance of the <see cref="WindowManager" /> class.
         /// </summary>
         private WindowManager()
         {
@@ -47,7 +39,12 @@ namespace Wholist.UserInterface
         }
 
         /// <summary>
-        /// Disposes of the window manager.
+        ///     The windowing system.
+        /// </summary>
+        public WindowingSystem WindowingSystem { get; } = SirenCore.GetOrCreateService<WindowingSystem>();
+
+        /// <summary>
+        ///     Disposes of the window manager.
         /// </summary>
         public void Dispose()
         {
@@ -63,7 +60,7 @@ namespace Wholist.UserInterface
         }
 
         /// <summary>
-        /// Toggles the nearby players window.
+        ///     Toggles the nearby players window.
         /// </summary>
         internal void ToggleNearbyPlayersWindow()
         {
@@ -74,7 +71,7 @@ namespace Wholist.UserInterface
         }
 
         /// <summary>
-        /// Handle the plugin being logged in.
+        ///     Handle the plugin being logged in.
         /// </summary>
         private void OnLogin(object? sender, EventArgs e)
         {
@@ -90,7 +87,7 @@ namespace Wholist.UserInterface
         }
 
         /// <summary>
-        /// Handle the plugin being logged out.
+        ///     Handle the plugin being logged out.
         /// </summary>
         private void OnLogout(object? sender, EventArgs e)
         {

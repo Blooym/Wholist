@@ -6,7 +6,7 @@ namespace Wholist.UserInterface.Windows.Settings.Components
     internal sealed class ColourEdit
     {
         /// <summary>
-        /// Draw a colour picker for a Vector4
+        ///     Draw a colour picker for a Vector4
         /// </summary>
         /// <param name="label">The label to display</param>
         /// <param name="colour">The reference to the colour to edit</param>

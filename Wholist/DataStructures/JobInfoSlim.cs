@@ -9,12 +9,12 @@ using Wholist.Common;
 namespace Wholist.DataStructures
 {
     /// <summary>
-    /// Represents a pre-formatted version of a <see cref="ClassJob" /> with slimmed down information.
+    ///     Represents a pre-formatted version of a <see cref="ClassJob" /> with slimmed down information.
     /// </summary>
     internal readonly struct JobInfoSlim
     {
         /// <summary>
-        /// Creates a new <see cref="JobInfoSlim" />.
+        ///     Creates a new <see cref="JobInfoSlim" />.
         /// </summary>
         /// <param name="classJob">The <see cref="ClassJob" /> to create the <see cref="JobInfoSlim" /> from.</param>
         internal JobInfoSlim(ClassJob classJob)
@@ -32,12 +32,12 @@ namespace Wholist.DataStructures
         }
 
         /// <summary>
-        /// The name of the job.
+        ///     The name of the job.
         /// </summary>
         internal readonly string Name;
 
         /// <summary>
-        /// The colour of the role.
+        ///     The colour of the role.
         /// </summary>
         internal readonly Vector4 RoleColour;
     }

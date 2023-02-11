@@ -7,7 +7,7 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
     internal static class NearbyPlayersTab
     {
         /// <summary>
-        /// Draws the nearby players tab of the settings window.
+        ///     Draws the nearby players tab of the settings window.
         /// </summary>
         /// <param name="_"></param>
         internal static void Draw(SettingsLogic _)

@@ -7,7 +7,7 @@ namespace Wholist.UserInterface.Windows.Settings.Components
     internal static class Checkbox
     {
         /// <summary>
-        /// Draws a checkbox.
+        ///     Draws a checkbox.
         /// </summary>
         /// <param name="label">The label of the checkbox.</param>
         /// <param name="hint">The hint of the checkbox.</param>

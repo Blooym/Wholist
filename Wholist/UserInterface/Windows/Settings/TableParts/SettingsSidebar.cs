@@ -8,7 +8,7 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts
     internal static class SettingsSidebar
     {
         /// <summary>
-        /// Draws the sidebar of the settings window.
+        ///     Draws the sidebar of the settings window.
         /// </summary>
         /// <param name="logic"></param>
         internal static void Draw(SettingsLogic logic)

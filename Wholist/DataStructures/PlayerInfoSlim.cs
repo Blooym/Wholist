@@ -8,17 +8,17 @@ using Wholist.Game;
 namespace Wholist.DataStructures
 {
     /// <summary>
-    /// Represents a pre-formatted version of a <see cref="PlayerCharacter" /> with slimmed down information.
+    ///     Represents a pre-formatted version of a <see cref="PlayerCharacter" /> with slimmed down information.
     /// </summary>
     internal readonly unsafe struct PlayerInfoSlim
     {
         /// <summary>
-        /// The underlying <see cref="playerCharacter" /> to pull information from.
+        ///     The underlying <see cref="playerCharacter" /> to pull information from.
         /// </summary>
         private readonly PlayerCharacter playerCharacter;
 
         /// <summary>
-        /// Creates a new <see cref="PlayerInfoSlim" />.
+        ///     Creates a new <see cref="PlayerInfoSlim" />.
         /// </summary>
         /// <param name="basePlayer">The base player to create the <see cref="PlayerInfoSlim" /> from.</param>
         internal PlayerInfoSlim(PlayerCharacter basePlayer)
@@ -38,67 +38,67 @@ namespace Wholist.DataStructures
         }
 
         /// <summary>
-        /// The name of the player.
+        ///     The name of the player.
         /// </summary>
         internal readonly string Name;
 
         /// <summary>
-        /// The colour of the player's name.
+        ///     The colour of the player's name.
         /// </summary>
         internal readonly Vector4 NameColour;
 
         /// <summary>
-        /// The level of the player.
+        ///     The level of the player.
         /// </summary>
         internal readonly byte Level;
 
         /// <summary>
-        /// The class information of the player.
+        ///     The class information of the player.
         /// </summary>
         internal readonly JobInfoSlim Class;
 
         /// <summary>
-        /// The company tag of the player.
+        ///     The company tag of the player.
         /// </summary>
         internal readonly string CompanyTag;
 
         /// <summary>
-        /// The online status id of the player.
+        ///     The online status id of the player.
         /// </summary>
         internal readonly uint OnlineStatusId;
 
         /// <summary>
-        /// The homeworld of the player.
+        ///     The homeworld of the player.
         /// </summary>
         internal readonly WorldInfoSlim Homeworld;
 
         /// <summary>
-        /// Whether or not the player is a friend of the local player.
+        ///     Whether or not the player is a friend of the local player.
         /// </summary>
         internal readonly bool IsFriend;
 
         /// <summary>
-        /// Whether or not the player is in the local player's party.
+        ///     Whether or not the player is in the local player's party.
         /// </summary>
         internal readonly bool IsInParty;
 
         /// <summary>
-        /// The location of the player.
+        ///     The location of the player.
         /// </summary>
         internal Vector3? Position => this.playerCharacter.Position;
 
         /// <summary>
-        /// Opens the examine window for the player.
+        ///     Opens the examine window for the player.
         /// </summary>
         internal void OpenExamine() => AgentInspect.Instance()->ExamineCharacter(this.playerCharacter.ObjectId);
 
         /// <summary>
-        /// Targets the player.
+        ///     Targets the player.
         /// </summary>
         internal void Target() => Services.TargetManager.SetTarget(this.playerCharacter.Address);
 
         /// <summary>
-        /// Opens the character card for the player.
+        ///     Opens the character card for the player.
         /// </summary>
         internal void OpenCharaCard() => AgentCharaCard.Instance()->OpenCharaCard(this.playerCharacter.ToCSGameObject());
     }

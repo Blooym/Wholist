@@ -1,5 +1,5 @@
+using System.Numerics;
 using Dalamud.Interface.Windowing;
-using Dalamud.Utility;
 using ImGuiNET;
 using Sirensong.UserInterface.Windowing;
 using Wholist.Common;
@@ -10,18 +10,19 @@ namespace Wholist.UserInterface.Windows.Settings
 {
     internal sealed class SettingsWindow : Window
     {
-        /// <inheritdoc cref="SettingsLogic"/>
-        private SettingsLogic Logic { get; } = new();
 
-        /// <inheritdoc/>
-        public SettingsWindow() : base(Strings.Windows_Settings_Title.Format(Constants.PluginName))
+        /// <inheritdoc />
+        public SettingsWindow() : base(string.Format(Strings.Windows_Settings_Title, Constants.PluginName))
         {
-            this.Size = new(700, 450);
+            this.Size = new Vector2(700, 450);
             this.SizeCondition = ImGuiCond.FirstUseEver;
             this.Flags = ImGuiWindowFlagExtras.NoScroll;
         }
 
-        /// <inheritdoc/>
+        /// <inheritdoc cref="SettingsLogic" />
+        private SettingsLogic Logic { get; } = new();
+
+        /// <inheritdoc />
         public override void Draw()
         {
             if (ImGui.BeginTable("PluginSettings", 2, ImGuiTableFlags.BordersInnerV))

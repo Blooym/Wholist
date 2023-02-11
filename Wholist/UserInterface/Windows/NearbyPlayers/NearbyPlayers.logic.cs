@@ -19,7 +19,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
     internal sealed class NearbyPlayersLogic
     {
         /// <summary>
-        /// The search text to apply to the object table.
+        ///     The search text to apply to the object table.
         /// </summary>
         internal string SearchText = string.Empty;
 
@@ -32,16 +32,16 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// <inheritdoc cref="Condition" />
         internal static Condition Condition => Services.Condition;
 
+        /// <summary>
+        ///     Whether or not the window should be closed when the escape key is pressed.
+        /// </summary>
+        internal static bool DisableEscClose => Configuration.NearbyPlayers.LockPosition;
+
         /// <inheritdoc cref="MapHelper.FlagAndOpenCurrentMap(Vector3, string?, MapType)" />
         internal static void FlagAndOpen(Vector3 position, string? title = null, MapType mapType = MapType.FlagMarker) => MapHelper.FlagAndOpenCurrentMap(position, title, mapType);
 
         /// <summary>
-        /// Whether or not the window should be closed when the escape key is pressed.
-        /// </summary>
-        internal static bool DisableEscClose => Configuration.NearbyPlayers.LockPosition;
-
-        /// <summary>
-        /// Applies the current flag configuration to the window.
+        ///     Applies the current flag configuration to the window.
         /// </summary>
         /// <param name="currentFlags">The current flags.</param>
         /// <returns>The adjusted flags.</returns>
@@ -69,7 +69,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         }
 
         /// <summary>
-        /// Pulls <see cref="PlayerCharacter" />s from the object table any applies the filter & configuration.
+        ///     Pulls <see cref="PlayerCharacter" />s from the object table any applies the filter & configuration.
         /// </summary>
         /// <returns></returns>
         internal List<PlayerInfoSlim> GetNearbyPlayers()
@@ -87,7 +87,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                     continue;
                 }
 
-                if (!this.SearchText.IsNullOrWhitespace() && !player.Name.ToString().Contains(this.SearchText, StringComparison.OrdinalIgnoreCase))
+                if (!this.SearchText.IsNullOrWhitespace() && !player.Name.Contains(this.SearchText, StringComparison.OrdinalIgnoreCase))
                 {
                     continue;
                 }
@@ -98,7 +98,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         }
 
         /// <summary>
-        /// Sets the chat target to the given player.
+        ///     Sets the chat target to the given player.
         /// </summary>
         /// <param name="name">The name of the player.</param>
         /// <param name="homeworldName">The homeworld name of the player.</param>

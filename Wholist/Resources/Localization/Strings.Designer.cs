@@ -404,5 +404,11 @@ namespace Wholist.Resources.Localization {
                 return ResourceManager.GetString("UserInterface_Settings_Players_Homeworld", resourceCulture);
             }
         }
+        
+        internal static string UserInterface_Settings_UnknownTab {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_UnknownTab", resourceCulture);
+            }
+        }
     }
 }

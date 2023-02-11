@@ -9,7 +9,7 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
     internal static class DebugTab
     {
         /// <summary>
-        /// Draws the debug tab of the settings window.
+        ///     Draws the debug tab of the settings window.
         /// </summary>
         /// <param name="_"></param>
         internal static void Draw(SettingsLogic _)
@@ -31,7 +31,8 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             if (ImGui.BeginChild("DebugInformation"))
             {
                 SiGui.TextWrapped(Constants.Build.DebugString);
-            };
+            }
+            ;
 
             ImGui.EndChild();
         }

@@ -7,7 +7,7 @@ namespace Wholist.UserInterface.Windows.Settings.Components
     internal static class Slider
     {
         /// <summary>
-        /// Draws a slider with custom input validation.
+        ///     Draws a slider with custom input validation.
         /// </summary>
         /// <param name="label">The label/title of the slider</param>
         /// <param name="description">The description to show underneath the slider</param>

@@ -3,7 +3,6 @@ using System.Numerics;
 using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Interface;
 using Dalamud.Interface.Windowing;
-using Dalamud.Utility;
 using ImGuiNET;
 using Sirensong.Game.Helpers;
 using Sirensong.UserInterface;
@@ -15,13 +14,19 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
 {
     internal sealed class NearbyPlayersWindow : Window
     {
-        /// <inheritdoc cref="NearbyPlayersLogic"/>
+
+        /// <summary>
+        ///     The size of the content child.
+        /// </summary>
+        private readonly Vector2 childSize = new(0, -60);
+
+        /// <inheritdoc cref="NearbyPlayersLogic" />
         private readonly NearbyPlayersLogic logic = new();
 
         /// <summary>
-        /// Creates a new instance of the <see cref="NearbyPlayersWindow" />.
+        ///     Creates a new instance of the <see cref="NearbyPlayersWindow" />.
         /// </summary>
-        internal NearbyPlayersWindow() : base(Strings.Windows_Who_Title.Format(Constants.PluginName))
+        internal NearbyPlayersWindow() : base(string.Format(Strings.Windows_Who_Title, Constants.PluginName))
         {
             this.Size = new Vector2(450, 400);
             this.SizeCondition = ImGuiCond.FirstUseEver;
@@ -48,12 +53,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         }
 
         /// <summary>
-        /// The size of the content child.
-        /// </summary>
-        private readonly Vector2 childSize = new(0, -60);
-
-        /// <summary>
-        /// Draws the window.
+        ///     Draws the window.
         /// </summary>
         public override void Draw()
         {
@@ -75,7 +75,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         }
 
         /// <summary>
-        /// Draws the nearby players table.
+        ///     Draws the nearby players table.
         /// </summary>
         /// <param name="playersToDraw"></param>
         private static void DrawNearbyPlayersTable(List<PlayerInfoSlim> playersToDraw)
@@ -100,13 +100,13 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         }
 
         /// <summary>
-        /// Draws the total players text.
+        ///     Draws the total players text.
         /// </summary>
         /// <param name="totalPlayers"></param>
-        private static void DrawTotalPlayers(int totalPlayers) => ImGuiHelpers.CenteredText(Strings.UserInterface_NearbyPlayers_Players_Total.Format(totalPlayers));
+        private static void DrawTotalPlayers(int totalPlayers) => ImGuiHelpers.CenteredText(string.Format(Strings.UserInterface_NearbyPlayers_Players_Total, totalPlayers.ToString()));
 
         /// <summary>
-        /// Draws the search bar.
+        ///     Draws the search bar.
         /// </summary>
         /// <param name="searchText"></param>
         private static void DrawSearchBar(ref string searchText)
@@ -116,7 +116,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         }
 
         /// <summary>
-        /// Draws a player in the table.
+        ///     Draws a player in the table.
         /// </summary>
         /// <param name="obj"></param>
         private static void DrawPlayer(PlayerInfoSlim obj)
@@ -144,7 +144,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         }
 
         /// <summary>
-        /// Draws the context menu for a player.
+        ///     Draws the context menu for a player.
         /// </summary>
         /// <param name="obj"></param>
         private static void DrawPlayerContextMenu(PlayerInfoSlim obj)
@@ -152,7 +152,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             if (ImGui.BeginPopupContextItem($"{obj.Name}##WholistPopContext"))
             {
                 // Heading.
-                SiGui.Heading(Strings.UserInterface_NearbyPlayers_Players_Submenu_Heading.Format($"{obj.Name}@{obj.Homeworld.Name}"));
+                SiGui.Heading(string.Format(Strings.UserInterface_NearbyPlayers_Players_Submenu_Heading, $"{obj.Name}@{obj.Homeworld.Name}"));
 
                 // Options.
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_Examine))
