@@ -7,7 +7,6 @@ namespace Wholist.CommandHandling
 {
     internal sealed class CommandManager : IDisposable
     {
-
         /// <summary>
         ///     All  commands to register with the <see cref="Dalamud.Game.Command.CommandManager" />, holds all references.
         /// </summary>

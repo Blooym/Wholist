@@ -11,7 +11,6 @@ namespace Wholist.Game
 {
     internal sealed class PlayerManager : IDisposable
     {
-
         /// <summary>
         ///     The cache of nearby player information.
         /// </summary>

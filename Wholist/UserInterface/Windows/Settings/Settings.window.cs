@@ -10,7 +10,6 @@ namespace Wholist.UserInterface.Windows.Settings
 {
     internal sealed class SettingsWindow : Window
     {
-
         /// <inheritdoc />
         public SettingsWindow() : base(string.Format(Strings.Windows_Settings_Title, Constants.PluginName))
         {

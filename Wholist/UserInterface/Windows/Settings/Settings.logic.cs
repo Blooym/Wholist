@@ -7,7 +7,6 @@ namespace Wholist.UserInterface.Windows.Settings
 {
     internal sealed class SettingsLogic
     {
-
         /// <summary>
         ///     The currently selected sidebar tab.
         /// </summary>

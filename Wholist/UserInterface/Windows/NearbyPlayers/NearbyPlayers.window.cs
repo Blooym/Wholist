@@ -14,7 +14,6 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
 {
     internal sealed class NearbyPlayersWindow : Window
     {
-
         /// <summary>
         ///     The size of the content child.
         /// </summary>

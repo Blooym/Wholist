@@ -11,7 +11,6 @@ namespace Wholist.UserInterface
 {
     internal sealed class WindowManager : IDisposable
     {
-
         /// <summary>
         ///     All windows to add to the windowing system, holds all references.
         /// </summary>

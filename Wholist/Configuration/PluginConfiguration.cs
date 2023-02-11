@@ -11,7 +11,6 @@ namespace Wholist.Configuration
     [Serializable]
     internal sealed class PluginConfiguration : IPluginConfiguration
     {
-
         /// <summary>
         ///     The configuration for colours used in the plugin.
         /// </summary>
