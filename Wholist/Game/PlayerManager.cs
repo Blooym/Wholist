@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 using Dalamud.Game.ClientState.Objects.SubKinds;
 using Sirensong.Caching.Collections;
@@ -16,7 +17,7 @@ namespace Wholist.Game
         /// </summary>
         private readonly CacheCollection<PlayerCharacter, PlayerInfoSlim> nearbyPlayersCache = new(new CacheOptions<PlayerCharacter, PlayerInfoSlim>
         {
-            AbsoluteExpiry = TimeSpan.FromSeconds(5), ExpireInterval = TimeSpan.FromSeconds(5),
+            AbsoluteExpiry = TimeSpan.FromSeconds(6), ExpireInterval = TimeSpan.FromSeconds(6),
         });
 
         private bool disposedValue;
@@ -47,10 +48,10 @@ namespace Wholist.Game
         ///     <see cref="PlayerInfoSlim" />s.
         /// </summary>
         /// <returns></returns>
-        internal List<PlayerInfoSlim> GetNearbyPlayers()
+        internal List<PlayerInfoSlim> GetNearbyPlayers(int maxPlayers = 100)
         {
             var nearbyPlayers = new List<PlayerInfoSlim>();
-            foreach (var player in Services.ObjectTable.GetPlayerCharacters(false))
+            foreach (var player in Services.ObjectTable.GetPlayerCharacters(false).Take(maxPlayers))
             {
                 if (player.Level > 3)
                 {
@@ -66,12 +67,12 @@ namespace Wholist.Game
         /// </summary>
         /// <param name="player">The <see cref="PlayerCharacter" /> to get the <see cref="PlayerInfoSlim" /> for.</param>
         /// <returns>The <see cref="PlayerInfoSlim" /> for the given <see cref="PlayerCharacter" />.</returns>
-        internal PlayerInfoSlim GetSlimInfo(PlayerCharacter player) => this.nearbyPlayersCache.GetOrAdd(player, value => new PlayerInfoSlim(player));
+        private PlayerInfoSlim GetSlimInfo(PlayerCharacter player) => this.nearbyPlayersCache.GetOrAdd(player, _ => new PlayerInfoSlim(player));
 
         /// <summary>
         ///     Checks if the given <see cref="PlayerCharacter" /> is in the party from its ObjectId.
         /// </summary>
-        /// <param name="player">The <see cref="PlayerCharacter" /> to check.</param>
+        /// <param name="playerCharacter">The <see cref="PlayerCharacter" /> to check.</param>
         /// <returns>True if the <see cref="PlayerCharacter" /> is in the party, otherwise false.</returns>
         internal static bool IsPlayerInParty(PlayerCharacter playerCharacter)
         {
@@ -86,11 +87,11 @@ namespace Wholist.Game
         }
 
         /// <summary>
-        ///     Checks if the given <see cref="PlayerCharacter" /> is on the friendlist.
+        ///     Checks if the given <see cref="PlayerCharacter" /> is on the friend-list.
         /// </summary>
         /// <param name="player">The <see cref="PlayerCharacter" /> to check.</param>
-        /// <returns>True if the <see cref="PlayerCharacter" /> is on the friendlist, otherwise false.</returns>
-        internal static bool IsPlayerOnFriendlist(PlayerCharacter player)
+        /// <returns>True if the <see cref="PlayerCharacter" /> is on the friend-list, otherwise false.</returns>
+        internal static bool IsPlayerFriend(PlayerCharacter player)
         {
             foreach (var friend in Services.XivCommon.Functions.FriendList.List)
             {

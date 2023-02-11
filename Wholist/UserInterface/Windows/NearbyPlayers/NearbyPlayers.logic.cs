@@ -75,13 +75,8 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         internal List<PlayerInfoSlim> GetNearbyPlayers()
         {
             var players = new List<PlayerInfoSlim>();
-            foreach (var player in Services.PlayerManager.GetNearbyPlayers())
+            foreach (var player in Services.PlayerManager.GetNearbyPlayers(Configuration.NearbyPlayers.MaxPlayersToShow))
             {
-                if (players.Count >= Configuration.NearbyPlayers.MaxPlayersToShow)
-                {
-                    break;
-                }
-
                 if (Configuration.NearbyPlayers.FilterAfk && player.OnlineStatusId == (uint)OnlineStatusType.AFK)
                 {
                     continue;

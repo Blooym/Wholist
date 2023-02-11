@@ -32,7 +32,7 @@ namespace Wholist.DataStructures
             this.Level = basePlayer.Level;
             this.CompanyTag = basePlayer.CompanyTag.TextValue;
             this.OnlineStatusId = basePlayer.OnlineStatus.Id;
-            this.IsFriend = PlayerManager.IsPlayerOnFriendlist(basePlayer);
+            this.IsFriend = PlayerManager.IsPlayerFriend(basePlayer);
             this.IsInParty = PlayerManager.IsPlayerInParty(basePlayer);
             this.NameColour = PlayerManager.GetColourForPlayer(this);
         }
