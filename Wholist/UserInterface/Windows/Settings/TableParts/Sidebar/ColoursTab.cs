@@ -38,7 +38,7 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             ImGui.Dummy(Spacing.SectionSpacing);
 
             // Job colours.
-            SiGui.Heading(Strings.UserInterface_Settings_Colours_JobsColours);
+            SiGui.Heading(Strings.UserInterface_Settings_Colours_RoleColours);
             if (ColourEdit.Draw(Strings.UserInterface_Settings_Colours_MeleeDPS, ref NearbyPlayersLogic.Configuration.Colours.MeleeDPS))
             {
                 NearbyPlayersLogic.Configuration.Save();

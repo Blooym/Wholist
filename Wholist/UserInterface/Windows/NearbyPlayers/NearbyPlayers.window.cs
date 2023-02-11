@@ -5,11 +5,10 @@ using Dalamud.Interface;
 using Dalamud.Interface.Windowing;
 using Dalamud.Utility;
 using ImGuiNET;
-using Sirensong.Game.Utility;
+using Sirensong.Game.Helpers;
 using Sirensong.UserInterface;
 using Wholist.Common;
 using Wholist.DataStructures;
-using Wholist.Game;
 using Wholist.Resources.Localization;
 
 namespace Wholist.UserInterface.Windows.NearbyPlayers
@@ -34,7 +33,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 return false;
             }
 
-            if (NearbyPlayersLogic.Configuration.NearbyPlayers.HideInInstance && (ConditionUtil.IsBoundByDuty() || ConditionUtil.IsInIslandSanctuary()))
+            if (NearbyPlayersLogic.Configuration.NearbyPlayers.HideInInstance && (ConditionHelper.IsBoundByDuty() || ConditionHelper.IsInIslandSanctuary()))
             {
                 return false;
             }
@@ -172,7 +171,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 ImGui.BeginDisabled(obj.Position == null);
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap))
                 {
-                    MapHelper.FlagAndOpen(obj.Position!.Value, obj.Name);
+                    MapHelper.FlagAndOpenCurrentMap(obj.Position!.Value, obj.Name);
                 }
                 ImGui.EndDisabled();
                 ImGui.EndPopup();

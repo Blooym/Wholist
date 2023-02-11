@@ -321,9 +321,9 @@ namespace Wholist.Resources.Localization {
             }
         }
         
-        internal static string UserInterface_Settings_Colours_JobsColours {
+        internal static string UserInterface_Settings_Colours_RoleColours {
             get {
-                return ResourceManager.GetString("UserInterface_Settings_Colours_JobsColours", resourceCulture);
+                return ResourceManager.GetString("UserInterface_Settings_Colours_RoleColours", resourceCulture);
             }
         }
         
