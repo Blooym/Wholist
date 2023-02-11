@@ -195,4 +195,7 @@
   <data name="UserInterface_Settings_NearbyPlayers_ShownContent" xml:space="preserve">
     <value>Shown content</value>
   </data>
+  <data name="UserInterface_Settings_Players_Homeworld" xml:space="preserve">
+    <value>Homeworld</value>
+  </data>
 </root>

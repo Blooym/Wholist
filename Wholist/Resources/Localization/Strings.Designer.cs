@@ -398,5 +398,11 @@ namespace Wholist.Resources.Localization {
                 return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_ShownContent", resourceCulture);
             }
         }
+        
+        internal static string UserInterface_Settings_Players_Homeworld {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Players_Homeworld", resourceCulture);
+            }
+        }
     }
 }

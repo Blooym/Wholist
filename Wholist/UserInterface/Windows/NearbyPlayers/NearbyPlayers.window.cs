@@ -81,7 +81,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Name, ImGuiTableColumnFlags.WidthStretch, 220);
                 ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Class, ImGuiTableColumnFlags.WidthStretch, 150);
                 ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Level, ImGuiTableColumnFlags.WidthStretch, 80);
-                ImGui.TableSetupColumn("Homeworld", ImGuiTableColumnFlags.WidthStretch, 150);
+                ImGui.TableSetupColumn(Strings.UserInterface_Settings_Players_Homeworld, ImGuiTableColumnFlags.WidthStretch, 150);
                 ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Company, ImGuiTableColumnFlags.WidthStretch, 120);
                 ImGui.TableSetupScrollFreeze(0, 1);
                 ImGui.TableHeadersRow();
