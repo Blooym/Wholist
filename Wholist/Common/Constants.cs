@@ -14,6 +14,9 @@ namespace Wholist.Common
         /// </summary>
         internal const string PluginName = "Wholist";
 
+        /// <summary>
+        ///     Plugin build information.
+        /// </summary>
         internal static class Build
         {
             /// <summary>
@@ -109,12 +112,18 @@ namespace Wholist.Common
                 """;
         }
 
+        /// <summary>
+        ///     Links to various places.
+        /// </summary>
         internal static class Links
         {
             internal const string KoFi = "https://ko-fi.com/BitsOfAByte";
             internal const string GitHubSponsors = "https://github.com/sponsors/BitsOfAByte";
         }
 
+        /// <summary>
+        ///     Plugin commands.
+        /// </summary>
         internal static class Commands
         {
             internal const string WhoCommand = "/who";
@@ -122,6 +131,9 @@ namespace Wholist.Common
         }
     }
 
+    /// <summary>
+    ///     The Git commit hash of the build.
+    /// </summary>
     [AttributeUsage(AttributeTargets.Assembly)]
     internal sealed class GitHashAttribute : Attribute
     {
@@ -129,6 +141,9 @@ namespace Wholist.Common
         public string Value { get; set; }
     }
 
+    /// <summary>
+    ///     The Git commit date of the build.
+    /// </summary>
     [AttributeUsage(AttributeTargets.Assembly)]
     internal sealed class GitCommitDateAttribute : Attribute
     {
@@ -136,6 +151,9 @@ namespace Wholist.Common
         public string Value { get; set; }
     }
 
+    /// <summary>
+    ///     The Git branch of the build.
+    /// </summary>
     [AttributeUsage(AttributeTargets.Assembly)]
     internal sealed class GitBranchAttribute : Attribute
     {

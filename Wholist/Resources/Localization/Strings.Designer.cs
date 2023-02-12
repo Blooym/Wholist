@@ -410,5 +410,17 @@ namespace Wholist.Resources.Localization {
                 return ResourceManager.GetString("UserInterface_Settings_UnknownTab", resourceCulture);
             }
         }
+        
+        internal static string UserInterface_NearbyPlayers_Players_Submenu_Integrations {
+            get {
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Submenu_Integrations", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_NearbyPlayers_Players_Submenu_Integrations_None {
+            get {
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Submenu_Integrations_None", resourceCulture);
+            }
+        }
     }
 }

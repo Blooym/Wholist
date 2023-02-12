@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Numerics;
+using Dalamud.Game.ClientState;
 using Dalamud.Game.ClientState.Conditions;
+using Dalamud.Game.ClientState.Objects.SubKinds;
 using Dalamud.Utility;
 using FFXIVClientStructs.FFXIV.Client.UI;
 using FFXIVClientStructs.FFXIV.Client.UI.Agent;
@@ -12,6 +14,8 @@ using Sirensong.Game.Helpers;
 using Wholist.Common;
 using Wholist.Configuration;
 using Wholist.DataStructures;
+using Wholist.Game;
+using Wholist.IntegrationHandling;
 using Wholist.Resources.Localization;
 
 namespace Wholist.UserInterface.Windows.NearbyPlayers
@@ -23,22 +27,49 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// </summary>
         internal string SearchText = string.Empty;
 
-        /// <inheritdoc cref="Configuration" />
+        /// <inheritdoc cref="PluginConfiguration" />
         internal static PluginConfiguration Configuration => Services.Configuration;
 
-        /// <inheritdoc cref="IsPvP" />
-        internal static bool IsPvP => Services.ClientState.IsPvP;
-
-        /// <inheritdoc cref="Condition" />
+        /// <inheritdoc cref="Dalamud.Game.ClientState.Conditions.Condition" />
         internal static Condition Condition => Services.Condition;
+
+        /// <inheritdoc cref="ClientState.IsPvP" />
+        internal static bool IsPvP => Services.ClientState.IsPvP;
 
         /// <summary>
         ///     Whether or not the window should be closed when the escape key is pressed.
         /// </summary>
-        internal static bool DisableEscClose => Configuration.NearbyPlayers.LockPosition;
+        internal static bool ShouldDisableEscClose => Configuration.NearbyPlayers.LockPosition;
 
         /// <inheritdoc cref="MapHelper.FlagAndOpenCurrentMap(Vector3, string?, MapType)" />
         internal static void FlagAndOpen(Vector3 position, string? title = null, MapType mapType = MapType.FlagMarker) => MapHelper.FlagAndOpenCurrentMap(position, title, mapType);
+
+        /// <inheritdoc cref="InboundIpcManager.GetPlayerContextItems" />
+        internal static IReadOnlyDictionary<string, string> GetContextMenuItems() => Services.InboundIpcManager.GetPlayerContextItems();
+
+        /// <inheritdoc cref="InboundIpcManager.InvokeExternPlayerContextMeny" />
+        internal static void InvokeExternPlayerContextMenu(string id, PlayerCharacter playerCharacter) => Services.InboundIpcManager.InvokePlayerContextMenu(id, playerCharacter);
+
+        /// <inheritdoc cref="PlayerManager.GetNearbyPlayers" />
+        internal List<PlayerInfoSlim> GetNearbyPlayers()
+        {
+            var players = new List<PlayerInfoSlim>();
+            foreach (var player in Services.PlayerManager.GetNearbyPlayers(Configuration.NearbyPlayers.MaxPlayersToShow))
+            {
+                if (Configuration.NearbyPlayers.FilterAfk && player.OnlineStatusId == (uint)OnlineStatusType.AFK)
+                {
+                    continue;
+                }
+
+                if (!this.SearchText.IsNullOrWhitespace() && !player.Name.Contains(this.SearchText, StringComparison.OrdinalIgnoreCase))
+                {
+                    continue;
+                }
+
+                players.Add(player);
+            }
+            return players;
+        }
 
         /// <summary>
         ///     Applies the current flag configuration to the window.
@@ -66,30 +97,6 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             }
 
             return currentFlags;
-        }
-
-        /// <summary>
-        ///     Pulls <see cref="PlayerCharacter" />s from the object table any applies the filter & configuration.
-        /// </summary>
-        /// <returns></returns>
-        internal List<PlayerInfoSlim> GetNearbyPlayers()
-        {
-            var players = new List<PlayerInfoSlim>();
-            foreach (var player in Services.PlayerManager.GetNearbyPlayers(Configuration.NearbyPlayers.MaxPlayersToShow))
-            {
-                if (Configuration.NearbyPlayers.FilterAfk && player.OnlineStatusId == (uint)OnlineStatusType.AFK)
-                {
-                    continue;
-                }
-
-                if (!this.SearchText.IsNullOrWhitespace() && !player.Name.Contains(this.SearchText, StringComparison.OrdinalIgnoreCase))
-                {
-                    continue;
-                }
-
-                players.Add(player);
-            }
-            return players;
         }
 
         /// <summary>

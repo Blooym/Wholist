@@ -57,7 +57,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         public override void Draw()
         {
             this.Flags = NearbyPlayersLogic.ApplyFlagConfiguration(this.Flags);
-            this.RespectCloseHotkey = !NearbyPlayersLogic.DisableEscClose;
+            this.RespectCloseHotkey = !NearbyPlayersLogic.ShouldDisableEscClose;
 
             var playersToDraw = this.logic.GetNearbyPlayers();
             if (ImGui.BeginChild("##NearbyChild", this.childSize, false))
@@ -120,8 +120,9 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// <param name="obj"></param>
         private static void DrawPlayer(PlayerInfoSlim obj)
         {
-            // Name.
             ImGui.TableNextColumn();
+
+            // Name.
             SiGui.TextColoured(obj.NameColour, obj.Name);
             DrawPlayerContextMenu(obj);
             ImGui.TableNextColumn();
@@ -180,7 +181,38 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                     NearbyPlayersLogic.FlagAndOpen(obj.Position!.Value, obj.Name);
                 }
                 ImGui.EndDisabled();
+
+                DrawExternPlayerIntegrationsMenu(obj);
+
                 ImGui.EndPopup();
+            }
+        }
+
+        /// <summary>
+        ///     Draws the integrations menu.
+        /// </summary>
+        /// <param name="obj"></param>
+        private static void DrawExternPlayerIntegrationsMenu(PlayerInfoSlim obj)
+        {
+            if (ImGui.BeginMenu(Strings.UserInterface_NearbyPlayers_Players_Submenu_Integrations))
+            {
+                var integrations = NearbyPlayersLogic.GetContextMenuItems();
+                if (integrations.Count != 0)
+                {
+                    foreach (var item in integrations)
+                    {
+                        if (ImGui.BeginMenu(item.Value))
+                        {
+                            NearbyPlayersLogic.InvokeExternPlayerContextMenu(item.Key, obj.GetPlayerCharacter());
+                            ImGui.EndMenu();
+                        }
+                    }
+                }
+                else
+                {
+                    SiGui.TextDisabled(Strings.UserInterface_NearbyPlayers_Players_Submenu_Integrations_None);
+                }
+                ImGui.EndMenu();
             }
         }
     }

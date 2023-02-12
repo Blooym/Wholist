@@ -10,6 +10,7 @@ using Sirensong.IoC;
 using Sirensong.UserInterface.Services;
 using Wholist.Configuration;
 using Wholist.Game;
+using Wholist.IntegrationHandling;
 using Wholist.Resources.Localization;
 using Wholist.UserInterface;
 using XivCommon;
@@ -41,6 +42,7 @@ namespace Wholist.Common
         internal static XivCommonBase XivCommon { get; private set; } = null!;
         internal static PlayerManager PlayerManager { get; private set; } = null!;
         internal static PluginConfiguration Configuration { get; private set; } = null!;
+        internal static InboundIpcManager InboundIpcManager { get; private set; } = null!;
 
         /// <summary>
         ///     Initializes the service class.
@@ -52,12 +54,13 @@ namespace Wholist.Common
             SirenCore.InjectServices<Services>();
             pluginInterface.Create<Services>();
 
-            Configuration = PluginInterface.GetPluginConfig() as PluginConfiguration ?? new PluginConfiguration();
             XivCommon = new XivCommonBase();
+            Configuration = PluginInterface.GetPluginConfig() as PluginConfiguration ?? new PluginConfiguration();
             ServiceContainer.GetOrCreateService<LocalizationManager>();
             WindowManager = ServiceContainer.GetOrCreateService<WindowManager>();
             ServiceContainer.CreateService<CommandHandling.CommandManager>();
             PlayerManager = ServiceContainer.GetOrCreateService<PlayerManager>();
+            InboundIpcManager = ServiceContainer.GetOrCreateService<InboundIpcManager>();
         }
 
         /// <summary>
