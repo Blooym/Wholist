@@ -62,6 +62,11 @@ namespace Wholist.Game
         }
 
         /// <summary>
+        ///     Clears the cache of nearby players.
+        /// </summary>
+        internal void ClearCache() => this.nearbyPlayersCache.Clear();
+
+        /// <summary>
         ///     Gets the <see cref="PlayerInfoSlim" /> for the given <see cref="PlayerCharacter" /> if it exists, otherwise creates
         ///     a new one.
         /// </summary>

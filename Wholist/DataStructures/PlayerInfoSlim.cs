@@ -29,9 +29,7 @@ namespace Wholist.DataStructures
             this.Class = new JobInfoSlim(basePlayer.ClassJob.GameData!);
 
             this.Name = basePlayer.Name.TextValue;
-            this.Level = basePlayer.Level;
             this.CompanyTag = basePlayer.CompanyTag.TextValue;
-            this.OnlineStatusId = basePlayer.OnlineStatus.Id;
             this.IsFriend = PlayerManager.IsPlayerFriend(basePlayer);
             this.IsInParty = PlayerManager.IsPlayerInParty(basePlayer);
             this.NameColour = PlayerManager.GetColourForPlayer(this);
@@ -48,11 +46,6 @@ namespace Wholist.DataStructures
         internal readonly Vector4 NameColour;
 
         /// <summary>
-        ///     The level of the player.
-        /// </summary>
-        internal readonly byte Level;
-
-        /// <summary>
         ///     The class information of the player.
         /// </summary>
         internal readonly JobInfoSlim Class;
@@ -61,11 +54,6 @@ namespace Wholist.DataStructures
         ///     The company tag of the player.
         /// </summary>
         internal readonly string CompanyTag;
-
-        /// <summary>
-        ///     The online status id of the player.
-        /// </summary>
-        internal readonly uint OnlineStatusId;
 
         /// <summary>
         ///     The homeworld of the player.
@@ -83,9 +71,25 @@ namespace Wholist.DataStructures
         internal readonly bool IsInParty;
 
         /// <summary>
+        ///     The level of the player.
+        /// </summary>
+        internal byte Level => this.playerCharacter.Level;
+
+        /// <summary>
+        ///     The online status id of the player.
+        /// </summary>
+        internal uint OnlineStatusId => this.playerCharacter.OnlineStatus.Id;
+
+        /// <summary>
         ///     The location of the player.
         /// </summary>
         internal Vector3? Position => this.playerCharacter.Position;
+
+        /// <summary>
+        ///     Gets the underlying <see cref="PlayerCharacter" />.
+        /// </summary>
+        /// <returns>The underlying <see cref="PlayerCharacter" />.</returns>
+        internal PlayerCharacter GetPlayerCharacter() => this.playerCharacter;
 
         /// <summary>
         ///     Opens the examine window for the player.

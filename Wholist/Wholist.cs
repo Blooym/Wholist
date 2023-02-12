@@ -7,7 +7,6 @@ namespace Wholist
 {
     internal sealed class Plugin : IDalamudPlugin
     {
-
         /// <summary>
         ///     The plugin's main entry point.
         /// </summary>
