@@ -204,4 +204,10 @@
   <data name="UserInterface_Settings_UnknownTab" xml:space="preserve">
     <value>Unknown tab selected.</value>
   </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_Integrations" xml:space="preserve">
+    <value>Integrations</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_Integrations_None" xml:space="preserve">
+    <value>No integrations are available at this time.</value>
+  </data>
 </root>
