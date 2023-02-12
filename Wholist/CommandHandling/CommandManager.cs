@@ -7,12 +7,19 @@ namespace Wholist.CommandHandling
 {
     internal sealed class CommandManager : IDisposable
     {
+
+        #region Fields
+
         /// <summary>
         ///     All  commands to register with the <see cref="Dalamud.Game.Command.CommandManager" />, holds all references.
         /// </summary>
         private IDalamudCommand[] commands = { new WhoCommand(), new WhoSettingsCommand() };
 
         private bool disposedValue;
+
+        #endregion
+
+        #region Constructor and Dispose
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="CommandManager" /> class.
@@ -41,5 +48,8 @@ namespace Wholist.CommandHandling
                 this.disposedValue = true;
             }
         }
+
+        #endregion
+
     }
 }

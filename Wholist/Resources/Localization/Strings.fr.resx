@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns=""
+              id="root">
     <xsd:element name="root" msdata:IsDataSet="true">
 
     </xsd:element>
@@ -183,22 +184,19 @@
   <data name="UserInterface_Settings_Colours_UpdateTimeNotice_Text" xml:space="preserve">
     <value>Please note that it may take some time for the user interface to visually reflect your colour changes.</value>
   </data>
-  <data name="UserInterface_Settings_Colours_UpdateTimeNotice_Title" xml:space="preserve">
-    <value>Notification</value>
-  </data>
   <data name="UserInterface_Settings_Colours_Heading" xml:space="preserve">
     <value>Couleurs</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap" xml:space="preserve">
     <value>Find on Map</value>
   </data>
-  <data name="UserInterface_Settings_NearbyPlayers_ShownContent_Description" xml:space="preserve">
+  <data name="UserInterface_Settings_NearbyPlayers_ShownRows_Description" xml:space="preserve">
     <value>You can change what information is shown in the Nearby Players window by right-clicking the table header.</value>
   </data>
-  <data name="UserInterface_Settings_NearbyPlayers_ShownContent" xml:space="preserve">
+  <data name="UserInterface_Settings_NearbyPlayers_ShownRows" xml:space="preserve">
     <value>Shown content</value>
   </data>
-  <data name="UserInterface_Settings_Players_Homeworld" xml:space="preserve">
+  <data name="UserInterface_NearbyPlayers_Players_Homeworld" xml:space="preserve">
     <value>Homeworld</value>
   </data>
   <data name="UserInterface_Settings_UnknownTab" xml:space="preserve">

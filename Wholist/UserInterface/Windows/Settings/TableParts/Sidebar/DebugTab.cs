@@ -12,10 +12,9 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
         ///     Draws the debug tab of the settings window.
         /// </summary>
         /// <param name="_"></param>
-        internal static void Draw(SettingsLogic _)
+        internal static void Draw(SettingsLogic logic)
         {
-            // Heading.
-            SiGui.Heading(Strings.UserInterface_Settings_Debug_Heading);
+            // Disclaimer.
             SiGui.TextWrapped(Strings.UserInterface_Settings_Debug_Disclaimer);
             ImGui.Dummy(Spacing.CollapsibleHeaderSpacing);
 
@@ -28,11 +27,19 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
 
             // Debug info preview.
             SiGui.Heading(Strings.UserInterface_Settings_Debug_Info);
+            DrawDebugPreview(logic);
+        }
+
+        /// <summary>
+        ///     Draws the debug information preview.
+        /// </summary>
+        /// <param name="_"></param>
+        private static void DrawDebugPreview(SettingsLogic _)
+        {
             if (ImGui.BeginChild("DebugInformation"))
             {
                 SiGui.TextWrapped(Constants.Build.DebugString);
             }
-            ;
 
             ImGui.EndChild();
         }

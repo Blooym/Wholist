@@ -174,10 +174,10 @@
     <value>Reset all colours</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers" xml:space="preserve">
-    <value>Max players to show</value>
+    <value>Max players shown</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers_Description" xml:space="preserve">
-    <value>The maximum amount of players to be shown on the nearby players list.</value>
+    <value>The maximum amount of players to be shown on the nearby players listat any time.</value>
   </data>
   <data name="UserInterface_Settings_Colours_Default" xml:space="preserve">
     <value>Default</value>
@@ -185,22 +185,19 @@
   <data name="UserInterface_Settings_Colours_UpdateTimeNotice_Text" xml:space="preserve">
     <value>Please note that it may take some time for the user interface to visually reflect your colour changes.</value>
   </data>
-  <data name="UserInterface_Settings_Colours_UpdateTimeNotice_Title" xml:space="preserve">
-    <value>Notice</value>
-  </data>
   <data name="UserInterface_Settings_Colours_Heading" xml:space="preserve">
     <value>Colours</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap" xml:space="preserve">
     <value>Find on Map</value>
   </data>
-  <data name="UserInterface_Settings_NearbyPlayers_ShownContent_Description" xml:space="preserve">
-    <value>You can change what information is shown in the Nearby Players window by right-clicking the table header.</value>
+  <data name="UserInterface_Settings_NearbyPlayers_ShownRows_Description" xml:space="preserve">
+    <value>You can change what information is shown about a player in the nearby players list by right-clicking the table header.</value>
   </data>
-  <data name="UserInterface_Settings_NearbyPlayers_ShownContent" xml:space="preserve">
-    <value>Shown content</value>
+  <data name="UserInterface_Settings_NearbyPlayers_ShownRows" xml:space="preserve">
+    <value>Shown player information</value>
   </data>
-  <data name="UserInterface_Settings_Players_Homeworld" xml:space="preserve">
+  <data name="UserInterface_NearbyPlayers_Players_Homeworld" xml:space="preserve">
     <value>Homeworld</value>
   </data>
   <data name="UserInterface_Settings_UnknownTab" xml:space="preserve">
@@ -211,5 +208,14 @@
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Integrations_None" xml:space="preserve">
     <value>No integrations are available at this time.</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Window" xml:space="preserve">
+    <value>Window</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Filtering" xml:space="preserve">
+    <value>Filtering</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_Lodestone" xml:space="preserve">
+    <value>Search on Lodestone</value>
   </data>
 </root>

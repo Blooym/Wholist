@@ -11,63 +11,8 @@ namespace Wholist.UserInterface
 {
     internal sealed class WindowManager : IDisposable
     {
-        /// <summary>
-        ///     All windows to add to the windowing system, holds all references.
-        /// </summary>
-        private readonly Dictionary<Window, bool> windows = new() { { new NearbyPlayersWindow(), false }, { new SettingsWindow(), true } };
 
-        private bool disposedValue;
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="WindowManager" /> class.
-        /// </summary>
-        private WindowManager()
-        {
-            foreach (var (window, isSettings) in this.windows)
-            {
-                this.WindowingSystem.AddWindow(window, isSettings);
-            }
-
-            Services.ClientState.Login += this.OnLogin;
-            Services.ClientState.Logout += this.OnLogout;
-
-            if (Services.ClientState.IsLoggedIn)
-            {
-                this.OnLogin(null, EventArgs.Empty);
-            }
-        }
-
-        /// <summary>
-        ///     The windowing system.
-        /// </summary>
-        public WindowingSystem WindowingSystem { get; } = SirenCore.GetOrCreateService<WindowingSystem>();
-
-        /// <summary>
-        ///     Disposes of the window manager.
-        /// </summary>
-        public void Dispose()
-        {
-            if (!this.disposedValue)
-            {
-                this.WindowingSystem.Dispose();
-
-                Services.ClientState.Login -= this.OnLogin;
-                Services.ClientState.Logout -= this.OnLogout;
-
-                this.disposedValue = true;
-            }
-        }
-
-        /// <summary>
-        ///     Toggles the nearby players window.
-        /// </summary>
-        internal void ToggleNearbyPlayersWindow()
-        {
-            if (this.WindowingSystem.TryGetWindow<NearbyPlayersWindow>(out var window))
-            {
-                window.Toggle();
-            }
-        }
+        #region Event Handlers
 
         /// <summary>
         ///     Handle the plugin being logged in.
@@ -95,5 +40,64 @@ namespace Wholist.UserInterface
                 window.IsOpen = false;
             }
         }
+
+        #endregion
+
+        #region Fields
+
+        /// <summary>
+        ///     All windows to add to the windowing system, holds all references.
+        /// </summary>
+        private readonly Dictionary<Window, bool> windows = new() { { new NearbyPlayersWindow(), false }, { new SettingsWindow(), true } };
+
+        /// <summary>
+        ///     The windowing system.
+        /// </summary>
+        public WindowingSystem WindowingSystem { get; } = SirenCore.GetOrCreateService<WindowingSystem>();
+
+        private bool disposedValue;
+
+        #endregion
+
+        #region Constructor and Dispose
+
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="WindowManager" /> class.
+        /// </summary>
+        private WindowManager()
+        {
+            foreach (var (window, isSettings) in this.windows)
+            {
+                this.WindowingSystem.AddWindow(window, isSettings);
+            }
+
+            Services.ClientState.Login += this.OnLogin;
+            Services.ClientState.Logout += this.OnLogout;
+
+            if (Services.ClientState.IsLoggedIn)
+            {
+                this.OnLogin(null, EventArgs.Empty);
+            }
+        }
+
+
+        /// <summary>
+        ///     Disposes of the window manager.
+        /// </summary>
+        public void Dispose()
+        {
+            if (!this.disposedValue)
+            {
+                this.WindowingSystem.Dispose();
+
+                Services.ClientState.Login -= this.OnLogin;
+                Services.ClientState.Logout -= this.OnLogout;
+
+                this.disposedValue = true;
+            }
+        }
+
+        #endregion
+
     }
 }

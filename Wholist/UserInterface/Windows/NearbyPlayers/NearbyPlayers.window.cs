@@ -84,7 +84,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Name, ImGuiTableColumnFlags.WidthStretch, 220);
                 ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Class, ImGuiTableColumnFlags.WidthStretch, 150);
                 ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Level, ImGuiTableColumnFlags.WidthStretch, 80);
-                ImGui.TableSetupColumn(Strings.UserInterface_Settings_Players_Homeworld, ImGuiTableColumnFlags.WidthStretch, 150);
+                ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Homeworld, ImGuiTableColumnFlags.WidthStretch, 150);
                 ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Company, ImGuiTableColumnFlags.WidthStretch, 120);
                 ImGui.TableSetupScrollFreeze(0, 1);
                 ImGui.TableHeadersRow();
@@ -154,27 +154,31 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 // Heading.
                 SiGui.Heading(string.Format(Strings.UserInterface_NearbyPlayers_Players_Submenu_Heading, $"{obj.Name}@{obj.Homeworld.Name}"));
 
-                // Options.
+                // Examine.
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_Examine))
                 {
                     obj.OpenExamine();
                 }
 
+                // View Character Card.
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_AdventurePlate))
                 {
                     obj.OpenCharaCard();
                 }
 
+                // Target.
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_Target))
                 {
                     obj.Target();
                 }
 
+                // Send Tell.
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_Tell))
                 {
                     NearbyPlayersLogic.SetChatTellTarget(obj.Name, obj.Homeworld.Name);
                 }
 
+                // Find on Map.
                 ImGui.BeginDisabled(obj.Position == null);
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap))
                 {
@@ -182,6 +186,14 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 }
                 ImGui.EndDisabled();
 
+                // Find on Lodestone.
+                if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_Lodestone))
+                {
+                    NearbyPlayersLogic.FindPlayerLodestone(obj.Name, obj.Homeworld.Name);
+                }
+
+                // External integrations / 3rd-party.
+                ImGui.Separator();
                 DrawExternPlayerIntegrationsMenu(obj);
 
                 ImGui.EndPopup();
@@ -196,7 +208,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         {
             if (ImGui.BeginMenu(Strings.UserInterface_NearbyPlayers_Players_Submenu_Integrations))
             {
-                var integrations = NearbyPlayersLogic.GetContextMenuItems();
+                var integrations = NearbyPlayersLogic.GetExternContextMenuItems();
                 if (integrations.Count != 0)
                 {
                     foreach (var item in integrations)

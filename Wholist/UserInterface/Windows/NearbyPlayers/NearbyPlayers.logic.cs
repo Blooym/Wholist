@@ -22,30 +22,23 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
 {
     internal sealed class NearbyPlayersLogic
     {
+
+        #region Fields
+
         /// <summary>
         ///     The search text to apply to the object table.
         /// </summary>
         internal string SearchText = string.Empty;
 
-        /// <inheritdoc cref="PluginConfiguration" />
-        internal static PluginConfiguration Configuration => Services.Configuration;
+        #endregion
 
-        /// <inheritdoc cref="Dalamud.Game.ClientState.Conditions.Condition" />
-        internal static Condition Condition => Services.Condition;
-
-        /// <inheritdoc cref="ClientState.IsPvP" />
-        internal static bool IsPvP => Services.ClientState.IsPvP;
-
-        /// <summary>
-        ///     Whether or not the window should be closed when the escape key is pressed.
-        /// </summary>
-        internal static bool ShouldDisableEscClose => Configuration.NearbyPlayers.LockPosition;
+        #region Methods
 
         /// <inheritdoc cref="MapHelper.FlagAndOpenCurrentMap(Vector3, string?, MapType)" />
         internal static void FlagAndOpen(Vector3 position, string? title = null, MapType mapType = MapType.FlagMarker) => MapHelper.FlagAndOpenCurrentMap(position, title, mapType);
 
-        /// <inheritdoc cref="InboundIpcManager.GetPlayerContextItems" />
-        internal static IReadOnlyDictionary<string, string> GetContextMenuItems() => Services.InboundIpcManager.GetPlayerContextItems();
+        /// <inheritdoc cref="InboundIpcManager.GetPlayerContextMenuItems" />
+        internal static IReadOnlyDictionary<string, string> GetExternContextMenuItems() => Services.InboundIpcManager.GetPlayerContextMenuItems();
 
         /// <inheritdoc cref="InboundIpcManager.InvokePlayerContextMenu" />
         internal static void InvokeExternPlayerContextMenu(string id, PlayerCharacter playerCharacter) => Services.InboundIpcManager.InvokePlayerContextMenu(id, playerCharacter);
@@ -70,6 +63,13 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             }
             return players;
         }
+
+        /// <summary>
+        ///     Searches for the player on the lodestone.
+        /// </summary>
+        /// <param name="name">The name of the player.</param>
+        /// <param name="homeworld">The name of the player's homeworld.</param>
+        internal static void FindPlayerLodestone(string name, string homeworld) => Util.OpenLink($"https://eu.finalfantasyxiv.com/lodestone/character/?q={name}&worldname={homeworld}");
 
         /// <summary>
         ///     Applies the current flag configuration to the window.
@@ -111,5 +111,26 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             GameChat.Print(Strings.UserInterface_NearbyPlayers_SetChatTarget.Format($"{name}@{homeworldName}"));
             UIModule.PlaySound((int)SoundEffect.Se16, 0, 0, 0);
         }
+
+        #endregion
+
+        #region Properties
+
+        /// <inheritdoc cref="PluginConfiguration" />
+        internal static PluginConfiguration Configuration => Services.Configuration;
+
+        /// <inheritdoc cref="Dalamud.Game.ClientState.Conditions.Condition" />
+        internal static Condition Condition => Services.Condition;
+
+        /// <inheritdoc cref="ClientState.IsPvP" />
+        internal static bool IsPvP => Services.ClientState.IsPvP;
+
+        /// <summary>
+        ///     Whether or not the window should be closed when the escape key is pressed.
+        /// </summary>
+        internal static bool ShouldDisableEscClose => Configuration.NearbyPlayers.LockPosition;
+
+        #endregion
+
     }
 }

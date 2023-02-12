@@ -1,6 +1,7 @@
 using ImGuiNET;
 using Sirensong.UserInterface;
 using Sirensong.UserInterface.Style;
+using Wholist.Common;
 
 namespace Wholist.UserInterface.Windows.Settings.Components
 {
@@ -18,7 +19,7 @@ namespace Wholist.UserInterface.Windows.Settings.Components
             var checkbox = ImGui.Checkbox(label, ref value);
             if (checkbox)
             {
-                SettingsLogic.Configuration.Save();
+                Services.Configuration.Save();
             }
 
             if (!string.IsNullOrEmpty(hint))

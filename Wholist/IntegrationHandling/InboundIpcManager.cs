@@ -44,7 +44,7 @@ namespace Wholist.IntegrationHandling
         ///     Value - The user-friendly name of the menu, usually the plugin name.
         /// </remarks>
         /// <returns>The registered player context menus.</returns>
-        internal IReadOnlyDictionary<string, string> GetPlayerContextItems() => this.registeredPlayerContextMenuIpcs;
+        internal IReadOnlyDictionary<string, string> GetPlayerContextMenuItems() => this.registeredPlayerContextMenuIpcs;
 
         #endregion
 
@@ -64,7 +64,7 @@ namespace Wholist.IntegrationHandling
             this.RegisterPlayerContextMenuGate.RegisterFunc(this.RegisterPlayerContextMenu);
 
             this.UnregisterPlayerContextMenuGate = Services.PluginInterface.GetIpcProvider<string, object?>(UnregisterPlayerContextMenuString);
-            this.UnregisterPlayerContextMenuGate.RegisterAction(this.UnregisterPlayerContextItem);
+            this.UnregisterPlayerContextMenuGate.RegisterAction(this.UnregisterPlayerContextMenu);
 
             this.InvokePlayerContextMenuGate = Services.PluginInterface.GetIpcProvider<string, PlayerCharacter, object?>(InvokePlayerContextMenuString);
             this.InvokePlayerContextMenuGate.RegisterAction(this.InvokePlayerContextMenu);
@@ -84,6 +84,11 @@ namespace Wholist.IntegrationHandling
             this.UnregisterPlayerContextMenuGate.UnregisterFunc();
             this.RegisterPlayerContextMenuGate.UnregisterFunc();
 
+            foreach (var contextMenu in this.registeredPlayerContextMenuIpcs)
+            {
+                this.UnregisterPlayerContextMenu(contextMenu.Key);
+            }
+
             this.registeredPlayerContextMenuIpcs.Clear();
         }
 
@@ -100,12 +105,13 @@ namespace Wholist.IntegrationHandling
         /// <summary>
         ///     Registers a context menu.
         /// </summary>
-        /// <param name="pluginName">The name of the plugin.</param>
+        /// <param name="menuName">The name of the menu.</param>
         /// <returns>The IPC ID, which should be saved to handle invokes and unregisters.</returns>
-        private string RegisterPlayerContextMenu(string pluginName)
+        private string RegisterPlayerContextMenu(string menuName)
         {
             var id = Guid.NewGuid().ToString();
-            this.registeredPlayerContextMenuIpcs.Add(id, pluginName);
+            this.registeredPlayerContextMenuIpcs.Add(id, menuName);
+            BetterLog.Verbose($"Registered player context menu with ID {id} and name {menuName}");
             return id;
         }
 
@@ -114,7 +120,11 @@ namespace Wholist.IntegrationHandling
         /// </summary>
         /// <param name="id">The IPC ID of the item to unregister.</param>
         /// <returns>True if the item was unregistered, false otherwise.</returns>
-        private void UnregisterPlayerContextItem(string id) => this.registeredPlayerContextMenuIpcs.Remove(id);
+        private void UnregisterPlayerContextMenu(string id)
+        {
+            this.registeredPlayerContextMenuIpcs.Remove(id);
+            BetterLog.Verbose($"Unregistered player context menu with ID {id}");
+        }
 
         /// <summary>
         ///     Invokes a player context menu.

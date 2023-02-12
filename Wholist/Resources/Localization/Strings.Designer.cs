@@ -369,12 +369,6 @@ namespace Wholist.Resources.Localization {
             }
         }
         
-        internal static string UserInterface_Settings_Colours_UpdateTimeNotice_Title {
-            get {
-                return ResourceManager.GetString("UserInterface_Settings_Colours_UpdateTimeNotice_Title", resourceCulture);
-            }
-        }
-        
         internal static string UserInterface_Settings_Colours_Heading {
             get {
                 return ResourceManager.GetString("UserInterface_Settings_Colours_Heading", resourceCulture);
@@ -387,21 +381,21 @@ namespace Wholist.Resources.Localization {
             }
         }
         
-        internal static string UserInterface_Settings_NearbyPlayers_ShownContent_Description {
+        internal static string UserInterface_Settings_NearbyPlayers_ShownRows_Description {
             get {
-                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_ShownContent_Description", resourceCulture);
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_ShownRows_Description", resourceCulture);
             }
         }
         
-        internal static string UserInterface_Settings_NearbyPlayers_ShownContent {
+        internal static string UserInterface_Settings_NearbyPlayers_ShownRows {
             get {
-                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_ShownContent", resourceCulture);
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_ShownRows", resourceCulture);
             }
         }
         
-        internal static string UserInterface_Settings_Players_Homeworld {
+        internal static string UserInterface_NearbyPlayers_Players_Homeworld {
             get {
-                return ResourceManager.GetString("UserInterface_Settings_Players_Homeworld", resourceCulture);
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Homeworld", resourceCulture);
             }
         }
         
@@ -420,6 +414,24 @@ namespace Wholist.Resources.Localization {
         internal static string UserInterface_NearbyPlayers_Players_Submenu_Integrations_None {
             get {
                 return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Submenu_Integrations_None", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Window {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Window", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Filtering {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Filtering", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_NearbyPlayers_Players_Submenu_Lodestone {
+            get {
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Submenu_Lodestone", resourceCulture);
             }
         }
     }

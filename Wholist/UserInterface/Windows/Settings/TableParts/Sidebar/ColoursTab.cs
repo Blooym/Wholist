@@ -14,15 +14,29 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
         ///     Draws the colours tab of the settings window.
         /// </summary>
         /// <param name="_"></param>
-        internal static void Draw(SettingsLogic _)
+        internal static void Draw(SettingsLogic logic)
         {
             // Colour notice.
-            SiGui.Heading(Strings.UserInterface_Settings_Colours_UpdateTimeNotice_Title);
             SiGui.TextWrapped(Strings.UserInterface_Settings_Colours_UpdateTimeNotice_Text);
             ImGui.Dummy(Spacing.SectionSpacing);
 
             // Name colour settings.
             SiGui.Heading(Strings.UserInterface_Settings_Colours_NameColours);
+            DrawNameColours(logic);
+            ImGui.Dummy(Spacing.SectionSpacing);
+
+            // Job colours.
+            SiGui.Heading(Strings.UserInterface_Settings_Colours_RoleColours);
+            DrawRoleColours(logic);
+            ImGui.Dummy(Spacing.SectionSpacing);
+
+            // Other options.
+            SiGui.Heading(Strings.UserInterface_Settings_Colours_OtherOptions);
+            DrawOtherOptions(logic);
+        }
+
+        private static void DrawNameColours(SettingsLogic _)
+        {
             if (ColourEdit.Draw(Strings.UserInterface_Settings_Colours_Default, ref NearbyPlayersLogic.Configuration.Colours.Default))
             {
                 NearbyPlayersLogic.Configuration.Save();
@@ -35,10 +49,10 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
-            ImGui.Dummy(Spacing.SectionSpacing);
+        }
 
-            // Job colours.
-            SiGui.Heading(Strings.UserInterface_Settings_Colours_RoleColours);
+        private static void DrawRoleColours(SettingsLogic _)
+        {
             if (ColourEdit.Draw(Strings.UserInterface_Settings_Colours_MeleeDPS, ref NearbyPlayersLogic.Configuration.Colours.MeleeDPS))
             {
                 NearbyPlayersLogic.Configuration.Save();
@@ -59,10 +73,10 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
-            ImGui.Dummy(Spacing.SectionSpacing);
+        }
 
-            // Other options.
-            SiGui.Heading(Strings.UserInterface_Settings_Colours_OtherOptions);
+        private static void DrawOtherOptions(SettingsLogic _)
+        {
             if (ImGui.Button(Strings.UserInterface_Settings_Colours_ResetAll))
             {
                 NearbyPlayersLogic.Configuration.Colours = new PluginConfiguration.ColourConfiguration();

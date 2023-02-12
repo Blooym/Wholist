@@ -10,6 +10,9 @@ namespace Wholist.UserInterface.Windows.Settings
 {
     internal sealed class SettingsWindow : Window
     {
+        /// <inheritdoc cref="SettingsLogic" />
+        private readonly SettingsLogic logic = new();
+
         /// <inheritdoc />
         public SettingsWindow() : base(string.Format(Strings.Windows_Settings_Title, Constants.PluginName))
         {
@@ -17,9 +20,6 @@ namespace Wholist.UserInterface.Windows.Settings
             this.SizeCondition = ImGuiCond.FirstUseEver;
             this.Flags = ImGuiWindowFlagExtras.NoScroll;
         }
-
-        /// <inheritdoc cref="SettingsLogic" />
-        private SettingsLogic Logic { get; } = new();
 
         /// <inheritdoc />
         public override void Draw()
@@ -34,7 +34,7 @@ namespace Wholist.UserInterface.Windows.Settings
                 ImGui.TableNextColumn();
                 if (ImGui.BeginChild("PluginSettingsSidebarChild"))
                 {
-                    SettingsSidebar.Draw(this.Logic);
+                    SettingsSidebar.Draw(this.logic);
                 }
                 ImGui.EndChild();
 
@@ -42,7 +42,7 @@ namespace Wholist.UserInterface.Windows.Settings
                 ImGui.TableNextColumn();
                 if (ImGui.BeginChild("PluginSettingsListChild"))
                 {
-                    SettingsActive.Draw(this.Logic);
+                    SettingsActive.Draw(this.logic);
                 }
                 ImGui.EndChild();
 

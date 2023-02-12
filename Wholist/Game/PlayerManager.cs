@@ -12,6 +12,9 @@ namespace Wholist.Game
 {
     internal sealed class PlayerManager : IDisposable
     {
+
+        #region Fields
+
         /// <summary>
         ///     The cache of nearby player information.
         /// </summary>
@@ -21,6 +24,10 @@ namespace Wholist.Game
         });
 
         private bool disposedValue;
+
+        #endregion
+
+        #region Constructor and Dispose
 
         /// <summary>
         ///     Creates a new instance of the <see />.
@@ -42,6 +49,10 @@ namespace Wholist.Game
                 this.disposedValue = true;
             }
         }
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         ///     Gets nearby players from the <see cref="Dalamud.Game.ClientState.Objects.ObjectTable" /> and turns them into
@@ -125,5 +136,8 @@ namespace Wholist.Game
             }
             return Services.Configuration.Colours.Default;
         }
+
+        #endregion
+
     }
 }

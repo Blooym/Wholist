@@ -1,6 +1,7 @@
 using ImGuiNET;
 using Sirensong.UserInterface;
 using Sirensong.UserInterface.Style;
+using Wholist.Common;
 
 namespace Wholist.UserInterface.Windows.Settings.Components
 {
@@ -30,6 +31,8 @@ namespace Wholist.UserInterface.Windows.Settings.Components
                 {
                     value = max;
                 }
+
+                Services.Configuration.Save();
             }
 
             SiGui.TextDisabledWrapped(description);

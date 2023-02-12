@@ -14,8 +14,7 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
         /// <param name="_"></param>
         internal static void Draw(SettingsLogic _)
         {
-            // Donate heading.
-            SiGui.Heading(Strings.UserInterface_Settings_Donate_Heading);
+            // Description.
             SiGui.TextWrapped(Strings.UserInterface_Settings_Donate_Description);
 
             // KoFi button.
