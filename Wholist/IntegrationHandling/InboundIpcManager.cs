@@ -62,8 +62,10 @@ namespace Wholist.IntegrationHandling
             // Context menus
             this.RegisterPlayerContextMenuGate = Services.PluginInterface.GetIpcProvider<string, string>(RegisterPlayerContextMenuString);
             this.RegisterPlayerContextMenuGate.RegisterFunc(this.RegisterPlayerContextMenu);
-            this.UnregisterPlayerContextMenuGate = Services.PluginInterface.GetIpcProvider<string, bool>(UnregisterPlayerContextMenuString);
-            this.UnregisterPlayerContextMenuGate.RegisterFunc(this.UnregisterPlayerContextItem);
+
+            this.UnregisterPlayerContextMenuGate = Services.PluginInterface.GetIpcProvider<string, object?>(UnregisterPlayerContextMenuString);
+            this.UnregisterPlayerContextMenuGate.RegisterAction(this.UnregisterPlayerContextItem);
+
             this.InvokePlayerContextMenuGate = Services.PluginInterface.GetIpcProvider<string, PlayerCharacter, object?>(InvokePlayerContextMenuString);
             this.InvokePlayerContextMenuGate.RegisterAction(this.InvokePlayerContextMenu);
 
@@ -112,11 +114,7 @@ namespace Wholist.IntegrationHandling
         /// </summary>
         /// <param name="id">The IPC ID of the item to unregister.</param>
         /// <returns>True if the item was unregistered, false otherwise.</returns>
-        private bool UnregisterPlayerContextItem(string id)
-        {
-            this.registeredPlayerContextMenuIpcs.Remove(id);
-            return true;
-        }
+        private void UnregisterPlayerContextItem(string id) => this.registeredPlayerContextMenuIpcs.Remove(id);
 
         /// <summary>
         ///     Invokes a player context menu.
@@ -147,7 +145,7 @@ namespace Wholist.IntegrationHandling
         /// <summary>
         ///     The gate to unregister a player context menu.
         /// </summary>
-        private ICallGateProvider<string, bool> UnregisterPlayerContextMenuGate { get; }
+        private ICallGateProvider<string, object?> UnregisterPlayerContextMenuGate { get; }
 
         /// <summary>
         ///     The gate to invoke a player context menu.

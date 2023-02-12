@@ -201,7 +201,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 {
                     foreach (var item in integrations)
                     {
-                        if (ImGui.BeginMenu(item.Value))
+                        if (ImGui.BeginMenu($"{item.Value}##{item.Key}"))
                         {
                             NearbyPlayersLogic.InvokeExternPlayerContextMenu(item.Key, obj.GetPlayerCharacter());
                             ImGui.EndMenu();

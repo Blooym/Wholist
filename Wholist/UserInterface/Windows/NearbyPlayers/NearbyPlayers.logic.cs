@@ -47,7 +47,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// <inheritdoc cref="InboundIpcManager.GetPlayerContextItems" />
         internal static IReadOnlyDictionary<string, string> GetContextMenuItems() => Services.InboundIpcManager.GetPlayerContextItems();
 
-        /// <inheritdoc cref="InboundIpcManager.InvokeExternPlayerContextMeny" />
+        /// <inheritdoc cref="InboundIpcManager.InvokePlayerContextMenu" />
         internal static void InvokeExternPlayerContextMenu(string id, PlayerCharacter playerCharacter) => Services.InboundIpcManager.InvokePlayerContextMenu(id, playerCharacter);
 
         /// <inheritdoc cref="PlayerManager.GetNearbyPlayers" />
