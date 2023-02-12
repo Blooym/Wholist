@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns=""
-              id="root">
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
     <xsd:element name="root" msdata:IsDataSet="true">
 
     </xsd:element>
@@ -207,5 +206,14 @@
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Integrations_None" xml:space="preserve">
     <value>No integrations are available at this time.</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Window" xml:space="preserve">
+    <value>Window</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Filtering" xml:space="preserve">
+    <value>Filtering</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_Lodestone" xml:space="preserve">
+    <value>Search on Lodestone</value>
   </data>
 </root>
