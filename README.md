@@ -28,6 +28,7 @@ Wholist implements a nearby player list, inspired by the `/who` command from Wor
 - Highlighting of your friends and party members in the list.
 - Fully customizable colours for both job role colours and highlight colours.
 - The ability to hide rows on the list that you don't want to see by right-clicking the header row.
+- Integrates with other plugins via IPC ([learn more](https://github.com/BitsOfAByte/Wholist/blob/main/Wholist/IPC.md))
 
 ## Installation
 
