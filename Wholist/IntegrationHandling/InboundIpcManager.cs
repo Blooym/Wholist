@@ -181,7 +181,7 @@ namespace Wholist.IntegrationHandling
         /// <summary>
         ///     The IPC ID for invoking a player context menu.
         /// </summary>
-        private const string InvokePlayerContextMenuString = "Wholist.InvokeExternPlayerContextMenu";
+        private const string InvokePlayerContextMenuString = "Wholist.InvokePlayerContextMenu";
 
         #endregion
 
