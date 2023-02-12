@@ -6,13 +6,13 @@ using Wholist.Resources.Localization;
 
 namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
 {
-    internal sealed class DonationTab
+    internal static class DonationTab
     {
         /// <summary>
-        /// Draws the donation tab of the settings window.
+        ///     Draws the donation tab of the settings window.
         /// </summary>
         /// <param name="_"></param>
-        public static void Draw(SettingsLogic _)
+        internal static void Draw(SettingsLogic _)
         {
             // Donate heading.
             SiGui.Heading(Strings.UserInterface_Settings_Donate_Heading);

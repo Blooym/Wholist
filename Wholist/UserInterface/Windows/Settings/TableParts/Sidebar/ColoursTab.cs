@@ -8,13 +8,13 @@ using Wholist.UserInterface.Windows.Settings.Components;
 
 namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
 {
-    internal sealed class ColoursTab
+    internal static class ColoursTab
     {
         /// <summary>
-        /// Draws the colours tab of the settings window.
+        ///     Draws the colours tab of the settings window.
         /// </summary>
         /// <param name="_"></param>
-        public static void Draw(SettingsLogic _)
+        internal static void Draw(SettingsLogic _)
         {
             // Colour notice.
             SiGui.Heading(Strings.UserInterface_Settings_Colours_UpdateTimeNotice_Title);
@@ -38,7 +38,7 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             ImGui.Dummy(Spacing.SectionSpacing);
 
             // Job colours.
-            SiGui.Heading(Strings.UserInterface_Settings_Colours_JobsColours);
+            SiGui.Heading(Strings.UserInterface_Settings_Colours_RoleColours);
             if (ColourEdit.Draw(Strings.UserInterface_Settings_Colours_MeleeDPS, ref NearbyPlayersLogic.Configuration.Colours.MeleeDPS))
             {
                 NearbyPlayersLogic.Configuration.Save();

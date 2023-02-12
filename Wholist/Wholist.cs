@@ -8,12 +8,7 @@ namespace Wholist
     internal sealed class Plugin : IDalamudPlugin
     {
         /// <summary>
-        /// The plugin's name.
-        /// </summary>
-        public string Name => Constants.PluginName;
-
-        /// <summary>
-        /// The plugin's main entry point.
+        ///     The plugin's main entry point.
         /// </summary>
         public Plugin([RequiredVersion("1.0")] DalamudPluginInterface pluginInterface)
         {
@@ -22,7 +17,12 @@ namespace Wholist
         }
 
         /// <summary>
-        /// Disposes of the plugin.
+        ///     The plugin's name.
+        /// </summary>
+        public string Name => Constants.PluginName;
+
+        /// <summary>
+        ///     Disposes of the plugin.
         /// </summary>
         public void Dispose()
         {

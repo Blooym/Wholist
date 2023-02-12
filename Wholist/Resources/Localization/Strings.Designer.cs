@@ -321,9 +321,9 @@ namespace Wholist.Resources.Localization {
             }
         }
         
-        internal static string UserInterface_Settings_Colours_JobsColours {
+        internal static string UserInterface_Settings_Colours_RoleColours {
             get {
-                return ResourceManager.GetString("UserInterface_Settings_Colours_JobsColours", resourceCulture);
+                return ResourceManager.GetString("UserInterface_Settings_Colours_RoleColours", resourceCulture);
             }
         }
         
@@ -384,6 +384,42 @@ namespace Wholist.Resources.Localization {
         internal static string UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap {
             get {
                 return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_ShownContent_Description {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_ShownContent_Description", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_ShownContent {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_ShownContent", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_Players_Homeworld {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Players_Homeworld", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_UnknownTab {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_UnknownTab", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_NearbyPlayers_Players_Submenu_Integrations {
+            get {
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Submenu_Integrations", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_NearbyPlayers_Players_Submenu_Integrations_None {
+            get {
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Submenu_Integrations_None", resourceCulture);
             }
         }
     }

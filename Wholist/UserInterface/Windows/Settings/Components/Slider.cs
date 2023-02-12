@@ -1,12 +1,13 @@
 using ImGuiNET;
 using Sirensong.UserInterface;
+using Sirensong.UserInterface.Style;
 
 namespace Wholist.UserInterface.Windows.Settings.Components
 {
     internal static class Slider
     {
         /// <summary>
-        /// Draws a slider with custom input validation.
+        ///     Draws a slider with custom input validation.
         /// </summary>
         /// <param name="label">The label/title of the slider</param>
         /// <param name="description">The description to show underneath the slider</param>
@@ -14,7 +15,7 @@ namespace Wholist.UserInterface.Windows.Settings.Components
         /// <param name="min">The minimum slider value</param>
         /// <param name="max">The maximum slider value</param>
         /// <returns>If the slider has changed.</returns>
-        public static bool Draw(string label, string description, ref int value, int min, int max)
+        internal static bool Draw(string label, string description, ref int value, int min, int max)
         {
             SiGui.Text(label);
             var sliderChanged = ImGui.SliderInt($"##{label}", ref value, min, max);
@@ -32,6 +33,7 @@ namespace Wholist.UserInterface.Windows.Settings.Components
             }
 
             SiGui.TextDisabledWrapped(description);
+            ImGui.Dummy(Spacing.SectionSpacing);
             return sliderChanged;
         }
     }

@@ -11,24 +11,15 @@ namespace Wholist.UserInterface
 {
     internal sealed class WindowManager : IDisposable
     {
+        /// <summary>
+        ///     All windows to add to the windowing system, holds all references.
+        /// </summary>
+        private readonly Dictionary<Window, bool> windows = new() { { new NearbyPlayersWindow(), false }, { new SettingsWindow(), true } };
+
         private bool disposedValue;
 
         /// <summary>
-        /// The windowing system.
-        /// </summary>
-        public WindowingSystem WindowingSystem { get; } = SirenCore.GetOrCreateService<WindowingSystem>();
-
-        /// <summary>
-        /// All windows to add to the windowing system.
-        /// </summary>
-        private readonly Dictionary<Window, bool> windows = new()
-        {
-            { new NearbyPlayersWindow(), false },
-            { new SettingsWindow(), true },
-        };
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="WindowManager" /> class.
+        ///     Initializes a new instance of the <see cref="WindowManager" /> class.
         /// </summary>
         private WindowManager()
         {
@@ -47,7 +38,12 @@ namespace Wholist.UserInterface
         }
 
         /// <summary>
-        /// Disposes of the window manager.
+        ///     The windowing system.
+        /// </summary>
+        public WindowingSystem WindowingSystem { get; } = SirenCore.GetOrCreateService<WindowingSystem>();
+
+        /// <summary>
+        ///     Disposes of the window manager.
         /// </summary>
         public void Dispose()
         {
@@ -63,9 +59,9 @@ namespace Wholist.UserInterface
         }
 
         /// <summary>
-        /// Toggles the nearby players window.
+        ///     Toggles the nearby players window.
         /// </summary>
-        public void ToggleNearbyPlayersWindow()
+        internal void ToggleNearbyPlayersWindow()
         {
             if (this.WindowingSystem.TryGetWindow<NearbyPlayersWindow>(out var window))
             {
@@ -74,23 +70,25 @@ namespace Wholist.UserInterface
         }
 
         /// <summary>
-        /// Handle the plugin being logged in.
+        ///     Handle the plugin being logged in.
         /// </summary>
-        public void OnLogin(object? sender, EventArgs e)
+        private void OnLogin(object? sender, EventArgs e)
         {
-            if (Services.Configuration.NearbyPlayers.OpenOnLogin)
+            if (!Services.Configuration.NearbyPlayers.OpenOnLogin)
             {
-                if (this.WindowingSystem.TryGetWindow<NearbyPlayersWindow>(out var window))
-                {
-                    window.IsOpen = true;
-                }
+                return;
+            }
+
+            if (this.WindowingSystem.TryGetWindow<NearbyPlayersWindow>(out var window))
+            {
+                window.IsOpen = true;
             }
         }
 
         /// <summary>
-        /// Handle the plugin being logged out.
+        ///     Handle the plugin being logged out.
         /// </summary>
-        public void OnLogout(object? sender, EventArgs e)
+        private void OnLogout(object? sender, EventArgs e)
         {
             if (this.WindowingSystem.TryGetWindow<NearbyPlayersWindow>(out var window))
             {

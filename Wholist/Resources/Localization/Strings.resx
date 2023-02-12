@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <root>
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root"
+              xmlns="">
     <xsd:element name="root" msdata:IsDataSet="true">
 
     </xsd:element>
@@ -13,10 +14,14 @@
     <value>1.3</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+      PublicKeyToken=b77a5c561934e089
+    </value>
   </resheader>
   <data name="Commands_Who_Help" xml:space="preserve">
     <value>Opens the nearby players window.</value>
@@ -156,8 +161,8 @@
   <data name="UserInterface_Settings_Colours_Other" xml:space="preserve">
     <value>Other</value>
   </data>
-  <data name="UserInterface_Settings_Colours_JobsColours" xml:space="preserve">
-    <value>Job Colours</value>
+  <data name="UserInterface_Settings_Colours_RoleColours" xml:space="preserve">
+    <value>Role Colours</value>
   </data>
   <data name="UserInterface_Settings_Colours_NameColours" xml:space="preserve">
     <value>Name Colours</value>
@@ -188,5 +193,23 @@
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap" xml:space="preserve">
     <value>Find on Map</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_ShownContent_Description" xml:space="preserve">
+    <value>You can change what information is shown in the Nearby Players window by right-clicking the table header.</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_ShownContent" xml:space="preserve">
+    <value>Shown content</value>
+  </data>
+  <data name="UserInterface_Settings_Players_Homeworld" xml:space="preserve">
+    <value>Homeworld</value>
+  </data>
+  <data name="UserInterface_Settings_UnknownTab" xml:space="preserve">
+    <value>Unknown tab selected.</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_Integrations" xml:space="preserve">
+    <value>Integrations</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_Integrations_None" xml:space="preserve">
+    <value>No integrations are available at this time.</value>
   </data>
 </root>
