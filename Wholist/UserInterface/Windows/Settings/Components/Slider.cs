@@ -19,22 +19,11 @@ namespace Wholist.UserInterface.Windows.Settings.Components
         internal static bool Draw(string label, string description, ref int value, int min, int max)
         {
             SiGui.Text(label);
-            var sliderChanged = ImGui.SliderInt($"##{label}", ref value, min, max);
-
+            var sliderChanged = SiGui.SliderInt($"##{label}", ref value, min, max, true);
             if (sliderChanged)
             {
-                if (value < min)
-                {
-                    value = min;
-                }
-                else if (value > max)
-                {
-                    value = max;
-                }
-
                 Services.Configuration.Save();
             }
-
             SiGui.TextDisabledWrapped(description);
             ImGui.Dummy(Spacing.SectionSpacing);
             return sliderChanged;

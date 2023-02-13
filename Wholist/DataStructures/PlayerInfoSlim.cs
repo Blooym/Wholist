@@ -104,6 +104,6 @@ namespace Wholist.DataStructures
         /// <summary>
         ///     Opens the character card for the player.
         /// </summary>
-        internal void OpenCharaCard() => AgentCharaCard.Instance()->OpenCharaCard(this.playerCharacter.ToCSGameObject());
+        internal void OpenCharaCard() => AgentCharaCard.Instance()->OpenCharaCard(this.playerCharacter.ToCsGameObject());
     }
 }

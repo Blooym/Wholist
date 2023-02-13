@@ -13,8 +13,7 @@ namespace Wholist.UserInterface.Windows.Settings.Components
         /// <param name="description">The description to draw.</param>
         internal static void Draw(string text, string description)
         {
-            SiGui.Text(text);
-            SiGui.TextDisabledWrapped(description);
+            SiGui.TextWithDescription(text, description);
             ImGui.Dummy(Spacing.SectionSpacing);
         }
     }

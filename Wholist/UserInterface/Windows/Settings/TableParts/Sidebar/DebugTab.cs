@@ -16,12 +16,12 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
         {
             // Disclaimer.
             SiGui.TextWrapped(Strings.UserInterface_Settings_Debug_Disclaimer);
-            ImGui.Dummy(Spacing.CollapsibleHeaderSpacing);
+            ImGui.Dummy(Spacing.SectionSpacing);
 
             // Copy button.
             if (ImGui.Button(Strings.UserInterface_Settings_Debug_Copy))
             {
-                Services.Clipboard.Copy(Constants.Build.DebugString);
+                ImGui.SetClipboardText(Constants.Build.DebugString);
             }
             ImGui.Dummy(Spacing.SectionSpacing);
 

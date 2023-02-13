@@ -7,7 +7,6 @@ using Dalamud.IoC;
 using Dalamud.Plugin;
 using Sirensong;
 using Sirensong.IoC;
-using Sirensong.UserInterface.Services;
 using Wholist.Configuration;
 using Wholist.Game;
 using Wholist.IntegrationHandling;
@@ -33,9 +32,6 @@ namespace Wholist.Common
         [PluginService] internal static TargetManager TargetManager { get; set; } = null!;
         [PluginService] internal static Condition Condition { get; set; } = null!;
         [PluginService] internal static PartyList PartyList { get; set; } = null!;
-
-        // Sirensong services
-        [SirenService] internal static ClipboardService Clipboard { get; set; } = null!;
 
         // Plugin services
         internal static WindowManager WindowManager { get; private set; } = null!;

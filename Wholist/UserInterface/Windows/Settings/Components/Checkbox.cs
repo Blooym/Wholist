@@ -16,15 +16,10 @@ namespace Wholist.UserInterface.Windows.Settings.Components
         /// <returns>Whether the checkbox was updated.</returns>
         internal static bool Draw(string label, string hint, ref bool value)
         {
-            var checkbox = ImGui.Checkbox(label, ref value);
+            var checkbox = SiGui.Checkbox(label, hint, ref value);
             if (checkbox)
             {
                 Services.Configuration.Save();
-            }
-
-            if (!string.IsNullOrEmpty(hint))
-            {
-                SiGui.TextDisabledWrapped(hint);
             }
             ImGui.Dummy(Spacing.SectionSpacing);
 

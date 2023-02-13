@@ -24,8 +24,8 @@ namespace Wholist.DataStructures
             {
                 ClassJobRole.Tank => Services.Configuration.Colours.Tank,
                 ClassJobRole.Healer => Services.Configuration.Colours.Healer,
-                ClassJobRole.MeleeDPS => Services.Configuration.Colours.MeleeDPS,
-                ClassJobRole.RangedDPS => Services.Configuration.Colours.RangedDPS,
+                ClassJobRole.MeleeDps => Services.Configuration.Colours.MeleeDPS,
+                ClassJobRole.RangedDps => Services.Configuration.Colours.RangedDPS,
                 ClassJobRole.Misc => Services.Configuration.Colours.Other,
                 _ => Services.Configuration.Colours.Other,
             };

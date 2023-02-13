@@ -189,7 +189,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 // Find on Lodestone.
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_Lodestone))
                 {
-                    NearbyPlayersLogic.FindPlayerLodestone(obj.Name, obj.Homeworld.Name);
+                    NearbyPlayersLogic.SearchPlayerOnLodestone(obj.Name, obj.Homeworld.Name);
                 }
 
                 // External integrations / 3rd-party.

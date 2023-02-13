@@ -49,7 +49,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             var players = new List<PlayerInfoSlim>();
             foreach (var player in Services.PlayerManager.GetNearbyPlayers(Configuration.NearbyPlayers.MaxPlayersToShow))
             {
-                if (Configuration.NearbyPlayers.FilterAfk && player.OnlineStatusId == (uint)OnlineStatusType.AFK)
+                if (Configuration.NearbyPlayers.FilterAfk && player.OnlineStatusId == (uint)OnlineStatusType.Afk)
                 {
                     continue;
                 }
@@ -69,7 +69,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// </summary>
         /// <param name="name">The name of the player.</param>
         /// <param name="homeworld">The name of the player's homeworld.</param>
-        internal static void FindPlayerLodestone(string name, string homeworld) => Util.OpenLink($"https://eu.finalfantasyxiv.com/lodestone/character/?q={name}&worldname={homeworld}");
+        internal static void SearchPlayerOnLodestone(string name, string homeworld) => Util.OpenLink($"https://eu.finalfantasyxiv.com/lodestone/character/?q={name}&worldname={homeworld}");
 
         /// <summary>
         ///     Applies the current flag configuration to the window.

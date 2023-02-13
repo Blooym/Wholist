@@ -18,7 +18,7 @@ namespace Wholist.UserInterface.Windows.Settings
         {
             this.Size = new Vector2(700, 450);
             this.SizeCondition = ImGuiCond.FirstUseEver;
-            this.Flags = ImGuiWindowFlagExtras.NoScroll;
+            this.Flags = ImGuiWindowFlagExtra.NoScroll;
         }
 
         /// <inheritdoc />

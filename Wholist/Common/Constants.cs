@@ -106,7 +106,7 @@ namespace Wholist.Common
 
                 Environment Information:
                 ```
-                Real Operating System: {Sirensong.Utility.Common.GetOS()}
+                Real Operating System: {Sirensong.Utility.Common.DetermineOS()}
                 Reported Operating System: {Environment.OSVersion.Platform}
                 ```
                 """;

@@ -22,7 +22,7 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             {
                 Util.OpenLink(Constants.Links.KoFi);
             }
-            SiGui.TooltipLast(Constants.Links.KoFi);
+            SiGui.AddTooltip(Constants.Links.KoFi);
             ImGui.SameLine();
 
             // GitHub sponsors button.
@@ -30,7 +30,7 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             {
                 Util.OpenLink(Constants.Links.GitHubSponsors);
             }
-            SiGui.TooltipLast(Constants.Links.GitHubSponsors);
+            SiGui.AddTooltip(Constants.Links.GitHubSponsors);
         }
     }
 }
