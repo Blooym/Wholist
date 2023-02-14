@@ -22,13 +22,13 @@
     </value>
   </resheader>
   <data name="Commands_Who_Help" xml:space="preserve">
-    <value>Opens the nearby players window.</value>
+    <value>Ouvre la fenêtre des joueurs à proximité.</value>
   </data>
   <data name="Windows_Who_Title" xml:space="preserve">
-    <value>[{0}] Nearby Players</value>
+    <value>[{0}] joueurs à proximité</value>
   </data>
   <data name="Errors_NoUseInPvP" xml:space="preserve">
-    <value>You can't view nearby players whilst participating in PvP.</value>
+    <value>Vous ne pouvez pas voir les joueurs à proximité pendant que vous participez à JcJ.</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Name" xml:space="preserve">
     <value>Nom</value>
@@ -58,7 +58,7 @@
     <value>Voir la plaque d'aventurier</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Tell" xml:space="preserve">
-    <value>Send Tell</value>
+    <value>Envoyer un message</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Search" xml:space="preserve">
     <value>Rechercher...</value>
@@ -67,153 +67,153 @@
     <value>[{0} Paramètres</value>
   </data>
   <data name="Commands_WhoSettings_Help" xml:space="preserve">
-    <value>Opens the plugin settings window.</value>
+    <value>Ouvre la fenêtre des paramètres du plugin.</value>
   </data>
   <data name="UserInterface_Settings_Heading" xml:space="preserve">
     <value>Paramètres</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Heading" xml:space="preserve">
-    <value>Nearby Players</value>
+    <value>Joueurs à proximité</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin" xml:space="preserve">
-    <value>Open window on login</value>
+    <value>Ouvrir la fenêtre dès la connexion</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInCombat" xml:space="preserve">
-    <value>Hide in combat</value>
+    <value>Cacher pendant le combat</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInInstance" xml:space="preserve">
-    <value>Hide in instances</value>
+    <value>Cacher dans les instances</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers" xml:space="preserve">
-    <value>Filter AFK Players</value>
+    <value>Filtrer les joueurs AFK</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockPosition" xml:space="preserve">
-    <value>Disable window moving</value>
+    <value>Désactiver le repositionnement de la fenêtre</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockSize" xml:space="preserve">
-    <value>Disable window resizing</value>
+    <value>Désactiver le redimensionnement de la fenêtre</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description" xml:space="preserve">
-    <value>Remove AFK players from the nearby players list.</value>
+    <value>Enlève les joueurs AFK de la liste des joueurs à proximité.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInCombat_Description" xml:space="preserve">
-    <value>Automatically hide the window when in combat.</value>
+    <value>Cache automatiquement la fenêtre pendant le combat.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInInstance_Description" xml:space="preserve">
-    <value>Automatically hide the window when inside of instances</value>
+    <value>Cache automatiquement la fenêtre à l'intérieur des instances</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockPosition_Description" xml:space="preserve">
-    <value>Prevent the window from being moved.</value>
+    <value>Empêche le déplacement de la fenêtre.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockSize_Description" xml:space="preserve">
-    <value>Prevent the window from being resized.</value>
+    <value>Empêche le redimensionnement de la fenêtre.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin_Description" xml:space="preserve">
-    <value>Automatically open the window when logging in/restarting the plugin whilst logged in.</value>
+    <value>Ouvre la fenêtre automatiquement lors de la connexion ou lors du redémarrage du plugin pendant la session en cours.</value>
   </data>
   <data name="UserInterface_Settings_Debug_Disclaimer" xml:space="preserve">
-    <value>The information below should be attached alongside any bug reports/support requests to help diagnose any problems you may be having, you can see a preview of the information below before copying it to your clipboard if you wish.</value>
+    <value>L'information suivante devrait être attachée avec n'importe quel rapport de bugs ou demandes de support pour aider à diagnostiquer tout problème que vous pourriez avoir, vous pouvez voir un aperçu de l'information ici-bas avant de le copier dans votre presse-papier si vous le désirez.</value>
   </data>
   <data name="UserInterface_Settings_Debug_Copy" xml:space="preserve">
-    <value>Copy Debug Information</value>
+    <value>Copier les informations de débogage</value>
   </data>
   <data name="UserInterface_Settings_Debug_Info" xml:space="preserve">
-    <value>Information Snapshot</value>
+    <value>Capture d'information</value>
   </data>
   <data name="UserInterface_Settings_Debug_Heading" xml:space="preserve">
     <value>Débogage</value>
   </data>
   <data name="UserInterface_Settings_Donate_Heading" xml:space="preserve">
-    <value>Donate</value>
+    <value>Faire un don</value>
   </data>
   <data name="UserInterface_Settings_Donate_Description" xml:space="preserve">
-    <value>If you like this plugin and wish to support the developer, you can do so below.</value>
+    <value>Si vous aimez ce plugin et vous désirez supporter le développeur, vous pouvez le faire ici-bas.</value>
   </data>
   <data name="UserInterface_Settings_Donate_Kofi" xml:space="preserve">
     <value>Ko-Fi</value>
   </data>
   <data name="UserInterface_Settings_Donate_GitHubSponsors" xml:space="preserve">
-    <value>GitHub Sponsors</value>
+    <value>Parrains GitHub</value>
   </data>
   <data name="UserInterface_NearbyPlayers_SetChatTarget" xml:space="preserve">
-    <value>Set chat target to {0}</value>
+    <value>Définir la cible du chat à {0}</value>
   </data>
   <data name="UserInterface_Settings_Colours_Friend" xml:space="preserve">
-    <value>Friend</value>
+    <value>Ami</value>
   </data>
   <data name="UserInterface_Settings_Colours_Party" xml:space="preserve">
-    <value>Party</value>
+    <value>Groupe</value>
   </data>
   <data name="UserInterface_Settings_Colours_MeleeDPS" xml:space="preserve">
-    <value>Melee DPS</value>
+    <value>DPS de mêlée</value>
   </data>
   <data name="UserInterface_Settings_Colours_RangedDPS" xml:space="preserve">
-    <value>Ranged DPS</value>
+    <value>DPS à distance physiques/magiques</value>
   </data>
   <data name="UserInterface_Settings_Colours_Healer" xml:space="preserve">
-    <value>Healer</value>
+    <value>Soigneur</value>
   </data>
   <data name="UserInterface_Settings_Colours_Tank" xml:space="preserve">
-    <value>Tank</value>
+    <value>Tanks</value>
   </data>
   <data name="UserInterface_Settings_Colours_Other" xml:space="preserve">
-    <value>Other</value>
+    <value>Autre</value>
   </data>
   <data name="UserInterface_Settings_Colours_RoleColours" xml:space="preserve">
-    <value>Role Colours</value>
+    <value>Couleurs de rôles</value>
   </data>
   <data name="UserInterface_Settings_Colours_NameColours" xml:space="preserve">
-    <value>Name Colours</value>
+    <value>Couleurs de noms</value>
   </data>
   <data name="UserInterface_Settings_Colours_OtherOptions" xml:space="preserve">
-    <value>Other Options</value>
+    <value>Autres options</value>
   </data>
   <data name="UserInterface_Settings_Colours_ResetAll" xml:space="preserve">
-    <value>Reset all colours</value>
+    <value>Réinitialiser toutes les couleurs</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers" xml:space="preserve">
-    <value>Max players to show</value>
+    <value>Nombre de joueurs maximum affichés</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers_Description" xml:space="preserve">
-    <value>The maximum amount of players to be shown on the nearby players list.</value>
+    <value>Le nombre maximum de joueurs qui peuvent être affichés sur la liste des joueurs à proximité en tout temps.</value>
   </data>
   <data name="UserInterface_Settings_Colours_Default" xml:space="preserve">
-    <value>Default</value>
+    <value>Défaut</value>
   </data>
   <data name="UserInterface_Settings_Colours_UpdateTimeNotice_Text" xml:space="preserve">
-    <value>Please note that it may take some time for the user interface to visually reflect your colour changes.</value>
+    <value>Prendre note que ça peut prendre un peu de temps avant que l'interface d'utilisateur reflète vos changements de couleur.</value>
   </data>
   <data name="UserInterface_Settings_Colours_Heading" xml:space="preserve">
     <value>Couleurs</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap" xml:space="preserve">
-    <value>Find on Map</value>
+    <value>Trouver sur la carte</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_ShownRows_Description" xml:space="preserve">
-    <value>You can change what information is shown in the Nearby Players window by right-clicking the table header.</value>
+    <value>Vous pouvez changer quelle information est affichée à propos d'un joueur dans la liste des joueurs à proximité en effectuant un clic-droit sur l'en-tête de la table.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_ShownRows" xml:space="preserve">
-    <value>Shown content</value>
+    <value>L'information d'un joueur affichée</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Homeworld" xml:space="preserve">
-    <value>Homeworld</value>
+    <value>Monde d'origine</value>
   </data>
   <data name="UserInterface_Settings_UnknownTab" xml:space="preserve">
-    <value>Unknown tab selected.</value>
+    <value>Onglet inconnu sélectionné.</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Integrations" xml:space="preserve">
-    <value>Integrations</value>
+    <value>Intégrations</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Integrations_None" xml:space="preserve">
-    <value>No integrations are available at this time.</value>
+    <value>Aucune intégration n'est disponible présentement.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Window" xml:space="preserve">
-    <value>Window</value>
+    <value>Fenêtre</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Filtering" xml:space="preserve">
-    <value>Filtering</value>
+    <value>Filtrage</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Lodestone" xml:space="preserve">
-    <value>Search on Lodestone</value>
+    <value>Rechercher sur Lodestone</value>
   </data>
 </root>
