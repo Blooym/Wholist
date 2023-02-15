@@ -28,7 +28,7 @@
     <value>[{0}] joueurs à proximité</value>
   </data>
   <data name="Errors_NoUseInPvP" xml:space="preserve">
-    <value>Vous ne pouvez pas voir les joueurs à proximité pendant que vous participez à JcJ.</value>
+    <value>Vous ne pouvez pas voir les joueur·se·s à proximité pendant que vous prenez part à du JcJ.</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Name" xml:space="preserve">
     <value>Nom</value>
@@ -73,7 +73,7 @@
     <value>Paramètres</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Heading" xml:space="preserve">
-    <value>Joueurs à proximité</value>
+    <value>Joueur·se·s à proximité</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin" xml:space="preserve">
     <value>Ouvrir la fenêtre dès la connexion</value>
@@ -139,22 +139,22 @@
     <value>Définir la cible du chat à {0}</value>
   </data>
   <data name="UserInterface_Settings_Colours_Friend" xml:space="preserve">
-    <value>Ami</value>
+    <value>Ami·e</value>
   </data>
   <data name="UserInterface_Settings_Colours_Party" xml:space="preserve">
-    <value>Groupe</value>
+    <value>Équipe</value>
   </data>
   <data name="UserInterface_Settings_Colours_MeleeDPS" xml:space="preserve">
     <value>DPS de mêlée</value>
   </data>
   <data name="UserInterface_Settings_Colours_RangedDPS" xml:space="preserve">
-    <value>DPS à distance physiques/magiques</value>
+    <value>DPS distant</value>
   </data>
   <data name="UserInterface_Settings_Colours_Healer" xml:space="preserve">
     <value>Soigneur</value>
   </data>
   <data name="UserInterface_Settings_Colours_Tank" xml:space="preserve">
-    <value>Tanks</value>
+    <value>Tank</value>
   </data>
   <data name="UserInterface_Settings_Colours_Other" xml:space="preserve">
     <value>Autre</value>
@@ -172,10 +172,10 @@
     <value>Réinitialiser toutes les couleurs</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers" xml:space="preserve">
-    <value>Nombre de joueurs maximum affichés</value>
+    <value>Nombre de joueur·se·s maximum affiché·e·s</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers_Description" xml:space="preserve">
-    <value>Le nombre maximum de joueurs qui peuvent être affichés sur la liste des joueurs à proximité en tout temps.</value>
+    <value>Le nombre maximum de joueur·se·s qui peuvent être affichés sur la liste des joueur·se·s à proximité en tout temps.</value>
   </data>
   <data name="UserInterface_Settings_Colours_Default" xml:space="preserve">
     <value>Défaut</value>
@@ -190,10 +190,10 @@
     <value>Trouver sur la carte</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_ShownRows_Description" xml:space="preserve">
-    <value>Vous pouvez changer quelle information est affichée à propos d'un joueur dans la liste des joueurs à proximité en effectuant un clic-droit sur l'en-tête de la table.</value>
+    <value>Vous pouvez changer quelle information est affichée à propos d'un·e joueur·se dans la liste des joueur·se·s à proximité en effectuant un clic-droit sur l'en-tête de la table.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_ShownRows" xml:space="preserve">
-    <value>L'information d'un joueur affichée</value>
+    <value>L'information d'un·e joueur·se affichée</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Homeworld" xml:space="preserve">
     <value>Monde d'origine</value>
