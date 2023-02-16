@@ -25,10 +25,10 @@
     <value>Opens the nearby players window.</value>
   </data>
   <data name="Windows_Who_Title" xml:space="preserve">
-    <value>[{0}] Nearby Players</value>
+    <value>[{0}] Spieler in der Nähe</value>
   </data>
   <data name="Errors_NoUseInPvP" xml:space="preserve">
-    <value>You can't view nearby players whilst participating in PvP.</value>
+    <value>Du kannst dir Spieler in der Nähe nicht ansehen solange du dich im PvP befindest.</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Name" xml:space="preserve">
     <value>Name</value>
@@ -55,10 +55,10 @@
     <value>Untersuchen</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_AdventurePlate" xml:space="preserve">
-    <value>View Adventure Plate</value>
+    <value>Abenteuererplatte ansehen</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Tell" xml:space="preserve">
-    <value>Send Tell</value>
+    <value>Nachricht senden</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Search" xml:space="preserve">
     <value>Suche nach...</value>
@@ -67,13 +67,13 @@
     <value>[{0}] Einstellungen</value>
   </data>
   <data name="Commands_WhoSettings_Help" xml:space="preserve">
-    <value>Opens the plugin settings window.</value>
+    <value>Öffnet das Plugin-Einstellungsfenster.</value>
   </data>
   <data name="UserInterface_Settings_Heading" xml:space="preserve">
     <value>Einstellungen</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Heading" xml:space="preserve">
-    <value>Nearby Players</value>
+    <value>Spieler in der Nähe</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin" xml:space="preserve">
     <value>Open window on login</value>
@@ -184,10 +184,10 @@
     <value>Please note that it may take some time for the user interface to visually reflect your colour changes.</value>
   </data>
   <data name="UserInterface_Settings_Colours_Heading" xml:space="preserve">
-    <value>Colours</value>
+    <value>Farben</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap" xml:space="preserve">
-    <value>Find on Map</value>
+    <value>Auf der Karte finden</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_ShownRows_Description" xml:space="preserve">
     <value>You can change what information is shown in the Nearby Players window by right-clicking the table header.</value>
@@ -196,24 +196,24 @@
     <value>Shown content</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Homeworld" xml:space="preserve">
-    <value>Homeworld</value>
+    <value>Heimatwelt</value>
   </data>
   <data name="UserInterface_Settings_UnknownTab" xml:space="preserve">
-    <value>Unknown tab selected.</value>
+    <value>Unbekannter Tab ausgewählt.</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Integrations" xml:space="preserve">
-    <value>Integrations</value>
+    <value>Integrationen</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Integrations_None" xml:space="preserve">
-    <value>No integrations are available at this time.</value>
+    <value>Derzeit sind keine Integrationen verfügbar.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Window" xml:space="preserve">
-    <value>Window</value>
+    <value>Fenster</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Filtering" xml:space="preserve">
-    <value>Filtering</value>
+    <value>Filtern</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Lodestone" xml:space="preserve">
-    <value>Search on Lodestone</value>
+    <value>Im Lodestone suchen</value>
   </data>
 </root>
