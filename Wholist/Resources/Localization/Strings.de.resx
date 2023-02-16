@@ -22,7 +22,7 @@
     </value>
   </resheader>
   <data name="Commands_Who_Help" xml:space="preserve">
-    <value>Opens the nearby players window.</value>
+    <value>Öffnet das Spieler in der Nähe Fenster.</value>
   </data>
   <data name="Windows_Who_Title" xml:space="preserve">
     <value>[{0}] Spieler in der Nähe</value>
@@ -76,100 +76,100 @@
     <value>Spieler in der Nähe</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin" xml:space="preserve">
-    <value>Open window on login</value>
+    <value>Fenster beim Anmelden öffnen</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInCombat" xml:space="preserve">
-    <value>Hide in combat</value>
+    <value>Im Kampf ausblenden</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInInstance" xml:space="preserve">
-    <value>Hide in instances</value>
+    <value>In Instanzen ausblenden</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers" xml:space="preserve">
-    <value>Filter AFK Players</value>
+    <value>AFK-Spieler ausblenden</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockPosition" xml:space="preserve">
-    <value>Disable window moving</value>
+    <value>Fensterverschiebung deaktivieren</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockSize" xml:space="preserve">
-    <value>Disable window resizing</value>
+    <value>Fenster-Größenänderung deaktivieren</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description" xml:space="preserve">
-    <value>Remove AFK players from the nearby players list.</value>
+    <value>Entferne AFK-Spieler aus der Spielerliste in der Nähe.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInCombat_Description" xml:space="preserve">
-    <value>Automatically hide the window when in combat.</value>
+    <value>Fenster im Kampf automatisch ausblenden.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInInstance_Description" xml:space="preserve">
-    <value>Automatically hide the window when inside of instances</value>
+    <value>Fenster in Instanzen automatisch Ausblenden</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockPosition_Description" xml:space="preserve">
-    <value>Prevent the window from being moved.</value>
+    <value>Verhindert das Verschieben des Fensters.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockSize_Description" xml:space="preserve">
-    <value>Prevent the window from being resized.</value>
+    <value>Verhindert die Größenänderung des Fensters.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin_Description" xml:space="preserve">
-    <value>Automatically open the window when logging in/restarting the plugin whilst logged in.</value>
+    <value>Beim Anmelden/Neustart des Plugins automatisch das Fenster öffnen.</value>
   </data>
   <data name="UserInterface_Settings_Debug_Disclaimer" xml:space="preserve">
-    <value>The information below should be attached alongside any bug reports/support requests to help diagnose any problems you may be having, you can see a preview of the information below before copying it to your clipboard if you wish.</value>
+    <value>Die unten aufgeführten Informationen sollten neben Fehlerberichten/Supportanfragen hinzugefügt werden, um bei der Diagnose von Problemen zu helfen, du kannst eine Vorschau der nachstehenden Informationen sehen, bevor du sie in die Zwischenablage kopieren kannst.</value>
   </data>
   <data name="UserInterface_Settings_Debug_Copy" xml:space="preserve">
-    <value>Copy Debug Information</value>
+    <value>Debug-Informationen kopieren</value>
   </data>
   <data name="UserInterface_Settings_Debug_Info" xml:space="preserve">
-    <value>Information Snapshot</value>
+    <value>Informations-Snapshot</value>
   </data>
   <data name="UserInterface_Settings_Debug_Heading" xml:space="preserve">
     <value>Debuggen</value>
   </data>
   <data name="UserInterface_Settings_Donate_Heading" xml:space="preserve">
-    <value>Donate</value>
+    <value>Spenden</value>
   </data>
   <data name="UserInterface_Settings_Donate_Description" xml:space="preserve">
-    <value>If you like this plugin and wish to support the developer, you can do so below.</value>
+    <value>Wenn dir dieses Plugin gefällt und du den Entwickler unterstützen möchtest, kannst du dies unten tun.</value>
   </data>
   <data name="UserInterface_Settings_Donate_Kofi" xml:space="preserve">
     <value>Ko-Fi</value>
   </data>
   <data name="UserInterface_Settings_Donate_GitHubSponsors" xml:space="preserve">
-    <value>GitHub Sponsors</value>
+    <value>GitHub Sponsoren</value>
   </data>
   <data name="UserInterface_NearbyPlayers_SetChatTarget" xml:space="preserve">
-    <value>Set chat target to {0}</value>
+    <value>Chat-Ziel auf {0} gesetzt</value>
   </data>
   <data name="UserInterface_Settings_Colours_Friend" xml:space="preserve">
-    <value>Friend</value>
+    <value>Freund</value>
   </data>
   <data name="UserInterface_Settings_Colours_Party" xml:space="preserve">
-    <value>Party</value>
+    <value>Gruppe</value>
   </data>
   <data name="UserInterface_Settings_Colours_MeleeDPS" xml:space="preserve">
-    <value>Melee DPS</value>
+    <value>Nahkampf-schaden</value>
   </data>
   <data name="UserInterface_Settings_Colours_RangedDPS" xml:space="preserve">
-    <value>Ranged DPS</value>
+    <value>Fernkampf-schaden</value>
   </data>
   <data name="UserInterface_Settings_Colours_Healer" xml:space="preserve">
-    <value>Healer</value>
+    <value>Heiler</value>
   </data>
   <data name="UserInterface_Settings_Colours_Tank" xml:space="preserve">
-    <value>Tank</value>
+    <value>Beschützer</value>
   </data>
   <data name="UserInterface_Settings_Colours_Other" xml:space="preserve">
-    <value>Other</value>
+    <value>Sonstiges</value>
   </data>
   <data name="UserInterface_Settings_Colours_RoleColours" xml:space="preserve">
-    <value>Role Colours</value>
+    <value>Farbe der Rollen</value>
   </data>
   <data name="UserInterface_Settings_Colours_NameColours" xml:space="preserve">
-    <value>Name Colours</value>
+    <value>Namensfarbe</value>
   </data>
   <data name="UserInterface_Settings_Colours_OtherOptions" xml:space="preserve">
-    <value>Other Options</value>
+    <value>Andere Optionen</value>
   </data>
   <data name="UserInterface_Settings_Colours_ResetAll" xml:space="preserve">
-    <value>Reset all colours</value>
+    <value>Alle Farben zurücksetzen</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers" xml:space="preserve">
     <value>Max players to show</value>
@@ -178,10 +178,10 @@
     <value>The maximum amount of players to be shown on the nearby players list.</value>
   </data>
   <data name="UserInterface_Settings_Colours_Default" xml:space="preserve">
-    <value>Default</value>
+    <value>Standard</value>
   </data>
   <data name="UserInterface_Settings_Colours_UpdateTimeNotice_Text" xml:space="preserve">
-    <value>Please note that it may take some time for the user interface to visually reflect your colour changes.</value>
+    <value>Bitte beachte, dass es einige Zeit dauern kann, bis die Benutzeroberfläche deine Farbveränderungen visuell reflektiert.</value>
   </data>
   <data name="UserInterface_Settings_Colours_Heading" xml:space="preserve">
     <value>Farben</value>
