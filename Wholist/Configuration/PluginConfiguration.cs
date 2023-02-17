@@ -62,7 +62,7 @@ namespace Wholist.Configuration
             public bool LockSize;
 
             /// <summary>
-            ///     The maximum number of players to show in the "Nearby Players" window.
+            ///     The maximum number of players to show in the "Nearby Players" list.
             /// </summary>
             public int MaxPlayersToShow = 60;
 
@@ -70,6 +70,11 @@ namespace Wholist.Configuration
             ///     Automatically open the "Nearby Players" window on login.
             /// </summary>
             public bool OpenOnLogin;
+
+            /// <summary>
+            ///     Whether or not the "Nearby Players" list should prioritize known players.
+            /// </summary>
+            public bool PrioritizeKnown;
         }
 
         /// <summary>
@@ -80,10 +85,10 @@ namespace Wholist.Configuration
             public Vector4 Default = new(1.0f, 1.0f, 1.0f, 1.0f);
             public Vector4 Friend = new(1.0f, 0.5f, 0.0f, 1.0f);
             public Vector4 Healer = new(0f, 0.8f, 0.1333333f, 1f);
-            public Vector4 MeleeDPS = new(0.7058824f, 0f, 0f, 1f);
+            public Vector4 MeleeDps = new(0.7058824f, 0f, 0f, 1f);
             public Vector4 Other = new(0.5f, 0.5f, 0.5f, 1f);
             public Vector4 Party = new(0.0f, 0.7f, 1.0f, 1.0f);
-            public Vector4 RangedDPS = new(0.7058824f, 0f, 0f, 1f);
+            public Vector4 RangedDps = new(0.7058824f, 0f, 0f, 1f);
             public Vector4 Tank = new(0f, 0.6f, 1f, 1f);
         }
     }

@@ -16,7 +16,7 @@ namespace Wholist.CommandHandling.Commands
         public CommandInfo Command => new(this.OnExecute) { HelpMessage = Strings.Commands_Who_Help, ShowInHelp = true };
 
         /// <inheritdoc />
-        public CommandInfo.HandlerDelegate OnExecute => (command, arguments) =>
+        public CommandInfo.HandlerDelegate OnExecute => (command, _) =>
         {
             if (command != Constants.Commands.WhoCommand)
             {

@@ -13,7 +13,7 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
         /// <summary>
         ///     Draws the colours tab of the settings window.
         /// </summary>
-        /// <param name="_"></param>
+        /// <param name="logic"></param>
         internal static void Draw(SettingsLogic logic)
         {
             // Colour notice.
@@ -53,11 +53,11 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
 
         private static void DrawRoleColours(SettingsLogic _)
         {
-            if (ColourEdit.Draw(Strings.UserInterface_Settings_Colours_MeleeDPS, ref NearbyPlayersLogic.Configuration.Colours.MeleeDPS))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_Colours_MeleeDPS, ref NearbyPlayersLogic.Configuration.Colours.MeleeDps))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
-            if (ColourEdit.Draw(Strings.UserInterface_Settings_Colours_RangedDPS, ref NearbyPlayersLogic.Configuration.Colours.RangedDPS))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_Colours_RangedDPS, ref NearbyPlayersLogic.Configuration.Colours.RangedDps))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }

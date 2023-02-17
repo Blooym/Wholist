@@ -218,4 +218,10 @@
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Lodestone" xml:space="preserve">
     <value>Search on Lodestone</value>
   </data>
+  <data name="UserInterface_Settings_NearbyPlayers_PrioritizeKnown" xml:space="preserve">
+    <value>Show known players first</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_PrioritizeKnown_Description" xml:space="preserve">
+    <value>Make players that are known to you such as friends and party members be shown above other players.</value>
+  </data>
 </root>

@@ -39,7 +39,6 @@ namespace Wholist.Common
         internal static PlayerManager PlayerManager { get; private set; } = null!;
         internal static PluginConfiguration Configuration { get; private set; } = null!;
         internal static InboundIpcManager InboundIpcManager { get; private set; } = null!;
-        internal static OutboundIpcManager OutboundIpcManager { get; private set; } = null!;
 
         /// <summary>
         ///     Initializes the service class.
@@ -58,7 +57,6 @@ namespace Wholist.Common
             ServiceContainer.CreateService<CommandHandling.CommandManager>();
             PlayerManager = ServiceContainer.GetOrCreateService<PlayerManager>();
             InboundIpcManager = ServiceContainer.GetOrCreateService<InboundIpcManager>();
-            OutboundIpcManager = ServiceContainer.GetOrCreateService<OutboundIpcManager>();
         }
 
         /// <summary>

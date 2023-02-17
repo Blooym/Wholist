@@ -47,13 +47,13 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         internal List<PlayerInfoSlim> GetNearbyPlayers()
         {
             var players = new List<PlayerInfoSlim>();
-            foreach (var player in Services.PlayerManager.GetNearbyPlayers(Configuration.NearbyPlayers.MaxPlayersToShow))
-            {
-                if (Configuration.NearbyPlayers.FilterAfk && player.OnlineStatusId == (uint)OnlineStatusType.Afk)
-                {
-                    continue;
-                }
+            var nearbyPlayers = Services.PlayerManager.GetNearbyPlayers(
+                Configuration.NearbyPlayers.MaxPlayersToShow,
+                Configuration.NearbyPlayers.FilterAfk,
+                Configuration.NearbyPlayers.PrioritizeKnown);
 
+            foreach (var player in nearbyPlayers)
+            {
                 if (!this.SearchText.IsNullOrWhitespace() && !player.Name.Contains(this.SearchText, StringComparison.OrdinalIgnoreCase))
                 {
                     continue;

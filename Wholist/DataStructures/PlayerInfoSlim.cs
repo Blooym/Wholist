@@ -71,6 +71,11 @@ namespace Wholist.DataStructures
         internal readonly bool IsInParty;
 
         /// <summary>
+        ///     Whether or not the player is known to the local player (i.e. in party or friend).
+        /// </summary>
+        internal bool IsKnownPlayer => this.IsInParty || this.IsFriend;
+
+        /// <summary>
         ///     The level of the player.
         /// </summary>
         internal byte Level => this.playerCharacter.Level;

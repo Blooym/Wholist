@@ -434,5 +434,17 @@ namespace Wholist.Resources.Localization {
                 return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Submenu_Lodestone", resourceCulture);
             }
         }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_PrioritizeKnown {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_PrioritizeKnown", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_PrioritizeKnown_Description {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_PrioritizeKnown_Description", resourceCulture);
+            }
+        }
     }
 }

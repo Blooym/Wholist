@@ -19,13 +19,13 @@ namespace Wholist.DataStructures
         /// <param name="classJob">The <see cref="ClassJob" /> to create the <see cref="JobInfoSlim" /> from.</param>
         internal JobInfoSlim(ClassJob classJob)
         {
-            this.Name = classJob!.Name.ToDalamudString().ToString().ToTitleCase();
+            this.Name = classJob.Name.ToDalamudString().ToString().ToTitleCase();
             this.RoleColour = classJob.GetJobRole() switch
             {
                 ClassJobRole.Tank => Services.Configuration.Colours.Tank,
                 ClassJobRole.Healer => Services.Configuration.Colours.Healer,
-                ClassJobRole.MeleeDps => Services.Configuration.Colours.MeleeDPS,
-                ClassJobRole.RangedDps => Services.Configuration.Colours.RangedDPS,
+                ClassJobRole.MeleeDps => Services.Configuration.Colours.MeleeDps,
+                ClassJobRole.RangedDps => Services.Configuration.Colours.RangedDps,
                 ClassJobRole.Misc => Services.Configuration.Colours.Other,
                 _ => Services.Configuration.Colours.Other,
             };

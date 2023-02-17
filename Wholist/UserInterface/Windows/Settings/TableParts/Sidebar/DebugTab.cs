@@ -11,7 +11,7 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
         /// <summary>
         ///     Draws the debug tab of the settings window.
         /// </summary>
-        /// <param name="_"></param>
+        /// <param name="logic"></param>
         internal static void Draw(SettingsLogic logic)
         {
             // Disclaimer.

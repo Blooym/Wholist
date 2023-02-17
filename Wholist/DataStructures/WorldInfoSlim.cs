@@ -4,7 +4,7 @@ using Lumina.Excel.GeneratedSheets;
 namespace Wholist.DataStructures
 {
     /// <summary>
-    ///     Represents a pre-formatted version of a <see cref="PlayerCharacter" /> with slimmed down information.
+    ///     Represents a pre-formatted version of a <see cref="World" /> with slimmed down information.
     /// </summary>
     internal readonly struct WorldInfoSlim
     {

@@ -9,7 +9,7 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
         /// <summary>
         ///     Draws the nearby players tab of the settings window.
         /// </summary>
-        /// <param name="_"></param>
+        /// <param name="logic"></param>
         internal static void Draw(SettingsLogic logic)
         {
             // View options.
@@ -21,6 +21,10 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             DrawFilteringOptions(logic);
         }
 
+        /// <summary>
+        ///     Draws the view options of the nearby players tab.
+        /// </summary>
+        /// <param name="_"></param>
         private static void DrawViewOptions(SettingsLogic _)
         {
             Checkbox.Draw(Strings.UserInterface_Settings_NearbyPlayers_OpenOnLogin, Strings.UserInterface_Settings_NearbyPlayers_OpenOnLogin_Description, ref SettingsLogic.Configuration.NearbyPlayers.OpenOnLogin);
@@ -30,10 +34,15 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             Checkbox.Draw(Strings.UserInterface_Settings_NearbyPlayers_LockSize, Strings.UserInterface_Settings_NearbyPlayers_LockSize_Description, ref SettingsLogic.Configuration.NearbyPlayers.LockSize);
         }
 
+        /// <summary>
+        ///     Draws the filtering options of the nearby players tab.
+        /// </summary>
+        /// <param name="_"></param>
         private static void DrawFilteringOptions(SettingsLogic _)
         {
             Slider.Draw(Strings.UserInterface_Settings_NearbyPlayers_MaxPlayers, Strings.UserInterface_Settings_NearbyPlayers_MaxPlayers_Description, ref SettingsLogic.Configuration.NearbyPlayers.MaxPlayersToShow, 5, 100);
             Checkbox.Draw(Strings.UserInterface_Settings_NearbyPlayers_FilterAFKPlayers, Strings.UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description, ref SettingsLogic.Configuration.NearbyPlayers.FilterAfk);
+            Checkbox.Draw(Strings.UserInterface_Settings_NearbyPlayers_PrioritizeKnown, Strings.UserInterface_Settings_NearbyPlayers_PrioritizeKnown_Description, ref SettingsLogic.Configuration.NearbyPlayers.PrioritizeKnown);
             TextWithDescription.Draw(Strings.UserInterface_Settings_NearbyPlayers_ShownRows, Strings.UserInterface_Settings_NearbyPlayers_ShownRows_Description);
         }
     }
