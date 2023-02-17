@@ -22,13 +22,13 @@
     </value>
   </resheader>
   <data name="Commands_Who_Help" xml:space="preserve">
-    <value>Öffnet das Spieler in der Nähe Fenster.</value>
+    <value>Öffnet das Fenster für Spieler in der Nähe.</value>
   </data>
   <data name="Windows_Who_Title" xml:space="preserve">
     <value>[{0}] Spieler in der Nähe</value>
   </data>
   <data name="Errors_NoUseInPvP" xml:space="preserve">
-    <value>Du kannst dir Spieler in der Nähe nicht ansehen solange du dich im PvP befindest.</value>
+    <value>Du kannst dir Spieler in der Nähe nicht ansehen, solange du dich im PvP befindest.</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Name" xml:space="preserve">
     <value>Name</value>
