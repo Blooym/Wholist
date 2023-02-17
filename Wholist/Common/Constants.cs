@@ -1,5 +1,4 @@
 using System;
-using System.IO;
 using System.Reflection;
 using Sirensong;
 
@@ -111,14 +110,6 @@ namespace Wholist.Common
                 Reported Operating System: {Environment.OSVersion.Platform}
                 ```
                 """;
-        }
-
-        /// <summary>
-        ///     Plugin directories.
-        /// </summary>
-        internal static class Directory
-        {
-            internal static readonly string Integrations = $"{Path.Combine(Services.PluginInterface.GetPluginConfigDirectory(), "Integrations")}{Path.DirectorySeparatorChar}";
         }
 
         /// <summary>
