@@ -89,11 +89,11 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 ImGui.TableSetupScrollFreeze(0, 1);
                 ImGui.TableHeadersRow();
 
-                // Draw players.
                 foreach (var obj in playersToDraw)
                 {
                     DrawPlayer(obj);
                 }
+
                 ImGui.EndTable();
             }
         }

@@ -21,7 +21,7 @@ namespace Wholist.Game
         /// </summary>
         private readonly CacheCollection<PlayerCharacter, PlayerInfoSlim> nearbyPlayersCache = new(new CacheOptions<PlayerCharacter, PlayerInfoSlim>
         {
-            AbsoluteExpiry = TimeSpan.FromSeconds(6), ExpireInterval = TimeSpan.FromSeconds(6),
+            AbsoluteExpiry = TimeSpan.FromSeconds(4), ExpireInterval = TimeSpan.FromSeconds(4),
         });
 
         private bool disposedValue;
