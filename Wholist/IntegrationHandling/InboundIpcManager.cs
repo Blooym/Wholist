@@ -34,6 +34,12 @@ namespace Wholist.IntegrationHandling
 
         #endregion
 
+        #region Fields
+
+        private bool disposedValue;
+
+        #endregion
+
         #region Internal Methods
 
         /// <summary>
@@ -69,6 +75,9 @@ namespace Wholist.IntegrationHandling
             this.InvokePlayerContextMenuGate = Services.PluginInterface.GetIpcProvider<string, PlayerCharacter, object?>(InvokePlayerContextMenuString);
             this.InvokePlayerContextMenuGate.RegisterAction(this.InvokePlayerContextMenu);
 
+            // Disposed
+            this.DisposedGate = Services.PluginInterface.GetIpcProvider<object?>(IpcDisposedString);
+
             // Available
             this.AvailableGate = Services.PluginInterface.GetIpcProvider<object?>(IpcAvailableString);
             this.AvailableGate.SendMessage();
@@ -79,17 +88,23 @@ namespace Wholist.IntegrationHandling
         /// </summary>
         public void Dispose()
         {
-            this.ApiVersionGate.UnregisterFunc();
-            this.AvailableGate.UnregisterFunc();
-            this.UnregisterPlayerContextMenuGate.UnregisterFunc();
-            this.RegisterPlayerContextMenuGate.UnregisterFunc();
-
-            foreach (var contextMenu in this.registeredPlayerContextMenuIpcs)
+            if (!this.disposedValue)
             {
-                this.UnregisterPlayerContextMenu(contextMenu.Key);
-            }
+                this.ApiVersionGate.UnregisterFunc();
+                this.AvailableGate.UnregisterFunc();
+                this.UnregisterPlayerContextMenuGate.UnregisterFunc();
+                this.RegisterPlayerContextMenuGate.UnregisterFunc();
 
-            this.registeredPlayerContextMenuIpcs.Clear();
+                foreach (var contextMenu in this.registeredPlayerContextMenuIpcs)
+                {
+                    this.UnregisterPlayerContextMenu(contextMenu.Key);
+                }
+
+                this.registeredPlayerContextMenuIpcs.Clear();
+                this.DisposedGate.SendMessage();
+
+                this.disposedValue = true;
+            }
         }
 
         #endregion
@@ -148,6 +163,11 @@ namespace Wholist.IntegrationHandling
         private ICallGateProvider<object?> AvailableGate { get; }
 
         /// <summary>
+        ///     The gate to see when the plugin is disposed.
+        /// </summary>
+        private ICallGateProvider<object?> DisposedGate { get; }
+
+        /// <summary>
         ///     The gate to register a player context menu.
         /// </summary>
         private ICallGateProvider<string, string> RegisterPlayerContextMenuGate { get; }
@@ -167,14 +187,19 @@ namespace Wholist.IntegrationHandling
         #region IPC String Constants
 
         /// <summary>
+        ///     The IPC ID for the API version.
+        /// </summary>
+        private const string ApiVersionString = "Wholist.ApiVersion";
+
+        /// <summary>
         ///     The IPC ID for when IPC is available.
         /// </summary>
         private const string IpcAvailableString = "Wholist.Available";
 
         /// <summary>
-        ///     The IPC ID for the API version.
+        ///     The IPC ID for when IPC is disposed.
         /// </summary>
-        private const string ApiVersionString = "Wholist.ApiVersion";
+        private const string IpcDisposedString = "Wholist.Disposed";
 
         /// <summary>
         ///     The IPC ID for registering a player context menu.

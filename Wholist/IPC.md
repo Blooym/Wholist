@@ -37,7 +37,8 @@ elements are drawn inside of `ImGui.BeginMenu` already.
 
 When you no longer need your context menu entries, you can unregister them by
 invoking `Wholist.UnregisterPlayerContextMenu` and passing the GUID that was returned when you registered them, which
-will remove them from the list.
+will remove them from the list. `Wholist.Disposed` will be broadcast when Wholist is being unloaded, so you can listen
+to it and handle any cleanup that you need to do.
 
 If you need to update your context menu entries, you will need to unregister them and then re-register them again.
 
