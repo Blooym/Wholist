@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns=""
-              id="root">
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
     <xsd:element name="root" msdata:IsDataSet="true">
 
     </xsd:element>
@@ -216,5 +215,17 @@
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Lodestone" xml:space="preserve">
     <value>Search on Lodestone</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_PrioritizeKnown" xml:space="preserve">
+    <value>Show known players first</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_PrioritizeKnown_Description" xml:space="preserve">
+    <value>Make players that are known to you such as friends and party members be shown above other players.</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_JobAbbreviations" xml:space="preserve">
+    <value>Use job abbreviations</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_JobAbbreviations_Description" xml:space="preserve">
+    <value>Use job abbreviations instead of their full names. (e.g. "WAR" instead of "Warrior")</value>
   </data>
 </root>
