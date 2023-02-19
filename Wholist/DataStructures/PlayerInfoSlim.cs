@@ -26,7 +26,7 @@ namespace Wholist.DataStructures
             this.playerCharacter = basePlayer;
 
             this.Homeworld = new WorldInfoSlim(basePlayer.HomeWorld.GameData!);
-            this.Class = new JobInfoSlim(basePlayer.ClassJob.GameData!);
+            this.Job = new JobInfoSlim(basePlayer.ClassJob.GameData!);
 
             this.Name = basePlayer.Name.TextValue;
             this.CompanyTag = basePlayer.CompanyTag.TextValue;
@@ -46,9 +46,9 @@ namespace Wholist.DataStructures
         internal readonly Vector4 NameColour;
 
         /// <summary>
-        ///     The class information of the player.
+        ///     The job information of the player.
         /// </summary>
-        internal readonly JobInfoSlim Class;
+        internal readonly JobInfoSlim Job;
 
         /// <summary>
         ///     The company tag of the player.

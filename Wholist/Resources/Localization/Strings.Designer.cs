@@ -81,9 +81,9 @@ namespace Wholist.Resources.Localization {
             }
         }
         
-        internal static string UserInterface_NearbyPlayers_Players_Class {
+        internal static string UserInterface_NearbyPlayers_Players_Job {
             get {
-                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Class", resourceCulture);
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Job", resourceCulture);
             }
         }
         
@@ -444,6 +444,18 @@ namespace Wholist.Resources.Localization {
         internal static string UserInterface_Settings_NearbyPlayers_PrioritizeKnown_Description {
             get {
                 return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_PrioritizeKnown_Description", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_JobAbbreviations {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_JobAbbreviations", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_JobAbbreviations_Description {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_JobAbbreviations_Description", resourceCulture);
             }
         }
     }

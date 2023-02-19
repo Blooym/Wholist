@@ -20,6 +20,7 @@ namespace Wholist.DataStructures
         internal JobInfoSlim(ClassJob classJob)
         {
             this.Name = classJob.Name.ToDalamudString().ToString().ToTitleCase();
+            this.Abbreviation = classJob.Abbreviation.ToDalamudString().ToString();
             this.RoleColour = classJob.GetJobRole() switch
             {
                 ClassJobRole.Tank => Services.Configuration.Colours.Tank,
@@ -35,6 +36,11 @@ namespace Wholist.DataStructures
         ///     The name of the job.
         /// </summary>
         internal readonly string Name;
+
+        /// <summary>
+        ///     The abbreviation of the job.
+        /// </summary>
+        internal readonly string Abbreviation;
 
         /// <summary>
         ///     The colour of the role.

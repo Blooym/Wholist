@@ -75,6 +75,11 @@ namespace Wholist.Configuration
             ///     Whether or not the "Nearby Players" list should prioritize known players.
             /// </summary>
             public bool PrioritizeKnown;
+
+            /// <summary>
+            ///     Whether or not the "Nearby Players" list should use class abbreviations instead of full names.
+            /// </summary>
+            public bool UseJobAbbreviations;
         }
 
         /// <summary>

@@ -79,10 +79,10 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// <param name="playersToDraw"></param>
         private static void DrawNearbyPlayersTable(List<PlayerInfoSlim> playersToDraw)
         {
-            if (ImGui.BeginTable("##NearbyTable", 5, ImGuiTableFlags.ScrollY | ImGuiTableFlags.Borders | ImGuiTableFlags.Hideable | ImGuiTableFlags.Reorderable))
+            if (ImGui.BeginTable("##NearbyTable", 5, ImGuiTableFlags.ScrollY | ImGuiTableFlags.Borders | ImGuiTableFlags.Hideable | ImGuiTableFlags.Reorderable | ImGuiTableFlags.Resizable))
             {
                 ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Name, ImGuiTableColumnFlags.WidthStretch, 220);
-                ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Class, ImGuiTableColumnFlags.WidthStretch, 150);
+                ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Job, ImGuiTableColumnFlags.WidthStretch, 150);
                 ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Level, ImGuiTableColumnFlags.WidthStretch, 80);
                 ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Homeworld, ImGuiTableColumnFlags.WidthStretch, 150);
                 ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Company, ImGuiTableColumnFlags.WidthStretch, 120);
@@ -127,8 +127,8 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             DrawPlayerContextMenu(obj);
             ImGui.TableNextColumn();
 
-            // Class.
-            SiGui.TextColoured(obj.Class.RoleColour, obj.Class.Name);
+            // Job.
+            SiGui.TextColoured(obj.Job.RoleColour, NearbyPlayersLogic.GetJobName(obj.Job));
             ImGui.TableNextColumn();
 
             // Level.

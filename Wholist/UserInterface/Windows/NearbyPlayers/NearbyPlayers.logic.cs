@@ -112,6 +112,13 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             UIModule.PlaySound((int)SoundEffect.Se16, 0, 0, 0);
         }
 
+        /// <summary>
+        ///     Gets the job name of the given player based on the current configuration.
+        /// </summary>
+        /// <param name="job">The job of the player.</param>
+        /// <returns>The job name.</returns>
+        internal static string GetJobName(JobInfoSlim job) => Configuration.NearbyPlayers.UseJobAbbreviations ? job.Abbreviation : job.Name;
+
         #endregion
 
         #region Properties

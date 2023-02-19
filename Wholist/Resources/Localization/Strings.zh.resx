@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns=""
+              id="root">
     <xsd:element name="root" msdata:IsDataSet="true">
 
     </xsd:element>
@@ -39,8 +40,8 @@
   <data name="UserInterface_NearbyPlayers_Players_Level" xml:space="preserve">
     <value>Level</value>
   </data>
-  <data name="UserInterface_NearbyPlayers_Players_Class" xml:space="preserve">
-    <value>Class</value>
+  <data name="UserInterface_NearbyPlayers_Players_Job" xml:space="preserve">
+    <value>Job</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Total" xml:space="preserve">
     <value>Total: {0}</value>
