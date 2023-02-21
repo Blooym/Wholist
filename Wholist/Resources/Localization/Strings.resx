@@ -177,7 +177,7 @@
     <value>Max players shown</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers_Description" xml:space="preserve">
-    <value>The maximum amount of players to be shown on the nearby players listat any time.</value>
+    <value>The maximum amount of players to be shown on the nearby players list at any time.</value>
   </data>
   <data name="UserInterface_Settings_Colours_Default" xml:space="preserve">
     <value>Default</value>
