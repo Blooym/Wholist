@@ -22,13 +22,13 @@
     </value>
   </resheader>
   <data name="Commands_Who_Help" xml:space="preserve">
-    <value>Opens the nearby players window.</value>
+    <value>Abre la ventana de jugadores cercanos.</value>
   </data>
   <data name="Windows_Who_Title" xml:space="preserve">
-    <value>[{0}] Nearby Players</value>
+    <value>[{0}] jugadores cercanos</value>
   </data>
   <data name="Errors_NoUseInPvP" xml:space="preserve">
-    <value>You can't view nearby players whilst participating in PvP.</value>
+    <value>No puedes ver a los jugadores cercanos en PvP.</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Name" xml:space="preserve">
     <value>Nombre</value>
@@ -55,10 +55,10 @@
     <value>Examinar</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_AdventurePlate" xml:space="preserve">
-    <value>View Adventure Plate</value>
+    <value>Ver Placa de Aventurero</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Tell" xml:space="preserve">
-    <value>Send Tell</value>
+    <value>Mandar mensaje privado</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Search" xml:space="preserve">
     <value>Buscar...</value>
@@ -67,43 +67,43 @@
     <value>[{0}] Ajustes</value>
   </data>
   <data name="Commands_WhoSettings_Help" xml:space="preserve">
-    <value>Opens the plugin settings window.</value>
+    <value>Abre la ventana de ajustes del plugin.</value>
   </data>
   <data name="UserInterface_Settings_Heading" xml:space="preserve">
     <value>Ajustes</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Heading" xml:space="preserve">
-    <value>Nearby Players</value>
+    <value>Jugadores Cercanos</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin" xml:space="preserve">
-    <value>Open window on login</value>
+    <value>Abrer ventana al iniciar sesión</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInCombat" xml:space="preserve">
-    <value>Hide in combat</value>
+    <value>Ocultar en combate</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInInstance" xml:space="preserve">
-    <value>Hide in instances</value>
+    <value>Ocultar en instancias</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers" xml:space="preserve">
-    <value>Filter AFK Players</value>
+    <value>Filtrar jugadores ausentes</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockPosition" xml:space="preserve">
-    <value>Disable window moving</value>
+    <value>Deshabilitar movimiento de ventana</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockSize" xml:space="preserve">
-    <value>Disable window resizing</value>
+    <value>Deshabilitar redimensionado de ventana</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description" xml:space="preserve">
-    <value>Remove AFK players from the nearby players list.</value>
+    <value>Filtrar jugadores ausentes de la lista de jugadores cercanos.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInCombat_Description" xml:space="preserve">
-    <value>Automatically hide the window when in combat.</value>
+    <value>Oculta la ventana automáticamente en combate.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInInstance_Description" xml:space="preserve">
-    <value>Automatically hide the window when inside of instances</value>
+    <value>Oculta la ventana automáticamente en las instancias</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockPosition_Description" xml:space="preserve">
-    <value>Prevent the window from being moved.</value>
+    <value>Evita que la ventana se pueda mover.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockSize_Description" xml:space="preserve">
     <value>Prevent the window from being resized.</value>
