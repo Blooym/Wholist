@@ -22,13 +22,13 @@
     </value>
   </resheader>
   <data name="Commands_Who_Help" xml:space="preserve">
-    <value>Ouvre la fenêtre des joueurs à proximité.</value>
+    <value>Ouvre la fenêtre des joueur·se·s à proximité.</value>
   </data>
   <data name="Windows_Who_Title" xml:space="preserve">
-    <value>[{0}] joueurs à proximité</value>
+    <value>[{0}] joueur·se·s à proximité</value>
   </data>
   <data name="Errors_NoUseInPvP" xml:space="preserve">
-    <value>Vous ne pouvez pas voir les joueur·se·s à proximité pendant que vous prenez part à du JcJ.</value>
+    <value>Vous ne pouvez pas voir les joueurs à proximité pendant que vous prenez part à du JcJ.</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Name" xml:space="preserve">
     <value>Nom</value>
@@ -58,7 +58,7 @@
     <value>Voir la plaque d'aventurier</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Tell" xml:space="preserve">
-    <value>Envoyer un message</value>
+    <value>Murmurer</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Search" xml:space="preserve">
     <value>Rechercher...</value>
@@ -73,16 +73,16 @@
     <value>Paramètres</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Heading" xml:space="preserve">
-    <value>Joueur·se·s à proximité</value>
+    <value>Joueurs à proximité</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin" xml:space="preserve">
     <value>Ouvrir la fenêtre dès la connexion</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInCombat" xml:space="preserve">
-    <value>Cacher pendant le combat</value>
+    <value>Masquer pendant le combat</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInInstance" xml:space="preserve">
-    <value>Cacher dans les instances</value>
+    <value>Masquer dans les instances</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers" xml:space="preserve">
     <value>Filtrer les joueurs AFK</value>
@@ -94,25 +94,25 @@
     <value>Désactiver le redimensionnement de la fenêtre</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description" xml:space="preserve">
-    <value>Enlève les joueurs AFK de la liste des joueurs à proximité.</value>
+    <value>Enlève les joueur·se·s AFK de la liste des joueur·se·s à proximité.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInCombat_Description" xml:space="preserve">
-    <value>Cache automatiquement la fenêtre pendant le combat.</value>
+    <value>Masque automatiquement la fenêtre pendant le combat.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInInstance_Description" xml:space="preserve">
-    <value>Cache automatiquement la fenêtre à l'intérieur des instances</value>
+    <value>Masque automatiquement la fenêtre à l'intérieur des instances</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockPosition_Description" xml:space="preserve">
-    <value>Empêche le déplacement de la fenêtre.</value>
+    <value>Empêcher le déplacement de la fenêtre.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockSize_Description" xml:space="preserve">
-    <value>Empêche le redimensionnement de la fenêtre.</value>
+    <value>Empêcher le redimensionnement de la fenêtre.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin_Description" xml:space="preserve">
-    <value>Ouvre la fenêtre automatiquement lors de la connexion ou lors du redémarrage du plugin pendant la session en cours.</value>
+    <value>Ouvrir automatiquement la fenêtre lors de la connexion ou lors du redémarrage du plugin pendant la session en cours.</value>
   </data>
   <data name="UserInterface_Settings_Debug_Disclaimer" xml:space="preserve">
-    <value>L'information suivante devrait être attachée avec n'importe quel rapport de bugs ou demandes de support pour aider à diagnostiquer tout problème que vous pourriez avoir, vous pouvez voir un aperçu de l'information ici-bas avant de le copier dans votre presse-papier si vous le désirez.</value>
+    <value>Les informations ci-dessous doivent être jointes à tous les rapports de bugs ou demandes de support afin d'aider à diagnostiquer tout problème que vous pourriez avoir, vous pouvez voir un aperçu des informations ci-dessous avant de les copier dans votre presse-papier si vous le souhaitez.</value>
   </data>
   <data name="UserInterface_Settings_Debug_Copy" xml:space="preserve">
     <value>Copier les informations de débogage</value>
@@ -127,7 +127,7 @@
     <value>Faire un don</value>
   </data>
   <data name="UserInterface_Settings_Donate_Description" xml:space="preserve">
-    <value>Si vous aimez ce plugin et vous désirez supporter le développeur, vous pouvez le faire ici-bas.</value>
+    <value>Si vous aimez ce plugin et vous souhaitez soutenir la développeuse, vous pouvez le faire ci-dessous.</value>
   </data>
   <data name="UserInterface_Settings_Donate_Kofi" xml:space="preserve">
     <value>Ko-Fi</value>
@@ -139,7 +139,7 @@
     <value>Définir la cible du chat à {0}</value>
   </data>
   <data name="UserInterface_Settings_Colours_Friend" xml:space="preserve">
-    <value>Ami·e</value>
+    <value>Ami(e)</value>
   </data>
   <data name="UserInterface_Settings_Colours_Party" xml:space="preserve">
     <value>Équipe</value>
@@ -148,7 +148,7 @@
     <value>DPS de mêlée</value>
   </data>
   <data name="UserInterface_Settings_Colours_RangedDPS" xml:space="preserve">
-    <value>DPS distant</value>
+    <value>DPS à distance</value>
   </data>
   <data name="UserInterface_Settings_Colours_Healer" xml:space="preserve">
     <value>Soigneur</value>
@@ -172,16 +172,16 @@
     <value>Réinitialiser toutes les couleurs</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers" xml:space="preserve">
-    <value>Nombre de joueur·se·s maximum affiché·e·s</value>
+    <value>Nombre de joueurs maximum affichés</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers_Description" xml:space="preserve">
-    <value>Le nombre maximum de joueur·se·s qui peuvent être affichés sur la liste des joueur·se·s à proximité en tout temps.</value>
+    <value>Le nombre maximum de joueurs à afficher sur la liste des joueurs à proximité en tout temps.</value>
   </data>
   <data name="UserInterface_Settings_Colours_Default" xml:space="preserve">
     <value>Défaut</value>
   </data>
   <data name="UserInterface_Settings_Colours_UpdateTimeNotice_Text" xml:space="preserve">
-    <value>Prendre note que ça peut prendre un peu de temps avant que l'interface d'utilisateur reflète vos changements de couleur.</value>
+    <value>Veuillez noter que cela peut prendre un certain temps avant que l'interface d'utilisateur ne reflète vos changements de couleur.</value>
   </data>
   <data name="UserInterface_Settings_Colours_Heading" xml:space="preserve">
     <value>Couleurs</value>
@@ -190,10 +190,10 @@
     <value>Trouver sur la carte</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_ShownRows_Description" xml:space="preserve">
-    <value>Vous pouvez changer quelle information est affichée à propos d'un·e joueur·se dans la liste des joueur·se·s à proximité en effectuant un clic-droit sur l'en-tête de la table.</value>
+    <value>Vous pouvez choisir les informations affichées sur un joueur dans la liste des joueurs proches en effectuant un clic-droit sur l'en-tête du tableau.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_ShownRows" xml:space="preserve">
-    <value>L'information d'un·e joueur·se affichée</value>
+    <value>Informations sur le joueur affichées</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Homeworld" xml:space="preserve">
     <value>Monde d'origine</value>
@@ -205,7 +205,7 @@
     <value>Intégrations</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Integrations_None" xml:space="preserve">
-    <value>Aucune intégration n'est disponible présentement.</value>
+    <value>Aucune intégration n'est disponible pour le moment.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Window" xml:space="preserve">
     <value>Fenêtre</value>
@@ -217,15 +217,15 @@
     <value>Rechercher sur Lodestone</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_PrioritizeKnown" xml:space="preserve">
-    <value>Show known players first</value>
+    <value>Afficher les joueur·se·s connu·e·s en premier</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_PrioritizeKnown_Description" xml:space="preserve">
-    <value>Make players that are known to you such as friends and party members be shown above other players.</value>
+    <value>Faire apparaître les joueurs connus (amis, membres de l'équipe) au-dessus des autres joueurs.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_JobAbbreviations" xml:space="preserve">
-    <value>Use job abbreviations</value>
+    <value>Utiliser les abréviations des noms de classe</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_JobAbbreviations_Description" xml:space="preserve">
-    <value>Use job abbreviations instead of their full names. (e.g. "WAR" instead of "Warrior")</value>
+    <value>Utiliser les abréviations des noms de classe au lieu du nom complet. (p.ex. "GUE" au lieu de "Guerrier ")</value>
   </data>
 </root>
