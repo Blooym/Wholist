@@ -159,7 +159,7 @@
   <data name="UserInterface_Settings_Colours_Other" xml:space="preserve">
     <value>Autre</value>
   </data>
-  <data name="UserInterface_Settings_Colours_RoleColours" xml:space="preserve">
+  <data name="UserInterface_Settings_Colours_JobColours" xml:space="preserve">
     <value>Couleurs de rôles</value>
   </data>
   <data name="UserInterface_Settings_Colours_NameColours" xml:space="preserve">

@@ -32,7 +32,7 @@ namespace Wholist.DataStructures
             this.CompanyTag = basePlayer.CompanyTag.TextValue;
             this.IsFriend = PlayerManager.IsPlayerFriend(basePlayer);
             this.IsInParty = PlayerManager.IsPlayerInParty(basePlayer);
-            this.NameColour = PlayerManager.GetColourForPlayer(this);
+            this.NameColour = PlayerManager.GetPlayerNameColour(this);
         }
 
         /// <summary>

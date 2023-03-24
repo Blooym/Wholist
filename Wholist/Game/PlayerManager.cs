@@ -21,7 +21,8 @@ namespace Wholist.Game
         /// </summary>
         private readonly CacheCollection<PlayerCharacter, PlayerInfoSlim> nearbyPlayersCache = new(new CacheOptions<PlayerCharacter, PlayerInfoSlim>
         {
-            AbsoluteExpiry = TimeSpan.FromSeconds(4), ExpireInterval = TimeSpan.FromSeconds(4),
+            AbsoluteExpiry = TimeSpan.FromSeconds(4),
+            ExpireInterval = TimeSpan.FromSeconds(4),
         });
 
         private bool disposedValue;
@@ -151,17 +152,17 @@ namespace Wholist.Game
         /// </summary>
         /// <param name="playerInfo"></param>
         /// <returns>The colour for the player.</returns>
-        internal static Vector4 GetColourForPlayer(PlayerInfoSlim playerInfo)
+        internal static Vector4 GetPlayerNameColour(PlayerInfoSlim playerInfo)
         {
             if (playerInfo.IsInParty)
             {
-                return Services.Configuration.Colours.Party;
+                return Services.Configuration.Colours.Name.Party;
             }
             if (playerInfo.IsFriend)
             {
-                return Services.Configuration.Colours.Friend;
+                return Services.Configuration.Colours.Name.Friend;
             }
-            return Services.Configuration.Colours.Default;
+            return Services.Configuration.Colours.Name.Default;
         }
 
         #endregion

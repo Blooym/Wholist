@@ -87,14 +87,80 @@ namespace Wholist.Configuration
         /// </summary>
         internal sealed class ColourConfiguration
         {
-            public Vector4 Default = new(1.0f, 1.0f, 1.0f, 1.0f);
-            public Vector4 Friend = new(1.0f, 0.5f, 0.0f, 1.0f);
-            public Vector4 Healer = new(0f, 0.8f, 0.1333333f, 1f);
-            public Vector4 MeleeDps = new(0.7058824f, 0f, 0f, 1f);
-            public Vector4 Other = new(0.5f, 0.5f, 0.5f, 1f);
-            public Vector4 Party = new(0.0f, 0.7f, 1.0f, 1.0f);
-            public Vector4 RangedDps = new(0.7058824f, 0f, 0f, 1f);
-            public Vector4 Tank = new(0f, 0.6f, 1f, 1f);
+            /// <summary>
+            ///     Represents different ways JobColours can be obtained.
+            /// </summary>
+            public enum JobColourMode
+            {
+                Role,
+                Job,
+            }
+
+            public JobColourMode JobColMode = JobColourMode.Role;
+            public NameColours Name = new();
+            public RoleColours Role = new();
+            public JobColours Job = new();
+
+            /// <summary>
+            ///     Represents the colours used for player names.
+            /// </summary>
+            internal sealed class NameColours
+            {
+                public Vector4 Default = new(1.0f, 1.0f, 1.0f, 1.0f);
+                public Vector4 Friend = new(1.0f, 0.5f, 0.0f, 1.0f);
+                public Vector4 Party = new(0.0f, 0.7f, 1.0f, 1.0f);
+            }
+
+            /// <summary>
+            ///     Represents the colours used for player job roles.
+            /// </summary>
+            internal sealed class RoleColours
+            {
+                public Vector4 Healer = new(0f, 0.8f, 0.1333333f, 1f);
+                public Vector4 Tank = new(0f, 0.6f, 1f, 1f);
+                public Vector4 MeleeDps = new(0.7058824f, 0f, 0f, 1f);
+                public Vector4 RangedDps = new(0.7058824f, 0f, 0f, 1f);
+                public Vector4 Other = new(0.5f, 0.5f, 0.5f, 1f);
+            }
+
+            /// <summary>
+            ///     Represents the colours used for player jobs.
+            /// </summary>
+            internal sealed class JobColours
+            {
+                // Tanks
+                public Vector4 Warrior = new(0f, 0.6f, 1f, 1f);
+                public Vector4 Paladin = new(0f, 0.6f, 1f, 1f);
+                public Vector4 DarkKnight = new(0f, 0.6f, 1f, 1f);
+                public Vector4 Gunbreaker = new(0f, 0.6f, 1f, 1f);
+
+                // Healers
+                public Vector4 WhiteMage = new(0f, 0.8f, 0.1333333f, 1f);
+                public Vector4 Scholar = new(0f, 0.8f, 0.1333333f, 1f);
+                public Vector4 Astrologian = new(0f, 0.8f, 0.1333333f, 1f);
+                public Vector4 Sage = new(0f, 0.8f, 0.1333333f, 1f);
+
+                // Melee
+                public Vector4 Monk = new(0.7058824f, 0f, 0f, 1f);
+                public Vector4 Dragoon = new(0.7058824f, 0f, 0f, 1f);
+                public Vector4 Ninja = new(0.7058824f, 0f, 0f, 1f);
+                public Vector4 Samurai = new(0.7058824f, 0f, 0f, 1f);
+                public Vector4 Reaper = new(0.7058824f, 0f, 0f, 1f);
+
+                // Ranged
+                public Vector4 Bard = new(0.7058824f, 0f, 0f, 1f);
+                public Vector4 Machinist = new(0.7058824f, 0f, 0f, 1f);
+                public Vector4 Dancer = new(0.7058824f, 0f, 0f, 1f);
+
+                // Casters
+                public Vector4 BlackMage = new(0.7058824f, 0f, 0f, 1f);
+                public Vector4 Summoner = new(0.7058824f, 0f, 0f, 1f);
+                public Vector4 RedMage = new(0.7058824f, 0f, 0f, 1f);
+                public Vector4 BlueMage = new(0.7058824f, 0f, 0f, 1f);
+
+                // Misc
+                public Vector4 Other = new(0.5f, 0.5f, 0.5f, 1f);
+            }
         }
     }
 }

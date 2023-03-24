@@ -21,14 +21,51 @@ namespace Wholist.DataStructures
         {
             this.Name = classJob.Name.ToDalamudString().ToString().ToTitleCase();
             this.Abbreviation = classJob.Abbreviation.ToDalamudString().ToString();
+
             this.RoleColour = classJob.GetJobRole() switch
             {
-                ClassJobRole.Tank => Services.Configuration.Colours.Tank,
-                ClassJobRole.Healer => Services.Configuration.Colours.Healer,
-                ClassJobRole.MeleeDps => Services.Configuration.Colours.MeleeDps,
-                ClassJobRole.RangedDps => Services.Configuration.Colours.RangedDps,
-                ClassJobRole.Misc => Services.Configuration.Colours.Other,
-                _ => Services.Configuration.Colours.Other,
+                ClassJobRole.Tank => Services.Configuration.Colours.Role.Tank,
+                ClassJobRole.Healer => Services.Configuration.Colours.Role.Healer,
+                ClassJobRole.MeleeDps => Services.Configuration.Colours.Role.MeleeDps,
+                ClassJobRole.RangedDps => Services.Configuration.Colours.Role.RangedDps,
+                ClassJobRole.Misc => Services.Configuration.Colours.Role.Other,
+                _ => Services.Configuration.Colours.Role.Other,
+            };
+
+            this.JobColour = classJob.RowId switch
+            {
+
+                0 => Services.Configuration.Colours.Job.Other,
+                1 => Services.Configuration.Colours.Job.Paladin,
+                2 => Services.Configuration.Colours.Job.Monk,
+                3 => Services.Configuration.Colours.Job.Warrior,
+                4 => Services.Configuration.Colours.Job.Dragoon,
+                5 => Services.Configuration.Colours.Job.Bard,
+                6 => Services.Configuration.Colours.Job.WhiteMage,
+                7 => Services.Configuration.Colours.Job.BlackMage,
+                19 => Services.Configuration.Colours.Job.Paladin,
+                20 => Services.Configuration.Colours.Job.Monk,
+                21 => Services.Configuration.Colours.Job.Warrior,
+                22 => Services.Configuration.Colours.Job.Dragoon,
+                23 => Services.Configuration.Colours.Job.Bard,
+                24 => Services.Configuration.Colours.Job.WhiteMage,
+                25 => Services.Configuration.Colours.Job.BlackMage,
+                26 => Services.Configuration.Colours.Job.Summoner,
+                27 => Services.Configuration.Colours.Job.Summoner,
+                28 => Services.Configuration.Colours.Job.Summoner,
+                29 => Services.Configuration.Colours.Job.Ninja,
+                30 => Services.Configuration.Colours.Job.Ninja,
+                31 => Services.Configuration.Colours.Job.Machinist,
+                32 => Services.Configuration.Colours.Job.DarkKnight,
+                33 => Services.Configuration.Colours.Job.Astrologian,
+                34 => Services.Configuration.Colours.Job.Samurai,
+                35 => Services.Configuration.Colours.Job.RedMage,
+                36 => Services.Configuration.Colours.Job.BlueMage,
+                37 => Services.Configuration.Colours.Job.Gunbreaker,
+                38 => Services.Configuration.Colours.Job.Dancer,
+                39 => Services.Configuration.Colours.Job.Reaper,
+                40 => Services.Configuration.Colours.Job.Sage,
+                _ => Services.Configuration.Colours.Job.Other,
             };
         }
 
@@ -46,5 +83,10 @@ namespace Wholist.DataStructures
         ///     The colour of the role.
         /// </summary>
         internal readonly Vector4 RoleColour;
+
+        /// <summary>
+        ///     The colour of the job.
+        /// </summary>
+        internal readonly Vector4 JobColour;
     }
 }

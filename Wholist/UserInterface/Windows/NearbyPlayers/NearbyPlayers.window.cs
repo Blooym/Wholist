@@ -128,7 +128,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             ImGui.TableNextColumn();
 
             // Job.
-            SiGui.TextColoured(obj.Job.RoleColour, NearbyPlayersLogic.GetJobName(obj.Job));
+            SiGui.TextColoured(NearbyPlayersLogic.GetJobColour(obj.Job), NearbyPlayersLogic.GetJobName(obj.Job));
             ImGui.TableNextColumn();
 
             // Level.

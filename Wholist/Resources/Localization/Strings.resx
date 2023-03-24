@@ -161,8 +161,8 @@
   <data name="UserInterface_Settings_Colours_Other" xml:space="preserve">
     <value>Other</value>
   </data>
-  <data name="UserInterface_Settings_Colours_RoleColours" xml:space="preserve">
-    <value>Role Colours</value>
+  <data name="UserInterface_Settings_Colours_JobColours" xml:space="preserve">
+    <value>Job / Role Colours</value>
   </data>
   <data name="UserInterface_Settings_Colours_NameColours" xml:space="preserve">
     <value>Name Colours</value>
@@ -171,7 +171,13 @@
     <value>Other Options</value>
   </data>
   <data name="UserInterface_Settings_Colours_ResetAll" xml:space="preserve">
-    <value>Reset all colours</value>
+    <value>Reset colour settings</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_UsePerJobColours" xml:space="preserve">
+    <value>Use per-job colours</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_UsePerJobColours_Description" xml:space="preserve">
+    <value>Enables setting colours for each job independently instead of using the role colours.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers" xml:space="preserve">
     <value>Max players shown</value>

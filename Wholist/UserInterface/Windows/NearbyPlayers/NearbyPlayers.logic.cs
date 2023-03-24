@@ -119,6 +119,19 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// <returns>The job name.</returns>
         internal static string GetJobName(JobInfoSlim job) => Configuration.NearbyPlayers.UseJobAbbreviations ? job.Abbreviation : job.Name;
 
+        /// <summary>
+        ///     Gets the job colour of the given player based on the current configuration.
+        /// </summary>
+        /// <param name="job">The job of the player.</param>
+        /// <returns>The job colour.</returns>
+        /// <exception cref="NotImplementedException">When the colour mode is not implemented or unknown.</exception>
+        internal static Vector4 GetJobColour(JobInfoSlim job) => Configuration.Colours.JobColMode switch
+        {
+            PluginConfiguration.ColourConfiguration.JobColourMode.Job => job.JobColour,
+            PluginConfiguration.ColourConfiguration.JobColourMode.Role => job.RoleColour,
+            _ => throw new NotImplementedException()
+        };
+
         #endregion
 
         #region Properties
