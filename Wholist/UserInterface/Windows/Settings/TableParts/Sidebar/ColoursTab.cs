@@ -181,6 +181,12 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
+
+            // Other
+            if (ColourEdit.Draw("Other", ref NearbyPlayersLogic.Configuration.Colours.Job.Other))
+            {
+                NearbyPlayersLogic.Configuration.Save();
+            }
         }
 
         private static void DrawOtherOptions(SettingsLogic _)
