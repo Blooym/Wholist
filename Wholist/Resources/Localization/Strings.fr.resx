@@ -172,10 +172,10 @@
     <value>Réinitialiser toutes les couleurs</value>
   </data>
   <data name="UserInterface_Settings_Colours_UsePerJobColours" xml:space="preserve">
-    <value>Use per-job colours</value>
+    <value>Utiliser des couleurs selon le job</value>
   </data>
   <data name="UserInterface_Settings_Colours_UsePerJobColours_Description" xml:space="preserve">
-    <value>Enables setting colours for each job independently instead of using the role colours.</value>
+    <value>Active le réglage des couleurs par job de façon indépendante au lieu de couleurs par rôles.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers" xml:space="preserve">
     <value>Nombre de joueurs maximum affichés</value>
