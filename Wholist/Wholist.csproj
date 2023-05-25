@@ -3,7 +3,7 @@
   <!-- Project Configuration -->
   <PropertyGroup>
     <AssemblyName>Wholist</AssemblyName>
-    <Version>1.2.0.0</Version>
+    <Version>1.2.1.0</Version>
     <PackageProjectUrl>https://github.com/BitsOfAByte/Wholist</PackageProjectUrl>
   </PropertyGroup>
 
@@ -24,16 +24,16 @@
   <!-- Custom Runtime Variables -->
   <Target Name="SetCustomVars" BeforeTargets="BeforeBuild">
     <Exec Command="git rev-parse --short HEAD" ConsoleToMSBuild="true" IgnoreExitCode="true">
-      <Output TaskParameter="ConsoleOutput" PropertyName="GitHash"/>
+      <Output TaskParameter="ConsoleOutput" PropertyName="GitHash" />
     </Exec>
     <Exec Command="git show -s --format=%ci HEAD" ConsoleToMSBuild="true" IgnoreExitCode="true">
-      <Output TaskParameter="ConsoleOutput" PropertyName="BuildTime"/>
+      <Output TaskParameter="ConsoleOutput" PropertyName="BuildTime" />
     </Exec>
     <Exec Command="git rev-parse --abbrev-ref HEAD" ConsoleToMSBuild="true" IgnoreExitCode="true">
-      <Output TaskParameter="ConsoleOutput" PropertyName="GitBranch"/>
+      <Output TaskParameter="ConsoleOutput" PropertyName="GitBranch" />
     </Exec>
     <Exec Command="git log -1 --pretty=%B" ConsoleToMSBuild="true" IgnoreExitCode="true">
-      <Output TaskParameter="ConsoleOutput" PropertyName="LastCommitMessage"/>
+      <Output TaskParameter="ConsoleOutput" PropertyName="LastCommitMessage" />
     </Exec>
 
     <ItemGroup>
@@ -79,9 +79,9 @@
 
   <!-- Packages -->
   <ItemGroup>
-    <PackageReference Include="DalamudPackager" Version="2.1.11"/>
-    <PackageReference Include="XivCommon" Version="7.0.0-alpha.1"/>
-    <ProjectReference Include="../Sirensong/Sirensong/Sirensong.csproj"/>
+    <PackageReference Include="DalamudPackager" Version="2.1.11" />
+    <PackageReference Include="XivCommon" Version="7.0.1" />
+    <ProjectReference Include="../Sirensong/Sirensong/Sirensong.csproj" />
   </ItemGroup>
 
   <!-- Dalamud References -->
