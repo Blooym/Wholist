@@ -30,7 +30,8 @@ namespace Wholist.DataStructures
 
             this.Name = basePlayer.Name.TextValue;
             this.CompanyTag = basePlayer.CompanyTag.TextValue;
-            this.IsFriend = PlayerManager.IsPlayerFriend(basePlayer);
+            // this.IsFriend = PlayerManager.IsPlayerFriend(basePlayer); // Pending XivCommon fixes for friendslist
+            this.IsFriend = false;
             this.IsInParty = PlayerManager.IsPlayerInParty(basePlayer);
             this.NameColour = PlayerManager.GetPlayerNameColour(this);
         }

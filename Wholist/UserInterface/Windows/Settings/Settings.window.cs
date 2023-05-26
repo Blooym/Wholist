@@ -1,6 +1,8 @@
 using System.Numerics;
 using Dalamud.Interface.Windowing;
 using ImGuiNET;
+using Sirensong.UserInterface;
+using Sirensong.UserInterface.Style;
 using Sirensong.UserInterface.Windowing;
 using Wholist.Common;
 using Wholist.Resources.Localization;
@@ -35,6 +37,12 @@ namespace Wholist.UserInterface.Windows.Settings
                 if (ImGui.BeginChild("PluginSettingsSidebarChild"))
                 {
                     SettingsSidebar.Draw(this.logic);
+                    ImGui.Dummy(Spacing.SidebarSectionSpacing);
+
+                    SiGui.Heading("Notice");
+                    SiGui.TextWrappedColoured(Colours.Warning, "Friend detection is currently disabled due to a game update that broke it, it will be re-enabled as soon as possible.");
+                    ImGui.Dummy(Spacing.ReadableSpacing);
+                    SiGui.TextWrappedColoured(Colours.Warning, "If you experience any issues with the plugin after the latest game update, please report them on the plugin's GitHub page.");
                 }
                 ImGui.EndChild();
 
