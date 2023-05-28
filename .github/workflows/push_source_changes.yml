@@ -22,8 +22,11 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
     env:
-        DALAMUD_HOME: /tmp/dalamud
-        IsCI: true
+        DALAMUD_HOME: /tmp/
+    strategy:
+      matrix:
+        build_mode: [Release, Debug]
+        dalamud_version: [latest, stg/latest"]
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -38,7 +41,7 @@ jobs:
 
       - name: Download Dalamud
         run: |
-          wget https://goatcorp.github.io/dalamud-distrib/latest.zip -O ${{ env.DALAMUD_HOME }}.zip
+          wget https://goatcorp.github.io/dalamud-distrib/${{ matrix.dalamud_version }}.zip -O ${{ env.DALAMUD_HOME }}.zip
           unzip ${{ env.DALAMUD_HOME }}.zip -d ${{ env.DALAMUD_HOME }}
 
       - name: Check for Lint Errors
@@ -58,18 +61,12 @@ jobs:
         working-directory: Wholist
         run: dotnet restore
 
-      - name: Build Project (Debug)
+      - name: Build Project
         working-directory: Wholist
         run: | 
-          dotnet build -c Debug
-          echo "Checksum: $(sha512sum bin/x64/Debug/Wholist.dll)"
+          dotnet build -c ${{ matrix.build_mode }}
+          echo "Checksum: $(sha512sum bin/x64/${{ matrix.build_mode }}/Wholist.dll)"
  
-      - name: Build Project (Release)
-        working-directory: Wholist
-        run: |
-          dotnet build -c Release
-          echo "Checksum: $(sha512sum bin/x64/Release/Wholist/latest.zip)"
-
       - name: Upload Artifacts
         if: ${{ github.event_name == 'pull_request' }}
         uses: actions/upload-artifact@v3

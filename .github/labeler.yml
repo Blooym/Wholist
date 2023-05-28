@@ -1,5 +1,6 @@
 changes | l10n/i18n:
-  - "Wholist/Resources/Localization/**/*"
+  - "Wholist/Localization/Resources/**/*.resx"
+  - "Wholist/Localization/Resources/**/*.Designer.cs"
 
 changes | ci:
   - ".github/workflows/**/*"
