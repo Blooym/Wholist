@@ -1,21 +1,22 @@
-name: "Push: Source Changes"
+name: "Tests"
 
 on:
   push:
     branches: [main]
     paths:
-      - "Wholist/**.cs"
-      - "Wholist/**.csproj"
-      - "Wholist/**.resx"
-      - "Sirensong/**.cs"
+      - "Wholist/**/*.cs"
+      - "Wholist/**/*.csproj"
+      - "Wholist/**/*.resx"
+      - "Sirensong/**/*.cs"
   pull_request:
     branches: [main]
     paths:
-      - "Wholist/**.cs"
-      - "Wholist/**.csproj"
-      - "Wholist/**.resx"
-      - "Sirensong/**.cs"
+      - "Wholist/**/*.cs"
+      - "Wholist/**/*.csproj"
+      - "Wholist/**/*.resx"
+      - "Sirensong/**/*.cs"
     types: [ready_for_review, opened, synchronize, reopened]
+  workflow_dispatch:
 
 jobs:
   Build:
@@ -65,10 +66,3 @@ jobs:
         run: | 
           dotnet build -c ${{ matrix.build_mode }}
           echo "Checksum: $(sha512sum bin/x64/${{ matrix.build_mode }}/Wholist.dll)"
- 
-      - name: Upload Artifacts
-        if: ${{ github.event_name == 'pull_request' }}
-        uses: actions/upload-artifact@v3
-        with:
-          name: build
-          path: Wholist/bin/
