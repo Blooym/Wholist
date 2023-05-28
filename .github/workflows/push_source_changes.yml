@@ -18,9 +18,6 @@ on:
 jobs:
   Build:
     runs-on: ubuntu-latest
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
-      cancel-in-progress: true
     env:
         DALAMUD_HOME: "/tmp/"
     strategy:
