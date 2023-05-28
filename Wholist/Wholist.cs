@@ -1,4 +1,3 @@
-using Dalamud.IoC;
 using Dalamud.Plugin;
 using Sirensong;
 using Wholist.Common;
@@ -10,7 +9,7 @@ namespace Wholist
         /// <summary>
         ///     The plugin's main entry point.
         /// </summary>
-        public Plugin([RequiredVersion("1.0")] DalamudPluginInterface pluginInterface)
+        public Plugin(DalamudPluginInterface pluginInterface)
         {
             SirenCore.Initialize(pluginInterface, this.Name);
             Services.Initialize(pluginInterface);
