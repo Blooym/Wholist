@@ -5,7 +5,7 @@ changes | l10n/i18n:
 changes | ci:
   - ".github/workflows/**/*"
 
-changes | source:
+changes | plugin:
   - "**/*.cs"
   - "**/*.csproj"
   - "**/packages.lock.json"
