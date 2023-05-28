@@ -1,6 +1,7 @@
 using System;
 using System.Reflection;
 using Sirensong;
+using Sirensong.Utility;
 
 namespace Wholist.Common
 {
@@ -106,7 +107,7 @@ namespace Wholist.Common
 
                 Environment Information:
                 ```
-                Real Operating System: {Sirensong.Utility.Common.DetermineOS()}
+                Real Operating System: {OsUtil.DetermineOS()}
                 Reported Operating System: {Environment.OSVersion.Platform}
                 ```
                 """;

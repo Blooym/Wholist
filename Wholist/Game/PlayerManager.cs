@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using Dalamud.Game.ClientState.Objects.SubKinds;
-using Sirensong.Caching.Collections;
+using Sirensong.Cache.Collections;
+using Sirensong.Extensions;
 using Sirensong.Game.Enums;
-using Sirensong.Game.Extensions;
 using Wholist.Common;
 using Wholist.DataStructures;
 

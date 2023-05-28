@@ -1,5 +1,5 @@
 using Dalamud.Game.Command;
-using Sirensong.Game;
+using Sirensong.Game.Helpers;
 using Wholist.CommandHandling.Interfaces;
 using Wholist.Common;
 using Wholist.Resources.Localization;
@@ -25,8 +25,7 @@ namespace Wholist.CommandHandling.Commands
 
             if (Services.ClientState.IsPvP)
             {
-                BetterLog.Information(Strings.Errors_NoUseInPvP);
-                GameChat.PrintError(Strings.Errors_NoUseInPvP);
+                ChatHelper.PrintError(Strings.Errors_NoUseInPvP);
                 return;
             }
 

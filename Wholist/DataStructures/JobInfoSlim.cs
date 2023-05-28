@@ -3,7 +3,6 @@ using Dalamud.Utility;
 using Lumina.Excel.GeneratedSheets;
 using Sirensong.Extensions;
 using Sirensong.Game.Enums;
-using Sirensong.Game.Extensions;
 using Wholist.Common;
 
 namespace Wholist.DataStructures
