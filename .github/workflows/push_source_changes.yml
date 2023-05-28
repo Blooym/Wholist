@@ -7,12 +7,14 @@ on:
       - "Wholist/**.cs"
       - "Wholist/**.csproj"
       - "Wholist/**.resx"
+      - "Sirensong/**.cs"
   pull_request:
     branches: [main]
     paths:
       - "Wholist/**.cs"
       - "Wholist/**.csproj"
       - "Wholist/**.resx"
+      - "Sirensong/**.cs"
     types: [ready_for_review, opened, synchronize, reopened]
 
 jobs:
