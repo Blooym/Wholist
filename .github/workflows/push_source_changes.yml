@@ -22,11 +22,11 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
     env:
-        DALAMUD_HOME: /tmp/
+        DALAMUD_HOME: "/tmp/"
     strategy:
       matrix:
-        build_mode: [Release, Debug]
-        dalamud_version: [latest, stg/latest"]
+        build_mode: ["Release", "Debug"]
+        dalamud_version: ["latest", "stg/latest"]
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
