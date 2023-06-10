@@ -1,7 +1,5 @@
 using System;
 using System.Reflection;
-using Sirensong;
-using Sirensong.Utility;
 
 namespace Wholist.Common
 {
@@ -75,42 +73,6 @@ namespace Wholist.Common
                 VersionInformational.Contains("alpha") ||
                 VersionInformational.Contains("beta") ||
                 VersionInformational.Contains("rc");
-
-            /// <summary>
-            ///     The debug output string that end users can copy and send to the developer, formatted in markdown.
-            /// </summary>
-            internal static readonly string DebugString =
-                $"""
-                Git Information:
-
-                ```
-                Git Branch: {GitBranch}
-                Git Commit Hash: #{GitCommitHash}
-                Git Commit Date: {GitCommitDate}
-                Git Commit Message: {GitCommitMessage}
-                ```
-
-                Build Information:
-                ```
-                Plugin Version: {VersionInformational}
-                Sirensong Version: {Assembly.GetAssembly(typeof(SirenCore))?.GetName().Version}
-                CLR/.NET Version: {Environment.Version}
-                Build Identifier: {Assembly.GetExecutingAssembly().ManifestModule.ModuleVersionId}
-                Build Configuration: {BuildConfiguration}
-                Is Pre-Release: {IsPreRelease}
-                ```
-
-                Plugin Information:
-                ```
-                Repository/Source: {Services.PluginInterface.SourceRepository}
-                ```
-
-                Environment Information:
-                ```
-                Real Operating System: {OsUtil.DetermineOS()}
-                Reported Operating System: {Environment.OSVersion.Platform}
-                ```
-                """;
         }
 
         /// <summary>
@@ -118,8 +80,8 @@ namespace Wholist.Common
         /// </summary>
         internal static class Links
         {
-            internal const string KoFi = "https://ko-fi.com/BitsOfAByte";
-            internal const string GitHubSponsors = "https://github.com/sponsors/BitsOfAByte";
+            internal const string KoFi = "https://bitsofabyte.dev/donate";
+            internal const string GitHubSponsors = "https://bitsofabyte.dev/sponsor";
         }
 
         /// <summary>

@@ -14,7 +14,11 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
         {
             // View options.
             SiGui.Heading(Strings.UserInterface_Settings_NearbyPlayers_Window);
-            DrawViewOptions(logic);
+            DrawWindowOptions(logic);
+
+            // Appearance options.
+            SiGui.Heading(Strings.UserInterface_Settings_NearbyPlayers_Appearance);
+            DrawAppearanceOptions(logic);
 
             // Filtering options.
             SiGui.Heading(Strings.UserInterface_Settings_NearbyPlayers_Filtering);
@@ -25,15 +29,26 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
         ///     Draws the view options of the nearby players tab.
         /// </summary>
         /// <param name="_"></param>
-        private static void DrawViewOptions(SettingsLogic _)
+        private static void DrawWindowOptions(SettingsLogic _)
         {
             Checkbox.Draw(Strings.UserInterface_Settings_NearbyPlayers_OpenOnLogin, Strings.UserInterface_Settings_NearbyPlayers_OpenOnLogin_Description, ref SettingsLogic.Configuration.NearbyPlayers.OpenOnLogin);
             Checkbox.Draw(Strings.UserInterface_Settings_NearbyPlayers_HideInCombat, Strings.UserInterface_Settings_NearbyPlayers_HideInCombat_Description, ref SettingsLogic.Configuration.NearbyPlayers.HideInCombat);
             Checkbox.Draw(Strings.UserInterface_Settings_NearbyPlayers_HideInInstance, Strings.UserInterface_Settings_NearbyPlayers_HideInInstance_Description, ref SettingsLogic.Configuration.NearbyPlayers.HideInInstance);
             Checkbox.Draw(Strings.UserInterface_Settings_NearbyPlayers_LockPosition, Strings.UserInterface_Settings_NearbyPlayers_LockPosition_Description, ref SettingsLogic.Configuration.NearbyPlayers.LockPosition);
             Checkbox.Draw(Strings.UserInterface_Settings_NearbyPlayers_LockSize, Strings.UserInterface_Settings_NearbyPlayers_LockSize_Description, ref SettingsLogic.Configuration.NearbyPlayers.LockSize);
+        }
+
+        /// <summary>
+        ///     Draws the appearance options of the nearby players tab.
+        /// </summary>
+        /// <param name="_"></param>
+        private static void DrawAppearanceOptions(SettingsLogic _)
+        {
+            Checkbox.Draw(Strings.UserInterface_Settings_NearbyPlayers_MinimalMode, Strings.UserInterface_Settings_NearbyPlayers_MinimalMode_Description,
+    ref SettingsLogic.Configuration.NearbyPlayers.MinimalMode);
             Checkbox.Draw(Strings.UserInterface_Settings_NearbyPlayers_JobAbbreviations, Strings.UserInterface_Settings_NearbyPlayers_JobAbbreviations_Description,
-                ref SettingsLogic.Configuration.NearbyPlayers.UseJobAbbreviations);
+            ref SettingsLogic.Configuration.NearbyPlayers.UseJobAbbreviations);
+            Checkbox.Draw(Strings.UserInterface_Settings_NearbyPlayers_PrioritizeKnown, Strings.UserInterface_Settings_NearbyPlayers_PrioritizeKnown_Description, ref SettingsLogic.Configuration.NearbyPlayers.PrioritizeKnown);
         }
 
         /// <summary>
@@ -45,7 +60,6 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             TextWithDescription.Draw(Strings.UserInterface_Settings_NearbyPlayers_ShownRows, Strings.UserInterface_Settings_NearbyPlayers_ShownRows_Description);
             Slider.Draw(Strings.UserInterface_Settings_NearbyPlayers_MaxPlayers, Strings.UserInterface_Settings_NearbyPlayers_MaxPlayers_Description, ref SettingsLogic.Configuration.NearbyPlayers.MaxPlayersToShow, 5, 100);
             Checkbox.Draw(Strings.UserInterface_Settings_NearbyPlayers_FilterAFKPlayers, Strings.UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description, ref SettingsLogic.Configuration.NearbyPlayers.FilterAfk);
-            Checkbox.Draw(Strings.UserInterface_Settings_NearbyPlayers_PrioritizeKnown, Strings.UserInterface_Settings_NearbyPlayers_PrioritizeKnown_Description, ref SettingsLogic.Configuration.NearbyPlayers.PrioritizeKnown);
         }
     }
 }

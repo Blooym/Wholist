@@ -85,7 +85,7 @@
     <value>Hide in instances</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers" xml:space="preserve">
-    <value>Filter AFK Players</value>
+    <value>Hide AFK Players</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockPosition" xml:space="preserve">
     <value>Disable window moving</value>

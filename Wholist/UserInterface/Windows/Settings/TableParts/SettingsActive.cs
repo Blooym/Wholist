@@ -26,10 +26,6 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts
                     SiGui.Heading(Strings.UserInterface_Settings_Donate_Heading);
                     DonationTab.Draw(logic);
                     break;
-                case SettingsLogic.ConfigurationTabs.Debug:
-                    SiGui.Heading(Strings.UserInterface_Settings_Debug_Heading);
-                    DebugTab.Draw(logic);
-                    break;
                 default:
                     SiGui.TextDisabledWrapped(Strings.UserInterface_Settings_UnknownTab);
                     break;

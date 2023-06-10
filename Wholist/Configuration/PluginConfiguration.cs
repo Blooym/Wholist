@@ -37,49 +37,54 @@ namespace Wholist.Configuration
         internal sealed class NearbyPlayersConfiguration
         {
             /// <summary>
-            ///     If the plugin should filter AFK players from the list.
+            ///     If the plugin should hide AFK players from the list.
             /// </summary>
             public bool FilterAfk;
 
             /// <summary>
-            ///     Whether to hide the "Nearby Players" window in combat.
+            ///     Whether to hide the window in combat.
             /// </summary>
             public bool HideInCombat;
 
             /// <summary>
-            ///     Whether to hide the "Nearby Players" window in instances.
+            ///     Whether to hide the window in instances.
             /// </summary>
             public bool HideInInstance;
 
             /// <summary>
-            ///     Locks the position of the "Nearby Players" window.
+            ///     Locks the position of the window.
             /// </summary>
             public bool LockPosition;
 
             /// <summary>
-            ///     Whether to lock the size of the "Nearby Players" window.
+            ///     Whether to lock the size of the window.
             /// </summary>
             public bool LockSize;
 
             /// <summary>
-            ///     The maximum number of players to show in the "Nearby Players" list.
+            ///     The maximum number of players to show in the list.
             /// </summary>
             public int MaxPlayersToShow = 60;
 
             /// <summary>
-            ///     Automatically open the "Nearby Players" window on login.
+            ///     Automatically open the window on login.
             /// </summary>
             public bool OpenOnLogin;
 
             /// <summary>
-            ///     Whether or not the "Nearby Players" list should prioritize known players.
+            ///     Whether or not the list should prioritize known players.
             /// </summary>
             public bool PrioritizeKnown;
 
             /// <summary>
-            ///     Whether or not the "Nearby Players" list should use class abbreviations instead of full names.
+            ///     Whether or not the list should use class abbreviations instead of full names.
             /// </summary>
             public bool UseJobAbbreviations;
+
+            /// <summary>
+            ///     Whether or not to hide most elements from the window.
+            /// </summary>
+            public bool MinimalMode;
         }
 
         /// <summary>

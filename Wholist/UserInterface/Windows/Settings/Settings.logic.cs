@@ -20,7 +20,6 @@ namespace Wholist.UserInterface.Windows.Settings
             ConfigurationTabs.NearbyPlayers => Strings.UserInterface_Settings_NearbyPlayers_Heading,
             ConfigurationTabs.Colours => Strings.UserInterface_Settings_Colours_Heading,
             ConfigurationTabs.Donation => Strings.UserInterface_Settings_Donate_Heading,
-            ConfigurationTabs.Debug => Strings.UserInterface_Settings_Debug_Heading,
             _ => throw new ArgumentOutOfRangeException(nameof(tab), tab, null),
         };
 
@@ -36,7 +35,6 @@ namespace Wholist.UserInterface.Windows.Settings
             NearbyPlayers,
             Colours,
             Donation,
-            Debug,
         }
 
         #endregion

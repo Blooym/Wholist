@@ -14,11 +14,6 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
 {
     internal sealed class NearbyPlayersWindow : Window
     {
-        /// <summary>
-        ///     The size of the content child.
-        /// </summary>
-        private readonly Vector2 childSize = new(0, -60);
-
         /// <inheritdoc cref="NearbyPlayersLogic" />
         private readonly NearbyPlayersLogic logic = new();
 
@@ -60,17 +55,20 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             this.RespectCloseHotkey = !NearbyPlayersLogic.ShouldDisableEscClose;
 
             var playersToDraw = this.logic.GetNearbyPlayers();
-            if (ImGui.BeginChild("##NearbyChild", this.childSize, false))
+            var childSize = NearbyPlayersLogic.Configuration.NearbyPlayers.MinimalMode ? new Vector2(0, 0) : new Vector2(0, -60);
+
+            if (ImGui.BeginChild("##NearbyChild", childSize))
             {
                 DrawNearbyPlayersTable(playersToDraw);
             }
             ImGui.EndChild();
 
-            // Draw the search box.
-            DrawSearchBar(ref this.logic.SearchText);
-
-            // Draw the total players text.
-            DrawTotalPlayers(playersToDraw.Count);
+            // Draw the search box & total players text if not in minimal mode
+            if (!NearbyPlayersLogic.Configuration.NearbyPlayers.MinimalMode)
+            {
+                DrawSearchBar(ref this.logic.SearchText);
+                DrawTotalPlayers(playersToDraw.Count);
+            }
         }
 
         /// <summary>
