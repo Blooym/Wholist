@@ -85,7 +85,7 @@
     <value>In Instanzen ausblenden</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers" xml:space="preserve">
-    <value>AFK-Spieler ausblenden</value>
+    <value>Hide AFK Players</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockPosition" xml:space="preserve">
     <value>Fensterverschiebung deaktivieren</value>
@@ -233,5 +233,14 @@
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_JobAbbreviations_Description" xml:space="preserve">
     <value>Verwende Job Abkürzungen statt ganzem Namen (z.B. "KRG" statt "Krieger")</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_MinimalMode" xml:space="preserve">
+    <value>Minimal mode</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_MinimalMode_Description" xml:space="preserve">
+    <value>Hide most elements from the window apart from the player list.</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Appearance" xml:space="preserve">
+    <value>Appearance</value>
   </data>
 </root>
