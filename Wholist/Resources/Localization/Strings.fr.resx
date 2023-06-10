@@ -85,7 +85,7 @@
     <value>Masquer dans les instances</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers" xml:space="preserve">
-    <value>Filtrer les joueurs AFK</value>
+    <value>Hide AFK Players</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockPosition" xml:space="preserve">
     <value>Désactiver le repositionnement de la fenêtre</value>
@@ -233,5 +233,14 @@
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_JobAbbreviations_Description" xml:space="preserve">
     <value>Utiliser les abréviations des noms de classe au lieu du nom complet. (p.ex. "GUE" au lieu de "Guerrier ")</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_MinimalMode" xml:space="preserve">
+    <value>Minimal mode</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_MinimalMode_Description" xml:space="preserve">
+    <value>Hide most elements from the window apart from the player list.</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Appearance" xml:space="preserve">
+    <value>Appearance</value>
   </data>
 </root>
