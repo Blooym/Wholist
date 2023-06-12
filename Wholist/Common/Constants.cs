@@ -80,8 +80,8 @@ namespace Wholist.Common
         /// </summary>
         internal static class Links
         {
-            internal const string KoFi = "https://bitsofabyte.dev/donate";
-            internal const string GitHubSponsors = "https://bitsofabyte.dev/sponsor";
+            internal const string KoFi = "https://blooym.dev/donate";
+            internal const string GitHubSponsors = "https://blooym.dev/sponsor";
         }
 
         /// <summary>
