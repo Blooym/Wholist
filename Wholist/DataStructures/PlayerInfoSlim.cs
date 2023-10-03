@@ -105,7 +105,7 @@ namespace Wholist.DataStructures
         /// <summary>
         ///     Targets the player.
         /// </summary>
-        internal void Target() => Services.TargetManager.SetTarget(this.playerCharacter.Address);
+        internal void Target() => Services.TargetManager.Target = this.playerCharacter;
 
         /// <summary>
         ///     Opens the character card for the player.

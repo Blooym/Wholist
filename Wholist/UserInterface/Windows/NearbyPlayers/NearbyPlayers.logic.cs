@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Numerics;
 using Dalamud.Game.ClientState;
-using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Game.ClientState.Objects.SubKinds;
+using Dalamud.Plugin.Services;
 using Dalamud.Utility;
 using FFXIVClientStructs.FFXIV.Client.UI;
 using FFXIVClientStructs.FFXIV.Client.UI.Agent;
@@ -138,8 +138,8 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// <inheritdoc cref="PluginConfiguration" />
         internal static PluginConfiguration Configuration => Services.Configuration;
 
-        /// <inheritdoc cref="Dalamud.Game.ClientState.Conditions.Condition" />
-        internal static Condition Condition => Services.Condition;
+        /// <inheritdoc cref="Dalamud.Game.ClientState.Conditions.ICondition" />
+        internal static ICondition Condition => Services.Condition;
 
         /// <inheritdoc cref="ClientState.IsPvP" />
         internal static bool IsPvP => Services.ClientState.IsPvP;

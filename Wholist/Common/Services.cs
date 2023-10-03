@@ -1,10 +1,7 @@
-using Dalamud.Game.ClientState;
-using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Game.ClientState.Objects;
-using Dalamud.Game.ClientState.Party;
-using Dalamud.Game.Command;
 using Dalamud.IoC;
 using Dalamud.Plugin;
+using Dalamud.Plugin.Services;
 using Sirensong;
 using Sirensong.IoC;
 using Wholist.Configuration;
@@ -26,12 +23,13 @@ namespace Wholist.Common
 
         // Dalamud services
         [PluginService] internal static DalamudPluginInterface PluginInterface { get; set; } = null!;
-        [PluginService] internal static ClientState ClientState { get; set; } = null!;
-        [PluginService] internal static ObjectTable ObjectTable { get; set; } = null!;
-        [PluginService] internal static CommandManager Commands { get; set; } = null!;
-        [PluginService] internal static TargetManager TargetManager { get; set; } = null!;
-        [PluginService] internal static Condition Condition { get; set; } = null!;
-        [PluginService] internal static PartyList PartyList { get; set; } = null!;
+        [PluginService] internal static IClientState ClientState { get; set; } = null!;
+        [PluginService] internal static IObjectTable ObjectTable { get; set; } = null!;
+        [PluginService] internal static ICommandManager Commands { get; set; } = null!;
+        [PluginService] internal static ITargetManager TargetManager { get; set; } = null!;
+        [PluginService] internal static ICondition Condition { get; set; } = null!;
+        [PluginService] internal static IPartyList PartyList { get; set; } = null!;
+        [PluginService] internal static IPluginLog PluginLog { get; set; } = null!;
 
         // Plugin services
         internal static WindowManager WindowManager { get; private set; } = null!;
@@ -45,10 +43,9 @@ namespace Wholist.Common
         /// </summary>
         internal static void Initialize(DalamudPluginInterface pluginInterface)
         {
-            BetterLog.Debug("Initializing services.");
-
             SirenCore.InjectServices<Services>();
             pluginInterface.Create<Services>();
+            BetterLog.Debug("Initializing services.");
 
             XivCommon = new XivCommonBase();
             Configuration = PluginInterface.GetPluginConfig() as PluginConfiguration ?? new PluginConfiguration();

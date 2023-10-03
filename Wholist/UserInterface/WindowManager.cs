@@ -17,7 +17,7 @@ namespace Wholist.UserInterface
         /// <summary>
         ///     Handle the plugin being logged in.
         /// </summary>
-        private void OnLogin(object? sender, EventArgs e)
+        private void OnLogin()
         {
             if (!Services.Configuration.NearbyPlayers.OpenOnLogin)
             {
@@ -33,7 +33,7 @@ namespace Wholist.UserInterface
         /// <summary>
         ///     Handle the plugin being logged out.
         /// </summary>
-        private void OnLogout(object? sender, EventArgs e)
+        private void OnLogout()
         {
             if (this.WindowingSystem.TryGetWindow<NearbyPlayersWindow>(out var window))
             {
@@ -76,7 +76,7 @@ namespace Wholist.UserInterface
 
             if (Services.ClientState.IsLoggedIn)
             {
-                this.OnLogin(null, EventArgs.Empty);
+                this.OnLogin();
             }
         }
 

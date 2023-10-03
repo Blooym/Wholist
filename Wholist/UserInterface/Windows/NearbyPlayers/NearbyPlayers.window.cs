@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Numerics;
 using Dalamud.Game.ClientState.Conditions;
-using Dalamud.Interface;
+using Dalamud.Interface.Utility;
 using Dalamud.Interface.Windowing;
 using ImGuiNET;
 using Sirensong.Game.Helpers;
