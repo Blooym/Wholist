@@ -47,7 +47,7 @@ namespace Wholist.Common
             pluginInterface.Create<Services>();
             BetterLog.Debug("Initializing services.");
 
-            XivCommon = new XivCommonBase();
+            XivCommon = new XivCommonBase(pluginInterface);
             Configuration = PluginInterface.GetPluginConfig() as PluginConfiguration ?? new PluginConfiguration();
             ServiceContainer.GetOrCreateService<LocalizationManager>();
             WindowManager = ServiceContainer.GetOrCreateService<WindowManager>();

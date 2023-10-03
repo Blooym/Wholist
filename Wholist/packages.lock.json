@@ -10,9 +10,9 @@
       },
       "XivCommon": {
         "type": "Direct",
-        "requested": "[8.0.0, )",
-        "resolved": "8.0.0",
-        "contentHash": "cNi/S+xSa7hAuZNLJ23YfBCkW1hP6dys8H6ZbXxxysk5+7gNRAFxjEQlbQ3zcnbRlpRhNBEbTg6J+79SmU1qzA=="
+        "requested": "[9.0.0, )",
+        "resolved": "9.0.0",
+        "contentHash": "avaBp3FmSCi/PiQhntCeBDYOHejdyTWmFtz4pRBVQQ8vHkmRx+YTk1la9dkYBMlXxRXKckEdH1iI1Fu61JlE7w=="
       },
       "sirensong": {
         "type": "Project"
