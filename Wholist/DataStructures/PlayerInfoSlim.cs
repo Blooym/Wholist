@@ -15,11 +15,13 @@ namespace Wholist.DataStructures
     /// <summary>
     ///     Represents a pre-formatted version of a <see cref="PlayerCharacter" /> with slimmed down information.
     /// </summary>
-    internal unsafe struct PlayerInfoSlim(Character* basePlayer)
+    internal unsafe struct PlayerInfoSlim
     {
-        private readonly Character* character = basePlayer;
+        private readonly Character* character;
         private string name = string.Empty;
         private string companyTag = string.Empty;
+
+        public PlayerInfoSlim(Character* basePlayer) => this.character = basePlayer;
 
         /// <summary>
         ///     The name of the player.
