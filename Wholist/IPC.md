@@ -31,9 +31,9 @@ invoked and also to unregister them when you no longer need them.
 
 You will then need to register an action to `Wholist.InvokePlayerContextMenu` which will be invoked when your context
 menu is being hovered over or is active in the User Interface. This action will be passed the GUID of the context menu
-entry that is being invoked as well as the `PlayerCharacter` object that the context menu entry is being invoked on. You
+entry that is being invoked as well as the character address of the character that the context menu entry is being invoked on. You
 should then use this information to draw your own custom ImGuiNet elements (although please keep in mind that these
-elements are drawn inside of `ImGui.BeginMenu` already.
+elements are drawn inside of `ImGui.BeginMenu` already.)
 
 When you no longer need your context menu entries, you can unregister them by
 invoking `Wholist.UnregisterPlayerContextMenu` and passing the GUID that was returned when you registered them, which

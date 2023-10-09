@@ -245,4 +245,7 @@
   <data name="UserInterface_Settings_NearbyPlayers_Appearance" xml:space="preserve">
     <value>Appearance</value>
   </data>
+  <data name="UserInterface_NearbyPlayers_Players_Distance" xml:space="preserve">
+    <value>Distance</value>
+  </data>
 </root>

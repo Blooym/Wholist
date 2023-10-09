@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Numerics;
 using Dalamud.Game.ClientState;
-using Dalamud.Game.ClientState.Objects.SubKinds;
 using Dalamud.Plugin.Services;
 using Dalamud.Utility;
 using FFXIVClientStructs.FFXIV.Client.UI;
@@ -40,13 +39,13 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         internal static IReadOnlyDictionary<string, string> GetExternContextMenuItems() => Services.InboundIpcManager.GetPlayerContextMenuItems();
 
         /// <inheritdoc cref="InboundIpcManager.InvokePlayerContextMenu" />
-        internal static void InvokeExternPlayerContextMenu(string id, PlayerCharacter playerCharacter) => Services.InboundIpcManager.InvokePlayerContextMenu(id, playerCharacter);
+        internal static void InvokeExternPlayerContextMenu(string id, nint address) => Services.InboundIpcManager.InvokePlayerContextMenu(id, address);
 
         /// <inheritdoc cref="PlayerManager.GetNearbyPlayers" />
         internal List<PlayerInfoSlim> GetNearbyPlayers()
         {
             var players = new List<PlayerInfoSlim>();
-            var nearbyPlayers = Services.PlayerManager.GetNearbyPlayers(
+            var nearbyPlayers = PlayerManager.GetNearbyPlayers(
                 Configuration.NearbyPlayers.MaxPlayersToShow,
                 Configuration.NearbyPlayers.FilterAfk,
                 Configuration.NearbyPlayers.PrioritizeKnown);

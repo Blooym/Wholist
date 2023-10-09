@@ -98,39 +98,35 @@ namespace Wholist.Common
     ///     The Git commit hash of the build.
     /// </summary>
     [AttributeUsage(AttributeTargets.Assembly)]
-    internal sealed class GitHashAttribute : Attribute
+    internal sealed class GitHashAttribute(string value) : Attribute
     {
-        public GitHashAttribute(string value) => this.Value = value;
-        public string Value { get; set; }
+        public string Value { get; set; } = value;
     }
 
     /// <summary>
     ///     The Git commit date of the build.
     /// </summary>
     [AttributeUsage(AttributeTargets.Assembly)]
-    internal sealed class GitCommitDateAttribute : Attribute
+    internal sealed class GitCommitDateAttribute(string value) : Attribute
     {
-        public GitCommitDateAttribute(string value) => this.Value = value;
-        public string Value { get; set; }
+        public string Value { get; set; } = value;
     }
 
     /// <summary>
     ///     The Git branch of the build.
     /// </summary>
     [AttributeUsage(AttributeTargets.Assembly)]
-    internal sealed class GitBranchAttribute : Attribute
+    internal sealed class GitBranchAttribute(string value) : Attribute
     {
-        public GitBranchAttribute(string value) => this.Value = value;
-        public string Value { get; set; }
+        public string Value { get; set; } = value;
     }
 
     /// <summary>
     ///     The Git commit message of the build.
     /// </summary>
     [AttributeUsage(AttributeTargets.Assembly)]
-    internal sealed class GitCommitMessageAttribute : Attribute
+    internal sealed class GitCommitMessageAttribute(string value) : Attribute
     {
-        public GitCommitMessageAttribute(string value) => this.Value = value;
-        public string Value { get; set; }
+        public string Value { get; set; } = value;
     }
 }

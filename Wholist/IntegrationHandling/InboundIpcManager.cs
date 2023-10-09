@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Dalamud.Game.ClientState.Objects.SubKinds;
 using Dalamud.Plugin.Ipc;
 using Wholist.Common;
 
@@ -17,7 +16,7 @@ namespace Wholist.IntegrationHandling
         /// <summary>
         ///     The current API version.
         /// </summary>
-        private const string ApiVersion = "1.0.0";
+        private const string ApiVersion = "2.0.0";
 
         #endregion
 
@@ -72,7 +71,7 @@ namespace Wholist.IntegrationHandling
             this.UnregisterPlayerContextMenuGate = Services.PluginInterface.GetIpcProvider<string, object?>(UnregisterPlayerContextMenuString);
             this.UnregisterPlayerContextMenuGate.RegisterAction(this.UnregisterPlayerContextMenu);
 
-            this.InvokePlayerContextMenuGate = Services.PluginInterface.GetIpcProvider<string, PlayerCharacter, object?>(InvokePlayerContextMenuString);
+            this.InvokePlayerContextMenuGate = Services.PluginInterface.GetIpcProvider<string, nint, object?>(InvokePlayerContextMenuString);
             this.InvokePlayerContextMenuGate.RegisterAction(this.InvokePlayerContextMenu);
 
             // Disposed
@@ -145,8 +144,8 @@ namespace Wholist.IntegrationHandling
         ///     Invokes a player context menu.
         /// </summary>
         /// <param name="id">The ID of the IPC to invoke.</param>
-        /// <param name="playerCharacter">The player character to send to the plugin.</param>
-        internal void InvokePlayerContextMenu(string id, PlayerCharacter playerCharacter) => this.InvokePlayerContextMenuGate.SendMessage(id, playerCharacter);
+        /// <param name="address">The address of the character to send to the plugin.</param>
+        internal void InvokePlayerContextMenu(string id, nint address) => this.InvokePlayerContextMenuGate.SendMessage(id, address);
 
         #endregion
 
@@ -180,7 +179,7 @@ namespace Wholist.IntegrationHandling
         /// <summary>
         ///     The gate to invoke a player context menu.
         /// </summary>
-        private ICallGateProvider<string, PlayerCharacter, object?> InvokePlayerContextMenuGate { get; }
+        private ICallGateProvider<string, nint, object?> InvokePlayerContextMenuGate { get; }
 
         #endregion
 

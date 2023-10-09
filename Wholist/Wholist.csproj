@@ -14,7 +14,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <OutputPath>bin\x64\$(Configuration)\</OutputPath>
     <Nullable>enable</Nullable>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>preview</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
@@ -59,8 +59,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Update="Resources\Localization\Strings.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -76,15 +74,13 @@
     <DalamudLibPath Condition="$(DALAMUD_HOME) != ''">$(DALAMUD_HOME)/</DalamudLibPath>
   </PropertyGroup>
 
-  <!-- Packages -->
   <ItemGroup>
+    <!-- Packages -->
     <PackageReference Include="DalamudPackager" Version="2.1.12" />
     <PackageReference Include="XivCommon" Version="9.0.0" />
     <ProjectReference Include="../Sirensong/Sirensong/Sirensong.csproj" />
-  </ItemGroup>
 
-  <!-- Dalamud References -->
-  <ItemGroup>
+    <!-- Dalamud References -->
     <Reference Include="FFXIVClientStructs">
       <HintPath>$(DalamudLibPath)FFXIVClientStructs.dll</HintPath>
       <Private>false</Private>

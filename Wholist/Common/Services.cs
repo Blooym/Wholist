@@ -1,11 +1,13 @@
+using System.Collections.Generic;
 using Dalamud.Game.ClientState.Objects;
 using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
+using Lumina.Excel.GeneratedSheets;
 using Sirensong;
+using Sirensong.Cache;
 using Sirensong.IoC;
 using Wholist.Configuration;
-using Wholist.Game;
 using Wholist.IntegrationHandling;
 using Wholist.Resources.Localization;
 using Wholist.UserInterface;
@@ -31,10 +33,17 @@ namespace Wholist.Common
         [PluginService] internal static IPartyList PartyList { get; set; } = null!;
         [PluginService] internal static IPluginLog PluginLog { get; set; } = null!;
 
+        [SirenService] internal static LuminaCacheService<World> WorldCache { get; set; } = null!;
+        [SirenService] internal static LuminaCacheService<ClassJob> ClassJobCache { get; set; } = null!;
+
+        // Temporary Caches until rewrite
+        internal static Dictionary<uint, string> WorldNames { get; } = new();
+        internal static Dictionary<uint, string> ClassJobNames { get; } = new();
+        internal static Dictionary<uint, string> ClassJobAbbreviations { get; } = new();
+
         // Plugin services
         internal static WindowManager WindowManager { get; private set; } = null!;
         internal static XivCommonBase XivCommon { get; private set; } = null!;
-        internal static PlayerManager PlayerManager { get; private set; } = null!;
         internal static PluginConfiguration Configuration { get; private set; } = null!;
         internal static InboundIpcManager InboundIpcManager { get; private set; } = null!;
 
@@ -52,7 +61,6 @@ namespace Wholist.Common
             ServiceContainer.GetOrCreateService<LocalizationManager>();
             WindowManager = ServiceContainer.GetOrCreateService<WindowManager>();
             ServiceContainer.CreateService<CommandHandling.CommandManager>();
-            PlayerManager = ServiceContainer.GetOrCreateService<PlayerManager>();
             InboundIpcManager = ServiceContainer.GetOrCreateService<InboundIpcManager>();
         }
 

@@ -1,5 +1,4 @@
 using System.Numerics;
-using Dalamud.Utility;
 using Lumina.Excel.GeneratedSheets;
 using Sirensong.Extensions;
 using Sirensong.Game.Enums;
@@ -15,11 +14,23 @@ namespace Wholist.DataStructures
         /// <summary>
         ///     Creates a new <see cref="JobInfoSlim" />.
         /// </summary>
-        /// <param name="classJob">The <see cref="ClassJob" /> to create the <see cref="JobInfoSlim" /> from.</param>
-        internal JobInfoSlim(ClassJob classJob)
+        /// <param name="cj">The <see cref="ClassJob" /> to create the <see cref="JobInfoSlim" /> from.</param>
+        internal JobInfoSlim(byte cj)
         {
-            this.Name = classJob.Name.ToDalamudString().ToString().ToTitleCase();
-            this.Abbreviation = classJob.Abbreviation.ToDalamudString().ToString();
+            // Cache lookups
+            var classJob = Services.ClassJobCache.GetRow(cj)!;
+            if (!Services.ClassJobNames.TryGetValue(cj, out var name))
+            {
+                name = classJob.Name.RawString.ToTitleCase();
+                Services.ClassJobNames.TryAdd(cj, name);
+            }
+            this.Name = name;
+            if (!Services.ClassJobAbbreviations.TryGetValue(cj, out var abriv))
+            {
+                abriv = classJob.Abbreviation.RawString.ToUpperInvariant();
+                Services.ClassJobAbbreviations.TryAdd(cj, abriv);
+            }
+            this.Abbreviation = abriv;
 
             this.RoleColour = classJob.GetJobRole() switch
             {

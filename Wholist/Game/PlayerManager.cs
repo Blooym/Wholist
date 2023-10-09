@@ -1,59 +1,16 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using Dalamud.Game.ClientState.Objects.SubKinds;
-using Sirensong.Cache.Collections;
-using Sirensong.Extensions;
 using Sirensong.Game.Enums;
+using Sirensong.Game.Helpers;
 using Wholist.Common;
 using Wholist.DataStructures;
 
 namespace Wholist.Game
 {
-    internal sealed class PlayerManager : IDisposable
+    internal static class PlayerManager
     {
-
-        #region Fields
-
-        /// <summary>
-        ///     The cache of nearby player information.
-        /// </summary>
-        private readonly CacheCollection<PlayerCharacter, PlayerInfoSlim> nearbyPlayersCache = new(new CacheOptions<PlayerCharacter, PlayerInfoSlim>
-        {
-            AbsoluteExpiry = TimeSpan.FromSeconds(4),
-            ExpireInterval = TimeSpan.FromSeconds(4),
-        });
-
-        private bool disposedValue;
-
-        #endregion
-
-        #region Constructor and Dispose
-
-        /// <summary>
-        ///     Creates a new instance of the <see />.
-        /// </summary>
-        private PlayerManager()
-        {
-
-        }
-
-        /// <summary>
-        ///     Disposes of the <see cref="PlayerManager" />.
-        /// </summary>
-        public void Dispose()
-        {
-            if (!this.disposedValue)
-            {
-                this.nearbyPlayersCache.Dispose();
-
-                this.disposedValue = true;
-            }
-        }
-
-        #endregion
-
         #region Methods
 
         /// <summary>
@@ -64,31 +21,32 @@ namespace Wholist.Game
         /// <param name="prioritizeKnownPlayers">Whether to prioritize known players.</param>
         /// <param name="filterAfk">Whether to filter out AFK players.</param>
         /// <returns></returns>
-        internal List<PlayerInfoSlim> GetNearbyPlayers(int maxPlayers = 100, bool filterAfk = false, bool prioritizeKnownPlayers = false)
+        internal static unsafe List<PlayerInfoSlim> GetNearbyPlayers(int maxPlayers = 100, bool filterAfk = false, bool prioritizeKnownPlayers = false)
         {
             var nearbyPlayers = new List<PlayerInfoSlim>();
 
             // Get nearby players from the object table and order by them by distance to the local player
             // so that when the list is truncated, the closest players are kept.
-            var nearbyPlayersFiltered = Services.ObjectTable.GetPlayerCharacters(false).OrderBy(p => p.YalmDistanceX);
-            foreach (var player in nearbyPlayersFiltered)
+            var charPointers = ObjectHelper.GetCharacters(false).OrderBy(p => p.Value->GameObject.YalmDistanceFromPlayerX);
+            foreach (var charPointer in charPointers)
             {
+                var character = charPointer.Value;
                 if (nearbyPlayers.Count >= maxPlayers)
                 {
                     break;
                 }
 
-                if (player.Level < 3)
+                if (character->CharacterData.Level < 3)
                 {
                     continue;
                 }
 
-                if (filterAfk && player.OnlineStatus.Id == (uint)OnlineStatusType.Afk)
+                if (filterAfk && character->CharacterData.OnlineStatus == (byte)OnlineStatusType.Afk)
                 {
                     continue;
                 }
 
-                nearbyPlayers.Add(this.GetSlimInfo(player));
+                nearbyPlayers.Add(new(charPointer));
             }
 
             // Filter the list alphabetically and prioritize known players if necessary.
@@ -99,19 +57,6 @@ namespace Wholist.Game
             }
             return nearbyPlayers.OrderBy(p => p.Name).ToList();
         }
-
-        /// <summary>
-        ///     Clears the cache of nearby players.
-        /// </summary>
-        internal void ClearCache() => this.nearbyPlayersCache.Clear();
-
-        /// <summary>
-        ///     Gets the <see cref="PlayerInfoSlim" /> for the given <see cref="PlayerCharacter" /> if it exists, otherwise creates
-        ///     a new one.
-        /// </summary>
-        /// <param name="player">The <see cref="PlayerCharacter" /> to get the <see cref="PlayerInfoSlim" /> for.</param>
-        /// <returns>The <see cref="PlayerInfoSlim" /> for the given <see cref="PlayerCharacter" />.</returns>
-        private PlayerInfoSlim GetSlimInfo(PlayerCharacter player) => this.nearbyPlayersCache.GetOrAdd(player, _ => new PlayerInfoSlim(player));
 
         /// <summary>
         ///     Checks if the given <see cref="PlayerCharacter" /> is in the party from its ObjectId.

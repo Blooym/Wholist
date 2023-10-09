@@ -488,5 +488,11 @@ namespace Wholist.Resources.Localization {
                 return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Appearance", resourceCulture);
             }
         }
+        
+        internal static string UserInterface_NearbyPlayers_Players_Distance {
+            get {
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Distance", resourceCulture);
+            }
+        }
     }
 }

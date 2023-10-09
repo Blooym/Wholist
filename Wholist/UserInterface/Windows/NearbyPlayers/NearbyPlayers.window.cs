@@ -77,20 +77,18 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// <param name="playersToDraw"></param>
         private static void DrawNearbyPlayersTable(List<PlayerInfoSlim> playersToDraw)
         {
-            if (ImGui.BeginTable("##NearbyTable", 5, ImGuiTableFlags.ScrollY | ImGuiTableFlags.Borders | ImGuiTableFlags.Hideable | ImGuiTableFlags.Reorderable | ImGuiTableFlags.Resizable))
+            if (ImGui.BeginTable("##NearbyTable", 6, ImGuiTableFlags.ScrollY | ImGuiTableFlags.Borders | ImGuiTableFlags.Hideable | ImGuiTableFlags.Reorderable | ImGuiTableFlags.Resizable))
             {
-                ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Name, ImGuiTableColumnFlags.WidthStretch, 220);
+                ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Name, ImGuiTableColumnFlags.WidthStretch | ImGuiTableColumnFlags.NoHide, 220);
                 ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Job, ImGuiTableColumnFlags.WidthStretch, 150);
                 ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Level, ImGuiTableColumnFlags.WidthStretch, 80);
                 ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Homeworld, ImGuiTableColumnFlags.WidthStretch, 150);
                 ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Company, ImGuiTableColumnFlags.WidthStretch, 120);
+                ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Distance, ImGuiTableColumnFlags.WidthStretch | ImGuiTableColumnFlags.DefaultHide, 80);
                 ImGui.TableSetupScrollFreeze(0, 1);
                 ImGui.TableHeadersRow();
 
-                foreach (var obj in playersToDraw)
-                {
-                    DrawPlayer(obj);
-                }
+                ImGuiClip.ClippedDraw(playersToDraw, DrawPlayer, ImGui.GetTextLineHeightWithSpacing());
 
                 ImGui.EndTable();
             }
@@ -133,12 +131,16 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             SiGui.Text(obj.Level.ToString());
             ImGui.TableNextColumn();
 
-            // Homeworld.
-            SiGui.Text(obj.Homeworld.Name);
+            // HomeWorld.
+            SiGui.Text(obj.HomeWorld);
             ImGui.TableNextColumn();
 
             // Company.
             SiGui.Text(obj.CompanyTag);
+            ImGui.TableNextColumn();
+
+            // Distance.
+            SiGui.Text($"{obj.Distance} yalms");
         }
 
         /// <summary>
@@ -150,7 +152,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             if (ImGui.BeginPopupContextItem($"{obj.Name}##WholistPopContext"))
             {
                 // Heading.
-                SiGui.Heading(string.Format(Strings.UserInterface_NearbyPlayers_Players_Submenu_Heading, $"{obj.Name}@{obj.Homeworld.Name}"));
+                SiGui.Heading(string.Format(Strings.UserInterface_NearbyPlayers_Players_Submenu_Heading, $"{obj.Name}@{obj.HomeWorld}"));
 
                 // Examine.
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_Examine))
@@ -173,21 +175,19 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 // Send Tell.
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_Tell))
                 {
-                    NearbyPlayersLogic.SetChatTellTarget(obj.Name, obj.Homeworld.Name);
+                    NearbyPlayersLogic.SetChatTellTarget(obj.Name, obj.HomeWorld);
                 }
 
                 // Find on Map.
-                ImGui.BeginDisabled(obj.Position == null);
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap))
                 {
-                    NearbyPlayersLogic.FlagAndOpen(obj.Position!.Value, obj.Name);
+                    NearbyPlayersLogic.FlagAndOpen(obj.Position, obj.Name);
                 }
-                ImGui.EndDisabled();
 
                 // Find on Lodestone.
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_Lodestone))
                 {
-                    NearbyPlayersLogic.SearchPlayerOnLodestone(obj.Name, obj.Homeworld.Name);
+                    NearbyPlayersLogic.SearchPlayerOnLodestone(obj.Name, obj.HomeWorld);
                 }
 
                 // External integrations / 3rd-party.
@@ -213,7 +213,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                     {
                         if (ImGui.BeginMenu($"{item.Value}##{item.Key}"))
                         {
-                            NearbyPlayersLogic.InvokeExternPlayerContextMenu(item.Key, obj.GetPlayerCharacter());
+                            NearbyPlayersLogic.InvokeExternPlayerContextMenu(item.Key, obj.CharacterPtr);
                             ImGui.EndMenu();
                         }
                     }
