@@ -27,7 +27,7 @@ namespace Wholist.Game
 
             // Get nearby players from the object table and order by them by distance to the local player
             // so that when the list is truncated, the closest players are kept.
-            var charPointers = ObjectHelper.GetCharacters(false).OrderBy(p => p.Value->GameObject.YalmDistanceFromPlayerX);
+            var charPointers = ObjectHelper.GetCharacters().OrderBy(p => p.Value->GameObject.YalmDistanceFromPlayerX);
             foreach (var charPointer in charPointers)
             {
                 var character = charPointer.Value;
@@ -36,7 +36,12 @@ namespace Wholist.Game
                     break;
                 }
 
-                if (character->CharacterData.Level < 3)
+                if (character->GameObject.ObjectID == Services.ClientState.LocalPlayer?.ObjectId)
+                {
+                    continue;
+                }
+
+                if (character->CharacterData.Level <= 3)
                 {
                     continue;
                 }

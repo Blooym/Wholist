@@ -83,7 +83,18 @@ namespace Wholist.DataStructures
         /// <summary>
         ///     The distance of the player from the local player.
         /// </summary>
-        internal readonly double Distance => Math.Round((Control.Instance()->LocalPlayer->Character.GameObject.Position - this.Position).Magnitude, MidpointRounding.ToEven);
+        internal readonly double Distance
+        {
+            get
+            {
+                var localPlayer = Services.ClientState.LocalPlayer;
+                if (localPlayer == null)
+                {
+                    return 0;
+                }
+                return Math.Round((localPlayer.ToCsGameObject()->Position - this.Position).Magnitude, MidpointRounding.ToEven);
+            }
+        }
 
         /// <summary>
         ///     Whether or not the player is a friend of the local player.
