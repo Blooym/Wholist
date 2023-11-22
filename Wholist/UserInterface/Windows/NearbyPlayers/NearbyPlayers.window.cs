@@ -9,6 +9,7 @@ using Sirensong.UserInterface;
 using Wholist.Common;
 using Wholist.DataStructures;
 using Wholist.Resources.Localization;
+using Wholist.UserInterface.Windows.Settings;
 
 namespace Wholist.UserInterface.Windows.NearbyPlayers
 {
@@ -24,6 +25,16 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         {
             this.Size = new Vector2(450, 400);
             this.SizeCondition = ImGuiCond.FirstUseEver;
+
+            // Set the window position if specified
+            if (NearbyPlayersLogic.Configuration.NearbyPlayers.SetWindowPosition)
+            {
+                this.Position = new Vector2(
+                    NearbyPlayersLogic.Configuration.NearbyPlayers.WindowPositionX,
+                    NearbyPlayersLogic.Configuration.NearbyPlayers.WindowPositionY
+                );
+                this.PositionCondition = ImGuiCond.Always;
+            }
         }
 
         public override bool DrawConditions()
@@ -68,6 +79,19 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             {
                 DrawSearchBar(ref this.logic.SearchText);
                 DrawTotalPlayers(playersToDraw.Count);
+            }
+
+            // Set the window position if specified, continuously when the settings window is open
+            Services.WindowManager.WindowingSystem.TryGetWindow<SettingsWindow>(out var settingsWindow);
+            if (settingsWindow.IsFocused)
+            {
+                if (NearbyPlayersLogic.Configuration.NearbyPlayers.SetWindowPosition)
+                {
+                    this.Position = new Vector2(
+                        NearbyPlayersLogic.Configuration.NearbyPlayers.WindowPositionX,
+                        NearbyPlayersLogic.Configuration.NearbyPlayers.WindowPositionY
+                    );
+                }
             }
         }
 
