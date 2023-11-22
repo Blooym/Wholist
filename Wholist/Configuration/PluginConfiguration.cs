@@ -85,6 +85,17 @@ namespace Wholist.Configuration
             ///     Whether or not to hide most elements from the window.
             /// </summary>
             public bool MinimalMode;
+
+            /// <summary>
+            ///     Whether or not to use a specified window position.
+            /// </summary>
+            public bool SetWindowPosition;
+
+            /// <summary>
+            ///   The specified window position to use if <see cref="SetWindowPosition"/> is true.
+            /// </summary>
+            public int WindowPositionX;
+            public int WindowPositionY;
         }
 
         /// <summary>

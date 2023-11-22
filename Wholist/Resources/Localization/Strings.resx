@@ -92,6 +92,15 @@
   <data name="UserInterface_Settings_NearbyPlayers_LockPosition" xml:space="preserve">
     <value>Disable window moving</value>
   </data>
+  <data name="UserInterface_Settings_NearbyPlayers_SpecifiedPosition" xml:space="preserve">
+    <value>Specify persistent window position</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_WindowPositionX" xml:space="preserve">
+    <value>Set X position window</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_WindowPositionY" xml:space="preserve">
+    <value>Set Y position window</value>
+  </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockSize" xml:space="preserve">
     <value>Disable window resizing</value>
   </data>
@@ -106,6 +115,18 @@
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockPosition_Description" xml:space="preserve">
     <value>Prevent the window from being moved.</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_SpecifiedPosition_Description"
+        xml:space="preserve">
+    <value>Always draw the window in a specified place</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_WindowPositionX_Description"
+        xml:space="preserve">
+    <value>The horizontal position the top left of the window should display at.</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_WindowPositionY_Description"
+        xml:space="preserve">
+    <value>The vertical position the top left of the window should display at.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockSize_Description" xml:space="preserve">
     <value>Prevent the window from being resized.</value>
