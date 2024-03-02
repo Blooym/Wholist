@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Numerics;
 using Dalamud.Game.ClientState.Conditions;
+using Dalamud.Interface;
 using Dalamud.Interface.Utility;
 using Dalamud.Interface.Windowing;
 using ImGuiNET;
@@ -24,6 +25,21 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         {
             this.Size = new Vector2(450, 400);
             this.SizeCondition = ImGuiCond.FirstUseEver;
+            this.TitleBarButtons = new()
+            {
+                new() {
+                    Icon = FontAwesomeIcon.Cog,
+                    ShowTooltip = () => SiGui.AddTooltip("Settings"),
+                    Click = (btn) => {
+                        var configWindow =  Services.WindowManager.WindowingSystem.ConfigWindow;
+                        if(configWindow is null)
+                        {
+                            return;
+                        }
+                        configWindow.IsOpen ^= true;
+                    }
+                }
+            };
         }
 
         public override bool DrawConditions()
