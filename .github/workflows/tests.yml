@@ -21,13 +21,11 @@ on:
 jobs:
   Build:
     runs-on: ubuntu-latest
-    env:
-        DALAMUD_HOME: "/tmp/"
     strategy:
       fail-fast: false
       matrix:
         build_mode: ["Release", "Debug"]
-        dalamud_version: ["latest", "stg/latest"]
+        dalamud-branch: ["release", "stg"]
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -40,10 +38,10 @@ jobs:
         with:
           dotnet-version: 7.0.x
 
-      - name: Download Dalamud
-        run: |
-          wget https://goatcorp.github.io/dalamud-distrib/${{ matrix.dalamud_version }}.zip -O ${{ env.DALAMUD_HOME }}.zip
-          unzip ${{ env.DALAMUD_HOME }}.zip -d ${{ env.DALAMUD_HOME }}
+      - name: Setup Dalamud
+        uses: Blooym/setup-dalamud@v1
+        with:
+          branch: ${{ matrix.dalamud-branch }}
 
       - name: Check for Lint Errors
         id: lint

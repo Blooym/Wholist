@@ -14,8 +14,6 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
     runs-on: ubuntu-latest
-    env:
-        DALAMUD_HOME: /tmp/dalamud
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -31,11 +29,10 @@ jobs:
         with:
           dotnet-version: 7.0.x
 
-      - name: Download Dalamud Latest
-        working-directory: Wholist
-        run: |
-          wget https://goatcorp.github.io/dalamud-distrib/latest.zip -O ${{ env.DALAMUD_HOME }}.zip
-          unzip ${{ env.DALAMUD_HOME }}.zip -d ${{ env.DALAMUD_HOME }}
+      - name: Setup Dalamud
+        uses: Blooym/setup-dalamud@v1
+        with:
+          branch: release
 
       - name: Restore Project
         working-directory: Wholist
