@@ -4,9 +4,9 @@
     "omnisharp.organizeImportsOnFormat": true,
     "omnisharp.enableAsyncCompletion": true,
     "omnisharp.analyzeOpenDocumentsOnly": false,
-    "omnisharp.enableImportCompletion": true,
     "omnisharp.enableEditorConfigSupport": true,
     // C#
     "csharp.format.enable": true,
-    "csharp.referencesCodeLens.enabled": true,
+    "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
+    "dotnet.codeLens.enableReferencesCodeLens": true,
 }
