@@ -6,10 +6,11 @@
 
 Show who's nearby you, inspired by the `/who` command from World of Warcraft 
 
-[![Latest Version](https://img.shields.io/github/v/release/BitsOfAByte/Wholist?color=blue&label=Latest%20Version "Latest Version")](https://github.com/BitsOfAByte/Wholist/releases/latest)
-[![Licence](https://img.shields.io/github/license/BitsOfAByte/Wholist?color=blue "Licence")](https://github.com/BitsOfAByte/Wholist/blob/main/LICENSE)
+[![Latest Version](https://img.shields.io/github/v/release/Blooym/Wholist?color=blue&label=Latest%20Version "Latest Version")](https://github.com/Blooym/Wholist/releases/latest)
+[![Plugin Downloads](https://img.shields.io/endpoint?url=https://dalamud-dl-count.blooym.workers.dev/GoodFriend&label=Plugin%20Downloads)](https://github.com/Blooym/GoodFriend)
+[![Licence](https://img.shields.io/github/license/Blooym/Wholist?color=blue "Licence")](https://github.com/Blooym/Wholist/blob/main/LICENSE)
 
-**[Issues](https://github.com/BitsOfAByte/Wholist/issues) · [Pull Requests](https://github.com/BitsOfAByte/Wholist/pulls) · [Releases](https://github.com/BitsOfAByte/Wholist/releases/latest)**
+**[Issues](https://github.com/Blooym/Wholist/issues) · [Pull Requests](https://github.com/Blooym/Wholist/pulls) · [Releases](https://github.com/Blooym/Wholist/releases/latest)**
 
 </div>
 
@@ -24,7 +25,7 @@ Wholist is a plugin for [Dalamud](https://github.com/goatcorp/Dalamud) that allo
 - Highlighting of "known players" such as friends and party members in the nearby player list.
 - Player context menu items, like sending tells, examining, searching on the Lodestone and more.
 - Fully customizable colours & behaviour.
-- Integration support with other plugins via IPC ([developer guide](https://github.com/BitsOfAByte/Wholist/blob/main/Wholist/IPC.md))
+- Integration support with other plugins via IPC ([developer guide](https://github.com/Blooym/Wholist/blob/main/Wholist/IPC.md))
 
 ## Installation
 
@@ -50,10 +51,10 @@ It will also automatically hide the UI if you are partaking in Player vs Player 
 
 ## Contributing
 
-Contributions are welcome as long as they follow Dalamud's rules for plugin creation and remain in-scope. Please use the [Commit Convention](https://github.com/BitsOfAByte/Wholist/blob/main/COMMIT_CONVENTION.md) when making commits to the repository. It is recommended to open an issue before making a pull request for a new feature to make sure it is in-scope.
+Contributions are welcome as long as they follow Dalamud's rules for plugin creation and remain in-scope. Please use the [Commit Convention](https://github.com/Blooym/Wholist/blob/main/COMMIT_CONVENTION.md) when making commits to the repository. It is recommended to open an issue before making a pull request for a new feature to make sure it is in-scope.
 
 If you want to help translate Wholist into your language you can do so through the [Crowdin project](https://crwd.in/wholist). If the language you want to translate to is not available please create an issue and it will be added.
 
 ## Licence
 
-Wholist is licenced under the [AGPL-3.0 License](https://github.com/BitsOfAByte/Wholist/blob/main/LICENSE) and is maintained by [BitsOfAByte](https://github.com/BitsOfAByte)
+Wholist is licenced under the [AGPL-3.0 License](https://github.com/Blooym/Wholist/blob/main/LICENSE) and is maintained by [Blooym](https://github.com/Blooym)
