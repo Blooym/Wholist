@@ -7,7 +7,7 @@
 Show who's nearby you, inspired by the `/who` command from World of Warcraft 
 
 [![Latest Version](https://img.shields.io/github/v/release/Blooym/Wholist?color=blue&label=Latest%20Version "Latest Version")](https://github.com/Blooym/Wholist/releases/latest)
-[![Plugin Downloads](https://img.shields.io/endpoint?url=https://dalamud-dl-count.blooym.workers.dev/GoodFriend&label=Plugin%20Downloads)](https://github.com/Blooym/GoodFriend)
+[![Plugin Downloads](https://img.shields.io/endpoint?url=https://dalamud-dl-count.blooym.workers.dev/Wholist&label=Plugin%20Downloads)](https://github.com/Blooym/GoodFriend)
 [![Licence](https://img.shields.io/github/license/Blooym/Wholist?color=blue "Licence")](https://github.com/Blooym/Wholist/blob/main/LICENSE)
 
 **[Issues](https://github.com/Blooym/Wholist/issues) · [Pull Requests](https://github.com/Blooym/Wholist/pulls) · [Releases](https://github.com/Blooym/Wholist/releases/latest)**
