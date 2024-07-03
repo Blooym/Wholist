@@ -5,7 +5,7 @@
   <!-- Project Configuration -->
   <PropertyGroup>
     <AssemblyName>Wholist</AssemblyName>
-    <Version>1.4.4.0</Version>
+    <Version>1.4.4.1</Version>
     <PackageProjectUrl>https://github.com/Blooym/Wholist</PackageProjectUrl>
   </PropertyGroup>
 
