@@ -27,12 +27,12 @@ jobs:
       - name: Set up .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 7.0.x
+          dotnet-version: 8.0.x
 
       - name: Setup Dalamud
         uses: Blooym/setup-dalamud@v1
         with:
-          branch: release
+          branch: stg
 
       - name: Restore Project
         working-directory: Wholist
