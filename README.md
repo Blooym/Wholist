@@ -25,7 +25,6 @@ Wholist is a plugin for [Dalamud](https://github.com/goatcorp/Dalamud) that allo
 - Highlighting of "known players" such as friends and party members in the nearby player list.
 - Player context menu items, like sending tells, examining, searching on the Lodestone and more.
 - Fully customizable colours & behaviour.
-- Integration support with other plugins via IPC ([developer guide](https://github.com/Blooym/Wholist/blob/main/Wholist/IPC.md))
 
 ## Installation
 

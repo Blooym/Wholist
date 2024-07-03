@@ -200,39 +200,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                     NearbyPlayersLogic.SearchPlayerOnLodestone(obj.Name, obj.HomeWorld);
                 }
 
-                // External integrations / 3rd-party.
-                ImGui.Separator();
-                DrawExternPlayerIntegrationsMenu(obj);
-
                 ImGui.EndPopup();
-            }
-        }
-
-        /// <summary>
-        ///     Draws the integrations menu.
-        /// </summary>
-        /// <param name="obj"></param>
-        private static void DrawExternPlayerIntegrationsMenu(PlayerInfoSlim obj)
-        {
-            if (ImGui.BeginMenu(Strings.UserInterface_NearbyPlayers_Players_Submenu_Integrations))
-            {
-                var integrations = NearbyPlayersLogic.GetExternContextMenuItems();
-                if (integrations.Count != 0)
-                {
-                    foreach (var item in integrations)
-                    {
-                        if (ImGui.BeginMenu($"{item.Value}##{item.Key}"))
-                        {
-                            NearbyPlayersLogic.InvokeExternPlayerContextMenu(item.Key, obj.CharacterPtr);
-                            ImGui.EndMenu();
-                        }
-                    }
-                }
-                else
-                {
-                    SiGui.TextDisabled(Strings.UserInterface_NearbyPlayers_Players_Submenu_Integrations_None);
-                }
-                ImGui.EndMenu();
             }
         }
     }

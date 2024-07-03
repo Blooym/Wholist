@@ -207,12 +207,6 @@
   <data name="UserInterface_Settings_UnknownTab" xml:space="preserve">
     <value>Unbekannter Tab ausgewählt.</value>
   </data>
-  <data name="UserInterface_NearbyPlayers_Players_Submenu_Integrations" xml:space="preserve">
-    <value>Integrationen</value>
-  </data>
-  <data name="UserInterface_NearbyPlayers_Players_Submenu_Integrations_None" xml:space="preserve">
-    <value>Derzeit sind keine Integrationen verfügbar.</value>
-  </data>
   <data name="UserInterface_Settings_NearbyPlayers_Window" xml:space="preserve">
     <value>Fenster</value>
   </data>

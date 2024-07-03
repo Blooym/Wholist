@@ -207,12 +207,6 @@
   <data name="UserInterface_Settings_UnknownTab" xml:space="preserve">
     <value>Seleccionada pestaña desconocida.</value>
   </data>
-  <data name="UserInterface_NearbyPlayers_Players_Submenu_Integrations" xml:space="preserve">
-    <value>Integraciones</value>
-  </data>
-  <data name="UserInterface_NearbyPlayers_Players_Submenu_Integrations_None" xml:space="preserve">
-    <value>No hay integraciones disponibles en este momento.</value>
-  </data>
   <data name="UserInterface_Settings_NearbyPlayers_Window" xml:space="preserve">
     <value>Ventana</value>
   </data>

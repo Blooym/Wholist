@@ -11,7 +11,6 @@ using Wholist.Common;
 using Wholist.Configuration;
 using Wholist.DataStructures;
 using Wholist.Game;
-using Wholist.IntegrationHandling;
 
 namespace Wholist.UserInterface.Windows.NearbyPlayers
 {
@@ -31,12 +30,6 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
 
         /// <inheritdoc cref="MapHelper.FlagAndOpenCurrentMap(Vector3, string?, MapType)" />
         internal static void FlagAndOpen(Vector3 position, string? title = null, MapType mapType = MapType.FlagMarker) => MapHelper.FlagAndOpenCurrentMap(position, title, mapType);
-
-        /// <inheritdoc cref="InboundIpcManager.GetPlayerContextMenuItems" />
-        internal static IReadOnlyDictionary<string, string> GetExternContextMenuItems() => Services.InboundIpcManager.GetPlayerContextMenuItems();
-
-        /// <inheritdoc cref="InboundIpcManager.InvokePlayerContextMenu" />
-        internal static void InvokeExternPlayerContextMenu(string id, nint address) => Services.InboundIpcManager.InvokePlayerContextMenu(id, address);
 
         /// <inheritdoc cref="PlayerManager.GetNearbyPlayers" />
         internal List<PlayerInfoSlim> GetNearbyPlayers()

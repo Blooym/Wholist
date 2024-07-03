@@ -8,7 +8,6 @@ using Sirensong;
 using Sirensong.Cache;
 using Sirensong.IoC;
 using Wholist.Configuration;
-using Wholist.IntegrationHandling;
 using Wholist.Resources.Localization;
 using Wholist.UserInterface;
 
@@ -44,7 +43,6 @@ namespace Wholist.Common
         internal static WindowManager WindowManager { get; private set; } = null!;
         // internal static XivCommonBase XivCommon { get; private set; } = null!;
         internal static PluginConfiguration Configuration { get; private set; } = null!;
-        internal static InboundIpcManager InboundIpcManager { get; private set; } = null!;
 
         /// <summary>
         ///     Initializes the service class.
@@ -60,7 +58,6 @@ namespace Wholist.Common
             ServiceContainer.GetOrCreateService<LocalizationManager>();
             WindowManager = ServiceContainer.GetOrCreateService<WindowManager>();
             ServiceContainer.CreateService<CommandHandling.CommandManager>();
-            InboundIpcManager = ServiceContainer.GetOrCreateService<InboundIpcManager>();
         }
 
         /// <summary>
