@@ -8,33 +8,28 @@ using Wholist.UserInterface.Windows.Settings.Components;
 
 namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
 {
-    internal static class ColoursTab
+    internal static class AppearanceTab
     {
-        /// <summary>
-        ///     Draws the colours tab of the settings window.
-        /// </summary>
-        /// <param name="logic"></param>
         internal static void Draw(SettingsLogic logic)
         {
-            // Colour notice.
-            SiGui.TextWrapped(Strings.UserInterface_Settings_Colours_UpdateTimeNotice_Text);
+            SiGui.TextWrapped("Modify the appearance of the nearby players list.");
             ImGui.Dummy(Spacing.SectionSpacing);
 
-            // Name colour settings.
-            SiGui.Heading(Strings.UserInterface_Settings_Colours_NameColours);
+            // Appearance options.
+            SiGui.Heading(Strings.UserInterface_Settings_NearbyPlayers_Appearance);
+            DrawAppearanceOptions(logic);
+
+            SiGui.Heading("Colours");
+            SiGui.TextDisabled(Strings.UserInterface_Settings_Colours_NameColours);
             DrawNameColours(logic);
             ImGui.Dummy(Spacing.SectionSpacing);
-
-            // Job colours / Role colours.
-            SiGui.Heading(Strings.UserInterface_Settings_Colours_JobColours);
-
+            SiGui.TextDisabled(Strings.UserInterface_Settings_Colours_JobColours);
             var isPerJobColours = NearbyPlayersLogic.Configuration.Colours.JobColMode == PluginConfiguration.ColourConfiguration.JobColourMode.Job;
             if (Checkbox.Draw(Strings.UserInterface_Settings_Colours_UsePerJobColours, Strings.UserInterface_Settings_Colours_UsePerJobColours_Description, ref isPerJobColours))
             {
                 NearbyPlayersLogic.Configuration.Colours.JobColMode = isPerJobColours ? PluginConfiguration.ColourConfiguration.JobColourMode.Job : PluginConfiguration.ColourConfiguration.JobColourMode.Role;
                 NearbyPlayersLogic.Configuration.Save();
             }
-
             if (isPerJobColours)
             {
                 DrawJobColours(logic);
@@ -44,12 +39,14 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
                 DrawRoleColours(logic);
             }
             ImGui.Dummy(Spacing.SectionSpacing);
-
-            // Other options.
-            SiGui.Heading(Strings.UserInterface_Settings_Colours_OtherOptions);
-            DrawOtherOptions(logic);
+            DrawOtherColourOptions(logic);
         }
-
+        private static void DrawAppearanceOptions(SettingsLogic _)
+        {
+            Checkbox.Draw(Strings.UserInterface_Settings_NearbyPlayers_PrioritizeKnown, Strings.UserInterface_Settings_NearbyPlayers_PrioritizeKnown_Description, ref SettingsLogic.Configuration.NearbyPlayers.PrioritizeKnown);
+            Checkbox.Draw(Strings.UserInterface_Settings_NearbyPlayers_JobAbbreviations, Strings.UserInterface_Settings_NearbyPlayers_JobAbbreviations_Description, ref SettingsLogic.Configuration.NearbyPlayers.UseJobAbbreviations);
+            Checkbox.Draw("Show Searchbar", "Show the searchbar from the nearby players list.", ref SettingsLogic.Configuration.NearbyPlayers.ShowSearchBar);
+        }
         private static void DrawNameColours(SettingsLogic _)
         {
             if (ColourEdit.Draw(Strings.UserInterface_Settings_Colours_Default, ref NearbyPlayersLogic.Configuration.Colours.Name.Default))
@@ -89,7 +86,6 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
                 NearbyPlayersLogic.Configuration.Save();
             }
         }
-
         private static void DrawJobColours(SettingsLogic _)
         {
             // Tanks
@@ -149,6 +145,10 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
+            if (ColourEdit.Draw("Viper", ref NearbyPlayersLogic.Configuration.Colours.Job.Viper))
+            {
+                NearbyPlayersLogic.Configuration.Save();
+            }
 
             /// Ranged DPS
             if (ColourEdit.Draw("Bard", ref NearbyPlayersLogic.Configuration.Colours.Job.Bard))
@@ -177,6 +177,10 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
+            if (ColourEdit.Draw("Pictomancer", ref NearbyPlayersLogic.Configuration.Colours.Job.Pictomancer))
+            {
+                NearbyPlayersLogic.Configuration.Save();
+            }
             if (ColourEdit.Draw("Blue Mage", ref NearbyPlayersLogic.Configuration.Colours.Job.BlueMage))
             {
                 NearbyPlayersLogic.Configuration.Save();
@@ -189,7 +193,7 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             }
         }
 
-        private static void DrawOtherOptions(SettingsLogic _)
+        private static void DrawOtherColourOptions(SettingsLogic _)
         {
             if (ImGui.Button(Strings.UserInterface_Settings_Colours_ResetAll))
             {

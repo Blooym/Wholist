@@ -1,8 +1,6 @@
 using System;
-using System.Collections.Generic;
+using System.Linq;
 using Dalamud.Interface.Windowing;
-using Sirensong;
-using Sirensong.UserInterface.Windowing;
 using Wholist.Common;
 using Wholist.UserInterface.Windows.NearbyPlayers;
 using Wholist.UserInterface.Windows.Settings;
@@ -11,22 +9,22 @@ namespace Wholist.UserInterface
 {
     internal sealed class WindowManager : IDisposable
     {
-
-        #region Event Handlers
-
         /// <summary>
         ///     Handle the plugin being logged in.
         /// </summary>
         private void OnLogin()
         {
+            ObjectDisposedException.ThrowIf(this.disposedValue, nameof(this.WindowingSystem));
+
             if (!Services.Configuration.NearbyPlayers.OpenOnLogin)
             {
                 return;
             }
 
-            if (this.WindowingSystem.TryGetWindow<NearbyPlayersWindow>(out var window))
+            var nearbyWindow = this.windows.FirstOrDefault(window => window is NearbyPlayersWindow);
+            if (nearbyWindow is not null)
             {
-                window.IsOpen = true;
+                nearbyWindow.IsOpen = true;
             }
         }
 
@@ -35,42 +33,40 @@ namespace Wholist.UserInterface
         /// </summary>
         private void OnLogout()
         {
-            if (this.WindowingSystem.TryGetWindow<NearbyPlayersWindow>(out var window))
+            ObjectDisposedException.ThrowIf(this.disposedValue, nameof(this.WindowingSystem));
+
+            var nearbyWindow = this.windows.FirstOrDefault(window => window is NearbyPlayersWindow);
+            if (nearbyWindow is not null)
             {
-                window.IsOpen = false;
+                nearbyWindow.IsOpen = false;
             }
         }
 
-        #endregion
-
-        #region Fields
+        private bool disposedValue;
 
         /// <summary>
         ///     All windows to add to the windowing system, holds all references.
         /// </summary>
-        private readonly Dictionary<Window, bool> windows = new() { { new NearbyPlayersWindow(), false }, { new SettingsWindow(), true } };
+        private readonly Window[] windows = { new NearbyPlayersWindow(), new SettingsWindow() };
 
         /// <summary>
         ///     The windowing system.
         /// </summary>
-        public WindowingSystem WindowingSystem { get; } = SirenCore.GetOrCreateService<WindowingSystem>();
-
-        private bool disposedValue;
-
-        #endregion
-
-        #region Constructor and Dispose
+        private WindowSystem WindowingSystem { get; } = new(Constants.PluginName);
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="WindowManager" /> class.
         /// </summary>
         private WindowManager()
         {
-            foreach (var (window, isSettings) in this.windows)
+            foreach (var window in this.windows)
             {
-                this.WindowingSystem.AddWindow(window, isSettings);
+                this.WindowingSystem.AddWindow(window);
             }
 
+            Services.PluginInterface.UiBuilder.OpenConfigUi += this.ToggleConfigWindow;
+            Services.PluginInterface.UiBuilder.OpenMainUi += this.ToggleMainWindow;
+            Services.PluginInterface.UiBuilder.Draw += this.WindowingSystem.Draw;
             Services.ClientState.Login += this.OnLogin;
             Services.ClientState.Logout += this.OnLogout;
 
@@ -80,24 +76,44 @@ namespace Wholist.UserInterface
             }
         }
 
-
         /// <summary>
         ///     Disposes of the window manager.
         /// </summary>
         public void Dispose()
         {
-            if (!this.disposedValue)
+            if (this.disposedValue)
             {
-                this.WindowingSystem.Dispose();
-
-                Services.ClientState.Login -= this.OnLogin;
-                Services.ClientState.Logout -= this.OnLogout;
-
-                this.disposedValue = true;
+                return;
             }
+
+            Services.PluginInterface.UiBuilder.OpenConfigUi -= this.ToggleConfigWindow;
+            Services.PluginInterface.UiBuilder.OpenMainUi -= this.ToggleMainWindow;
+            Services.PluginInterface.UiBuilder.Draw -= this.WindowingSystem.Draw;
+            Services.ClientState.Login -= this.OnLogin;
+            Services.ClientState.Logout -= this.OnLogout;
+
+            this.WindowingSystem.RemoveAllWindows();
+            foreach (var disposable in this.windows.OfType<IDisposable>())
+            {
+                disposable.Dispose();
+            }
+
+            this.disposedValue = true;
         }
 
-        #endregion
+        /// <summary>
+        ///     Toggles the open state of the configuration window.
+        /// </summary>
+        internal void ToggleConfigWindow()
+        {
+            ObjectDisposedException.ThrowIf(this.disposedValue, nameof(this.WindowingSystem));
+            this.windows.FirstOrDefault(window => window is SettingsWindow)?.Toggle();
+        }
 
+        internal void ToggleMainWindow()
+        {
+            ObjectDisposedException.ThrowIf(this.disposedValue, nameof(this.WindowingSystem));
+            this.windows.FirstOrDefault(window => window is NearbyPlayersWindow)?.Toggle();
+        }
     }
 }

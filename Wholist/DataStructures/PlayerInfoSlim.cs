@@ -1,10 +1,7 @@
 using System;
 using System.Numerics;
 using Dalamud.Game.ClientState.Objects.SubKinds;
-using Dalamud.Memory;
-using FFXIVClientStructs.FFXIV.Client.Game.Character;
 using FFXIVClientStructs.FFXIV.Client.Game.Control;
-using FFXIVClientStructs.FFXIV.Client.Game.Object;
 using FFXIVClientStructs.FFXIV.Client.UI.Agent;
 using Sirensong.Extensions;
 using Wholist.Common;
@@ -17,11 +14,11 @@ namespace Wholist.DataStructures
     /// </summary>
     internal unsafe struct PlayerInfoSlim
     {
-        private readonly Character* character;
+        private readonly IPlayerCharacter character;
         private string name = string.Empty;
         private string companyTag = string.Empty;
 
-        public PlayerInfoSlim(Character* basePlayer) => this.character = basePlayer;
+        public PlayerInfoSlim(IPlayerCharacter basePlayer) => this.character = basePlayer;
 
         /// <summary>
         ///     The name of the player.
@@ -32,7 +29,7 @@ namespace Wholist.DataStructures
             {
                 if (string.IsNullOrWhiteSpace(this.name))
                 {
-                    this.name = MemoryHelper.ReadStringNullTerminated((nint)this.character->GameObject.Name);
+                    this.name = this.character.Name.TextValue;
                 }
                 return this.name;
             }
@@ -46,7 +43,7 @@ namespace Wholist.DataStructures
         /// <summary>
         ///     The job information of the player.
         /// </summary>
-        internal readonly JobInfoSlim Job => new(this.character->CharacterData.ClassJob);
+        internal readonly JobInfoSlim Job => new(this.character.ClassJob.Id);
 
         /// <summary>
         ///     The company tag of the player.
@@ -57,7 +54,7 @@ namespace Wholist.DataStructures
             {
                 if (string.IsNullOrWhiteSpace(this.companyTag))
                 {
-                    this.companyTag = MemoryHelper.ReadStringNullTerminated((nint)this.character->FreeCompanyTag);
+                    this.companyTag = this.character.ToCsPlayerCharacter()->FreeCompanyTagString;
                 }
                 return this.companyTag;
             }
@@ -70,12 +67,12 @@ namespace Wholist.DataStructures
         {
             get
             {
-                if (Services.WorldNames.TryGetValue(this.character->HomeWorld, out var homeName))
+                if (Services.WorldNames.TryGetValue(this.character.HomeWorld.Id, out var homeName))
                 {
                     return homeName;
                 }
-                homeName = Services.WorldCache.GetRow(this.character->HomeWorld)!.Name.RawString.ToTitleCase();
-                Services.WorldNames.TryAdd(this.character->HomeWorld, homeName);
+                homeName = Services.WorldCache.GetRow(this.character.HomeWorld.Id)!.Name.RawString.ToTitleCase();
+                Services.WorldNames.TryAdd(this.character.HomeWorld.Id, homeName);
                 return homeName;
             }
         }
@@ -99,12 +96,12 @@ namespace Wholist.DataStructures
         /// <summary>
         ///     Whether or not the player is a friend of the local player.
         /// </summary>
-        internal readonly bool IsFriend => this.character->IsFriend;
+        internal readonly bool IsFriend => this.character.ToCsPlayerCharacter()->IsFriend;
 
         /// <summary>
         ///     Whether or not the player is in the local player's party.
         /// </summary>
-        internal readonly bool IsInParty => this.character->IsPartyMember;
+        internal readonly bool IsInParty => this.character.ToCsPlayerCharacter()->IsPartyMember;
 
         /// <summary>
         ///     Whether or not the player is known to the local player (i.e. in party or friend).
@@ -114,31 +111,31 @@ namespace Wholist.DataStructures
         /// <summary>
         ///     The level of the player.
         /// </summary>
-        internal readonly byte Level => this.character->CharacterData.Level;
+        internal readonly byte Level => this.character.Level;
 
         /// <summary>
         ///     The pointer for the character data.
         /// </summary>
-        internal readonly nint CharacterPtr => (nint)this.character;
+        internal readonly nint CharacterPtr => this.character.Address;
 
         /// <summary>
         ///     The location of the player.
         /// </summary>
-        internal readonly FFXIVClientStructs.FFXIV.Common.Math.Vector3 Position => this.character->GameObject.Position;
+        internal readonly FFXIVClientStructs.FFXIV.Common.Math.Vector3 Position => this.character.Position;
 
         /// <summary>
         ///     Targets the player.
         /// </summary>
-        internal readonly void Target() => TargetSystem.Instance()->Target = (GameObject*)this.character;
+        internal readonly void Target() => TargetSystem.Instance()->Target = this.character.ToCsGameObject();
 
         /// <summary>
         ///     Opens the examine window for the player.
         /// </summary>
-        internal readonly void OpenExamine() => AgentInspect.Instance()->ExamineCharacter(this.character->GameObject.ObjectID);
+        internal readonly void OpenExamine() => AgentInspect.Instance()->ExamineCharacter(this.character.EntityId);
 
         /// <summary>
         ///     Opens the character card for the player.
         /// </summary>
-        internal readonly void OpenCharaCard() => AgentCharaCard.Instance()->OpenCharaCard((GameObject*)this.character);
+        internal readonly void OpenCharaCard() => AgentCharaCard.Instance()->OpenCharaCard(this.character.ToCsGameObject());
     }
 }

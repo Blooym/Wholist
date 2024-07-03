@@ -16,37 +16,6 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
 
-  <!-- Custom Runtime Variables -->
-  <Target Name="SetCustomVars" BeforeTargets="BeforeBuild">
-    <Exec Command="git rev-parse --short HEAD" ConsoleToMSBuild="true" IgnoreExitCode="true">
-      <Output TaskParameter="ConsoleOutput" PropertyName="GitHash" />
-    </Exec>
-    <Exec Command="git show -s --format=%ci HEAD" ConsoleToMSBuild="true" IgnoreExitCode="true">
-      <Output TaskParameter="ConsoleOutput" PropertyName="BuildTime" />
-    </Exec>
-    <Exec Command="git rev-parse --abbrev-ref HEAD" ConsoleToMSBuild="true" IgnoreExitCode="true">
-      <Output TaskParameter="ConsoleOutput" PropertyName="GitBranch" />
-    </Exec>
-    <Exec Command="git log -1 --pretty=%B" ConsoleToMSBuild="true" IgnoreExitCode="true">
-      <Output TaskParameter="ConsoleOutput" PropertyName="LastCommitMessage" />
-    </Exec>
-
-    <ItemGroup>
-      <AssemblyAttribute Include="Wholist.Common.GitHash">
-        <_Parameter1>$(GitHash)</_Parameter1>
-      </AssemblyAttribute>
-      <AssemblyAttribute Include="Wholist.Common.GitCommitDate">
-        <_Parameter1>$(BuildTime)</_Parameter1>
-      </AssemblyAttribute>
-      <AssemblyAttribute Include="Wholist.Common.GitBranch">
-        <_Parameter1>$(GitBranch)</_Parameter1>
-      </AssemblyAttribute>
-      <AssemblyAttribute Include="Wholist.Common.GitCommitMessage">
-        <_Parameter1>$(LastCommitMessage)</_Parameter1>
-      </AssemblyAttribute>
-    </ItemGroup>
-  </Target>
-
   <!-- Localization -->
   <ItemGroup>
     <EmbeddedResource Update="Resources\Localization\Strings.resx">
@@ -60,8 +29,8 @@
     </Compile>
   </ItemGroup>
 
-  <ItemGroup>
     <!-- Packages -->
+  <ItemGroup>
     <PackageReference Include="XivCommon" Version="9.0.0" />
     <ProjectReference Include="../Sirensong/Sirensong/Sirensong.csproj" />
   </ItemGroup>

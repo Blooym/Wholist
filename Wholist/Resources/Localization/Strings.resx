@@ -27,7 +27,7 @@
     <value>Opens the nearby players window.</value>
   </data>
   <data name="Windows_Who_Title" xml:space="preserve">
-    <value>[{0}] Nearby Players</value>
+    <value>Nearby Players</value>
   </data>
   <data name="Errors_NoUseInPvP" xml:space="preserve">
     <value>You can't view nearby players whilst participating in PvP.</value>
@@ -63,7 +63,7 @@
     <value>Send Tell</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Search" xml:space="preserve">
-    <value>Search for...</value>
+    <value>Search...</value>
   </data>
   <data name="Windows_Settings_Title" xml:space="preserve">
     <value>[{0}] Settings</value>
@@ -81,19 +81,19 @@
     <value>Open window on login</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInCombat" xml:space="preserve">
-    <value>Hide in combat</value>
+    <value>Hide window in combat</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInInstance" xml:space="preserve">
-    <value>Hide in instances</value>
+    <value>Hide window in instances</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers" xml:space="preserve">
     <value>Hide AFK Players</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockPosition" xml:space="preserve">
-    <value>Disable window moving</value>
+    <value>Prevent window moving</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockSize" xml:space="preserve">
-    <value>Disable window resizing</value>
+    <value>Prevent window resizing</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description" xml:space="preserve">
     <value>Remove AFK players from the nearby players list.</value>
@@ -171,7 +171,7 @@
     <value>Other Options</value>
   </data>
   <data name="UserInterface_Settings_Colours_ResetAll" xml:space="preserve">
-    <value>Reset colour settings</value>
+    <value>Reset colours to default</value>
   </data>
   <data name="UserInterface_Settings_Colours_UsePerJobColours" xml:space="preserve">
     <value>Use per-job colours</value>

@@ -4,6 +4,7 @@ using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Interface;
 using Dalamud.Interface.Utility;
 using Dalamud.Interface.Windowing;
+using Dalamud.Utility;
 using ImGuiNET;
 using Sirensong.Game.Helpers;
 using Sirensong.UserInterface;
@@ -21,7 +22,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// <summary>
         ///     Creates a new instance of the <see cref="NearbyPlayersWindow" />.
         /// </summary>
-        internal NearbyPlayersWindow() : base(string.Format(Strings.Windows_Who_Title, Constants.PluginName))
+        internal NearbyPlayersWindow() : base(Strings.Windows_Who_Title)
         {
             this.Size = new Vector2(450, 400);
             this.SizeCondition = ImGuiCond.FirstUseEver;
@@ -30,15 +31,13 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 new() {
                     Icon = FontAwesomeIcon.Cog,
                     ShowTooltip = () => SiGui.AddTooltip("Settings"),
-                    Click = (btn) => {
-                        var configWindow =  Services.WindowManager.WindowingSystem.ConfigWindow;
-                        if(configWindow is null)
-                        {
-                            return;
-                        }
-                        configWindow.IsOpen ^= true;
-                    }
-                }
+                    Click = (btn) => Services.WindowManager.ToggleConfigWindow()
+                },
+                new() {
+                    Icon = FontAwesomeIcon.Heart,
+                    ShowTooltip = () => SiGui.AddTooltip("Donate"),
+                    Click = (btn) => Util.OpenLink(Constants.KoFiLink)
+        }
             };
         }
 
@@ -71,7 +70,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             this.RespectCloseHotkey = !NearbyPlayersLogic.ShouldDisableEscClose;
 
             var playersToDraw = this.logic.GetNearbyPlayers();
-            var childSize = NearbyPlayersLogic.Configuration.NearbyPlayers.MinimalMode ? new Vector2(0, 0) : new Vector2(0, -60);
+            var childSize = NearbyPlayersLogic.Configuration.NearbyPlayers.ShowSearchBar ? new Vector2(0, -30) : new Vector2(0, 0);
 
             if (ImGui.BeginChild("##NearbyChild", childSize))
             {
@@ -80,10 +79,9 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             ImGui.EndChild();
 
             // Draw the search box & total players text if not in minimal mode
-            if (!NearbyPlayersLogic.Configuration.NearbyPlayers.MinimalMode)
+            if (NearbyPlayersLogic.Configuration.NearbyPlayers.ShowSearchBar)
             {
                 DrawSearchBar(ref this.logic.SearchText);
-                DrawTotalPlayers(playersToDraw.Count);
             }
         }
 
@@ -109,12 +107,6 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 ImGui.EndTable();
             }
         }
-
-        /// <summary>
-        ///     Draws the total players text.
-        /// </summary>
-        /// <param name="totalPlayers"></param>
-        private static void DrawTotalPlayers(int totalPlayers) => ImGuiHelpers.CenteredText(string.Format(Strings.UserInterface_NearbyPlayers_Players_Total, totalPlayers.ToString()));
 
         /// <summary>
         ///     Draws the search bar.
@@ -189,10 +181,12 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 }
 
                 // Send Tell.
+                ImGui.BeginDisabled();
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_Tell))
                 {
-                    NearbyPlayersLogic.SetChatTellTarget(obj.Name, obj.HomeWorld);
+                    // NearbyPlayersLogic.SetChatTellTarget(obj.Name, obj.HomeWorld);
                 }
+                ImGui.EndDisabled();
 
                 // Find on Map.
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap))

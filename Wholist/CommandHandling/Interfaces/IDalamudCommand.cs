@@ -20,6 +20,6 @@ namespace Wholist.CommandHandling.Interfaces
         /// <summary>
         ///     The command's execution handler.
         /// </summary>
-        CommandInfo.HandlerDelegate OnExecute { get; }
+        IReadOnlyCommandInfo.HandlerDelegate OnExecute { get; }
     }
 }

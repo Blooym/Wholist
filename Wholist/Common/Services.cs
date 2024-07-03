@@ -11,7 +11,6 @@ using Wholist.Configuration;
 using Wholist.IntegrationHandling;
 using Wholist.Resources.Localization;
 using Wholist.UserInterface;
-using XivCommon;
 
 namespace Wholist.Common
 {
@@ -24,7 +23,7 @@ namespace Wholist.Common
         private static readonly MiniServiceContainer ServiceContainer = new();
 
         // Dalamud services
-        [PluginService] internal static DalamudPluginInterface PluginInterface { get; set; } = null!;
+        [PluginService] internal static IDalamudPluginInterface PluginInterface { get; set; } = null!;
         [PluginService] internal static IClientState ClientState { get; set; } = null!;
         [PluginService] internal static IObjectTable ObjectTable { get; set; } = null!;
         [PluginService] internal static ICommandManager Commands { get; set; } = null!;
@@ -43,20 +42,20 @@ namespace Wholist.Common
 
         // Plugin services
         internal static WindowManager WindowManager { get; private set; } = null!;
-        internal static XivCommonBase XivCommon { get; private set; } = null!;
+        // internal static XivCommonBase XivCommon { get; private set; } = null!;
         internal static PluginConfiguration Configuration { get; private set; } = null!;
         internal static InboundIpcManager InboundIpcManager { get; private set; } = null!;
 
         /// <summary>
         ///     Initializes the service class.
         /// </summary>
-        internal static void Initialize(DalamudPluginInterface pluginInterface)
+        internal static void Initialize(IDalamudPluginInterface pluginInterface)
         {
             SirenCore.InjectServices<Services>();
             pluginInterface.Create<Services>();
             BetterLog.Debug("Initializing services.");
 
-            XivCommon = new XivCommonBase(pluginInterface);
+            // XivCommon = new XivCommonBase(pluginInterface);
             Configuration = PluginInterface.GetPluginConfig() as PluginConfiguration ?? new PluginConfiguration();
             ServiceContainer.GetOrCreateService<LocalizationManager>();
             WindowManager = ServiceContainer.GetOrCreateService<WindowManager>();
@@ -67,10 +66,6 @@ namespace Wholist.Common
         /// <summary>
         ///     Disposes of the service class.
         /// </summary>
-        internal static void Dispose()
-        {
-            ServiceContainer.Dispose();
-            XivCommon.Dispose();
-        }
+        internal static void Dispose() => ServiceContainer.Dispose();// XivCommon.Dispose();
     }
 }

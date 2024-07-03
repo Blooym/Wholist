@@ -15,7 +15,7 @@ namespace Wholist.DataStructures
         ///     Creates a new <see cref="JobInfoSlim" />.
         /// </summary>
         /// <param name="cj">The <see cref="ClassJob" /> to create the <see cref="JobInfoSlim" /> from.</param>
-        internal JobInfoSlim(byte cj)
+        internal JobInfoSlim(uint cj)
         {
             // Cache lookups
             var classJob = Services.ClassJobCache.GetRow(cj)!;
@@ -75,6 +75,8 @@ namespace Wholist.DataStructures
                 38 => Services.Configuration.Colours.Job.Dancer,
                 39 => Services.Configuration.Colours.Job.Reaper,
                 40 => Services.Configuration.Colours.Job.Sage,
+                41 => Services.Configuration.Colours.Job.Viper,
+                42 => Services.Configuration.Colours.Job.Pictomancer,
                 _ => Services.Configuration.Colours.Job.Other,
             };
         }

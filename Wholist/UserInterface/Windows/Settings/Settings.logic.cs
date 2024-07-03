@@ -1,7 +1,6 @@
 using System;
 using Wholist.Common;
 using Wholist.Configuration;
-using Wholist.Resources.Localization;
 
 namespace Wholist.UserInterface.Windows.Settings
 {
@@ -17,9 +16,9 @@ namespace Wholist.UserInterface.Windows.Settings
         /// <returns>The localized name of the tab.</returns>
         internal static string ConfigTabName(ConfigurationTabs tab) => tab switch
         {
-            ConfigurationTabs.NearbyPlayers => Strings.UserInterface_Settings_NearbyPlayers_Heading,
-            ConfigurationTabs.Colours => Strings.UserInterface_Settings_Colours_Heading,
-            ConfigurationTabs.Donation => Strings.UserInterface_Settings_Donate_Heading,
+            ConfigurationTabs.Window => "Window",
+            ConfigurationTabs.Appearance => "Appearance",
+            ConfigurationTabs.Filtering => "Filtering",
             _ => throw new ArgumentOutOfRangeException(nameof(tab), tab, null),
         };
 
@@ -32,9 +31,9 @@ namespace Wholist.UserInterface.Windows.Settings
         /// </summary>
         internal enum ConfigurationTabs
         {
-            NearbyPlayers,
-            Colours,
-            Donation,
+            Window,
+            Appearance,
+            Filtering,
         }
 
         #endregion
@@ -44,7 +43,7 @@ namespace Wholist.UserInterface.Windows.Settings
         /// <summary>
         ///     The currently selected sidebar tab.
         /// </summary>
-        internal ConfigurationTabs SelectedTab = ConfigurationTabs.NearbyPlayers;
+        internal ConfigurationTabs SelectedTab = ConfigurationTabs.Appearance;
 
         /// <summary>
         ///     Gets the plugin configuration.

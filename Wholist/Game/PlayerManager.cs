@@ -3,7 +3,6 @@ using System.Linq;
 using System.Numerics;
 using Dalamud.Game.ClientState.Objects.SubKinds;
 using Sirensong.Game.Enums;
-using Sirensong.Game.Helpers;
 using Wholist.Common;
 using Wholist.DataStructures;
 
@@ -27,26 +26,31 @@ namespace Wholist.Game
 
             // Get nearby players from the object table and order by them by distance to the local player
             // so that when the list is truncated, the closest players are kept.
-            var charPointers = ObjectHelper.GetCharacters().OrderBy(p => p.Value->GameObject.YalmDistanceFromPlayerX);
+            var charPointers = Services.ObjectTable
+                .Where(x => x is IPlayerCharacter).Cast<IPlayerCharacter>()
+                .Where(x => x.GameObjectId != Services.ClientState.LocalPlayer?.GameObjectId)
+                .Where(x => x.GameObjectId > 240)
+                .OrderBy(x => x.YalmDistanceX);
+
             foreach (var charPointer in charPointers)
             {
-                var character = charPointer.Value;
+                var character = charPointer;
                 if (nearbyPlayers.Count >= maxPlayers)
                 {
                     break;
                 }
 
-                if (character->GameObject.ObjectID == Services.ClientState.LocalPlayer?.ObjectId)
+                if (character.GameObjectId == Services.ClientState.LocalPlayer?.GameObjectId)
                 {
                     continue;
                 }
 
-                if (character->CharacterData.Level <= 3)
+                if (character.Level <= 3)
                 {
                     continue;
                 }
 
-                if (filterAfk && character->CharacterData.OnlineStatus == (byte)OnlineStatusType.Afk)
+                if (filterAfk && character.OnlineStatus.Id == (byte)OnlineStatusType.Afk)
                 {
                     continue;
                 }
@@ -68,11 +72,11 @@ namespace Wholist.Game
         /// </summary>
         /// <param name="playerCharacter">The <see cref="PlayerCharacter" /> to check.</param>
         /// <returns>True if the <see cref="PlayerCharacter" /> is in the party, otherwise false.</returns>
-        internal static bool IsPlayerInParty(PlayerCharacter playerCharacter)
+        internal static bool IsPlayerInParty(IPlayerCharacter playerCharacter)
         {
             foreach (var member in Services.PartyList)
             {
-                if (member.ObjectId == playerCharacter.ObjectId)
+                if (member.ObjectId == playerCharacter.GameObjectId)
                 {
                     return true;
                 }

@@ -3,22 +3,21 @@ using Sirensong.Game.Helpers;
 using Wholist.CommandHandling.Interfaces;
 using Wholist.Common;
 using Wholist.Resources.Localization;
-using Wholist.UserInterface.Windows.NearbyPlayers;
 
 namespace Wholist.CommandHandling.Commands
 {
     internal sealed class WhoCommand : IDalamudCommand
     {
         /// <inheritdoc />
-        public string Name { get; } = Constants.Commands.WhoCommand;
+        public string Name { get; } = "/who";
 
         /// <inheritdoc />
         public CommandInfo Command => new(this.OnExecute) { HelpMessage = Strings.Commands_Who_Help, ShowInHelp = true };
 
         /// <inheritdoc />
-        public CommandInfo.HandlerDelegate OnExecute => (command, _) =>
+        public IReadOnlyCommandInfo.HandlerDelegate OnExecute => (command, _) =>
         {
-            if (command != Constants.Commands.WhoCommand)
+            if (command != this.Name)
             {
                 return;
             }
@@ -29,7 +28,7 @@ namespace Wholist.CommandHandling.Commands
                 return;
             }
 
-            Services.WindowManager.WindowingSystem.GetWindow<NearbyPlayersWindow>()?.Toggle();
+            Services.WindowManager.ToggleMainWindow();
         };
     }
 }

@@ -4,17 +4,14 @@ using System.Numerics;
 using Dalamud.Game.ClientState;
 using Dalamud.Plugin.Services;
 using Dalamud.Utility;
-using FFXIVClientStructs.FFXIV.Client.UI;
 using FFXIVClientStructs.FFXIV.Client.UI.Agent;
 using ImGuiNET;
-using Sirensong.Game.Enums;
 using Sirensong.Game.Helpers;
 using Wholist.Common;
 using Wholist.Configuration;
 using Wholist.DataStructures;
 using Wholist.Game;
 using Wholist.IntegrationHandling;
-using Wholist.Resources.Localization;
 
 namespace Wholist.UserInterface.Windows.NearbyPlayers
 {
@@ -97,18 +94,18 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             return currentFlags;
         }
 
-        /// <summary>
-        ///     Sets the chat target to the given player.
-        /// </summary>
-        /// <param name="name">The name of the player.</param>
-        /// <param name="homeworldName">The homeworld name of the player.</param>
-        /// <exception cref="InvalidOperationException"></exception>
-        internal static void SetChatTellTarget(string name, string homeworldName)
-        {
-            Services.XivCommon.Functions.Chat.SendMessage($"/tell {name}@{homeworldName}");
-            ChatHelper.Print(Strings.UserInterface_NearbyPlayers_SetChatTarget.Format($"{name}@{homeworldName}"));
-            UIModule.PlaySound((int)SoundEffect.Se16, 0, 0, 0);
-        }
+        // /// <summary>
+        // ///     Sets the chat target to the given player.
+        // /// </summary>
+        // /// <param name="name">The name of the player.</param>
+        // /// <param name="homeworldName">The homeworld name of the player.</param>
+        // /// <exception cref="InvalidOperationException"></exception>
+        // internal static void SetChatTellTarget(string name, string homeworldName)
+        // {
+        //     Services.XivCommon.Functions.Chat.SendMessage($"/tell {name}@{homeworldName}");
+        //     ChatHelper.Print(Strings.UserInterface_NearbyPlayers_SetChatTarget.Format($"{name}@{homeworldName}"));
+        //     UIModule.PlaySound((int)SoundEffect.Se16, 0, 0, 0);
+        // }
 
         /// <summary>
         ///     Gets the job name of the given player based on the current configuration.

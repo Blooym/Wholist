@@ -14,17 +14,17 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts
         {
             switch (logic.SelectedTab)
             {
-                case SettingsLogic.ConfigurationTabs.NearbyPlayers:
-                    SiGui.Heading(Strings.UserInterface_Settings_NearbyPlayers_Heading);
-                    NearbyPlayersTab.Draw(logic);
+                case SettingsLogic.ConfigurationTabs.Appearance:
+                    SiGui.Heading("Appearance");
+                    AppearanceTab.Draw(logic);
                     break;
-                case SettingsLogic.ConfigurationTabs.Colours:
-                    SiGui.Heading(Strings.UserInterface_Settings_Colours_Heading);
-                    ColoursTab.Draw(logic);
+                case SettingsLogic.ConfigurationTabs.Filtering:
+                    SiGui.Heading("Filtering");
+                    FilteringTab.Draw(logic);
                     break;
-                case SettingsLogic.ConfigurationTabs.Donation:
-                    SiGui.Heading(Strings.UserInterface_Settings_Donate_Heading);
-                    DonationTab.Draw(logic);
+                case SettingsLogic.ConfigurationTabs.Window:
+                    SiGui.Heading("Window");
+                    WindowTab.Draw(logic);
                     break;
                 default:
                     SiGui.TextDisabledWrapped(Strings.UserInterface_Settings_UnknownTab);

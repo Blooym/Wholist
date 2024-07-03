@@ -25,7 +25,7 @@ namespace Wholist.UserInterface.Windows.Settings
         /// <inheritdoc />
         public override void Draw()
         {
-            if (ImGui.BeginTable("PluginSettings", 2, ImGuiTableFlags.BordersInnerV))
+            if (ImGui.BeginTable("PluginSettings", 2))
             {
                 ImGui.TableSetupColumn("PluginSettingsSidebar", ImGuiTableColumnFlags.WidthFixed, ImGui.GetContentRegionAvail().X * 0.25f);
                 ImGui.TableSetupColumn("PluginSettingsList", ImGuiTableColumnFlags.WidthFixed, ImGui.GetContentRegionAvail().X * 0.75f);
@@ -33,7 +33,7 @@ namespace Wholist.UserInterface.Windows.Settings
 
                 // Sidebar
                 ImGui.TableNextColumn();
-                if (ImGui.BeginChild("PluginSettingsSidebarChild"))
+                if (ImGui.BeginChild("PluginSettingsSidebarChild", default, true))
                 {
                     SettingsSidebar.Draw(this.logic);
                     ImGui.Dummy(Spacing.SidebarSectionSpacing);
@@ -42,7 +42,7 @@ namespace Wholist.UserInterface.Windows.Settings
 
                 // Listings
                 ImGui.TableNextColumn();
-                if (ImGui.BeginChild("PluginSettingsListChild"))
+                if (ImGui.BeginChild("PluginSettingsListChild", default, true))
                 {
                     SettingsActive.Draw(this.logic);
                 }

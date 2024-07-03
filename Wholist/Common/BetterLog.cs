@@ -1,6 +1,5 @@
 using System.IO;
 using System.Runtime.CompilerServices;
-using Dalamud.Logging;
 
 namespace Wholist.Common
 {

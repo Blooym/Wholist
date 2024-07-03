@@ -7,16 +7,11 @@ namespace Wholist
     internal sealed class Plugin : IDalamudPlugin
     {
         /// <summary>
-        ///     The plugin's name.
-        /// </summary>
-        public string Name { get; } = Constants.PluginName;
-
-        /// <summary>
         ///     The plugin's main entry point.
         /// </summary>
-        public Plugin(DalamudPluginInterface pluginInterface)
+        public Plugin(IDalamudPluginInterface pluginInterface)
         {
-            SirenCore.Initialize(pluginInterface, this.Name);
+            SirenCore.Initialize(pluginInterface, Constants.PluginName);
             Services.Initialize(pluginInterface);
         }
 

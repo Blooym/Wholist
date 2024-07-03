@@ -64,7 +64,7 @@ namespace Wholist.Configuration
             /// <summary>
             ///     The maximum number of players to show in the list.
             /// </summary>
-            public int MaxPlayersToShow = 60;
+            public int MaxPlayersToShow = 100;
 
             /// <summary>
             ///     Automatically open the window on login.
@@ -74,7 +74,7 @@ namespace Wholist.Configuration
             /// <summary>
             ///     Whether or not the list should prioritize known players.
             /// </summary>
-            public bool PrioritizeKnown;
+            public bool PrioritizeKnown = true;
 
             /// <summary>
             ///     Whether or not the list should use class abbreviations instead of full names.
@@ -82,9 +82,9 @@ namespace Wholist.Configuration
             public bool UseJobAbbreviations;
 
             /// <summary>
-            ///     Whether or not to hide most elements from the window.
+            ///     Whether or not to show the search bar from the window.
             /// </summary>
-            public bool MinimalMode;
+            public bool ShowSearchBar = true;
         }
 
         /// <summary>
@@ -151,6 +151,7 @@ namespace Wholist.Configuration
                 public Vector4 Ninja = new(0.7058824f, 0f, 0f, 1f);
                 public Vector4 Samurai = new(0.7058824f, 0f, 0f, 1f);
                 public Vector4 Reaper = new(0.7058824f, 0f, 0f, 1f);
+                public Vector4 Viper = new(0.7058824f, 0f, 0f, 1f);
 
                 // Ranged
                 public Vector4 Bard = new(0.7058824f, 0f, 0f, 1f);
@@ -161,6 +162,7 @@ namespace Wholist.Configuration
                 public Vector4 BlackMage = new(0.7058824f, 0f, 0f, 1f);
                 public Vector4 Summoner = new(0.7058824f, 0f, 0f, 1f);
                 public Vector4 RedMage = new(0.7058824f, 0f, 0f, 1f);
+                public Vector4 Pictomancer = new(0.7058824f, 0f, 0f, 1f);
                 public Vector4 BlueMage = new(0.7058824f, 0f, 0f, 1f);
 
                 // Misc
