@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using Dalamud.Game.ClientState.Objects.SubKinds;
+using FFXIVClientStructs.FFXIV.Client.Game.Character;
+using FFXIVClientStructs.FFXIV.Client.UI.Info;
 using Sirensong.Game.Enums;
 using Wholist.Common;
 using Wholist.DataStructures;
@@ -32,12 +34,20 @@ namespace Wholist.Game
                 .Where(x => x.GameObjectId > 240)
                 .OrderBy(x => x.YalmDistanceX);
 
+            var blacklistData = InfoProxyBlacklist.Instance()->ContentIds.ToArray().ToList();
+
             foreach (var charPointer in charPointers)
             {
                 var character = charPointer;
                 if (nearbyPlayers.Count >= maxPlayers)
                 {
                     break;
+                }
+
+                var csChar = (Character*)character.Address;
+                if (blacklistData.Contains((long)csChar->AccountId))
+                {
+                    continue;
                 }
 
                 if (character.GameObjectId == Services.ClientState.LocalPlayer?.GameObjectId)
