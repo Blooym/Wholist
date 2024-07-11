@@ -41,7 +41,6 @@ namespace Wholist.Common
 
         // Plugin services
         internal static WindowManager WindowManager { get; private set; } = null!;
-        // internal static XivCommonBase XivCommon { get; private set; } = null!;
         internal static PluginConfiguration Configuration { get; private set; } = null!;
 
         /// <summary>
@@ -53,7 +52,6 @@ namespace Wholist.Common
             pluginInterface.Create<Services>();
             BetterLog.Debug("Initializing services.");
 
-            // XivCommon = new XivCommonBase(pluginInterface);
             Configuration = PluginInterface.GetPluginConfig() as PluginConfiguration ?? new PluginConfiguration();
             ServiceContainer.GetOrCreateService<LocalizationManager>();
             WindowManager = ServiceContainer.GetOrCreateService<WindowManager>();
@@ -63,6 +61,6 @@ namespace Wholist.Common
         /// <summary>
         ///     Disposes of the service class.
         /// </summary>
-        internal static void Dispose() => ServiceContainer.Dispose();// XivCommon.Dispose();
+        internal static void Dispose() => ServiceContainer.Dispose();
     }
 }

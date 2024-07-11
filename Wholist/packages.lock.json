@@ -20,12 +20,6 @@
           "Microsoft.SourceLink.GitLab": "1.1.1"
         }
       },
-      "XivCommon": {
-        "type": "Direct",
-        "requested": "[9.0.0, )",
-        "resolved": "9.0.0",
-        "contentHash": "avaBp3FmSCi/PiQhntCeBDYOHejdyTWmFtz4pRBVQQ8vHkmRx+YTk1la9dkYBMlXxRXKckEdH1iI1Fu61JlE7w=="
-      },
       "BitFaster.Caching": {
         "type": "Transitive",
         "resolved": "2.4.1",

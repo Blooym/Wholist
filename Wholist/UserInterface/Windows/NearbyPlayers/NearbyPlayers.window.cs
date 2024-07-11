@@ -181,12 +181,14 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 }
 
                 // Send Tell.
-                ImGui.BeginDisabled();
-                if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_Tell))
-                {
-                    // NearbyPlayersLogic.SetChatTellTarget(obj.Name, obj.HomeWorld);
-                }
-                ImGui.EndDisabled();
+                // FIXME: This has been removed due to a lack of knowledge on sending tells
+                // to other players natively. PRs welcome.
+                // ImGui.BeginDisabled();
+                // if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_Tell))
+                // {
+                // NearbyPlayersLogic.SetChatTellTarget(obj.Name, obj.HomeWorld);
+                // }
+                // ImGui.EndDisabled();
 
                 // Find on Map.
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap))

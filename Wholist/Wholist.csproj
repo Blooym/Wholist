@@ -29,7 +29,6 @@
 
     <!-- Packages -->
   <ItemGroup>
-    <PackageReference Include="XivCommon" Version="9.0.0" /> <!-- Out of date, waiting for v10 to be put on Nuget.-->
     <ProjectReference Include="../Sirensong/Sirensong/Sirensong.csproj" />
   </ItemGroup>
 </Project>
