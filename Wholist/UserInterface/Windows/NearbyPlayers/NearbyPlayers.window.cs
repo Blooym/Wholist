@@ -70,7 +70,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             this.RespectCloseHotkey = !NearbyPlayersLogic.ShouldDisableEscClose;
 
             var playersToDraw = this.logic.GetNearbyPlayers();
-            var childSize = NearbyPlayersLogic.Configuration.NearbyPlayers.ShowSearchBar ? new Vector2(0, -30) : new Vector2(0, 0);
+            var childSize = NearbyPlayersLogic.Configuration.NearbyPlayers.ShowSearchBar ? new Vector2(0, -55) : new Vector2(0, -25);
 
             if (ImGui.BeginChild("##NearbyChild", childSize))
             {
@@ -83,6 +83,8 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             {
                 DrawSearchBar(ref this.logic.SearchText);
             }
+
+            DrawTotalPlayers(playersToDraw.Count);
         }
 
         /// <summary>
@@ -150,6 +152,8 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             // Distance.
             SiGui.Text($"{obj.Distance} yalms");
         }
+
+        private static void DrawTotalPlayers(int totalPlayers) => ImGuiHelpers.CenteredText(string.Format(Strings.UserInterface_NearbyPlayers_Players_Total, totalPlayers.ToString()));
 
         /// <summary>
         ///     Draws the context menu for a player.
