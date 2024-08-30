@@ -18,13 +18,13 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts
                     SiGui.Heading("Appearance");
                     AppearanceTab.Draw(logic);
                     break;
-                case SettingsLogic.ConfigurationTabs.Filtering:
-                    SiGui.Heading("Filtering");
-                    FilteringTab.Draw(logic);
-                    break;
                 case SettingsLogic.ConfigurationTabs.Window:
                     SiGui.Heading("Window");
                     WindowTab.Draw(logic);
+                    break;
+                case SettingsLogic.ConfigurationTabs.Behaviour:
+                    SiGui.Heading("Behaviour");
+                    BehaviourTab.Draw(logic);
                     break;
                 default:
                     SiGui.TextDisabledWrapped(Strings.UserInterface_Settings_UnknownTab);

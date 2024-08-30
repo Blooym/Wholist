@@ -12,12 +12,8 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
     {
         internal static void Draw(SettingsLogic logic)
         {
-            SiGui.TextWrapped("Modify the appearance of the nearby players list.");
-            ImGui.Dummy(Spacing.SectionSpacing);
-
-            // Appearance options.
-            SiGui.Heading(Strings.UserInterface_Settings_NearbyPlayers_Appearance);
-            DrawAppearanceOptions(logic);
+            SiGui.Heading("Display");
+            DrawDisplayOptions(logic);
 
             SiGui.Heading("Colours");
             SiGui.TextDisabled(Strings.UserInterface_Settings_Colours_NameColours);
@@ -41,9 +37,9 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             ImGui.Dummy(Spacing.SectionSpacing);
             DrawOtherColourOptions(logic);
         }
-        private static void DrawAppearanceOptions(SettingsLogic _)
+        private static void DrawDisplayOptions(SettingsLogic _)
         {
-            Checkbox.Draw(Strings.UserInterface_Settings_NearbyPlayers_PrioritizeKnown, Strings.UserInterface_Settings_NearbyPlayers_PrioritizeKnown_Description, ref SettingsLogic.Configuration.NearbyPlayers.PrioritizeKnown);
+            TextWithDescription.Draw(Strings.UserInterface_Settings_NearbyPlayers_ShownRows, Strings.UserInterface_Settings_NearbyPlayers_ShownRows_Description);
             Checkbox.Draw(Strings.UserInterface_Settings_NearbyPlayers_JobAbbreviations, Strings.UserInterface_Settings_NearbyPlayers_JobAbbreviations_Description, ref SettingsLogic.Configuration.NearbyPlayers.UseJobAbbreviations);
             Checkbox.Draw("Show Searchbar", "Show the searchbar from the nearby players list.", ref SettingsLogic.Configuration.NearbyPlayers.ShowSearchBar);
         }

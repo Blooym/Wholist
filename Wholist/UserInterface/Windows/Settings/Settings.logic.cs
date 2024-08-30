@@ -18,7 +18,7 @@ namespace Wholist.UserInterface.Windows.Settings
         {
             ConfigurationTabs.Window => "Window",
             ConfigurationTabs.Appearance => "Appearance",
-            ConfigurationTabs.Filtering => "Filtering",
+            ConfigurationTabs.Behaviour => "Behaviour",
             _ => throw new ArgumentOutOfRangeException(nameof(tab), tab, null),
         };
 
@@ -33,7 +33,7 @@ namespace Wholist.UserInterface.Windows.Settings
         {
             Window,
             Appearance,
-            Filtering,
+            Behaviour
         }
 
         #endregion

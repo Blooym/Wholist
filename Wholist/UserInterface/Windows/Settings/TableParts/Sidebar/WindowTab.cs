@@ -1,6 +1,4 @@
-using ImGuiNET;
 using Sirensong.UserInterface;
-using Sirensong.UserInterface.Style;
 using Wholist.Resources.Localization;
 using Wholist.UserInterface.Windows.Settings.Components;
 
@@ -10,9 +8,6 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
     {
         internal static void Draw(SettingsLogic logic)
         {
-            SiGui.TextWrapped("Modify the behaviour of the nearby players list window");
-            ImGui.Dummy(Spacing.SectionSpacing);
-
             SiGui.Heading("Visibility");
             DrawVisibilityOptions(logic);
 

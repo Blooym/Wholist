@@ -57,7 +57,31 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// </summary>
         /// <param name="name">The name of the player.</param>
         /// <param name="homeworld">The name of the player's homeworld.</param>
-        internal static void SearchPlayerOnLodestone(string name, string homeworld) => Util.OpenLink($"https://eu.finalfantasyxiv.com/lodestone/character/?q={name}&worldname={homeworld}");
+        internal static void SearchPlayerOnLodestone(string name, string homeworld)
+        {
+            switch (Configuration.NearbyPlayers.LodestonePlayerSearchRegion)
+            {
+                case PluginConfiguration.NearbyPlayersConfiguration.LodestoneSearchRegion.Europe:
+                    Util.OpenLink($"https://eu.finalfantasyxiv.com/lodestone/character/?q={name}&worldname={homeworld}");
+                    break;
+                case PluginConfiguration.NearbyPlayersConfiguration.LodestoneSearchRegion.Germany:
+                    Util.OpenLink($"https://de.finalfantasyxiv.com/lodestone/character/?q={name}&worldname={homeworld}");
+                    break;
+                case PluginConfiguration.NearbyPlayersConfiguration.LodestoneSearchRegion.France:
+                    Util.OpenLink($"https://fr.finalfantasyxiv.com/lodestone/character/?q={name}&worldname={homeworld}");
+                    break;
+                case PluginConfiguration.NearbyPlayersConfiguration.LodestoneSearchRegion.NorthAmerica:
+                    Util.OpenLink($"https://na.finalfantasyxiv.com/lodestone/character/?q={name}&worldname={homeworld}");
+                    break;
+                case PluginConfiguration.NearbyPlayersConfiguration.LodestoneSearchRegion.Japan:
+                    Util.OpenLink($"https://jp.finalfantasyxiv.com/lodestone/character/?q={name}&worldname={homeworld}");
+                    break;
+                default:
+                    throw new NotImplementedException("No link handler for specified region");
+            }
+
+        }
+
 
         /// <summary>
         ///     Applies the current flag configuration to the window.
