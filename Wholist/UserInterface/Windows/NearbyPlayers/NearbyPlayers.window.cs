@@ -161,7 +161,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// <param name="obj"></param>
         private static void DrawPlayerContextMenu(PlayerInfoSlim obj)
         {
-            if (ImGui.BeginPopupContextItem($"{obj.Name}##WholistPopContext"))
+            if (ImGui.BeginPopupContextItem($"{obj.Name}{obj.HomeWorld}##WholistPopContext"))
             {
                 // Heading.
                 SiGui.Heading(string.Format(Strings.UserInterface_NearbyPlayers_Players_Submenu_Heading, $"{obj.Name}@{obj.HomeWorld}"));
