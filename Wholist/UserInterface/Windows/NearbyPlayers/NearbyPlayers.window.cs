@@ -184,6 +184,12 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                     obj.Target();
                 }
 
+                // Focus target.
+                if (ImGui.Selectable("Focus Target"))
+                {
+                    obj.FocusTarget();
+                }
+
                 // Send Tell.
                 // FIXME: This has been removed due to a lack of knowledge on sending tells
                 // to other players natively. PRs welcome.

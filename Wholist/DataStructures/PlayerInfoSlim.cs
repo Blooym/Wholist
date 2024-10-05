@@ -129,6 +129,11 @@ namespace Wholist.DataStructures
         internal readonly void Target() => TargetSystem.Instance()->Target = this.character.ToCsGameObject();
 
         /// <summary>
+        ///     Focus targets the player.
+        /// </summary>
+        internal readonly void FocusTarget() => TargetSystem.Instance()->FocusTarget = this.character.ToCsGameObject();
+
+        /// <summary>
         ///     Opens the examine window for the player.
         /// </summary>
         internal readonly void OpenExamine() => AgentInspect.Instance()->ExamineCharacter(this.character.EntityId);
