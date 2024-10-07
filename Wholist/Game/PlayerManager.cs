@@ -12,6 +12,13 @@ namespace Wholist.Game
     {
         #region Methods
 
+        internal static unsafe IOrderedEnumerable<IPlayerCharacter> GetNearbyPlayers()
+            => Services.ObjectTable
+                .Where(x => x is IPlayerCharacter).Cast<IPlayerCharacter>()
+                .Where(x => x.GameObjectId != Services.ClientState.LocalPlayer?.GameObjectId)
+                .Where(x => x.GameObjectId > 240)
+                .OrderBy(x => x.YalmDistanceX);
+
         /// <summary>
         ///     Gets nearby players from the <see cref="Dalamud.Game.ClientState.Objects.ObjectTable" /> that meet the given
         ///     criteria and turns them into <see cref="PlayerInfoSlim" />s.
@@ -20,42 +27,37 @@ namespace Wholist.Game
         /// <param name="prioritizeKnownPlayers">Whether to prioritize known players.</param>
         /// <param name="filterAfk">Whether to filter out AFK players.</param>
         /// <returns></returns>
-        internal static unsafe List<PlayerInfoSlim> GetNearbyPlayers(int maxPlayers = 100, bool filterAfk = false, bool prioritizeKnownPlayers = false)
+        internal static unsafe List<PlayerInfoSlim> GetNearbyPlayersSlim(int maxPlayers = 100, bool filterAfk = false, bool prioritizeKnownPlayers = false)
         {
             var nearbyPlayers = new List<PlayerInfoSlim>();
 
             // Get nearby players from the object table and order by them by distance to the local player
             // so that when the list is truncated, the closest players are kept.
-            var charPointers = Services.ObjectTable
-                .Where(x => x is IPlayerCharacter).Cast<IPlayerCharacter>()
-                .Where(x => x.GameObjectId != Services.ClientState.LocalPlayer?.GameObjectId)
-                .Where(x => x.GameObjectId > 240)
-                .OrderBy(x => x.YalmDistanceX);
+            var players = GetNearbyPlayers();
 
-            foreach (var charPointer in charPointers)
+            foreach (var player in players)
             {
-                var character = charPointer;
                 if (nearbyPlayers.Count >= maxPlayers)
                 {
                     break;
                 }
 
-                if (character.GameObjectId == Services.ClientState.LocalPlayer?.GameObjectId)
+                if (player.GameObjectId == Services.ClientState.LocalPlayer?.GameObjectId)
                 {
                     continue;
                 }
 
-                if (character.Level <= 3)
+                if (player.Level <= 3)
                 {
                     continue;
                 }
 
-                if (filterAfk && character.OnlineStatus.Id == (byte)OnlineStatusType.Afk)
+                if (filterAfk && player.OnlineStatus.Id == (byte)OnlineStatusType.Afk)
                 {
                     continue;
                 }
 
-                nearbyPlayers.Add(new(charPointer));
+                nearbyPlayers.Add(new(player));
             }
 
             // Filter the list alphabetically and prioritize known players if necessary.

@@ -31,11 +31,11 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// <inheritdoc cref="MapHelper.FlagAndOpenCurrentMap(Vector3, string?, MapType)" />
         internal static void FlagAndOpen(Vector3 position, string? title = null, MapType mapType = MapType.FlagMarker) => MapHelper.FlagAndOpenCurrentMap(position, title, mapType);
 
-        /// <inheritdoc cref="PlayerManager.GetNearbyPlayers" />
+        /// <inheritdoc cref="PlayerManager.GetNearbyPlayersSlim" />
         internal List<PlayerInfoSlim> GetNearbyPlayers()
         {
             var players = new List<PlayerInfoSlim>();
-            var nearbyPlayers = PlayerManager.GetNearbyPlayers(
+            var nearbyPlayers = PlayerManager.GetNearbyPlayersSlim(
                 Configuration.NearbyPlayers.MaxPlayersToShow,
                 Configuration.NearbyPlayers.FilterAfk,
                 Configuration.NearbyPlayers.PrioritizeKnown);

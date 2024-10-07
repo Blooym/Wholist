@@ -12,7 +12,11 @@ namespace Wholist.CommandHandling
         /// <summary>
         ///     All  commands to register with the <see cref="Dalamud.Game.Command.CommandManager" />, holds all references.
         /// </summary>
-        private IDalamudCommand[] commands = { new WhoCommand(), new WhoSettingsCommand() };
+        private IDalamudCommand[] commands = {
+            new WhoCommand(),
+            new WhoSettingsCommand(),
+            new RandomPlateCommand()
+        };
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="CommandManager" /> class.
