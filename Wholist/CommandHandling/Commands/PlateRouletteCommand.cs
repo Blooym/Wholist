@@ -34,7 +34,13 @@ namespace Wholist.CommandHandling.Commands
                 return;
             }
 
-            var players = PlayerManager.GetNearbyPlayers();
+            var players = PlayerManager.GetNearbyPlayers()
+                .Where(x => x.GameObjectId != Services.ClientState.LocalPlayer?.GameObjectId);
+            if (!players.Any())
+            {
+                ToastHelper.ShowErrorToast("Cannot show random adventurer plate. There are no players nearby.");
+                return;
+            }
             var r = new Random();
             players.ElementAt(r.Next(players.Count())).OpenCharaCard();
         };
