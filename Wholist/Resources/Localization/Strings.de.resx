@@ -172,10 +172,10 @@
     <value>Alle Farben zurücksetzen</value>
   </data>
   <data name="UserInterface_Settings_Colours_UsePerJobColours" xml:space="preserve">
-    <value>Use per-job colours</value>
+    <value>Verwende pro Job Farben</value>
   </data>
   <data name="UserInterface_Settings_Colours_UsePerJobColours_Description" xml:space="preserve">
-    <value>Enables setting colours for each job independently instead of using the role colours.</value>
+    <value>Aktivier das Festlegen von Farben für jeden Job unabhängig anstelle die Rollen farben zu nutzen.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers" xml:space="preserve">
     <value>Max players to show</value>
@@ -227,5 +227,17 @@
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_JobAbbreviations_Description" xml:space="preserve">
     <value>Verwende Job Abkürzungen statt ganzem Namen (z.B. "KRG" statt "Krieger")</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_MinimalMode" xml:space="preserve">
+    <value>Minimal mode</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_MinimalMode_Description" xml:space="preserve">
+    <value>Hide most elements from the window apart from the player list.</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Appearance" xml:space="preserve">
+    <value>Appearance</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Distance" xml:space="preserve">
+    <value>Distance</value>
   </data>
 </root>
