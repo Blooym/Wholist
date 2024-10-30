@@ -16,17 +16,10 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
 {
     internal sealed class NearbyPlayersLogic
     {
-
-        #region Fields
-
         /// <summary>
         ///     The search text to apply to the object table.
         /// </summary>
         internal string SearchText = string.Empty;
-
-        #endregion
-
-        #region Methods
 
         /// <inheritdoc cref="MapHelper.FlagAndOpenCurrentMap(Vector3, string?, MapType)" />
         internal static void FlagAndOpen(Vector3 position, string? title = null, MapType mapType = MapType.FlagMarker) => MapHelper.FlagAndOpenCurrentMap(position, title, mapType);
@@ -131,10 +124,6 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             _ => throw new NotImplementedException()
         };
 
-        #endregion
-
-        #region Properties
-
         /// <inheritdoc cref="PluginConfiguration" />
         internal static PluginConfiguration Configuration => Services.Configuration;
 
@@ -148,8 +137,6 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         ///     Whether or not the window should be closed when the escape key is pressed.
         /// </summary>
         internal static bool ShouldDisableEscClose => Configuration.NearbyPlayers.LockPosition;
-
-        #endregion
 
     }
 }

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using Dalamud.Game.ClientState.Objects.SubKinds;
+using FFXIVClientStructs.FFXIV.Client.Game.Character;
 using Sirensong.Game.Enums;
 using Wholist.Common;
 using Wholist.DataStructures;
@@ -10,10 +11,9 @@ namespace Wholist.Game
 {
     internal static class PlayerManager
     {
-        #region Methods
-
         internal static unsafe IOrderedEnumerable<IPlayerCharacter> GetNearbyPlayers()
             => Services.ObjectTable
+                .Where(x => !Services.BlockedCharacterHandler.IsCharacterBlocked((BattleChara*)x.Address))
                 .Where(x => x is IPlayerCharacter).Cast<IPlayerCharacter>()
                 .Where(x => x.GameObjectId != Services.ClientState.LocalPlayer?.GameObjectId)
                 .Where(x => x.GameObjectId > 240)
@@ -103,8 +103,5 @@ namespace Wholist.Game
             }
             return Services.Configuration.Colours.Name.Default;
         }
-
-        #endregion
-
     }
 }

@@ -6,9 +6,6 @@ namespace Wholist.UserInterface.Windows.Settings
 {
     internal sealed class SettingsLogic
     {
-
-        #region Methods
-
         /// <summary>
         ///     Gets the localized name of a configuration tab.
         /// </summary>
@@ -22,10 +19,6 @@ namespace Wholist.UserInterface.Windows.Settings
             _ => throw new ArgumentOutOfRangeException(nameof(tab), tab, null),
         };
 
-        #endregion
-
-        #region Enums
-
         /// <summary>
         ///     The available sidebar tabs.
         /// </summary>
@@ -36,10 +29,6 @@ namespace Wholist.UserInterface.Windows.Settings
             Behaviour
         }
 
-        #endregion
-
-        #region Properties
-
         /// <summary>
         ///     The currently selected sidebar tab.
         /// </summary>
@@ -49,8 +38,5 @@ namespace Wholist.UserInterface.Windows.Settings
         ///     Gets the plugin configuration.
         /// </summary>
         internal static PluginConfiguration Configuration { get; } = Services.Configuration;
-
-        #endregion
-
     }
 }

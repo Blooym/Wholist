@@ -8,6 +8,7 @@ using Sirensong;
 using Sirensong.Cache;
 using Sirensong.IoC;
 using Wholist.Configuration;
+using Wholist.Game;
 using Wholist.Resources.Localization;
 using Wholist.UserInterface;
 
@@ -30,6 +31,7 @@ namespace Wholist.Common
         [PluginService] internal static ICondition Condition { get; set; } = null!;
         [PluginService] internal static IPartyList PartyList { get; set; } = null!;
         [PluginService] internal static IPluginLog PluginLog { get; set; } = null!;
+        [PluginService] internal static IGameInteropProvider GameInteropProvider { get; set; } = null!;
 
         [SirenService] internal static LuminaCacheService<World> WorldCache { get; set; } = null!;
         [SirenService] internal static LuminaCacheService<ClassJob> ClassJobCache { get; set; } = null!;
@@ -42,6 +44,7 @@ namespace Wholist.Common
         // Plugin services
         internal static WindowManager WindowManager { get; private set; } = null!;
         internal static PluginConfiguration Configuration { get; private set; } = null!;
+        internal static BlockedCharacterHandler BlockedCharacterHandler { get; private set; } = null!;
 
         /// <summary>
         ///     Initializes the service class.
@@ -56,6 +59,7 @@ namespace Wholist.Common
             ServiceContainer.GetOrCreateService<LocalizationManager>();
             WindowManager = ServiceContainer.GetOrCreateService<WindowManager>();
             ServiceContainer.CreateService<CommandHandling.CommandManager>();
+            BlockedCharacterHandler = new();
         }
 
         /// <summary>
