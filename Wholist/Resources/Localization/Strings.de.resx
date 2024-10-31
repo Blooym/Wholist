@@ -268,28 +268,28 @@
     <value>Paladin</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Warrior" xml:space="preserve">
-    <value>Warrior</value>
+    <value>Krieger</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_DarkKnight" xml:space="preserve">
-    <value>Dark Knight</value>
+    <value>Dunkelritter</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Gunbreaker" xml:space="preserve">
-    <value>Gunbreaker</value>
+    <value>Revolverklinge</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_WhiteMage" xml:space="preserve">
-    <value>White Mage</value>
+    <value>Weißmagier</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Scholar" xml:space="preserve">
-    <value>Scholar</value>
+    <value>Gelehrter</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Astrologian" xml:space="preserve">
-    <value>Astrologian</value>
+    <value>Astrologe</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Sage" xml:space="preserve">
-    <value>Sage</value>
+    <value>Weiser</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Monk" xml:space="preserve">
-    <value>Monk</value>
+    <value>Mönch</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Dragoon" xml:space="preserve">
     <value>Dragoon</value>
@@ -301,34 +301,34 @@
     <value>Samurai</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Reaper" xml:space="preserve">
-    <value>Reaper</value>
+    <value>Schnitter</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Viper" xml:space="preserve">
     <value>Viper</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Bard" xml:space="preserve">
-    <value>Bard</value>
+    <value>Barde</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Machinist" xml:space="preserve">
-    <value>Machinist</value>
+    <value>Maschinist</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Dancer" xml:space="preserve">
-    <value>Dancer</value>
+    <value>Tänzer</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_BlackMage" xml:space="preserve">
-    <value>Black Mage</value>
+    <value>Schwarzmagier</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Summoner" xml:space="preserve">
-    <value>Summoner</value>
+    <value>Beschwörer</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_RedMage" xml:space="preserve">
-    <value>Red Mage</value>
+    <value>Rotmagier</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Pictomancer" xml:space="preserve">
-    <value>Pictomancer</value>
+    <value>Piktomant</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_BlueMage" xml:space="preserve">
-    <value>Blue Mage</value>
+    <value>Blaumagier</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Other" xml:space="preserve">
     <value>Sonstiges</value>
