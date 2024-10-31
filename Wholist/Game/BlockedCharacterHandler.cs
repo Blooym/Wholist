@@ -21,6 +21,10 @@ namespace Wholist.Game
 
         public BlockedCharacterHandler() => Services.GameInteropProvider.InitializeFromAttributes(this);
 
+        /// <summary>
+        ///     Whether a character or service account has been blocked by the local player.
+        /// </summary>
+        /// <exception cref="InvalidOperationException"></exception>
         public bool IsCharacterBlocked(BattleChara* chara)
         {
             if (this.getBlockResultType == null)

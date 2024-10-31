@@ -12,10 +12,10 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
     {
         internal static void Draw(SettingsLogic logic)
         {
-            SiGui.Heading("Display");
+            SiGui.Heading(Strings.UserInterface_Settings_Display_Heading);
             DrawDisplayOptions(logic);
 
-            SiGui.Heading("Colours");
+            SiGui.Heading(Strings.UserInterface_Settings_Colours_Heading);
             SiGui.TextDisabled(Strings.UserInterface_Settings_Colours_NameColours);
             DrawNameColours(logic);
             ImGui.Dummy(Spacing.SectionSpacing);
@@ -41,7 +41,7 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
         {
             TextWithDescription.Draw(Strings.UserInterface_Settings_NearbyPlayers_ShownRows, Strings.UserInterface_Settings_NearbyPlayers_ShownRows_Description);
             Checkbox.Draw(Strings.UserInterface_Settings_NearbyPlayers_JobAbbreviations, Strings.UserInterface_Settings_NearbyPlayers_JobAbbreviations_Description, ref SettingsLogic.Configuration.NearbyPlayers.UseJobAbbreviations);
-            Checkbox.Draw("Show Searchbar", "Show the searchbar from the nearby players list.", ref SettingsLogic.Configuration.NearbyPlayers.ShowSearchBar);
+            Checkbox.Draw(Strings.UserInterface_Settings_NearbyPlayers_ShowSearchbar, Strings.UserInterface_Settings_NearbyPlayers_ShowSearchbar_Description, ref SettingsLogic.Configuration.NearbyPlayers.ShowSearchBar);
         }
         private static void DrawNameColours(SettingsLogic _)
         {
@@ -85,105 +85,105 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
         private static void DrawJobColours(SettingsLogic _)
         {
             // Tanks
-            if (ColourEdit.Draw("Paladin", ref NearbyPlayersLogic.Configuration.Colours.Job.Paladin))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_Paladin, ref NearbyPlayersLogic.Configuration.Colours.Job.Paladin))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
-            if (ColourEdit.Draw("Warrior", ref NearbyPlayersLogic.Configuration.Colours.Job.Warrior))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_Warrior, ref NearbyPlayersLogic.Configuration.Colours.Job.Warrior))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
-            if (ColourEdit.Draw("Dark Knight", ref NearbyPlayersLogic.Configuration.Colours.Job.DarkKnight))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_DarkKnight, ref NearbyPlayersLogic.Configuration.Colours.Job.DarkKnight))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
-            if (ColourEdit.Draw("Gunbreaker", ref NearbyPlayersLogic.Configuration.Colours.Job.Gunbreaker))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_Gunbreaker, ref NearbyPlayersLogic.Configuration.Colours.Job.Gunbreaker))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
 
             // Healers
-            if (ColourEdit.Draw("White Mage", ref NearbyPlayersLogic.Configuration.Colours.Job.WhiteMage))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_WhiteMage, ref NearbyPlayersLogic.Configuration.Colours.Job.WhiteMage))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
-            if (ColourEdit.Draw("Scholar", ref NearbyPlayersLogic.Configuration.Colours.Job.Scholar))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_Scholar, ref NearbyPlayersLogic.Configuration.Colours.Job.Scholar))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
-            if (ColourEdit.Draw("Astrologian", ref NearbyPlayersLogic.Configuration.Colours.Job.Astrologian))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_Astrologian, ref NearbyPlayersLogic.Configuration.Colours.Job.Astrologian))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
-            if (ColourEdit.Draw("Sage", ref NearbyPlayersLogic.Configuration.Colours.Job.Sage))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_Sage, ref NearbyPlayersLogic.Configuration.Colours.Job.Sage))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
 
             // Melee DPS
-            if (ColourEdit.Draw("Monk", ref NearbyPlayersLogic.Configuration.Colours.Job.Monk))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_Monk, ref NearbyPlayersLogic.Configuration.Colours.Job.Monk))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
-            if (ColourEdit.Draw("Dragoon", ref NearbyPlayersLogic.Configuration.Colours.Job.Dragoon))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_Dragoon, ref NearbyPlayersLogic.Configuration.Colours.Job.Dragoon))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
-            if (ColourEdit.Draw("Ninja", ref NearbyPlayersLogic.Configuration.Colours.Job.Ninja))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_Ninja, ref NearbyPlayersLogic.Configuration.Colours.Job.Ninja))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
-            if (ColourEdit.Draw("Samurai", ref NearbyPlayersLogic.Configuration.Colours.Job.Samurai))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_Samurai, ref NearbyPlayersLogic.Configuration.Colours.Job.Samurai))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
-            if (ColourEdit.Draw("Reaper", ref NearbyPlayersLogic.Configuration.Colours.Job.Reaper))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_Reaper, ref NearbyPlayersLogic.Configuration.Colours.Job.Reaper))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
-            if (ColourEdit.Draw("Viper", ref NearbyPlayersLogic.Configuration.Colours.Job.Viper))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_Viper, ref NearbyPlayersLogic.Configuration.Colours.Job.Viper))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
 
             /// Ranged DPS
-            if (ColourEdit.Draw("Bard", ref NearbyPlayersLogic.Configuration.Colours.Job.Bard))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_Bard, ref NearbyPlayersLogic.Configuration.Colours.Job.Bard))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
-            if (ColourEdit.Draw("Machinist", ref NearbyPlayersLogic.Configuration.Colours.Job.Machinist))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_Machinist, ref NearbyPlayersLogic.Configuration.Colours.Job.Machinist))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
-            if (ColourEdit.Draw("Dancer", ref NearbyPlayersLogic.Configuration.Colours.Job.Dancer))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_Dancer, ref NearbyPlayersLogic.Configuration.Colours.Job.Dancer))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
 
             // Casters
-            if (ColourEdit.Draw("Black Mage", ref NearbyPlayersLogic.Configuration.Colours.Job.BlackMage))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_BlackMage, ref NearbyPlayersLogic.Configuration.Colours.Job.BlackMage))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
-            if (ColourEdit.Draw("Summoner", ref NearbyPlayersLogic.Configuration.Colours.Job.Summoner))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_Summoner, ref NearbyPlayersLogic.Configuration.Colours.Job.Summoner))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
-            if (ColourEdit.Draw("Red Mage", ref NearbyPlayersLogic.Configuration.Colours.Job.RedMage))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_RedMage, ref NearbyPlayersLogic.Configuration.Colours.Job.RedMage))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
-            if (ColourEdit.Draw("Pictomancer", ref NearbyPlayersLogic.Configuration.Colours.Job.Pictomancer))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_Pictomancer, ref NearbyPlayersLogic.Configuration.Colours.Job.Pictomancer))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
-            if (ColourEdit.Draw("Blue Mage", ref NearbyPlayersLogic.Configuration.Colours.Job.BlueMage))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_BlueMage, ref NearbyPlayersLogic.Configuration.Colours.Job.BlueMage))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }
 
             // Other
-            if (ColourEdit.Draw("Other", ref NearbyPlayersLogic.Configuration.Colours.Job.Other))
+            if (ColourEdit.Draw(Strings.UserInterface_Settings_NearbyPlayers_Job_Other, ref NearbyPlayersLogic.Configuration.Colours.Job.Other))
             {
                 NearbyPlayersLogic.Configuration.Save();
             }

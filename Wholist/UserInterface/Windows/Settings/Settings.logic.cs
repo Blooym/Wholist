@@ -1,6 +1,7 @@
 using System;
 using Wholist.Common;
 using Wholist.Configuration;
+using Wholist.Resources.Localization;
 
 namespace Wholist.UserInterface.Windows.Settings
 {
@@ -13,9 +14,9 @@ namespace Wholist.UserInterface.Windows.Settings
         /// <returns>The localized name of the tab.</returns>
         internal static string ConfigTabName(ConfigurationTabs tab) => tab switch
         {
-            ConfigurationTabs.Window => "Window",
-            ConfigurationTabs.Appearance => "Appearance",
-            ConfigurationTabs.Behaviour => "Behaviour",
+            ConfigurationTabs.Window => Strings.UserInterface_Settings_NearbyPlayers_Window,
+            ConfigurationTabs.Appearance => Strings.UserInterface_Settings_NearbyPlayers_Appearance,
+            ConfigurationTabs.Behaviour => Strings.UserInterface_Settings_NearbyPlayers_Behaviour,
             _ => throw new ArgumentOutOfRangeException(nameof(tab), tab, null),
         };
 

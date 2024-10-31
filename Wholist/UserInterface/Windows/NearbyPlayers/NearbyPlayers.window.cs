@@ -31,13 +31,13 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 new()
                 {
                     Icon = FontAwesomeIcon.Cog,
-                    ShowTooltip = () => SiGui.AddTooltip("Settings"),
+                    ShowTooltip = () => SiGui.AddTooltip(Strings.UserInterface_Settings_NearbyPlayers_SettingsTip),
                     Click = (btn) => Services.WindowManager.ToggleConfigWindow()
                 },
                 new()
                 {
                     Icon = FontAwesomeIcon.Heart,
-                    ShowTooltip = () => SiGui.AddTooltip("Donate"),
+                    ShowTooltip = () => SiGui.AddTooltip(Strings.UserInterface_Settings_NearbyPlayers_DonateTip),
                     Click = (btn) => Util.OpenLink(Constants.KoFiLink)
                 }
             ];
@@ -187,7 +187,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 }
 
                 // Focus target.
-                if (ImGui.Selectable("Focus Target"))
+                if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_FocusTarget))
                 {
                     obj.FocusTarget();
                 }

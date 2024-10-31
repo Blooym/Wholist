@@ -8,10 +8,10 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
     {
         internal static void Draw(SettingsLogic logic)
         {
-            SiGui.Heading("Visibility");
+            SiGui.Heading(Strings.UserInterface_Settings_Visibility_Heading);
             DrawVisibilityOptions(logic);
 
-            SiGui.Heading("Positional");
+            SiGui.Heading(Strings.UserInterface_Settings_Positional_Heading);
             DrawPositionalOptions(logic);
         }
 

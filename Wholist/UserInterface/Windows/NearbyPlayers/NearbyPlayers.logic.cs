@@ -127,14 +127,14 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// <inheritdoc cref="PluginConfiguration" />
         internal static PluginConfiguration Configuration => Services.Configuration;
 
-        /// <inheritdoc cref="Dalamud.Game.ClientState.Conditions.ICondition" />
+        /// <inheritdoc cref="Condition" />
         internal static ICondition Condition => Services.Condition;
 
         /// <inheritdoc cref="ClientState.IsPvP" />
         internal static bool IsPvP => Services.ClientState.IsPvP;
 
         /// <summary>
-        ///     Whether or not the window should be closed when the escape key is pressed.
+        ///     Whether the window should be closed when the escape key is pressed.
         /// </summary>
         internal static bool ShouldDisableEscClose => Configuration.NearbyPlayers.LockPosition;
 

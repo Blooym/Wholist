@@ -482,5 +482,209 @@ namespace Wholist.Resources.Localization {
                 return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Distance", resourceCulture);
             }
         }
+        
+        internal static string UserInterface_Settings_Visibility_Heading {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Visibility_Heading", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_Positional_Heading {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Positional_Heading", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_SettingsTip {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_SettingsTip", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_DonateTip {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_DonateTip", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_NearbyPlayers_Players_Submenu_FocusTarget {
+            get {
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Submenu_FocusTarget", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_Display_Heading {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_Display_Heading", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_ShowSearchbar {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_ShowSearchbar", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_ShowSearchbar_Description {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_ShowSearchbar_Description", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_Paladin {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_Paladin", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_Warrior {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_Warrior", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_DarkKnight {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_DarkKnight", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_Gunbreaker {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_Gunbreaker", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_WhiteMage {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_WhiteMage", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_Scholar {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_Scholar", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_Astrologian {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_Astrologian", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_Sage {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_Sage", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_Monk {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_Monk", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_Dragoon {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_Dragoon", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_Ninja {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_Ninja", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_Samurai {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_Samurai", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_Reaper {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_Reaper", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_Viper {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_Viper", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_Bard {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_Bard", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_Machinist {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_Machinist", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_Dancer {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_Dancer", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_BlackMage {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_BlackMage", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_Summoner {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_Summoner", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_RedMage {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_RedMage", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_Pictomancer {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_Pictomancer", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_BlueMage {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_BlueMage", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Job_Other {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Job_Other", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_LodestoneRegion {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_LodestoneRegion", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_LodestoneRegion_Description {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_LodestoneRegion_Description", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_Behaviour {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Behaviour", resourceCulture);
+            }
+        }
     }
 }

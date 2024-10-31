@@ -15,15 +15,15 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts
             switch (logic.SelectedTab)
             {
                 case SettingsLogic.ConfigurationTabs.Appearance:
-                    SiGui.Heading("Appearance");
+                    SiGui.Heading(Strings.UserInterface_Settings_NearbyPlayers_Appearance);
                     AppearanceTab.Draw(logic);
                     break;
                 case SettingsLogic.ConfigurationTabs.Window:
-                    SiGui.Heading("Window");
+                    SiGui.Heading(Strings.UserInterface_Settings_NearbyPlayers_Window);
                     WindowTab.Draw(logic);
                     break;
                 case SettingsLogic.ConfigurationTabs.Behaviour:
-                    SiGui.Heading("Behaviour");
+                    SiGui.Heading(Strings.UserInterface_Settings_NearbyPlayers_Behaviour);
                     BehaviourTab.Draw(logic);
                     break;
                 default:
