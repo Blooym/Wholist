@@ -241,10 +241,10 @@
     <value>Entfernung</value>
   </data>
   <data name="UserInterface_Settings_Visibility_Heading" xml:space="preserve">
-    <value>Visibility</value>
+    <value>Sichtbarkeit</value>
   </data>
   <data name="UserInterface_Settings_Positional_Heading" xml:space="preserve">
-    <value>Positional</value>
+    <value>Position</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_SettingsTip" xml:space="preserve">
     <value>Einstellungen</value>
@@ -253,16 +253,16 @@
     <value>Spenden</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_FocusTarget" xml:space="preserve">
-    <value>Focus Target</value>
+    <value>Fokus-Ziel</value>
   </data>
   <data name="UserInterface_Settings_Display_Heading" xml:space="preserve">
     <value>Display</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_ShowSearchbar" xml:space="preserve">
-    <value>Show Searchbar</value>
+    <value>Suchleiste einblenden</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_ShowSearchbar_Description" xml:space="preserve">
-    <value>Show the searchbar from the nearby players list.</value>
+    <value>Suchleiste in der Spieler in der Nähe Liste einblenden.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Paladin" xml:space="preserve">
     <value>Paladin</value>
@@ -334,12 +334,12 @@
     <value>Sonstiges</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LodestoneRegion" xml:space="preserve">
-    <value>Lodestone Region</value>
+    <value>Lodestone Regionen</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LodestoneRegion_Description" xml:space="preserve">
-    <value>The region to perform Lodestone player lookups in.</value>
+    <value>Die Region in der die Lodestonespielersuche durchgeführt wird.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Behaviour" xml:space="preserve">
-    <value>Behaviour</value>
+    <value>Verhalten</value>
   </data>
 </root>
