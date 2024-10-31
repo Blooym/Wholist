@@ -36,18 +36,6 @@ Due to how Wholist fetches information about nearby players from the game it is 
 
 It will also automatically hide the UI if you are partaking in Player vs Player content to prevent any competitive advantages that could come from using this plugin. This behaviour cannot be disabled to ensure competitive integrity.
 
-## Screenshots
-
-<details>
-<summary>Nearby Players Window</summary>
-<img src="./.assets/Screenshots/screenshot1.png" alt="Screenshot 1" width="50%">
-</details>
-
-<details>
-<summary>Settings Window</summary>
-<img src="./.assets/Screenshots/screenshot2.png" alt="Screenshot 2" width="65%">
-</details>
-
 ## Contributing
 
 Contributions are welcome as long as they follow Dalamud's rules for plugin creation and remain in-scope. Please use the [Commit Convention](https://github.com/Blooym/Wholist/blob/main/COMMIT_CONVENTION.md) when making commits to the repository. It is recommended to open an issue before making a pull request for a new feature to make sure it is in-scope.
