@@ -74,9 +74,6 @@
   <data name="UserInterface_Settings_Heading" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="UserInterface_Settings_NearbyPlayers_Heading" xml:space="preserve">
-    <value>Nearby Players</value>
-  </data>
   <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin" xml:space="preserve">
     <value>Open window on login</value>
   </data>
@@ -113,30 +110,6 @@
   <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin_Description" xml:space="preserve">
     <value>Automatically open the window when logging in/restarting the plugin whilst logged in.</value>
   </data>
-  <data name="UserInterface_Settings_Debug_Disclaimer" xml:space="preserve">
-    <value>The information below should be attached alongside any bug reports/support requests to help diagnose any problems you may be having, you can see a preview of the information below before copying it to your clipboard if you wish.</value>
-  </data>
-  <data name="UserInterface_Settings_Debug_Copy" xml:space="preserve">
-    <value>Copy Debug Information</value>
-  </data>
-  <data name="UserInterface_Settings_Debug_Info" xml:space="preserve">
-    <value>Information Snapshot</value>
-  </data>
-  <data name="UserInterface_Settings_Debug_Heading" xml:space="preserve">
-    <value>Debug</value>
-  </data>
-  <data name="UserInterface_Settings_Donate_Heading" xml:space="preserve">
-    <value>Donate</value>
-  </data>
-  <data name="UserInterface_Settings_Donate_Description" xml:space="preserve">
-    <value>If you like this plugin and wish to support the developer, you can do so below.</value>
-  </data>
-  <data name="UserInterface_Settings_Donate_Kofi" xml:space="preserve">
-    <value>Ko-Fi</value>
-  </data>
-  <data name="UserInterface_Settings_Donate_GitHubSponsors" xml:space="preserve">
-    <value>GitHub Sponsors</value>
-  </data>
   <data name="UserInterface_NearbyPlayers_SetChatTarget" xml:space="preserve">
     <value>Set chat target to {0}</value>
   </data>
@@ -167,9 +140,6 @@
   <data name="UserInterface_Settings_Colours_NameColours" xml:space="preserve">
     <value>Name Colours</value>
   </data>
-  <data name="UserInterface_Settings_Colours_OtherOptions" xml:space="preserve">
-    <value>Other Options</value>
-  </data>
   <data name="UserInterface_Settings_Colours_ResetAll" xml:space="preserve">
     <value>Reset colours to default</value>
   </data>
@@ -187,9 +157,6 @@
   </data>
   <data name="UserInterface_Settings_Colours_Default" xml:space="preserve">
     <value>Default</value>
-  </data>
-  <data name="UserInterface_Settings_Colours_UpdateTimeNotice_Text" xml:space="preserve">
-    <value>Please note that it may take some time for the user interface to visually reflect your colour changes.</value>
   </data>
   <data name="UserInterface_Settings_Colours_Heading" xml:space="preserve">
     <value>Colours</value>
@@ -212,9 +179,6 @@
   <data name="UserInterface_Settings_NearbyPlayers_Window" xml:space="preserve">
     <value>Window</value>
   </data>
-  <data name="UserInterface_Settings_NearbyPlayers_Filtering" xml:space="preserve">
-    <value>Filtering</value>
-  </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Lodestone" xml:space="preserve">
     <value>Search on Lodestone</value>
   </data>
@@ -229,12 +193,6 @@
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_JobAbbreviations_Description" xml:space="preserve">
     <value>Use job abbreviations instead of their full names. (e.g. "WAR" instead of "Warrior")</value>
-  </data>
-  <data name="UserInterface_Settings_NearbyPlayers_MinimalMode" xml:space="preserve">
-    <value>Minimal mode</value>
-  </data>
-  <data name="UserInterface_Settings_NearbyPlayers_MinimalMode_Description" xml:space="preserve">
-    <value>Hide most elements from the window apart from the player list.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Appearance" xml:space="preserve">
     <value>Appearance</value>

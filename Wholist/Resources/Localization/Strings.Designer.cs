@@ -147,12 +147,6 @@ namespace Wholist.Resources.Localization {
             }
         }
         
-        internal static string UserInterface_Settings_NearbyPlayers_Heading {
-            get {
-                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Heading", resourceCulture);
-            }
-        }
-        
         internal static string UserInterface_Settings_NearbyPlayers_OpenOnLogin {
             get {
                 return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_OpenOnLogin", resourceCulture);
@@ -225,54 +219,6 @@ namespace Wholist.Resources.Localization {
             }
         }
         
-        internal static string UserInterface_Settings_Debug_Disclaimer {
-            get {
-                return ResourceManager.GetString("UserInterface_Settings_Debug_Disclaimer", resourceCulture);
-            }
-        }
-        
-        internal static string UserInterface_Settings_Debug_Copy {
-            get {
-                return ResourceManager.GetString("UserInterface_Settings_Debug_Copy", resourceCulture);
-            }
-        }
-        
-        internal static string UserInterface_Settings_Debug_Info {
-            get {
-                return ResourceManager.GetString("UserInterface_Settings_Debug_Info", resourceCulture);
-            }
-        }
-        
-        internal static string UserInterface_Settings_Debug_Heading {
-            get {
-                return ResourceManager.GetString("UserInterface_Settings_Debug_Heading", resourceCulture);
-            }
-        }
-        
-        internal static string UserInterface_Settings_Donate_Heading {
-            get {
-                return ResourceManager.GetString("UserInterface_Settings_Donate_Heading", resourceCulture);
-            }
-        }
-        
-        internal static string UserInterface_Settings_Donate_Description {
-            get {
-                return ResourceManager.GetString("UserInterface_Settings_Donate_Description", resourceCulture);
-            }
-        }
-        
-        internal static string UserInterface_Settings_Donate_Kofi {
-            get {
-                return ResourceManager.GetString("UserInterface_Settings_Donate_Kofi", resourceCulture);
-            }
-        }
-        
-        internal static string UserInterface_Settings_Donate_GitHubSponsors {
-            get {
-                return ResourceManager.GetString("UserInterface_Settings_Donate_GitHubSponsors", resourceCulture);
-            }
-        }
-        
         internal static string UserInterface_NearbyPlayers_SetChatTarget {
             get {
                 return ResourceManager.GetString("UserInterface_NearbyPlayers_SetChatTarget", resourceCulture);
@@ -333,12 +279,6 @@ namespace Wholist.Resources.Localization {
             }
         }
         
-        internal static string UserInterface_Settings_Colours_OtherOptions {
-            get {
-                return ResourceManager.GetString("UserInterface_Settings_Colours_OtherOptions", resourceCulture);
-            }
-        }
-        
         internal static string UserInterface_Settings_Colours_ResetAll {
             get {
                 return ResourceManager.GetString("UserInterface_Settings_Colours_ResetAll", resourceCulture);
@@ -372,12 +312,6 @@ namespace Wholist.Resources.Localization {
         internal static string UserInterface_Settings_Colours_Default {
             get {
                 return ResourceManager.GetString("UserInterface_Settings_Colours_Default", resourceCulture);
-            }
-        }
-        
-        internal static string UserInterface_Settings_Colours_UpdateTimeNotice_Text {
-            get {
-                return ResourceManager.GetString("UserInterface_Settings_Colours_UpdateTimeNotice_Text", resourceCulture);
             }
         }
         
@@ -423,12 +357,6 @@ namespace Wholist.Resources.Localization {
             }
         }
         
-        internal static string UserInterface_Settings_NearbyPlayers_Filtering {
-            get {
-                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Filtering", resourceCulture);
-            }
-        }
-        
         internal static string UserInterface_NearbyPlayers_Players_Submenu_Lodestone {
             get {
                 return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Submenu_Lodestone", resourceCulture);
@@ -456,18 +384,6 @@ namespace Wholist.Resources.Localization {
         internal static string UserInterface_Settings_NearbyPlayers_JobAbbreviations_Description {
             get {
                 return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_JobAbbreviations_Description", resourceCulture);
-            }
-        }
-        
-        internal static string UserInterface_Settings_NearbyPlayers_MinimalMode {
-            get {
-                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_MinimalMode", resourceCulture);
-            }
-        }
-        
-        internal static string UserInterface_Settings_NearbyPlayers_MinimalMode_Description {
-            get {
-                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_MinimalMode_Description", resourceCulture);
             }
         }
         

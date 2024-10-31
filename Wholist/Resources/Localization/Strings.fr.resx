@@ -72,9 +72,6 @@
   <data name="UserInterface_Settings_Heading" xml:space="preserve">
     <value>Paramètres</value>
   </data>
-  <data name="UserInterface_Settings_NearbyPlayers_Heading" xml:space="preserve">
-    <value>Joueurs à proximité</value>
-  </data>
   <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin" xml:space="preserve">
     <value>Ouvrir la fenêtre dès la connexion</value>
   </data>
@@ -111,30 +108,6 @@
   <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin_Description" xml:space="preserve">
     <value>Ouvrir automatiquement la fenêtre lors de la connexion ou lors du redémarrage du plugin pendant la session en cours.</value>
   </data>
-  <data name="UserInterface_Settings_Debug_Disclaimer" xml:space="preserve">
-    <value>Les informations ci-dessous doivent être jointes à tous les rapports de bugs ou demandes de support afin d'aider à diagnostiquer tout problème que vous pourriez avoir, vous pouvez voir un aperçu des informations ci-dessous avant de les copier dans votre presse-papier si vous le souhaitez.</value>
-  </data>
-  <data name="UserInterface_Settings_Debug_Copy" xml:space="preserve">
-    <value>Copier les informations de débogage</value>
-  </data>
-  <data name="UserInterface_Settings_Debug_Info" xml:space="preserve">
-    <value>Capture d'information</value>
-  </data>
-  <data name="UserInterface_Settings_Debug_Heading" xml:space="preserve">
-    <value>Débogage</value>
-  </data>
-  <data name="UserInterface_Settings_Donate_Heading" xml:space="preserve">
-    <value>Faire un don</value>
-  </data>
-  <data name="UserInterface_Settings_Donate_Description" xml:space="preserve">
-    <value>Si vous aimez ce plugin et vous souhaitez soutenir la développeuse, vous pouvez le faire ci-dessous.</value>
-  </data>
-  <data name="UserInterface_Settings_Donate_Kofi" xml:space="preserve">
-    <value>Ko-Fi</value>
-  </data>
-  <data name="UserInterface_Settings_Donate_GitHubSponsors" xml:space="preserve">
-    <value>Parrains GitHub</value>
-  </data>
   <data name="UserInterface_NearbyPlayers_SetChatTarget" xml:space="preserve">
     <value>Définir la cible du chat à {0}</value>
   </data>
@@ -165,9 +138,6 @@
   <data name="UserInterface_Settings_Colours_NameColours" xml:space="preserve">
     <value>Couleurs de noms</value>
   </data>
-  <data name="UserInterface_Settings_Colours_OtherOptions" xml:space="preserve">
-    <value>Autres options</value>
-  </data>
   <data name="UserInterface_Settings_Colours_ResetAll" xml:space="preserve">
     <value>Réinitialiser toutes les couleurs</value>
   </data>
@@ -185,9 +155,6 @@
   </data>
   <data name="UserInterface_Settings_Colours_Default" xml:space="preserve">
     <value>Défaut</value>
-  </data>
-  <data name="UserInterface_Settings_Colours_UpdateTimeNotice_Text" xml:space="preserve">
-    <value>Veuillez noter que cela peut prendre un certain temps avant que l'interface d'utilisateur ne reflète vos changements de couleur.</value>
   </data>
   <data name="UserInterface_Settings_Colours_Heading" xml:space="preserve">
     <value>Couleurs</value>
@@ -210,9 +177,6 @@
   <data name="UserInterface_Settings_NearbyPlayers_Window" xml:space="preserve">
     <value>Fenêtre</value>
   </data>
-  <data name="UserInterface_Settings_NearbyPlayers_Filtering" xml:space="preserve">
-    <value>Filtrage</value>
-  </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Lodestone" xml:space="preserve">
     <value>Rechercher sur Lodestone</value>
   </data>
@@ -227,12 +191,6 @@
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_JobAbbreviations_Description" xml:space="preserve">
     <value>Utiliser les abréviations des noms de classe au lieu du nom complet. (p.ex. "GUE" au lieu de "Guerrier ")</value>
-  </data>
-  <data name="UserInterface_Settings_NearbyPlayers_MinimalMode" xml:space="preserve">
-    <value>Minimal mode</value>
-  </data>
-  <data name="UserInterface_Settings_NearbyPlayers_MinimalMode_Description" xml:space="preserve">
-    <value>Hide most elements from the window apart from the player list.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Appearance" xml:space="preserve">
     <value>Appearance</value>
