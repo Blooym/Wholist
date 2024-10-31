@@ -28,16 +28,18 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             this.SizeCondition = ImGuiCond.FirstUseEver;
             this.TitleBarButtons =
             [
-                new() {
+                new()
+                {
                     Icon = FontAwesomeIcon.Cog,
                     ShowTooltip = () => SiGui.AddTooltip("Settings"),
                     Click = (btn) => Services.WindowManager.ToggleConfigWindow()
                 },
-                new() {
+                new()
+                {
                     Icon = FontAwesomeIcon.Heart,
                     ShowTooltip = () => SiGui.AddTooltip("Donate"),
                     Click = (btn) => Util.OpenLink(Constants.KoFiLink)
-        }
+                }
             ];
         }
 
