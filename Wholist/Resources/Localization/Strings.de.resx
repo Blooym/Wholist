@@ -148,10 +148,10 @@
     <value>Aktivier das Festlegen von Farben für jeden Job unabhängig anstelle die Rollen farben zu nutzen.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers" xml:space="preserve">
-    <value>Max players to show</value>
+    <value>Maximale Spieler die angezeigt werden</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers_Description" xml:space="preserve">
-    <value>The maximum amount of players to be shown on the nearby players list.</value>
+    <value>Die maximale Anzahl an Spielern, die in der Liste der Spieler in der Nähe angezeigt werden sollen.</value>
   </data>
   <data name="UserInterface_Settings_Colours_Default" xml:space="preserve">
     <value>Standard</value>
@@ -163,10 +163,10 @@
     <value>Auf der Karte finden</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_ShownRows_Description" xml:space="preserve">
-    <value>You can change what information is shown in the Nearby Players window by right-clicking the table header.</value>
+    <value>Du kannst ändern, welche Informationen über einen Spieler in der Liste der Spieler in der Nähe angezeigt werden, indem du mit der rechten Maustaste auf die Tabellenüberschrift klicken.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_ShownRows" xml:space="preserve">
-    <value>Shown content</value>
+    <value>Angezeigte Spielerinfo</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Homeworld" xml:space="preserve">
     <value>Heimatwelt</value>

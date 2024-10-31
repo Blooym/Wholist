@@ -133,13 +133,13 @@
     <value>Other</value>
   </data>
   <data name="UserInterface_Settings_Colours_JobColours" xml:space="preserve">
-    <value>Role Colours</value>
+    <value>Job / Role Colours</value>
   </data>
   <data name="UserInterface_Settings_Colours_NameColours" xml:space="preserve">
     <value>Name Colours</value>
   </data>
   <data name="UserInterface_Settings_Colours_ResetAll" xml:space="preserve">
-    <value>Reset all colours</value>
+    <value>Reset colours to default</value>
   </data>
   <data name="UserInterface_Settings_Colours_UsePerJobColours" xml:space="preserve">
     <value>Use per-job colours</value>
@@ -148,10 +148,10 @@
     <value>Enables setting colours for each job independently instead of using the role colours.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers" xml:space="preserve">
-    <value>Max players to show</value>
+    <value>Max players shown</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers_Description" xml:space="preserve">
-    <value>The maximum amount of players to be shown on the nearby players list.</value>
+    <value>The maximum amount of players to be shown on the nearby players list at any time.</value>
   </data>
   <data name="UserInterface_Settings_Colours_Default" xml:space="preserve">
     <value>Default</value>
@@ -163,10 +163,10 @@
     <value>Find on Map</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_ShownRows_Description" xml:space="preserve">
-    <value>You can change what information is shown in the Nearby Players window by right-clicking the table header.</value>
+    <value>You can change what information is shown about a player in the nearby players list by right-clicking the table header.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_ShownRows" xml:space="preserve">
-    <value>Shown content</value>
+    <value>Shown player information</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Homeworld" xml:space="preserve">
     <value>Homeworld</value>
