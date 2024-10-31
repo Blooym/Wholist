@@ -31,28 +31,28 @@
     <value>You can't view nearby players whilst participating in PvP.</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Name" xml:space="preserve">
-    <value>キャラクター名</value>
+    <value>Name</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Company" xml:space="preserve">
-    <value>FC(略称)</value>
+    <value>Company</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Level" xml:space="preserve">
-    <value>レベル</value>
+    <value>Level</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Job" xml:space="preserve">
-    <value>クラス/ジョブ</value>
+    <value>Job</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Total" xml:space="preserve">
-    <value>合計:{0}</value>
+    <value>Total: {0}</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Heading" xml:space="preserve">
-    <value>アクションを実行:{0}</value>
+    <value>Actions for {0}</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Target" xml:space="preserve">
-    <value>ターゲット</value>
+    <value>Target</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Examine" xml:space="preserve">
-    <value>調べる</value>
+    <value>Examine</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_AdventurePlate" xml:space="preserve">
     <value>View Adventure Plate</value>
@@ -61,16 +61,16 @@
     <value>Send Tell</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Search" xml:space="preserve">
-    <value>検索...</value>
+    <value>Search...</value>
   </data>
   <data name="Windows_Settings_Title" xml:space="preserve">
-    <value>[{0}] の設定</value>
+    <value>[{0}] Settings</value>
   </data>
   <data name="Commands_WhoSettings_Help" xml:space="preserve">
     <value>Opens the plugin settings window.</value>
   </data>
   <data name="UserInterface_Settings_Heading" xml:space="preserve">
-    <value>設定</value>
+    <value>Settings</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin" xml:space="preserve">
     <value>Open window on login</value>
@@ -133,13 +133,13 @@
     <value>Other</value>
   </data>
   <data name="UserInterface_Settings_Colours_JobColours" xml:space="preserve">
-    <value>Role Colours</value>
+    <value>Job / Role Colours</value>
   </data>
   <data name="UserInterface_Settings_Colours_NameColours" xml:space="preserve">
     <value>Name Colours</value>
   </data>
   <data name="UserInterface_Settings_Colours_ResetAll" xml:space="preserve">
-    <value>Reset all colours</value>
+    <value>Reset colours to default</value>
   </data>
   <data name="UserInterface_Settings_Colours_UsePerJobColours" xml:space="preserve">
     <value>Use per-job colours</value>
@@ -148,10 +148,10 @@
     <value>Enables setting colours for each job independently instead of using the role colours.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers" xml:space="preserve">
-    <value>Max players to show</value>
+    <value>Max players shown</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers_Description" xml:space="preserve">
-    <value>The maximum amount of players to be shown on the nearby players list.</value>
+    <value>The maximum amount of players to be shown on the nearby players list at any time.</value>
   </data>
   <data name="UserInterface_Settings_Colours_Default" xml:space="preserve">
     <value>Default</value>
@@ -163,10 +163,10 @@
     <value>Find on Map</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_ShownRows_Description" xml:space="preserve">
-    <value>You can change what information is shown in the Nearby Players window by right-clicking the table header.</value>
+    <value>You can change what information is shown about a player in the nearby players list by right-clicking the table header.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_ShownRows" xml:space="preserve">
-    <value>Shown content</value>
+    <value>Shown player information</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Homeworld" xml:space="preserve">
     <value>Homeworld</value>
@@ -205,7 +205,7 @@
     <value>Positional</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_SettingsTip" xml:space="preserve">
-    <value>設定</value>
+    <value>Settings</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_DonateTip" xml:space="preserve">
     <value>Donate</value>
