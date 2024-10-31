@@ -12,11 +12,11 @@ namespace Wholist.CommandHandling
         /// <summary>
         ///     All  commands to register with the <see cref="Dalamud.Game.Command.CommandManager" />, holds all references.
         /// </summary>
-        private IDalamudCommand[] commands = {
+        private IDalamudCommand[] commands = [
             new WhoCommand(),
             new WhoSettingsCommand(),
             new RandomPlateCommand()
-        };
+        ];
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="CommandManager" /> class.
@@ -43,7 +43,7 @@ namespace Wholist.CommandHandling
             {
                 Services.Commands.RemoveHandler(command.Name);
             }
-            this.commands = Array.Empty<IDalamudCommand>();
+            this.commands = [];
 
             this.disposedValue = true;
         }

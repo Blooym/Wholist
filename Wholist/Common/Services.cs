@@ -37,9 +37,9 @@ namespace Wholist.Common
         [SirenService] internal static LuminaCacheService<ClassJob> ClassJobCache { get; set; } = null!;
 
         // Temporary Caches until rewrite
-        internal static Dictionary<uint, string> WorldNames { get; } = new();
-        internal static Dictionary<uint, string> ClassJobNames { get; } = new();
-        internal static Dictionary<uint, string> ClassJobAbbreviations { get; } = new();
+        internal static Dictionary<uint, string> WorldNames { get; } = [];
+        internal static Dictionary<uint, string> ClassJobNames { get; } = [];
+        internal static Dictionary<uint, string> ClassJobAbbreviations { get; } = [];
 
         // Plugin services
         internal static WindowManager WindowManager { get; private set; } = null!;

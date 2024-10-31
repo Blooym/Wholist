@@ -64,9 +64,9 @@ namespace Wholist.Game
             // We sort alphabetically so the list doesn't jump around when players move.
             if (prioritizeKnownPlayers)
             {
-                return nearbyPlayers.OrderByDescending(p => p.IsKnownPlayer).ThenBy(p => p.Name).ToList();
+                return [.. nearbyPlayers.OrderByDescending(p => p.IsKnownPlayer).ThenBy(p => p.Name)];
             }
-            return nearbyPlayers.OrderBy(p => p.Name).ToList();
+            return [.. nearbyPlayers.OrderBy(p => p.Name)];
         }
 
         /// <summary>

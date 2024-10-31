@@ -47,7 +47,7 @@ namespace Wholist.UserInterface
         /// <summary>
         ///     All windows to add to the windowing system, holds all references.
         /// </summary>
-        private readonly Window[] windows = { new NearbyPlayersWindow(), new SettingsWindow() };
+        private readonly Window[] windows = [new NearbyPlayersWindow(), new SettingsWindow()];
 
         /// <summary>
         ///     The windowing system.

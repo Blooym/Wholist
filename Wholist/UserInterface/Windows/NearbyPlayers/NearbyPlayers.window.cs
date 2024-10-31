@@ -26,8 +26,8 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         {
             this.Size = new Vector2(450, 400);
             this.SizeCondition = ImGuiCond.FirstUseEver;
-            this.TitleBarButtons = new()
-            {
+            this.TitleBarButtons =
+            [
                 new() {
                     Icon = FontAwesomeIcon.Cog,
                     ShowTooltip = () => SiGui.AddTooltip("Settings"),
@@ -38,7 +38,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                     ShowTooltip = () => SiGui.AddTooltip("Donate"),
                     Click = (btn) => Util.OpenLink(Constants.KoFiLink)
         }
-            };
+            ];
         }
 
         public override bool DrawConditions()
