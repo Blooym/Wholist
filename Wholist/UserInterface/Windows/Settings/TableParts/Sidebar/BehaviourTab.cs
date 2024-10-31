@@ -1,4 +1,3 @@
-using Sirensong.UserInterface;
 using Wholist.Resources.Localization;
 using Wholist.UserInterface.Windows.NearbyPlayers;
 using Wholist.UserInterface.Windows.Settings.Components;
