@@ -193,16 +193,16 @@
     <value>Utiliser les abréviations des noms de classe au lieu du nom complet. (p.ex. "GUE" au lieu de "Guerrier ")</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Appearance" xml:space="preserve">
-    <value>Appearance</value>
+    <value>Apparence</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Distance" xml:space="preserve">
     <value>Distance</value>
   </data>
   <data name="UserInterface_Settings_Visibility_Heading" xml:space="preserve">
-    <value>Visibility</value>
+    <value>Visibilité</value>
   </data>
   <data name="UserInterface_Settings_Positional_Heading" xml:space="preserve">
-    <value>Positional</value>
+    <value>Positionnement</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_SettingsTip" xml:space="preserve">
     <value>Paramètres</value>
@@ -211,93 +211,93 @@
     <value>Faire un don</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_FocusTarget" xml:space="preserve">
-    <value>Focus Target</value>
+    <value>Focaliser la cible</value>
   </data>
   <data name="UserInterface_Settings_Display_Heading" xml:space="preserve">
-    <value>Display</value>
+    <value>Affichage</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_ShowSearchbar" xml:space="preserve">
-    <value>Show Searchbar</value>
+    <value>Afficher la barre de recherche</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_ShowSearchbar_Description" xml:space="preserve">
-    <value>Show the searchbar from the nearby players list.</value>
+    <value>Afficher la barre de recherche dans la liste des joueurs à proximité.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Paladin" xml:space="preserve">
     <value>Paladin</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Warrior" xml:space="preserve">
-    <value>Warrior</value>
+    <value>Guerrier</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_DarkKnight" xml:space="preserve">
-    <value>Dark Knight</value>
+    <value>Chevalier noir</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Gunbreaker" xml:space="preserve">
-    <value>Gunbreaker</value>
+    <value>Pistosabreur</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_WhiteMage" xml:space="preserve">
-    <value>White Mage</value>
+    <value>Mage blanc</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Scholar" xml:space="preserve">
-    <value>Scholar</value>
+    <value>Érudit</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Astrologian" xml:space="preserve">
-    <value>Astrologian</value>
+    <value>Astromancien</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Sage" xml:space="preserve">
     <value>Sage</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Monk" xml:space="preserve">
-    <value>Monk</value>
+    <value>Moine</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Dragoon" xml:space="preserve">
-    <value>Dragoon</value>
+    <value>Chevalier dragon</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Ninja" xml:space="preserve">
     <value>Ninja</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Samurai" xml:space="preserve">
-    <value>Samurai</value>
+    <value>Samouraï</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Reaper" xml:space="preserve">
-    <value>Reaper</value>
+    <value>Faucheur</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Viper" xml:space="preserve">
-    <value>Viper</value>
+    <value>Rôdeur vipère</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Bard" xml:space="preserve">
-    <value>Bard</value>
+    <value>Barde</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Machinist" xml:space="preserve">
-    <value>Machinist</value>
+    <value>Machiniste</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Dancer" xml:space="preserve">
-    <value>Dancer</value>
+    <value>Danseur</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_BlackMage" xml:space="preserve">
-    <value>Black Mage</value>
+    <value>Mage noir</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Summoner" xml:space="preserve">
-    <value>Summoner</value>
+    <value>Invocateur</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_RedMage" xml:space="preserve">
-    <value>Red Mage</value>
+    <value>Mage rouge</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Pictomancer" xml:space="preserve">
-    <value>Pictomancer</value>
+    <value>Pictomancien</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_BlueMage" xml:space="preserve">
-    <value>Blue Mage</value>
+    <value>Mage bleu</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Other" xml:space="preserve">
     <value>Autre</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LodestoneRegion" xml:space="preserve">
-    <value>Lodestone Region</value>
+    <value>Région du Lodestone</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LodestoneRegion_Description" xml:space="preserve">
-    <value>The region to perform Lodestone player lookups in.</value>
+    <value>La région Lodestone dans laquelle effectuer la recherche des joueur·se·s.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Behaviour" xml:space="preserve">
-    <value>Behaviour</value>
+    <value>Comportement</value>
   </data>
 </root>
