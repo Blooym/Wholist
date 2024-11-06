@@ -300,4 +300,10 @@
   <data name="UserInterface_Settings_NearbyPlayers_Behaviour" xml:space="preserve">
     <value>Verhalten</value>
   </data>
+  <data name="Commands_WhoSettings_RandPlate" xml:space="preserve">
+    <value>Open a random nearby player adventure plate</value>
+  </data>
+  <data name="Commands_WhoSettings_RandPlate_NoPlayers" xml:space="preserve">
+    <value>Cannot show random adventurer plate. There are no players nearby.</value>
+  </data>
 </root>
