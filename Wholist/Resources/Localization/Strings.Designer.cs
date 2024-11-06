@@ -602,5 +602,17 @@ namespace Wholist.Resources.Localization {
                 return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_Behaviour", resourceCulture);
             }
         }
+        
+        internal static string Commands_WhoSettings_RandPlate {
+            get {
+                return ResourceManager.GetString("Commands_WhoSettings_RandPlate", resourceCulture);
+            }
+        }
+        
+        internal static string Commands_WhoSettings_RandPlate_NoPlayers {
+            get {
+                return ResourceManager.GetString("Commands_WhoSettings_RandPlate_NoPlayers", resourceCulture);
+            }
+        }
     }
 }

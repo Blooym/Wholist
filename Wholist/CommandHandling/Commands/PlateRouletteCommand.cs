@@ -18,7 +18,7 @@ namespace Wholist.CommandHandling.Commands
         public string Name { get; } = "/randplate";
 
         /// <inheritdoc />
-        public CommandInfo Command => new(this.OnExecute) { HelpMessage = "Open a random nearby player adventure plate", ShowInHelp = true };
+        public CommandInfo Command => new(this.OnExecute) { HelpMessage = Strings.Commands_WhoSettings_RandPlate, ShowInHelp = true };
 
         /// <inheritdoc />
         public IReadOnlyCommandInfo.HandlerDelegate OnExecute => (command, _) =>
@@ -38,7 +38,7 @@ namespace Wholist.CommandHandling.Commands
                 .Where(x => x.GameObjectId != Services.ClientState.LocalPlayer?.GameObjectId);
             if (!players.Any())
             {
-                ToastHelper.ShowErrorToast("Cannot show random adventurer plate. There are no players nearby.");
+                ToastHelper.ShowErrorToast(Strings.Commands_WhoSettings_RandPlate_NoPlayers);
                 return;
             }
             var r = new Random();
