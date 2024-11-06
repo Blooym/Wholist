@@ -300,4 +300,10 @@
   <data name="UserInterface_Settings_NearbyPlayers_Behaviour" xml:space="preserve">
     <value>Verhalten</value>
   </data>
+  <data name="Commands_WhoSettings_RandPlate" xml:space="preserve">
+    <value>Öffne eine zufällige Abenteuererplatte eines nahen Spielers</value>
+  </data>
+  <data name="Commands_WhoSettings_RandPlate_NoPlayers" xml:space="preserve">
+    <value>Kann keine zufällige Abenteuererplatte anziegen. Es sind keine Spieler in der nähe.</value>
+  </data>
 </root>
