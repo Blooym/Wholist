@@ -142,10 +142,10 @@
     <value>Restablecer todos los colores</value>
   </data>
   <data name="UserInterface_Settings_Colours_UsePerJobColours" xml:space="preserve">
-    <value>Use per-job colours</value>
+    <value>Usar colores por clase</value>
   </data>
   <data name="UserInterface_Settings_Colours_UsePerJobColours_Description" xml:space="preserve">
-    <value>Enables setting colours for each job independently instead of using the role colours.</value>
+    <value>Permite establecer colores para cada clase de forma independiente en lugar de usar los colores de rol.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers" xml:space="preserve">
     <value>Max players shown</value>
@@ -163,7 +163,7 @@
     <value>Encontrar en Mapa</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_ShownRows_Description" xml:space="preserve">
-    <value>You can change what information is shown about a player in the nearby players list by right-clicking the table header.</value>
+    <value>Puedes cambiar la información que se muestra sobre un jugador en la lista de jugadores cercanos haciendo clic derecho en el encabezado de la tabla.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_ShownRows" xml:space="preserve">
     <value>Shown player information</value>
@@ -286,7 +286,7 @@
     <value>Pictomancer</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_BlueMage" xml:space="preserve">
-    <value>Blue Mage</value>
+    <value>Mago Azul</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Other" xml:space="preserve">
     <value>Otro</value>
