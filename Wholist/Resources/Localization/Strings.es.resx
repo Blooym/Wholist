@@ -25,7 +25,7 @@
     <value>Abre la ventana de jugadores cercanos.</value>
   </data>
   <data name="Windows_Who_Title" xml:space="preserve">
-    <value>jugadores cercanos</value>
+    <value>Jugadores Cercanos</value>
   </data>
   <data name="Errors_NoUseInPvP" xml:space="preserve">
     <value>No puedes ver a los jugadores cercanos en PvP.</value>
@@ -148,10 +148,10 @@
     <value>Permite establecer colores para cada clase de forma independiente en lugar de usar los colores de rol.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers" xml:space="preserve">
-    <value>Max players shown</value>
+    <value>Jugadores máximos mostrados</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers_Description" xml:space="preserve">
-    <value>The maximum amount of players to be shown on the nearby players list at any time.</value>
+    <value>Cantidad máxima de jugadores que será mostrada en la lista de jugadores cercanos en cualquier momento.</value>
   </data>
   <data name="UserInterface_Settings_Colours_Default" xml:space="preserve">
     <value>Predeterminado</value>
@@ -193,16 +193,16 @@
     <value>Usar las abreviaciones de las clases en lugar de sus nombres completos (por ejemplo, "WAR" en lugar de "Warrior")</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Appearance" xml:space="preserve">
-    <value>Appearance</value>
+    <value>Apariencia</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Distance" xml:space="preserve">
-    <value>Distance</value>
+    <value>Distancia</value>
   </data>
   <data name="UserInterface_Settings_Visibility_Heading" xml:space="preserve">
-    <value>Visibility</value>
+    <value>Visibilidad</value>
   </data>
   <data name="UserInterface_Settings_Positional_Heading" xml:space="preserve">
-    <value>Positional</value>
+    <value>Posicional</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_SettingsTip" xml:space="preserve">
     <value>Ajustes</value>
@@ -211,16 +211,16 @@
     <value>Donar</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_FocusTarget" xml:space="preserve">
-    <value>Focus Target</value>
+    <value>Objetivo Fijado</value>
   </data>
   <data name="UserInterface_Settings_Display_Heading" xml:space="preserve">
-    <value>Display</value>
+    <value>Mostrar</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_ShowSearchbar" xml:space="preserve">
-    <value>Show Searchbar</value>
+    <value>Mostrar barra de búsqueda</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_ShowSearchbar_Description" xml:space="preserve">
-    <value>Show the searchbar from the nearby players list.</value>
+    <value>Muestra la barra de búsqueda en la lista de jugadores cercanos.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Job_Paladin" xml:space="preserve">
     <value>Paladin</value>
@@ -292,18 +292,18 @@
     <value>Otro</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LodestoneRegion" xml:space="preserve">
-    <value>Lodestone Region</value>
+    <value>Región del Jugador</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LodestoneRegion_Description" xml:space="preserve">
-    <value>The region to perform Lodestone player lookups in.</value>
+    <value>Indica la región para realizar la consulta de perfiles de jugadores en Lodestone.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Behaviour" xml:space="preserve">
-    <value>Behaviour</value>
+    <value>Comportamiento</value>
   </data>
   <data name="Commands_WhoSettings_RandPlate" xml:space="preserve">
-    <value>Open a random nearby player adventure plate</value>
+    <value>Abrir la ficha de aventurero de un jugador aleatorio cercano</value>
   </data>
   <data name="Commands_WhoSettings_RandPlate_NoPlayers" xml:space="preserve">
-    <value>Cannot show random adventurer plate. There are no players nearby.</value>
+    <value>No se puede mostrar la ficha de aventurero de un jugador aleatorio porque no hay jugadores cerca.</value>
   </data>
 </root>
