@@ -166,7 +166,7 @@
     <value>Puedes cambiar la información que se muestra sobre un jugador en la lista de jugadores cercanos haciendo clic derecho en el encabezado de la tabla.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_ShownRows" xml:space="preserve">
-    <value>Shown player information</value>
+    <value>Mostrar información del jugador</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Homeworld" xml:space="preserve">
     <value>Mundo Hogar</value>
