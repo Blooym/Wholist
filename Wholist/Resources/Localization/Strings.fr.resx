@@ -25,7 +25,7 @@
     <value>Ouvre la fenêtre des joueur·se·s à proximité.</value>
   </data>
   <data name="Windows_Who_Title" xml:space="preserve">
-    <value>joueur·se·s à proximité</value>
+    <value>Joueur·se·s à proximité</value>
   </data>
   <data name="Errors_NoUseInPvP" xml:space="preserve">
     <value>Vous ne pouvez pas voir les joueurs à proximité pendant que vous prenez part à du JcJ.</value>
@@ -301,9 +301,9 @@
     <value>Comportement</value>
   </data>
   <data name="Commands_WhoSettings_RandPlate" xml:space="preserve">
-    <value>Open a random nearby player adventure plate</value>
+    <value>Ouvrir une carte de personnage aléatoire sélectionnée parmi les joueur·se·s à proximité</value>
   </data>
   <data name="Commands_WhoSettings_RandPlate_NoPlayers" xml:space="preserve">
-    <value>Cannot show random adventurer plate. There are no players nearby.</value>
+    <value>Impossible d'afficher une carte de personnage aléatoire. Il n'y a pas de joueur·se·s à proximité.</value>
   </data>
 </root>
