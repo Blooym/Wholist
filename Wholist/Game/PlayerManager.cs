@@ -52,7 +52,7 @@ namespace Wholist.Game
                     continue;
                 }
 
-                if (filterAfk && player.OnlineStatus.Id == (byte)OnlineStatusType.Afk)
+                if (filterAfk && player.OnlineStatus.RowId == (byte)OnlineStatusType.Afk)
                 {
                     continue;
                 }

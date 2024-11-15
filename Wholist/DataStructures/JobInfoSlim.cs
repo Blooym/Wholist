@@ -1,5 +1,4 @@
 using System.Numerics;
-using Lumina.Excel.GeneratedSheets;
 using Sirensong.Extensions;
 using Sirensong.Game.Enums;
 using Wholist.Common;
@@ -18,16 +17,16 @@ namespace Wholist.DataStructures
         internal JobInfoSlim(uint cj)
         {
             // Cache lookups
-            var classJob = Services.ClassJobCache.GetRow(cj)!;
+            var classJob = Services.ClassJobSheet.GetRow(cj)!;
             if (!Services.ClassJobNames.TryGetValue(cj, out var name))
             {
-                name = classJob.Name.RawString.ToTitleCase();
+                name = classJob.Name.ToString().ToTitleCase();
                 Services.ClassJobNames.TryAdd(cj, name);
             }
             this.Name = name;
             if (!Services.ClassJobAbbreviations.TryGetValue(cj, out var abriv))
             {
-                abriv = classJob.Abbreviation.RawString.ToUpperInvariant();
+                abriv = classJob.Abbreviation.ToString().ToUpperInvariant();
                 Services.ClassJobAbbreviations.TryAdd(cj, abriv);
             }
             this.Abbreviation = abriv;

@@ -31,7 +31,7 @@ namespace Wholist.UserInterface
         /// <summary>
         ///     Handle the plugin being logged out.
         /// </summary>
-        private void OnLogout()
+        private void OnLogout(int type, int code)
         {
             ObjectDisposedException.ThrowIf(this.disposedValue, nameof(this.WindowingSystem));
 

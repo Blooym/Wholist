@@ -1,11 +1,10 @@
 using System.Collections.Generic;
-using Dalamud.Game.ClientState.Objects;
 using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
-using Lumina.Excel.GeneratedSheets;
+using Lumina.Excel;
+using Lumina.Excel.Sheets;
 using Sirensong;
-using Sirensong.Cache;
 using Sirensong.IoC;
 using Wholist.Configuration;
 using Wholist.Game;
@@ -27,14 +26,14 @@ namespace Wholist.Common
         [PluginService] internal static IClientState ClientState { get; set; } = null!;
         [PluginService] internal static IObjectTable ObjectTable { get; set; } = null!;
         [PluginService] internal static ICommandManager Commands { get; set; } = null!;
-        [PluginService] internal static ITargetManager TargetManager { get; set; } = null!;
         [PluginService] internal static ICondition Condition { get; set; } = null!;
         [PluginService] internal static IPartyList PartyList { get; set; } = null!;
         [PluginService] internal static IPluginLog PluginLog { get; set; } = null!;
         [PluginService] internal static IGameInteropProvider GameInteropProvider { get; set; } = null!;
+        [PluginService] internal static IDataManager DataManager { get; set; } = null!;
 
-        [SirenService] internal static LuminaCacheService<World> WorldCache { get; set; } = null!;
-        [SirenService] internal static LuminaCacheService<ClassJob> ClassJobCache { get; set; } = null!;
+        internal static ExcelSheet<World> WorldSheet { get; set; } = null!;
+        internal static ExcelSheet<ClassJob> ClassJobSheet { get; set; } = null!;
 
         // Temporary Caches until rewrite
         internal static Dictionary<uint, string> WorldNames { get; } = [];
@@ -60,6 +59,8 @@ namespace Wholist.Common
             WindowManager = ServiceContainer.GetOrCreateService<WindowManager>();
             ServiceContainer.CreateService<CommandHandling.CommandManager>();
             BlockedCharacterHandler = new();
+            WorldSheet = DataManager.GetExcelSheet<World>();
+            ClassJobSheet = DataManager.GetExcelSheet<ClassJob>();
         }
 
         /// <summary>

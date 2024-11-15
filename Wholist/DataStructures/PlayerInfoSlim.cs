@@ -41,7 +41,7 @@ namespace Wholist.DataStructures
         /// <summary>
         ///     The job information of the player.
         /// </summary>
-        internal readonly JobInfoSlim Job => new(this.character.ClassJob.Id);
+        internal readonly JobInfoSlim Job => new(this.character.ClassJob.RowId);
 
         /// <summary>
         ///     The company tag of the player.
@@ -65,12 +65,12 @@ namespace Wholist.DataStructures
         {
             get
             {
-                if (Services.WorldNames.TryGetValue(this.character.HomeWorld.Id, out var homeName))
+                if (Services.WorldNames.TryGetValue(this.character.HomeWorld.RowId, out var homeName))
                 {
                     return homeName;
                 }
-                homeName = Services.WorldCache.GetRow(this.character.HomeWorld.Id)!.Name.RawString.ToTitleCase();
-                Services.WorldNames.TryAdd(this.character.HomeWorld.Id, homeName);
+                homeName = Services.WorldSheet.GetRow(this.character.HomeWorld.RowId)!.Name.ToString().ToTitleCase();
+                Services.WorldNames.TryAdd(this.character.HomeWorld.RowId, homeName);
                 return homeName;
             }
         }
