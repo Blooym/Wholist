@@ -55,7 +55,7 @@
     <value>Examinar</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_AdventurePlate" xml:space="preserve">
-    <value>Ver Placa de Aventurero</value>
+    <value>Ver placa de aventurero</value>
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_Tell" xml:space="preserve">
     <value>Mandar mensaje privado</value>
