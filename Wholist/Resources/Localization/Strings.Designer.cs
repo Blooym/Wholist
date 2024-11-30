@@ -614,5 +614,11 @@ namespace Wholist.Resources.Localization {
                 return ResourceManager.GetString("Commands_WhoSettings_RandPlate_NoPlayers", resourceCulture);
             }
         }
+        
+        internal static string UserInterface_NearbyPlayers_Players_Submenu_AddToBlacklist {
+            get {
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Submenu_AddToBlacklist", resourceCulture);
+            }
+        }
     }
 }

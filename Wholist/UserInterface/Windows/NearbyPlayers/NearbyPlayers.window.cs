@@ -202,7 +202,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 }
 
                 // Add to blacklist.
-                if (ImGui.Selectable("Add to blacklist"))
+                if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_AddToBlacklist))
                 {
                     this.logic.PromptUserBlacklist(obj.Name, obj.HomeWorld);
                 }
