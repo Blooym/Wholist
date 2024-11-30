@@ -1,6 +1,4 @@
 using System;
-using Wholist.Common;
-using Wholist.Configuration;
 using Wholist.Resources.Localization;
 
 namespace Wholist.UserInterface.Windows.Settings
@@ -34,10 +32,5 @@ namespace Wholist.UserInterface.Windows.Settings
         ///     The currently selected sidebar tab.
         /// </summary>
         internal ConfigurationTabs SelectedTab = ConfigurationTabs.Appearance;
-
-        /// <summary>
-        ///     Gets the plugin configuration.
-        /// </summary>
-        internal static PluginConfiguration Configuration { get; } = Services.Configuration;
     }
 }

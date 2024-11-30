@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Numerics;
 using Dalamud.Game.ClientState.Conditions;
@@ -14,7 +15,7 @@ using Wholist.Resources.Localization;
 
 namespace Wholist.UserInterface.Windows.NearbyPlayers
 {
-    internal sealed class NearbyPlayersWindow : Window
+    internal sealed class NearbyPlayersWindow : Window, IDisposable
     {
         /// <inheritdoc cref="NearbyPlayersLogic" />
         private readonly NearbyPlayersLogic logic = new();
@@ -43,14 +44,16 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             ];
         }
 
+        public void Dispose() => this.logic.Dispose();
+
         public override bool DrawConditions()
         {
-            if (NearbyPlayersLogic.Configuration.NearbyPlayers.HideInCombat && NearbyPlayersLogic.Condition[ConditionFlag.InCombat])
+            if (Services.Configuration.NearbyPlayers.HideInCombat && Services.Condition[ConditionFlag.InCombat])
             {
                 return false;
             }
 
-            if (NearbyPlayersLogic.Configuration.NearbyPlayers.HideInInstance && (ConditionHelper.IsBoundByDuty() || ConditionHelper.IsInIslandSanctuary()))
+            if (Services.Configuration.NearbyPlayers.HideInInstance && (ConditionHelper.IsBoundByDuty() || ConditionHelper.IsInIslandSanctuary()))
             {
                 return false;
             }
@@ -72,16 +75,16 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             this.RespectCloseHotkey = !NearbyPlayersLogic.ShouldDisableEscClose;
 
             var playersToDraw = this.logic.GetNearbyPlayers();
-            var childSize = NearbyPlayersLogic.Configuration.NearbyPlayers.ShowSearchBar ? new Vector2(0, -55) : new Vector2(0, -25);
+            var childSize = Services.Configuration.NearbyPlayers.ShowSearchBar ? new Vector2(0, -55) : new Vector2(0, -25);
 
             if (ImGui.BeginChild("##NearbyChild", childSize))
             {
-                DrawNearbyPlayersTable(playersToDraw);
+                this.DrawNearbyPlayersTable(playersToDraw);
             }
             ImGui.EndChild();
 
             // Draw the search box & total players text if not in minimal mode
-            if (NearbyPlayersLogic.Configuration.NearbyPlayers.ShowSearchBar)
+            if (Services.Configuration.NearbyPlayers.ShowSearchBar)
             {
                 DrawSearchBar(ref this.logic.SearchText);
             }
@@ -93,7 +96,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         ///     Draws the nearby players table.
         /// </summary>
         /// <param name="playersToDraw"></param>
-        private static void DrawNearbyPlayersTable(List<PlayerInfoSlim> playersToDraw)
+        private void DrawNearbyPlayersTable(List<PlayerInfoSlim> playersToDraw)
         {
             if (ImGui.BeginTable("##NearbyTable", 6, ImGuiTableFlags.ScrollY | ImGuiTableFlags.Borders | ImGuiTableFlags.Hideable | ImGuiTableFlags.Reorderable | ImGuiTableFlags.Resizable))
             {
@@ -106,7 +109,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 ImGui.TableSetupScrollFreeze(0, 1);
                 ImGui.TableHeadersRow();
 
-                ImGuiClip.ClippedDraw(playersToDraw, DrawPlayer, ImGui.GetTextLineHeightWithSpacing());
+                ImGuiClip.ClippedDraw(playersToDraw, this.DrawPlayer, ImGui.GetTextLineHeightWithSpacing());
 
                 ImGui.EndTable();
             }
@@ -126,13 +129,13 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         ///     Draws a player in the table.
         /// </summary>
         /// <param name="obj"></param>
-        private static void DrawPlayer(PlayerInfoSlim obj)
+        private void DrawPlayer(PlayerInfoSlim obj)
         {
             ImGui.TableNextColumn();
 
             // Name.
             SiGui.TextColoured(obj.NameColour, obj.Name);
-            DrawPlayerContextMenu(obj);
+            this.DrawPlayerContextMenu(obj);
             ImGui.TableNextColumn();
 
             // Job.
@@ -161,7 +164,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         ///     Draws the context menu for a player.
         /// </summary>
         /// <param name="obj"></param>
-        private static void DrawPlayerContextMenu(PlayerInfoSlim obj)
+        private void DrawPlayerContextMenu(PlayerInfoSlim obj)
         {
             if (ImGui.BeginPopupContextItem($"{obj.Name}{obj.HomeWorld}##WholistPopContext"))
             {
@@ -192,15 +195,17 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                     obj.FocusTarget();
                 }
 
-                // Send Tell.
-                // FIXME: This has been removed due to a lack of knowledge on sending tells
-                // to other players natively. PRs welcome.
-                // ImGui.BeginDisabled();
-                // if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_Tell))
-                // {
-                // NearbyPlayersLogic.SetChatTellTarget(obj.Name, obj.HomeWorld);
-                // }
-                // ImGui.EndDisabled();
+                // Set tell target
+                if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_Tell))
+                {
+                    NearbyPlayersLogic.SetChatTellTarget(obj.Name, obj.HomeWorld);
+                }
+
+                // Add to blacklist.
+                if (ImGui.Selectable("Add to blacklist"))
+                {
+                    this.logic.PromptUserBlacklist(obj.Name, obj.HomeWorld);
+                }
 
                 // Find on Map.
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap))

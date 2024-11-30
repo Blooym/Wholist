@@ -52,7 +52,6 @@ namespace Wholist.Common
         {
             SirenCore.InjectServices<Services>();
             pluginInterface.Create<Services>();
-            BetterLog.Debug("Initializing services.");
 
             Configuration = PluginInterface.GetPluginConfig() as PluginConfiguration ?? new PluginConfiguration();
             ServiceContainer.GetOrCreateService<LocalizationManager>();

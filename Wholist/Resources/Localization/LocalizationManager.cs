@@ -37,12 +37,10 @@ namespace Wholist.Resources.Localization
         {
             try
             {
-                BetterLog.Information($"Setting up localization for {language}");
                 Strings.Culture = new CultureInfo(language);
             }
-            catch (Exception e)
+            catch
             {
-                BetterLog.Error($"Failed to set language to {language}: {e.Message}");
             }
         }
     }

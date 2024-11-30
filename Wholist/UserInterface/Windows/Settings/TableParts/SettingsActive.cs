@@ -16,15 +16,15 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts
             {
                 case SettingsLogic.ConfigurationTabs.Appearance:
                     SiGui.Heading(Strings.UserInterface_Settings_NearbyPlayers_Appearance);
-                    AppearanceTab.Draw(logic);
+                    AppearanceTab.Draw();
                     break;
                 case SettingsLogic.ConfigurationTabs.Window:
                     SiGui.Heading(Strings.UserInterface_Settings_NearbyPlayers_Window);
-                    WindowTab.Draw(logic);
+                    WindowTab.Draw();
                     break;
                 case SettingsLogic.ConfigurationTabs.Behaviour:
                     SiGui.Heading(Strings.UserInterface_Settings_NearbyPlayers_Behaviour);
-                    BehaviourTab.Draw(logic);
+                    BehaviourTab.Draw();
                     break;
                 default:
                     SiGui.TextDisabledWrapped(Strings.UserInterface_Settings_UnknownTab);
