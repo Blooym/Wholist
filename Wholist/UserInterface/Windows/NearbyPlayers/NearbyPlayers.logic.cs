@@ -125,7 +125,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// <param name="homeworldName">The homeworld name of the player.</param>
         internal static unsafe void SetChatTellTarget(string name, string homeworld)
         {
-            UIModule.Instance()->ProcessChatBoxEntry(Utf8String.FromString($"/tell \"{name}@{homeworld}\""));
+            UIModule.Instance()->ProcessChatBoxEntry(Utf8String.FromString($"/tell {name}@{homeworld}"));
             ChatHelper.Print(Strings.UserInterface_NearbyPlayers_SetChatTarget.Format($"{name}@{homeworld}"));
             UIGlobals.PlaySoundEffect((uint)SoundEffect.Se16, 0, 0, 0);
         }
