@@ -306,4 +306,7 @@
   <data name="Commands_WhoSettings_RandPlate_NoPlayers" xml:space="preserve">
     <value>Impossible d'afficher une carte de personnage aléatoire. Il n'y a pas de joueur·se·s à proximité.</value>
   </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_AddToBlacklist" xml:space="preserve">
+    <value>Add to Blacklist</value>
+  </data>
 </root>
