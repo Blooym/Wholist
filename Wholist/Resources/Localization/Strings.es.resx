@@ -306,4 +306,7 @@
   <data name="Commands_WhoSettings_RandPlate_NoPlayers" xml:space="preserve">
     <value>No se puede mostrar la ficha de aventurero de un jugador aleatorio porque no hay jugadores cerca.</value>
   </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_AddToBlacklist" xml:space="preserve">
+    <value>Add to Blacklist</value>
+  </data>
 </root>
