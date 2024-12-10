@@ -306,4 +306,7 @@
   <data name="Commands_WhoSettings_RandPlate_NoPlayers" xml:space="preserve">
     <value>Kann keine zufällige Abenteuererplatte anziegen. Es sind keine Spieler in der nähe.</value>
   </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_AddToBlacklist" xml:space="preserve">
+    <value>Add to Blacklist</value>
+  </data>
 </root>
