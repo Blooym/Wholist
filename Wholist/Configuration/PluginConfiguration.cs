@@ -47,7 +47,7 @@ namespace Wholist.Configuration
             }
 
             /// <summary>
-            ///     If the plugin should hide AFK players from the list.
+            ///     Whether to hide AFK players from the list.
             /// </summary>
             public bool FilterAfk;
 
@@ -82,19 +82,24 @@ namespace Wholist.Configuration
             public bool OpenOnLogin;
 
             /// <summary>
-            ///     Whether or not the list should prioritize known players.
+            ///     Whether the list should prioritize known players.
             /// </summary>
             public bool PrioritizeKnown = true;
 
             /// <summary>
-            ///     Whether or not the list should use class abbreviations instead of full names.
+            ///     Whether the list should use class abbreviations instead of full names.
             /// </summary>
             public bool UseJobAbbreviations;
 
             /// <summary>
-            ///     Whether or not to show the search bar from the window.
+            ///     Whether to show the search bar from the window.
             /// </summary>
             public bool ShowSearchBar = true;
+
+            /// <summary>
+            ///     Whether to hide blocked players from the list.
+            /// </summary>
+            public bool FilterBlockedPlayers = true;
 
             /// <summary>
             ///     The region to perform a lodestone player search lookup on.

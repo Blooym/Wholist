@@ -13,7 +13,7 @@ namespace Wholist.Game
     {
         internal static unsafe IOrderedEnumerable<IPlayerCharacter> GetNearbyPlayers()
             => Services.ObjectTable
-                .Where(x => !Services.BlockedCharacterHandler.IsCharacterBlocked((BattleChara*)x.Address))
+                .Where(x => x.IsValid() && !Services.BlockedCharacterHandler.IsCharacterBlocked((BattleChara*)x.Address))
                 .Where(x => x is IPlayerCharacter).Cast<IPlayerCharacter>()
                 .Where(x => x.GameObjectId != Services.ClientState.LocalPlayer?.GameObjectId)
                 .Where(x => x.GameObjectId > 240)

@@ -92,17 +92,17 @@ namespace Wholist.DataStructures
         }
 
         /// <summary>
-        ///     Whether or not the player is a friend of the local player.
+        ///     Whether the player is a friend of the local player.
         /// </summary>
         internal readonly bool IsFriend => this.character.ToCsPlayerCharacter()->IsFriend;
 
         /// <summary>
-        ///     Whether or not the player is in the local player's party.
+        ///     Whether the player is in the local player's party.
         /// </summary>
         internal readonly bool IsInParty => this.character.ToCsPlayerCharacter()->IsPartyMember;
 
         /// <summary>
-        ///     Whether or not the player is known to the local player (i.e. in party or friend).
+        ///     Whether the player is known to the local player (i.e. in party or friend).
         /// </summary>
         internal readonly bool IsKnownPlayer => this.IsInParty || this.IsFriend;
 
