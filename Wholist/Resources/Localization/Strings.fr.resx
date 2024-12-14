@@ -22,7 +22,7 @@
     </value>
   </resheader>
   <data name="Commands_Who_Help" xml:space="preserve">
-    <value>Ouvre la fenêtre des joueur·se·s à proximité.</value>
+    <value>Ouvre la fenêtre des joueurs à proximité.</value>
   </data>
   <data name="Windows_Who_Title" xml:space="preserve">
     <value>Joueur·se·s à proximité</value>
@@ -305,5 +305,8 @@
   </data>
   <data name="Commands_WhoSettings_RandPlate_NoPlayers" xml:space="preserve">
     <value>Impossible d'afficher une carte de personnage aléatoire. Il n'y a pas de joueur·se·s à proximité.</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_AddToBlacklist" xml:space="preserve">
+    <value>Ajouter à la liste noire</value>
   </data>
 </root>
