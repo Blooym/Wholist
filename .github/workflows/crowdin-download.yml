@@ -1,12 +1,12 @@
 name: Crowdin Action
 
 on:
-  workflow_dispatch: 
-  push:
-    branches: [ main ]
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * 1"
 
 jobs:
-  synchronize-with-crowdin:
+  download-from-crowdin:
     runs-on: ubuntu-latest
     permissions: 
       contents: write
@@ -18,7 +18,8 @@ jobs:
       - name: crowdin action
         uses: crowdin/github-action@v2
         with:
-          upload_sources: true
+          upload_sources: false
+          upload_translations: false
           download_translations: true
           localization_branch_name: l10n_crowdin_translations
           create_pull_request: true
