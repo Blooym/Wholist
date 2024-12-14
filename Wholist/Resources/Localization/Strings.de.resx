@@ -91,7 +91,7 @@
     <value>Fenster-Größenänderung deaktivieren</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description" xml:space="preserve">
-    <value>Entferne AFK-Spieler aus der Spielerliste in der Nähe.</value>
+    <value>Entferne AFK-Spieler in der Nähe aus der Spielerliste.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInCombat_Description" xml:space="preserve">
     <value>Fenster im Kampf automatisch ausblenden.</value>
@@ -308,5 +308,11 @@
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_AddToBlacklist" xml:space="preserve">
     <value>Add to Blacklist</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_FilterBlockedPlayers" xml:space="preserve">
+    <value>Geblockte Spieler ausblenden</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_FilterBlockedPlayers_Description" xml:space="preserve">
+    <value>Entferne geblockte Spieler in der Nähe aus der Spielerliste.</value>
   </data>
 </root>
