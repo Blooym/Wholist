@@ -20,7 +20,7 @@ jobs:
         with:
           upload_sources: false
           upload_translations: false
-          download_source: false
+          download_sources: false
           download_translations: true
           import_eq_suggestions: true
           skip_untranslated_strings: true

@@ -1,6 +1,8 @@
 project_id_env: CROWDIN_PROJECT_ID
 api_token_env: CROWDIN_PERSONAL_TOKEN
 preserve_hierarchy: true
+commit_message: 'chore(l10n): translations updates for %original_file_name% (%language%) [skip ci]'
+append_commit_message: 1
 files:
   - source: /Wholist/Resources/Localization/Strings.resx
     translation: /%original_path%/Strings.%two_letters_code%.resx
