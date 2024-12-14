@@ -26,7 +26,7 @@ jobs:
           skip_untranslated_strings: true
           localization_branch_name: l10n_crowdin_translations
           create_pull_request: true
-          commit_message: "chore(i18n): translation updates for %original_file_name% (%language%) [skip ci]"
+          commit_message: "chore(i18n): translation updates [skip ci]"
           pull_request_title: 'chore(i18n): New Crowdin Translations [skip ci]'
           pull_request_body: 'New crowdin translations imported from the GitHub action.'
           pull_request_base_branch_name: 'main'
