@@ -1,1 +1,0 @@
-⚠️ Don't install the plugin from here! Use the Dalamud Plugin Installer instead.

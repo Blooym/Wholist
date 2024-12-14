@@ -4,7 +4,6 @@ updates:
     directory: "/Wholist"
     schedule:
       interval: "monthly"
-
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
