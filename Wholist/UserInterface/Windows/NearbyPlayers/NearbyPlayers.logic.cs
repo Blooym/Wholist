@@ -142,34 +142,6 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         }
 
         /// <summary>
-        ///     Applies the current flag configuration to the window.
-        /// </summary>
-        /// <param name="currentFlags">The current flags.</param>
-        /// <returns>The adjusted flags.</returns>
-        internal static ImGuiWindowFlags ApplyFlagConfiguration(ImGuiWindowFlags currentFlags)
-        {
-            if (Services.Configuration.NearbyPlayers.LockPosition)
-            {
-                currentFlags |= ImGuiWindowFlags.NoMove;
-            }
-            else
-            {
-                currentFlags &= ~ImGuiWindowFlags.NoMove;
-            }
-
-            if (Services.Configuration.NearbyPlayers.LockSize)
-            {
-                currentFlags |= ImGuiWindowFlags.NoResize;
-            }
-            else
-            {
-                currentFlags &= ~ImGuiWindowFlags.NoResize;
-            }
-
-            return currentFlags;
-        }
-
-        /// <summary>
         ///     Gets the job name of the given player based on the current configuration.
         /// </summary>
         /// <param name="job">The job of the player.</param>
@@ -190,10 +162,5 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         };
 
         internal static bool IsPvP => Services.ClientState.IsPvP;
-
-        /// <summary>
-        ///     Whether the window should be closed when the escape key is pressed.
-        /// </summary>
-        internal static bool ShouldDisableEscClose => Services.Configuration.NearbyPlayers.LockPosition;
     }
 }

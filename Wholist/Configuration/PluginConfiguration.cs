@@ -62,16 +62,6 @@ namespace Wholist.Configuration
             public bool HideInInstance;
 
             /// <summary>
-            ///     Locks the position of the window.
-            /// </summary>
-            public bool LockPosition;
-
-            /// <summary>
-            ///     Whether to lock the size of the window.
-            /// </summary>
-            public bool LockSize;
-
-            /// <summary>
             ///     The maximum number of players to show in the list.
             /// </summary>
             public int MaxPlayersToShow = 100;

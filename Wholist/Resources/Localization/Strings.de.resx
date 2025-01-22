@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
     <xsd:element name="root" msdata:IsDataSet="true">
 
     </xsd:element>
@@ -12,12 +13,14 @@
     <value>1.3</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0,
+      Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0,
+      Culture=neutral,
       PublicKeyToken=b77a5c561934e089
     </value>
   </resheader>
@@ -87,10 +90,8 @@
   <data name="UserInterface_Settings_NearbyPlayers_LockPosition" xml:space="preserve">
     <value>Fensterverschiebung deaktivieren</value>
   </data>
-  <data name="UserInterface_Settings_NearbyPlayers_LockSize" xml:space="preserve">
-    <value>Fenster-Größenänderung deaktivieren</value>
-  </data>
-  <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description" xml:space="preserve">
+  <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description"
+    xml:space="preserve">
     <value>Entferne AFK-Spieler in der Nähe aus der Spielerliste.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInCombat_Description" xml:space="preserve">
@@ -101,9 +102,6 @@
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_LockPosition_Description" xml:space="preserve">
     <value>Verhindert das Verschieben des Fensters.</value>
-  </data>
-  <data name="UserInterface_Settings_NearbyPlayers_LockSize_Description" xml:space="preserve">
-    <value>Verhindert die Größenänderung des Fensters.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin_Description" xml:space="preserve">
     <value>Beim Anmelden/Neustart des Plugins automatisch das Fenster öffnen.</value>
@@ -189,7 +187,8 @@
   <data name="UserInterface_Settings_NearbyPlayers_JobAbbreviations" xml:space="preserve">
     <value>Verwende Job Abkürzungen</value>
   </data>
-  <data name="UserInterface_Settings_NearbyPlayers_JobAbbreviations_Description" xml:space="preserve">
+  <data name="UserInterface_Settings_NearbyPlayers_JobAbbreviations_Description"
+    xml:space="preserve">
     <value>Verwende Job Abkürzungen statt ganzem Namen (z.B. "KRG" statt "Krieger")</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Appearance" xml:space="preserve">
@@ -309,7 +308,8 @@
   <data name="UserInterface_Settings_NearbyPlayers_FilterBlockedPlayers" xml:space="preserve">
     <value>Geblockte Spieler ausblenden</value>
   </data>
-  <data name="UserInterface_Settings_NearbyPlayers_FilterBlockedPlayers_Description" xml:space="preserve">
+  <data name="UserInterface_Settings_NearbyPlayers_FilterBlockedPlayers_Description"
+    xml:space="preserve">
     <value>Entferne geblockte Spieler in der Nähe aus der Spielerliste.</value>
   </data>
 </root>

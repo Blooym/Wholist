@@ -177,12 +177,6 @@ namespace Wholist.Resources.Localization {
             }
         }
         
-        internal static string UserInterface_Settings_NearbyPlayers_LockSize {
-            get {
-                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_LockSize", resourceCulture);
-            }
-        }
-        
         internal static string UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description {
             get {
                 return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description", resourceCulture);
@@ -204,12 +198,6 @@ namespace Wholist.Resources.Localization {
         internal static string UserInterface_Settings_NearbyPlayers_LockPosition_Description {
             get {
                 return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_LockPosition_Description", resourceCulture);
-            }
-        }
-        
-        internal static string UserInterface_Settings_NearbyPlayers_LockSize_Description {
-            get {
-                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_LockSize_Description", resourceCulture);
             }
         }
         

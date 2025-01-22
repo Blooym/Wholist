@@ -71,9 +71,6 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// </summary>
         public override void Draw()
         {
-            this.Flags = NearbyPlayersLogic.ApplyFlagConfiguration(this.Flags);
-            this.RespectCloseHotkey = !NearbyPlayersLogic.ShouldDisableEscClose;
-
             var playersToDraw = this.logic.GetNearbyPlayers();
             var childSize = Services.Configuration.NearbyPlayers.ShowSearchBar ? new Vector2(0, -55) : new Vector2(0, -25);
 
