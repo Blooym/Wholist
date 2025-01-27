@@ -12,13 +12,299 @@
     <value>1.3</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+    <value>System.Resources.ResXResourceReader,
+      System.Windows.Forms,Version=2.0.0.0,Culture=neutral,PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+    <value>System.Resources.ResXResourceWriter,
+      System.Windows.Forms,Version=2.0.0.0,Culture=neutral,PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Commands_Who_Help" xml:space="preserve">
+    <value>打开附近玩家窗口。</value>
+  </data>
+  <data name="Windows_Who_Title" xml:space="preserve">
+    <value>附近玩家</value>
+  </data>
+  <data name="Errors_NoUseInPvP" xml:space="preserve">
+    <value>参与PvP时无法查看附近玩家。</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Company" xml:space="preserve">
+    <value>部队</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Level" xml:space="preserve">
+    <value>等级</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Job" xml:space="preserve">
+    <value>职业</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Total" xml:space="preserve">
+    <value>总计：{0}</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_Heading" xml:space="preserve">
+    <value>对 {0} 使用动作</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_Target" xml:space="preserve">
+    <value>目标</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_Examine" xml:space="preserve">
+    <value>调查</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_AdventurePlate" xml:space="preserve">
+    <value>查看冒险者铭牌</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_Tell" xml:space="preserve">
+    <value>发送悄悄话</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Search" xml:space="preserve">
+    <value>搜索...</value>
+  </data>
+  <data name="Windows_Settings_Title" xml:space="preserve">
+    <value>[{0}] 设置</value>
+  </data>
+  <data name="Commands_WhoSettings_Help" xml:space="preserve">
+    <value>打开插件设置窗口</value>
+  </data>
+  <data name="UserInterface_Settings_Heading" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin" xml:space="preserve">
+    <value>登录时打开窗口</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_HideInCombat" xml:space="preserve">
+    <value>战斗中隐藏窗口</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_HideInInstance" xml:space="preserve">
+    <value>副本中隐藏窗口</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers" xml:space="preserve">
+    <value>隐藏离开状态的玩家</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_LockPosition" xml:space="preserve">
+    <value>禁止窗口移动</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description" xml:space="preserve">
+    <value>从附近玩家列表中移除离开状态的玩家。</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_HideInCombat_Description" xml:space="preserve">
+    <value>在战斗中自动隐藏窗口。</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_HideInInstance_Description" xml:space="preserve">
+    <value>在副本中自动隐藏窗口。</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_LockPosition_Description" xml:space="preserve">
+    <value>防止窗口被移动。</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin_Description" xml:space="preserve">
+    <value>登录/重启插件时自动打开窗口。</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_SetChatTarget" xml:space="preserve">
+    <value>将聊天对象设置为 {0}</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_Friend" xml:space="preserve">
+    <value>好友</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_Party" xml:space="preserve">
+    <value>队友</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_MeleeDPS" xml:space="preserve">
+    <value>近战DPS</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_RangedDPS" xml:space="preserve">
+    <value>远程DPS</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_Healer" xml:space="preserve">
+    <value>治疗职业</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_Tank" xml:space="preserve">
+    <value>防护职业</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_Other" xml:space="preserve">
+    <value>其他</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_JobColours" xml:space="preserve">
+    <value>职业/职能颜色</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_NameColours" xml:space="preserve">
+    <value>名称颜色</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_ResetAll" xml:space="preserve">
+    <value>将颜色重置为默认值</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_UsePerJobColours" xml:space="preserve">
+    <value>为单独的职业设置颜色</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_UsePerJobColours_Description" xml:space="preserve">
+    <value>允许为每个职业独立设置颜色，而不是使用职能颜色。</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers" xml:space="preserve">
+    <value>最大显示玩家数</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_MaxPlayers_Description" xml:space="preserve">
+    <value>实时显示在附近玩家列表中的最大玩家数量。</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_Default" xml:space="preserve">
+    <value>默认</value>
+  </data>
+  <data name="UserInterface_Settings_Colours_Heading" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap" xml:space="preserve">
+    <value>在地图上查找</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_ShownRows_Description" xml:space="preserve">
+    <value>你可以通过右键单击表头来更改附近玩家列表中显示的玩家信息。</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_ShownRows" xml:space="preserve">
+    <value>显示玩家信息</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Homeworld" xml:space="preserve">
+    <value>原始服务器</value>
+  </data>
+  <data name="UserInterface_Settings_UnknownTab" xml:space="preserve">
+    <value>选择了未知标签</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Window" xml:space="preserve">
+    <value>窗口</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_Lodestone" xml:space="preserve">
+    <value>在 Lodestone 上搜索</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_PrioritizeKnown" xml:space="preserve">
+    <value>优先显示认识的玩家</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_PrioritizeKnown_Description" xml:space="preserve">
+    <value>让你认识的玩家（如朋友和小队成员）显示在其他玩家上面。</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_JobAbbreviations" xml:space="preserve">
+    <value>使用职业缩写</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_JobAbbreviations_Description" xml:space="preserve">
+    <value>用职业缩写代替全程（如“战”而不是“战士”）</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Appearance" xml:space="preserve">
+    <value>外观</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Distance" xml:space="preserve">
+    <value>距离</value>
+  </data>
+  <data name="UserInterface_Settings_Visibility_Heading" xml:space="preserve">
+    <value>可见性</value>
+  </data>
+  <data name="UserInterface_Settings_Positional_Heading" xml:space="preserve">
+    <value>位置</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_SettingsTip" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_DonateTip" xml:space="preserve">
+    <value>赞助</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_FocusTarget" xml:space="preserve">
+    <value>焦点目标</value>
+  </data>
+  <data name="UserInterface_Settings_Display_Heading" xml:space="preserve">
+    <value>显示</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_ShowSearchbar" xml:space="preserve">
+    <value>显示搜索栏</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_ShowSearchbar_Description" xml:space="preserve">
+    <value>在附近玩家列表中显示搜索栏。</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_Paladin" xml:space="preserve">
+    <value>骑士</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_Warrior" xml:space="preserve">
+    <value>战士</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_DarkKnight" xml:space="preserve">
+    <value>暗黑骑士</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_Gunbreaker" xml:space="preserve">
+    <value>绝枪战士</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_WhiteMage" xml:space="preserve">
+    <value>白魔法师</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_Scholar" xml:space="preserve">
+    <value>学者</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_Astrologian" xml:space="preserve">
+    <value>占星术士</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_Sage" xml:space="preserve">
+    <value>贤者</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_Monk" xml:space="preserve">
+    <value>武僧</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_Dragoon" xml:space="preserve">
+    <value>龙骑士</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_Ninja" xml:space="preserve">
+    <value>忍者</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_Samurai" xml:space="preserve">
+    <value>武士</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_Reaper" xml:space="preserve">
+    <value>钐镰客</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_Viper" xml:space="preserve">
+    <value>蝰蛇剑士</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_Bard" xml:space="preserve">
+    <value>吟游诗人</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_Machinist" xml:space="preserve">
+    <value>机工士</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_Dancer" xml:space="preserve">
+    <value>舞者</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_BlackMage" xml:space="preserve">
+    <value>黑魔法师</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_Summoner" xml:space="preserve">
+    <value>召唤师</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_RedMage" xml:space="preserve">
+    <value>赤魔法师</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_Pictomancer" xml:space="preserve">
+    <value>绘灵法师</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_BlueMage" xml:space="preserve">
+    <value>青魔法师</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Job_Other" xml:space="preserve">
+    <value>其他</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_LodestoneRegion" xml:space="preserve">
+    <value>Lodestone 地区</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_LodestoneRegion_Description" xml:space="preserve">
+    <value>执行Lodestone玩家查询的区域。</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_Behaviour" xml:space="preserve">
+    <value>表现</value>
+  </data>
+  <data name="Commands_WhoSettings_RandPlate" xml:space="preserve">
+    <value>随机打开一个附近玩家的冒险者铭牌</value>
+  </data>
+  <data name="Commands_WhoSettings_RandPlate_NoPlayers" xml:space="preserve">
+    <value>无法显示随机冒险者铭牌。附近没有玩家。</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_AddToBlacklist" xml:space="preserve">
+    <value>添加到黑名单</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_FilterBlockedPlayers" xml:space="preserve">
+    <value>隐藏已屏蔽的玩家</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_FilterBlockedPlayers_Description" xml:space="preserve">
+    <value>从附近玩家列表中移除已屏蔽的玩家。</value>
+  </data>
 </root>
