@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-    xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
     <xsd:element name="root" msdata:IsDataSet="true">
 
     </xsd:element>
@@ -13,16 +12,12 @@
     <value>1.3</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0,
-      Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+    <value>System.Resources.ResXResourceReader,
+      System.Windows.Forms,Version=2.0.0.0,Culture=neutral,PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0,
-      Culture=neutral,
-      PublicKeyToken=b77a5c561934e089
-    </value>
+    <value>System.Resources.ResXResourceWriter,
+      System.Windows.Forms,Version=2.0.0.0,Culture=neutral,PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Commands_Who_Help" xml:space="preserve">
     <value>Ouvre la fenêtre des joueurs à proximité.</value>
@@ -90,8 +85,7 @@
   <data name="UserInterface_Settings_NearbyPlayers_LockPosition" xml:space="preserve">
     <value>Désactiver le repositionnement de la fenêtre</value>
   </data>
-  <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description"
-    xml:space="preserve">
+  <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description" xml:space="preserve">
     <value>Enlève les joueur·se·s AFK de la liste des joueur·se·s à proximité.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInCombat_Description" xml:space="preserve">
@@ -187,8 +181,7 @@
   <data name="UserInterface_Settings_NearbyPlayers_JobAbbreviations" xml:space="preserve">
     <value>Utiliser les abréviations des noms de classe</value>
   </data>
-  <data name="UserInterface_Settings_NearbyPlayers_JobAbbreviations_Description"
-    xml:space="preserve">
+  <data name="UserInterface_Settings_NearbyPlayers_JobAbbreviations_Description" xml:space="preserve">
     <value>Utiliser les abréviations des noms de classe au lieu du nom complet. (p.ex. "GUE" au lieu de "Guerrier ")</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Appearance" xml:space="preserve">
@@ -307,5 +300,11 @@
   </data>
   <data name="UserInterface_NearbyPlayers_Players_Submenu_AddToBlacklist" xml:space="preserve">
     <value>Ajouter à la liste noire</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_FilterBlockedPlayers" xml:space="preserve">
+    <value>Cacher les joueurs bloqués</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_FilterBlockedPlayers_Description" xml:space="preserve">
+    <value>Retirer les joueurs bloqués de la liste des joueurs proches.</value>
   </data>
 </root>
