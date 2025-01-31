@@ -27,7 +27,7 @@ namespace Wholist.Game
         /// <param name="prioritizeKnownPlayers">Whether to prioritize known players.</param>
         /// <param name="filterAfk">Whether to filter out AFK players.</param>
         /// <returns></returns>
-        internal static unsafe List<PlayerInfoSlim> GetNearbyPlayersSlim(int maxPlayers = 100, bool filterAfk = false, bool prioritizeKnownPlayers = false)
+        internal static unsafe List<PlayerInfoSlim> GetNearbyPlayersSlim(int maxPlayers = 100, bool filterAfk = false, bool prioritizeKnownPlayers = false, bool filterLowLevel = false)
         {
             var nearbyPlayers = new List<PlayerInfoSlim>();
 
@@ -47,7 +47,7 @@ namespace Wholist.Game
                     continue;
                 }
 
-                if (player.Level <= 3)
+                if (filterLowLevel && player.Level <= 3)
                 {
                     continue;
                 }

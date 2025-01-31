@@ -92,6 +92,11 @@ namespace Wholist.Configuration
             public bool FilterBlockedPlayers = true;
 
             /// <summary>
+            ///     Whether to hide low level characters.
+            /// </summary>
+            public bool FilterLowLevel = true;
+
+            /// <summary>
             ///     The region to perform a lodestone player search lookup on.
             /// </summary>
             public LodestoneSearchRegion LodestonePlayerSearchRegion = LodestoneSearchRegion.Europe;

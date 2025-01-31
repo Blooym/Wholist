@@ -74,7 +74,8 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             var nearbyPlayers = PlayerManager.GetNearbyPlayersSlim(
                 Services.Configuration.NearbyPlayers.MaxPlayersToShow,
                 Services.Configuration.NearbyPlayers.FilterAfk,
-                Services.Configuration.NearbyPlayers.PrioritizeKnown);
+                Services.Configuration.NearbyPlayers.PrioritizeKnown,
+                Services.Configuration.NearbyPlayers.FilterLowLevel);
 
             foreach (var player in nearbyPlayers)
             {
