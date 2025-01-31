@@ -9,7 +9,6 @@ using Dalamud.Utility.Signatures;
 using FFXIVClientStructs.FFXIV.Client.System.String;
 using FFXIVClientStructs.FFXIV.Client.UI;
 using FFXIVClientStructs.FFXIV.Client.UI.Agent;
-using ImGuiNET;
 using Sirensong.Game.Enums;
 using Sirensong.Game.Helpers;
 using Wholist.Common;
