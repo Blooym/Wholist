@@ -298,10 +298,19 @@
   <data name="Commands_WhoSettings_RandPlate_NoPlayers" xml:space="preserve">
     <value>Kann keine zufällige Abenteuererplatte anziegen. Es sind keine Spieler in der nähe.</value>
   </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_AddToBlacklist" xml:space="preserve">
+    <value>Auf die Schwarze Liste</value>
+  </data>
   <data name="UserInterface_Settings_NearbyPlayers_FilterBlockedPlayers" xml:space="preserve">
     <value>Geblockte Spieler ausblenden</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_FilterBlockedPlayers_Description" xml:space="preserve">
     <value>Entferne geblockte Spieler in der Nähe aus der Spielerliste.</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_FilterLowLevelCharacters" xml:space="preserve">
+    <value>Verberge niedrigstufige Spieler Charaktere</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_FilterLowLevelCharacters_Description" xml:space="preserve">
+    <value>Verbirgt Charactere unter Level 3 in der Spielerliste.</value>
   </data>
 </root>
