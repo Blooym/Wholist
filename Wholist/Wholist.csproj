@@ -3,7 +3,7 @@
   <!-- Project Configuration -->
   <PropertyGroup>
     <AssemblyName>Wholist</AssemblyName>
-    <Version>1.8.1.0</Version>
+    <Version>1.8.2.0</Version>
     <PackageProjectUrl>https://github.com/Blooym/Wholist</PackageProjectUrl>
   </PropertyGroup>
 
@@ -27,7 +27,7 @@
     </Compile>
   </ItemGroup>
 
-    <!-- Packages -->
+  <!-- Packages -->
   <ItemGroup>
     <ProjectReference Include="../Sirensong/Sirensong/Sirensong.csproj" />
   </ItemGroup>
