@@ -313,4 +313,11 @@
     xml:space="preserve">
     <value>Remove blocked players from the nearby players list.</value>
   </data>
+  <data name="UserInterface_Settings_NearbyPlayers_FilterLowLevelCharacters" xml:space="preserve">
+    <value>Hide low level characters</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_FilterLowLevelCharacters_Description"
+        xml:space="preserve">
+    <value>Remove characters level 3 and below from the nearby players list.</value>
+  </data>
 </root>
