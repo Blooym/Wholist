@@ -620,5 +620,17 @@ namespace Wholist.Resources.Localization {
                 return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_FilterBlockedPlayers_Description", resourceCulture);
             }
         }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_FilterLowLevelCharacters {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_FilterLowLevelCharacters", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_FilterLowLevelCharacters_Description {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_FilterLowLevelCharacters_Description", resourceCulture);
+            }
+        }
     }
 }
