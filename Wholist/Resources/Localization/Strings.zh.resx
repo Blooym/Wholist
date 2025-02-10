@@ -307,4 +307,10 @@
   <data name="UserInterface_Settings_NearbyPlayers_FilterBlockedPlayers_Description" xml:space="preserve">
     <value>从附近玩家列表中移除已屏蔽的玩家。</value>
   </data>
+  <data name="UserInterface_Settings_NearbyPlayers_FilterLowLevelCharacters" xml:space="preserve">
+    <value>隐藏低等级角色</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_FilterLowLevelCharacters_Description" xml:space="preserve">
+    <value>从附近玩家列表中移除不高于3级的角色。</value>
+  </data>
 </root>

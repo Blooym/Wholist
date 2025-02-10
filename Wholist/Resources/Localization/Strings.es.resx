@@ -235,4 +235,19 @@
   <data name="Commands_WhoSettings_RandPlate_NoPlayers" xml:space="preserve">
     <value>No se puede mostrar la ficha de aventurero de un jugador aleatorio porque no hay jugadores cerca.</value>
   </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_AddToBlacklist" xml:space="preserve">
+    <value>Bloquear jugador</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_FilterBlockedPlayers" xml:space="preserve">
+    <value>Ocultar jugadores bloqueados</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_FilterBlockedPlayers_Description" xml:space="preserve">
+    <value>Eliminar jugadores bloqueados de la lista de jugadores cercanos.</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_FilterLowLevelCharacters" xml:space="preserve">
+    <value>Ocultar personajes de nivel bajo</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_FilterLowLevelCharacters_Description" xml:space="preserve">
+    <value>Eliminar personajes de nivel 3 o inferior de la lista de jugadores cercanos.</value>
+  </data>
 </root>
