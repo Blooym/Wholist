@@ -1,7 +1,6 @@
 {
     // OmniSharp
     "omnisharp.enableRoslynAnalyzers": true,
-    "omnisharp.organizeImportsOnFormat": true,
     "omnisharp.enableAsyncCompletion": true,
     "omnisharp.analyzeOpenDocumentsOnly": false,
     "omnisharp.enableEditorConfigSupport": true,
@@ -9,4 +8,5 @@
     "csharp.format.enable": true,
     "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
     "dotnet.codeLens.enableReferencesCodeLens": true,
+    "dotnet.formatting.organizeImportsOnFormat": true,
 }
