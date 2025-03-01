@@ -12,7 +12,7 @@ namespace Wholist.DTRHandling
     {
         private const string NEARBY_PLAYERS_DTR_ICON_PAYLOAD = "\uE033";
         private readonly IDtrBarEntry nearbyPlayersDtrEntry;
-        private readonly Timer nearbyPlayersDtrUpdateTimer = new(TimeSpan.FromSeconds(2));
+        private readonly Timer nearbyPlayersDtrUpdateTimer = new(TimeSpan.FromSeconds(4));
 
         public DTRManager()
         {
