@@ -82,9 +82,6 @@
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers" xml:space="preserve">
     <value>Filtrer les joueurs AFK</value>
   </data>
-  <data name="UserInterface_Settings_NearbyPlayers_LockPosition" xml:space="preserve">
-    <value>Désactiver le repositionnement de la fenêtre</value>
-  </data>
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description" xml:space="preserve">
     <value>Enlève les joueur·se·s AFK de la liste des joueur·se·s à proximité.</value>
   </data>
@@ -93,9 +90,6 @@
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInInstance_Description" xml:space="preserve">
     <value>Masque automatiquement la fenêtre à l'intérieur des instances</value>
-  </data>
-  <data name="UserInterface_Settings_NearbyPlayers_LockPosition_Description" xml:space="preserve">
-    <value>Empêcher le déplacement de la fenêtre.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin_Description" xml:space="preserve">
     <value>Ouvrir automatiquement la fenêtre lors de la connexion ou lors du redémarrage du plugin pendant la session en cours.</value>
@@ -192,9 +186,6 @@
   </data>
   <data name="UserInterface_Settings_Visibility_Heading" xml:space="preserve">
     <value>Visibilité</value>
-  </data>
-  <data name="UserInterface_Settings_Positional_Heading" xml:space="preserve">
-    <value>Positionnement</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_SettingsTip" xml:space="preserve">
     <value>Paramètres</value>

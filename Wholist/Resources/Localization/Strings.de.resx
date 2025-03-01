@@ -82,9 +82,6 @@
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers" xml:space="preserve">
     <value>AFK-Spieler ausblenden</value>
   </data>
-  <data name="UserInterface_Settings_NearbyPlayers_LockPosition" xml:space="preserve">
-    <value>Fensterverschiebung deaktivieren</value>
-  </data>
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description" xml:space="preserve">
     <value>Entferne AFK-Spieler in der Nähe aus der Spielerliste.</value>
   </data>
@@ -93,9 +90,6 @@
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInInstance_Description" xml:space="preserve">
     <value>Fenster in Instanzen automatisch Ausblenden</value>
-  </data>
-  <data name="UserInterface_Settings_NearbyPlayers_LockPosition_Description" xml:space="preserve">
-    <value>Verhindert das Verschieben des Fensters.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin_Description" xml:space="preserve">
     <value>Beim Anmelden/Neustart des Plugins automatisch das Fenster öffnen.</value>
@@ -192,9 +186,6 @@
   </data>
   <data name="UserInterface_Settings_Visibility_Heading" xml:space="preserve">
     <value>Sichtbarkeit</value>
-  </data>
-  <data name="UserInterface_Settings_Positional_Heading" xml:space="preserve">
-    <value>Position</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_SettingsTip" xml:space="preserve">
     <value>Einstellungen</value>

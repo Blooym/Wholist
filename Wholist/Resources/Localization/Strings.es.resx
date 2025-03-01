@@ -82,9 +82,6 @@
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers" xml:space="preserve">
     <value>Filtrar jugadores ausentes</value>
   </data>
-  <data name="UserInterface_Settings_NearbyPlayers_LockPosition" xml:space="preserve">
-    <value>Deshabilitar movimiento de ventana</value>
-  </data>
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description" xml:space="preserve">
     <value>Filtrar jugadores ausentes de la lista de jugadores cercanos.</value>
   </data>
@@ -93,9 +90,6 @@
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInInstance_Description" xml:space="preserve">
     <value>Oculta la ventana automáticamente en las instancias</value>
-  </data>
-  <data name="UserInterface_Settings_NearbyPlayers_LockPosition_Description" xml:space="preserve">
-    <value>Evita que la ventana se pueda mover.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin_Description" xml:space="preserve">
     <value>Abre la ventana automáticamente al iniciar sesión, o al reiniciar el plugin estando en el juego.</value>
@@ -192,9 +186,6 @@
   </data>
   <data name="UserInterface_Settings_Visibility_Heading" xml:space="preserve">
     <value>Visibilidad</value>
-  </data>
-  <data name="UserInterface_Settings_Positional_Heading" xml:space="preserve">
-    <value>Posicional</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_SettingsTip" xml:space="preserve">
     <value>Ajustes</value>

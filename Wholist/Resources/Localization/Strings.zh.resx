@@ -82,9 +82,6 @@
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers" xml:space="preserve">
     <value>隐藏离开状态的玩家</value>
   </data>
-  <data name="UserInterface_Settings_NearbyPlayers_LockPosition" xml:space="preserve">
-    <value>禁止窗口移动</value>
-  </data>
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description" xml:space="preserve">
     <value>从附近玩家列表中移除离开状态的玩家。</value>
   </data>
@@ -93,9 +90,6 @@
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInInstance_Description" xml:space="preserve">
     <value>在副本中自动隐藏窗口。</value>
-  </data>
-  <data name="UserInterface_Settings_NearbyPlayers_LockPosition_Description" xml:space="preserve">
-    <value>防止窗口被移动。</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin_Description" xml:space="preserve">
     <value>登录/重启插件时自动打开窗口。</value>
@@ -192,9 +186,6 @@
   </data>
   <data name="UserInterface_Settings_Visibility_Heading" xml:space="preserve">
     <value>可见性</value>
-  </data>
-  <data name="UserInterface_Settings_Positional_Heading" xml:space="preserve">
-    <value>位置</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_SettingsTip" xml:space="preserve">
     <value>设置</value>

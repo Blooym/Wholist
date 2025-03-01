@@ -85,9 +85,6 @@
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers" xml:space="preserve">
     <value>Hide AFK Players</value>
   </data>
-  <data name="UserInterface_Settings_NearbyPlayers_LockPosition" xml:space="preserve">
-    <value>Prevent window moving</value>
-  </data>
   <data name="UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description"
     xml:space="preserve">
     <value>Remove AFK players from the nearby players list.</value>
@@ -97,9 +94,6 @@
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_HideInInstance_Description" xml:space="preserve">
     <value>Automatically hide the window when inside of instances</value>
-  </data>
-  <data name="UserInterface_Settings_NearbyPlayers_LockPosition_Description" xml:space="preserve">
-    <value>Prevent the window from being moved.</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_OpenOnLogin_Description" xml:space="preserve">
     <value>Automatically open the window when logging in/restarting the plugin whilst logged in.</value>
@@ -197,9 +191,6 @@
   </data>
   <data name="UserInterface_Settings_Visibility_Heading" xml:space="preserve">
     <value>Visibility</value>
-  </data>
-  <data name="UserInterface_Settings_Positional_Heading" xml:space="preserve">
-    <value>Positional</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_SettingsTip" xml:space="preserve">
     <value>Settings</value>
@@ -319,5 +310,17 @@
   <data name="UserInterface_Settings_NearbyPlayers_FilterLowLevelCharacters_Description"
         xml:space="preserve">
     <value>Remove characters level 3 and below from the nearby players list.</value>
+  </data>
+  <data name="DTR_NearbyPlayers_Title" xml:space="preserve">
+    <value>Nearby Player Count</value>
+  </data>
+  <data name="DTR_NearbyPlayers_Tooltip" xml:space="preserve">
+    <value>Nearby Players: {0}</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_InfoBarPlayers" xml:space="preserve">
+    <value>Show nearby players in info bar</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_InfoBarPlayers_Description" xml:space="preserve">
+    <value>Show the number of nearby players in the server info bar. This can be toggled or moved by going to your Dalamud Settings, opening the 'Server Info Bar' tab and finding the 'Nearby Player Count' entry.</value>
   </data>
 </root>

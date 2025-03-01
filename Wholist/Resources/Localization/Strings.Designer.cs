@@ -171,12 +171,6 @@ namespace Wholist.Resources.Localization {
             }
         }
         
-        internal static string UserInterface_Settings_NearbyPlayers_LockPosition {
-            get {
-                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_LockPosition", resourceCulture);
-            }
-        }
-        
         internal static string UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description {
             get {
                 return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_FilterAFKPlayers_Description", resourceCulture);
@@ -192,12 +186,6 @@ namespace Wholist.Resources.Localization {
         internal static string UserInterface_Settings_NearbyPlayers_HideInInstance_Description {
             get {
                 return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_HideInInstance_Description", resourceCulture);
-            }
-        }
-        
-        internal static string UserInterface_Settings_NearbyPlayers_LockPosition_Description {
-            get {
-                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_LockPosition_Description", resourceCulture);
             }
         }
         
@@ -390,12 +378,6 @@ namespace Wholist.Resources.Localization {
         internal static string UserInterface_Settings_Visibility_Heading {
             get {
                 return ResourceManager.GetString("UserInterface_Settings_Visibility_Heading", resourceCulture);
-            }
-        }
-        
-        internal static string UserInterface_Settings_Positional_Heading {
-            get {
-                return ResourceManager.GetString("UserInterface_Settings_Positional_Heading", resourceCulture);
             }
         }
         
@@ -630,6 +612,30 @@ namespace Wholist.Resources.Localization {
         internal static string UserInterface_Settings_NearbyPlayers_FilterLowLevelCharacters_Description {
             get {
                 return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_FilterLowLevelCharacters_Description", resourceCulture);
+            }
+        }
+        
+        internal static string DTR_NearbyPlayers_Title {
+            get {
+                return ResourceManager.GetString("DTR_NearbyPlayers_Title", resourceCulture);
+            }
+        }
+        
+        internal static string DTR_NearbyPlayers_Tooltip {
+            get {
+                return ResourceManager.GetString("DTR_NearbyPlayers_Tooltip", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_InfoBarPlayers {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_InfoBarPlayers", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_Settings_NearbyPlayers_InfoBarPlayers_Description {
+            get {
+                return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_InfoBarPlayers_Description", resourceCulture);
             }
         }
     }

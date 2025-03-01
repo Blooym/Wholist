@@ -5,13 +5,12 @@ using Wholist.Common;
 
 namespace Wholist.Game
 {
-    public sealed unsafe class BlockedCharacterHandler
+    public static unsafe class BlockedCharacterHandler
     {
         /// <summary>
         ///     Whether a character or service account has been blocked by the local player.
         /// </summary>
-        /// <exception cref="InvalidOperationException"></exception>
-        public bool IsCharacterBlocked(BattleChara* chara)
+        public static bool IsCharacterBlocked(BattleChara* chara)
         {
             if (!Services.Configuration.NearbyPlayers.FilterBlockedPlayers)
             {

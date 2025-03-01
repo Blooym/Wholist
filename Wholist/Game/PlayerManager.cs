@@ -11,13 +11,12 @@ namespace Wholist.Game
 {
     internal static class PlayerManager
     {
-        internal static unsafe IOrderedEnumerable<IPlayerCharacter> GetNearbyPlayers()
+        internal static unsafe IEnumerable<IPlayerCharacter> GetNearbyPlayers()
             => Services.ObjectTable
-                .Where(x => x.IsValid() && !Services.BlockedCharacterHandler.IsCharacterBlocked((BattleChara*)x.Address))
+                .Where(x => x.IsValid() && !BlockedCharacterHandler.IsCharacterBlocked((BattleChara*)x.Address))
                 .OfType<IPlayerCharacter>()
                 .Where(x => x.GameObjectId != Services.ClientState.LocalPlayer?.GameObjectId)
-                .Where(x => x.ObjectIndex < 240)
-                .OrderBy(x => x.YalmDistanceX);
+                .Where(x => x.ObjectIndex < 240);
 
         /// <summary>
         ///     Gets nearby players from the <see cref="Dalamud.Game.ClientState.Objects.ObjectTable" /> that meet the given
@@ -33,18 +32,13 @@ namespace Wholist.Game
 
             // Get nearby players from the object table and order by them by distance to the local player
             // so that when the list is truncated, the closest players are kept.
-            var players = GetNearbyPlayers();
+            var players = GetNearbyPlayers().OrderBy(x => x.YalmDistanceX);
 
             foreach (var player in players)
             {
                 if (nearbyPlayers.Count >= maxPlayers)
                 {
                     break;
-                }
-
-                if (player.GameObjectId == Services.ClientState.LocalPlayer?.GameObjectId)
-                {
-                    continue;
                 }
 
                 if (filterLowLevel && player.Level <= 3)

@@ -37,12 +37,15 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             ImGui.Dummy(Spacing.SectionSpacing);
             DrawOtherColourOptions();
         }
+
         private static void DrawDisplayOptions()
         {
             TextWithDescription.Draw(Strings.UserInterface_Settings_NearbyPlayers_ShownRows, Strings.UserInterface_Settings_NearbyPlayers_ShownRows_Description);
+            TextWithDescription.Draw(Strings.UserInterface_Settings_NearbyPlayers_InfoBarPlayers, Strings.UserInterface_Settings_NearbyPlayers_InfoBarPlayers_Description);
             Checkbox.Draw(Strings.UserInterface_Settings_NearbyPlayers_JobAbbreviations, Strings.UserInterface_Settings_NearbyPlayers_JobAbbreviations_Description, ref Services.Configuration.NearbyPlayers.UseJobAbbreviations);
             Checkbox.Draw(Strings.UserInterface_Settings_NearbyPlayers_ShowSearchbar, Strings.UserInterface_Settings_NearbyPlayers_ShowSearchbar_Description, ref Services.Configuration.NearbyPlayers.ShowSearchBar);
         }
+
         private static void DrawNameColours()
         {
             if (ColourEdit.Draw(Strings.UserInterface_Settings_Colours_Default, ref Services.Configuration.Colours.Name.Default))

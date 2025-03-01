@@ -7,7 +7,7 @@ using Lumina.Excel.Sheets;
 using Sirensong;
 using Sirensong.IoC;
 using Wholist.Configuration;
-using Wholist.Game;
+using Wholist.DTRHandling;
 using Wholist.Resources.Localization;
 using Wholist.UserInterface;
 
@@ -31,6 +31,8 @@ namespace Wholist.Common
         [PluginService] internal static IPluginLog PluginLog { get; set; } = null!;
         [PluginService] internal static IGameInteropProvider GameInteropProvider { get; set; } = null!;
         [PluginService] internal static IDataManager DataManager { get; set; } = null!;
+        [PluginService] internal static IDtrBar DtrBar { get; set; } = null!;
+        [PluginService] internal static IFramework Framework { get; set; } = null!;
 
         internal static ExcelSheet<World> WorldSheet { get; set; } = null!;
         internal static ExcelSheet<ClassJob> ClassJobSheet { get; set; } = null!;
@@ -43,7 +45,7 @@ namespace Wholist.Common
         // Plugin services
         internal static WindowManager WindowManager { get; private set; } = null!;
         internal static PluginConfiguration Configuration { get; private set; } = null!;
-        internal static BlockedCharacterHandler BlockedCharacterHandler { get; private set; } = null!;
+        internal static DTRManager DtrManager { get; private set; } = null!;
 
         /// <summary>
         ///     Initializes the service class.
@@ -56,8 +58,8 @@ namespace Wholist.Common
             Configuration = PluginInterface.GetPluginConfig() as PluginConfiguration ?? new PluginConfiguration();
             ServiceContainer.GetOrCreateService<LocalizationManager>();
             WindowManager = ServiceContainer.GetOrCreateService<WindowManager>();
+            DtrManager = ServiceContainer.GetOrCreateService<DTRManager>();
             ServiceContainer.CreateService<CommandHandling.CommandManager>();
-            BlockedCharacterHandler = new();
             WorldSheet = DataManager.GetExcelSheet<World>();
             ClassJobSheet = DataManager.GetExcelSheet<ClassJob>();
         }
