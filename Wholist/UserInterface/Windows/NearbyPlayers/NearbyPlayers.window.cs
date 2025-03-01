@@ -199,10 +199,12 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 }
 
                 // Add to blacklist.
+                ImGui.BeginDisabled(obj.IsFriend);
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_AddToBlacklist))
                 {
                     this.logic.PromptUserBlacklist(obj.Name, obj.HomeWorld);
                 }
+                ImGui.EndDisabled();
 
                 // Find on Map.
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap))
