@@ -23,6 +23,8 @@ Wholist is a plugin for [Dalamud](https://github.com/goatcorp/Dalamud) that allo
 - Highlighting of "known players" such as friends and party members in the nearby player list.
 - Player context menu items, like sending tells, examining, searching on the Lodestone and more.
 - Fully customizable colours & behaviour.
+- Random adventure plate command
+- Display nearby player count in the server info bar
 
 ## Restrictions
 
