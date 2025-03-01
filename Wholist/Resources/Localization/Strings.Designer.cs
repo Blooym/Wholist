@@ -615,12 +615,6 @@ namespace Wholist.Resources.Localization {
             }
         }
         
-        internal static string DTR_NearbyPlayers_Title {
-            get {
-                return ResourceManager.GetString("DTR_NearbyPlayers_Title", resourceCulture);
-            }
-        }
-        
         internal static string DTR_NearbyPlayers_Tooltip {
             get {
                 return ResourceManager.GetString("DTR_NearbyPlayers_Tooltip", resourceCulture);

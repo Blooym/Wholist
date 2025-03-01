@@ -17,7 +17,7 @@ namespace Wholist.DTRHandling
         public DTRManager()
         {
             var nearbyPlayerCount = PlayerManager.GetNearbyPlayers().Count();
-            this.nearbyPlayersDtrEntry = Services.DtrBar.Get(Strings.DTR_NearbyPlayers_Title, $"{NEARBY_PLAYERS_DTR_ICON_PAYLOAD} {nearbyPlayerCount}");
+            this.nearbyPlayersDtrEntry = Services.DtrBar.Get("Nearby Player Count", $"{NEARBY_PLAYERS_DTR_ICON_PAYLOAD} {nearbyPlayerCount}");
             this.nearbyPlayersDtrEntry.Tooltip = string.Format(Strings.DTR_NearbyPlayers_Tooltip, nearbyPlayerCount);
             this.nearbyPlayersDtrEntry.OnClick += DtrOnClick;
             this.nearbyPlayersDtrUpdateTimer.Elapsed += this.OnNearbyPlayerUpdaterTimeElapsed;

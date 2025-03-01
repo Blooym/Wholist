@@ -311,9 +311,6 @@
         xml:space="preserve">
     <value>Remove characters level 3 and below from the nearby players list.</value>
   </data>
-  <data name="DTR_NearbyPlayers_Title" xml:space="preserve">
-    <value>Nearby Player Count</value>
-  </data>
   <data name="DTR_NearbyPlayers_Tooltip" xml:space="preserve">
     <value>Nearby Players: {0}</value>
   </data>
