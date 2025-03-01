@@ -304,4 +304,13 @@
   <data name="UserInterface_Settings_NearbyPlayers_FilterLowLevelCharacters_Description" xml:space="preserve">
     <value>Verbirgt Charactere unter Level 3 in der Spielerliste.</value>
   </data>
+  <data name="DTR_NearbyPlayers_Tooltip" xml:space="preserve">
+    <value>Spieler in der Nähe: {0}</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_InfoBarPlayers" xml:space="preserve">
+    <value>Zeige Anzahl naher Spieler in der Infoleiste</value>
+  </data>
+  <data name="UserInterface_Settings_NearbyPlayers_InfoBarPlayers_Description" xml:space="preserve">
+    <value>Zeige die Anzahl naher Spieler in der Server-Infoleiste an. Dies kann in den Dalamud Einstellungen under "Server-Infoleiste" -> "Nearby Player Count" ausgeschaltet und bewegt werden.</value>
+  </data>
 </root>
