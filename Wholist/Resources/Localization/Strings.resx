@@ -308,7 +308,7 @@
     <value>Hide low level characters</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_FilterLowLevelCharacters_Description"
-        xml:space="preserve">
+    xml:space="preserve">
     <value>Remove characters level 3 and below from the nearby players list.</value>
   </data>
   <data name="DTR_NearbyPlayers_Tooltip" xml:space="preserve">
@@ -318,6 +318,6 @@
     <value>Show nearby players in info bar</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_InfoBarPlayers_Description" xml:space="preserve">
-    <value>Show the number of nearby players in the server info bar. This can be toggled or moved by going to your Dalamud Settings, opening the 'Server Info Bar' tab and finding the 'Nearby Player Count' entry.</value>
+    <value>Show the number of nearby players in the server info bar. This can be toggled or moved by going to your Dalamud Settings, opening the 'Server Info Bar' tab, and finding the 'Nearby Player Count' entry.</value>
   </data>
 </root>
