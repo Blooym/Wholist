@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
-using System.Timers;
 using Dalamud.Game.Gui.Dtr;
+using Dalamud.Plugin.Services;
 using Wholist.Common;
 using Wholist.Game;
 using Wholist.Resources.Localization;
@@ -12,43 +12,44 @@ namespace Wholist.DTRHandling
     {
         private const string NEARBY_PLAYERS_DTR_ICON_PAYLOAD = "\uE033";
         private readonly IDtrBarEntry nearbyPlayersDtrEntry;
-        private readonly Timer nearbyPlayersDtrUpdateTimer = new(TimeSpan.FromSeconds(4));
 
         public DTRManager()
         {
-            var nearbyPlayerCount = PlayerManager.GetNearbyPlayers().Count();
-            this.nearbyPlayersDtrEntry = Services.DtrBar.Get("Nearby Player Count", $"{NEARBY_PLAYERS_DTR_ICON_PAYLOAD} {nearbyPlayerCount}");
-            this.nearbyPlayersDtrEntry.Tooltip = string.Format(Strings.DTR_NearbyPlayers_Tooltip, nearbyPlayerCount);
+            this.nearbyPlayersDtrEntry = Services.DtrBar.Get("Nearby Player Count", $"{NEARBY_PLAYERS_DTR_ICON_PAYLOAD} -");
+            this.nearbyPlayersDtrEntry.Tooltip = string.Format(Strings.DTR_NearbyPlayers_Tooltip, "-");
             this.nearbyPlayersDtrEntry.OnClick += DtrOnClick;
-            this.nearbyPlayersDtrUpdateTimer.Elapsed += this.OnNearbyPlayerUpdaterTimeElapsed;
-            this.nearbyPlayersDtrUpdateTimer.Start();
+            Services.Framework.Update += this.OnFrameworkUpdate;
         }
 
         public void Dispose()
         {
-            this.nearbyPlayersDtrUpdateTimer.Elapsed -= this.OnNearbyPlayerUpdaterTimeElapsed;
-            this.nearbyPlayersDtrUpdateTimer.Stop();
-            this.nearbyPlayersDtrUpdateTimer.Dispose();
+            Services.Framework.Update -= this.OnFrameworkUpdate;
             this.nearbyPlayersDtrEntry.OnClick -= DtrOnClick;
             this.nearbyPlayersDtrEntry.Remove();
         }
 
         private static void DtrOnClick() => Services.WindowManager.ToggleMainWindow();
 
-        private void OnNearbyPlayerUpdaterTimeElapsed(object? sender, ElapsedEventArgs e)
+        private void OnFrameworkUpdate(IFramework framework)
         {
-            if (this.nearbyPlayersDtrEntry.UserHidden)
+            if (this.nearbyPlayersDtrEntry.UserHidden || !Services.ClientState.IsLoggedIn)
             {
                 return;
             }
 
-            Services.Framework.RunOnFrameworkThread(() =>
-           {
-               var nearbyPlayerCount = PlayerManager.GetNearbyPlayers().Count();
-               this.nearbyPlayersDtrEntry.Text = $"{NEARBY_PLAYERS_DTR_ICON_PAYLOAD} {nearbyPlayerCount}";
-               this.nearbyPlayersDtrEntry.Tooltip = string.Format(Strings.DTR_NearbyPlayers_Tooltip, nearbyPlayerCount);
-           });
-        }
+            if (Services.ClientState.IsPvP)
+            {
+                this.nearbyPlayersDtrEntry.Shown = false;
+                return;
+            }
+            else if (!this.nearbyPlayersDtrEntry.Shown)
+            {
+                this.nearbyPlayersDtrEntry.Shown = true;
+            }
 
+            var nearbyPlayerCount = PlayerManager.GetNearbyPlayers().Count();
+            this.nearbyPlayersDtrEntry.Text = $"{NEARBY_PLAYERS_DTR_ICON_PAYLOAD} {nearbyPlayerCount}";
+            this.nearbyPlayersDtrEntry.Tooltip = string.Format(Strings.DTR_NearbyPlayers_Tooltip, nearbyPlayerCount);
+        }
     }
 }

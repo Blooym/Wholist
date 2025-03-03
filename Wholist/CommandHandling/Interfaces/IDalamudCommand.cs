@@ -10,16 +10,16 @@ namespace Wholist.CommandHandling.Interfaces
         /// <summary>
         ///     The name of the command (including the /)
         /// </summary>
-        string Name { get; }
+        public string Name { get; }
 
         /// <summary>
         ///     The command info.
         /// </summary>
-        CommandInfo Command { get; }
+        public CommandInfo Command { get; }
 
         /// <summary>
         ///     The command's execution handler.
         /// </summary>
-        IReadOnlyCommandInfo.HandlerDelegate OnExecute { get; }
+        public IReadOnlyCommandInfo.HandlerDelegate OnExecute { get; }
     }
 }
