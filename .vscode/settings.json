@@ -9,4 +9,5 @@
     "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
     "dotnet.codeLens.enableReferencesCodeLens": true,
     "dotnet.formatting.organizeImportsOnFormat": true,
+    "dotnet.defaultSolution": "Wholist.sln",
 }

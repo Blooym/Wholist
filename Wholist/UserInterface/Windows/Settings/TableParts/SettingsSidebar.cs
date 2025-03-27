@@ -15,7 +15,7 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts
         {
             SiGui.Heading(Strings.UserInterface_Settings_Heading);
 
-            foreach (var tab in Enum.GetValues(typeof(SettingsLogic.ConfigurationTabs)))
+            foreach (var tab in Enum.GetValues<SettingsLogic.ConfigurationTabs>())
             {
                 if (tab is SettingsLogic.ConfigurationTabs configurationTab)
                 {
