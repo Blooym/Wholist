@@ -16,13 +16,13 @@
       },
       "BitFaster.Caching": {
         "type": "Transitive",
-        "resolved": "2.4.1",
-        "contentHash": "wYFavlKfVJ23IGGrS3UX8wO8KxwhBPkQCK/egFUGw5c3DVV6kXTUwT8Un329KIW7omZUAFSjcosLiARplNIf5w=="
+        "resolved": "2.5.3",
+        "contentHash": "Vo/39qcam5Xe+DbyfH0JZyqPswdOoa7jv4PGtRJ6Wj8AU+aZ+TuJRlJcIe+MQjRTJwliI8k8VSQpN8sEoBIv2g=="
       },
       "sirensong": {
         "type": "Project",
         "dependencies": {
-          "Bitfaster.Caching": "[2.4.1, )"
+          "Bitfaster.Caching": "[2.5.3, )"
         }
       }
     }
