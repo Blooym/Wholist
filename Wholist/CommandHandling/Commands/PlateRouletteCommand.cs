@@ -34,7 +34,7 @@ namespace Wholist.CommandHandling.Commands
                 return;
             }
 
-            var players = PlayerManager.GetNearbyPlayers()
+            var players = PlayerManager.GetNearbyPlayers(true)
                 .Where(x => x.GameObjectId != Services.ClientState.LocalPlayer?.GameObjectId);
             if (!players.Any())
             {
