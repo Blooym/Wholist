@@ -47,7 +47,7 @@ namespace Wholist.DTRHandling
                 this.nearbyPlayersDtrEntry.Shown = true;
             }
 
-            var nearbyPlayerCount = PlayerManager.GetNearbyPlayers().Count();
+            var nearbyPlayerCount = PlayerManager.GetNearbyPlayers(Services.Configuration.NearbyPlayers.FilterBlockedPlayers).Count();
             this.nearbyPlayersDtrEntry.Text = $"{NEARBY_PLAYERS_DTR_ICON_PAYLOAD} {nearbyPlayerCount}";
             this.nearbyPlayersDtrEntry.Tooltip = string.Format(Strings.DTR_NearbyPlayers_Tooltip, nearbyPlayerCount);
         }

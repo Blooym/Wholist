@@ -10,13 +10,11 @@ namespace Wholist.Game
         /// <summary>
         ///     Whether a character or service account has been blocked by the local player.
         /// </summary>
+        /// <remarks>
+        ///     This intentionally always returns false if the local player is in a duty.
+        /// </remarks>
         public static bool IsCharacterBlocked(BattleChara* chara)
         {
-            if (!Services.Configuration.NearbyPlayers.FilterBlockedPlayers)
-            {
-                return false;
-            }
-
             try
             {
                 return InfoProxyBlacklist.Instance()->GetBlockResultType(chara->Character.AccountId, chara->Character.ContentId) != InfoProxyBlacklist.BlockResultType.NotBlocked;

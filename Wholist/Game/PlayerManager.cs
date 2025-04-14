@@ -11,19 +11,23 @@ namespace Wholist.Game
 {
     internal static class PlayerManager
     {
-        internal static unsafe IEnumerable<IPlayerCharacter> GetNearbyPlayers()
+        /// <summary>
+        ///     Get all nearby players from the object table
+        /// </summary>
+        /// <param name="filterBlocked">Whether to remove all client blocked players</param>
+        internal static unsafe IEnumerable<IPlayerCharacter> GetNearbyPlayers(bool filterBlocked)
             => Services.ObjectTable
-                .Where(x => x.IsValid() && !BlockedCharacterHandler.IsCharacterBlocked((BattleChara*)x.Address))
                 .OfType<IPlayerCharacter>()
                 .Where(x => x.GameObjectId != Services.ClientState.LocalPlayer?.GameObjectId)
-                .Where(x => x.ObjectIndex < 240);
+                .Where(x => x.ObjectIndex < 240)
+                .Where(x => !filterBlocked || !BlockedCharacterHandler.IsCharacterBlocked((BattleChara*)x.Address));
 
         /// <summary>
         ///     Gets nearby players from the <see cref="Dalamud.Game.ClientState.Objects.ObjectTable" /> that meet the given
         ///     criteria and turns them into <see cref="PlayerInfoSlim" />s.
         /// </summary>
         /// <param name="maxPlayers">The maximum number of players to return.</param>
-        /// <param name="prioritizeKnownPlayers">Whether to prioritize known players.</param>
+        /// <param name="prioritizeKnownPlayers">Whether to prioritize the client known players.</param>
         /// <param name="filterAfk">Whether to filter out AFK players.</param>
         /// <returns></returns>
         internal static unsafe List<PlayerInfoSlim> GetNearbyPlayersSlim(int maxPlayers = 100, bool filterAfk = false, bool prioritizeKnownPlayers = false, bool filterLowLevel = false)
@@ -32,7 +36,7 @@ namespace Wholist.Game
 
             // Get nearby players from the object table and order by them by distance to the local player
             // so that when the list is truncated, the closest players are kept.
-            var players = GetNearbyPlayers().OrderBy(x => x.YalmDistanceX);
+            var players = GetNearbyPlayers(Services.Configuration.NearbyPlayers.FilterBlockedPlayers).OrderBy(x => x.YalmDistanceX);
 
             foreach (var player in players)
             {
