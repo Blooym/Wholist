@@ -19,7 +19,7 @@ namespace Wholist.Game
             => Services.ObjectTable
                 .OfType<IPlayerCharacter>()
                 .Where(x => x.GameObjectId != Services.ClientState.LocalPlayer?.GameObjectId)
-                .Where(x => x.ObjectIndex < 240)
+                .Where(x => x.Level != 0 && x.ObjectIndex < 240)
                 .Where(x => !filterBlocked || !BlockedCharacterHandler.IsCharacterBlocked((BattleChara*)x.Address));
 
         /// <summary>
