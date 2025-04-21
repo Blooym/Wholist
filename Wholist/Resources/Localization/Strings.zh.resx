@@ -176,7 +176,7 @@
     <value>使用职业缩写</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_JobAbbreviations_Description" xml:space="preserve">
-    <value>用职业缩写代替全程（如“战”而不是“战士”）</value>
+    <value>用职业缩写代替全称（如“战”而不是“战士”）</value>
   </data>
   <data name="UserInterface_Settings_NearbyPlayers_Appearance" xml:space="preserve">
     <value>外观</value>
