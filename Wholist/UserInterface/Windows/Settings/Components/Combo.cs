@@ -1,4 +1,5 @@
 using System;
+using Dalamud.Interface.Utility.Raii;
 using ImGuiNET;
 using Sirensong.UserInterface;
 using Sirensong.UserInterface.Style;
@@ -19,18 +20,20 @@ namespace Wholist.UserInterface.Windows.Settings.Components
         {
             var changed = false;
             SiGui.TextWrapped(label);
-            if (ImGui.BeginCombo($"##{label}", current.ToString()))
+            using (var combo = ImRaii.Combo($"##{label}", current.ToString()))
             {
-                foreach (T option in Enum.GetValues(typeof(T)))
+                if (combo)
                 {
-                    if (ImGui.Selectable(option.ToString()))
+                    foreach (T option in Enum.GetValues(typeof(T)))
                     {
-                        current = option;
-                        Services.Configuration.Save();
-                        changed = true;
+                        if (ImGui.Selectable(option.ToString()))
+                        {
+                            current = option;
+                            Services.Configuration.Save();
+                            changed = true;
+                        }
                     }
                 }
-                ImGui.EndCombo();
             }
             SiGui.TextDisabledWrapped(hint);
             ImGui.Dummy(Spacing.SectionSpacing);

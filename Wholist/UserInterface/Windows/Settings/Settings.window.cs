@@ -1,4 +1,5 @@
 using System.Numerics;
+using Dalamud.Interface.Utility.Raii;
 using Dalamud.Interface.Windowing;
 using ImGuiNET;
 using Sirensong.UserInterface.Style;
@@ -25,7 +26,8 @@ namespace Wholist.UserInterface.Windows.Settings
         /// <inheritdoc />
         public override void Draw()
         {
-            if (ImGui.BeginTable("PluginSettings", 2))
+            using var pluginTable = ImRaii.Table("PluginSettings", 2);
+            if (pluginTable)
             {
                 ImGui.TableSetupColumn("PluginSettingsSidebar", ImGuiTableColumnFlags.WidthFixed, ImGui.GetContentRegionAvail().X * 0.25f);
                 ImGui.TableSetupColumn("PluginSettingsList", ImGuiTableColumnFlags.WidthFixed, ImGui.GetContentRegionAvail().X * 0.75f);
@@ -33,22 +35,24 @@ namespace Wholist.UserInterface.Windows.Settings
 
                 // Sidebar
                 ImGui.TableNextColumn();
-                if (ImGui.BeginChild("PluginSettingsSidebarChild", default, true))
+                using (var sidebarChild = ImRaii.Child("PluginSettingsSidebarChild", default, true))
                 {
-                    SettingsSidebar.Draw(this.logic);
-                    ImGui.Dummy(Spacing.SidebarSectionSpacing);
+                    if (sidebarChild)
+                    {
+                        SettingsSidebar.Draw(this.logic);
+                        ImGui.Dummy(Spacing.SidebarSectionSpacing);
+                    }
                 }
-                ImGui.EndChild();
 
                 // Listings
                 ImGui.TableNextColumn();
-                if (ImGui.BeginChild("PluginSettingsListChild", default, true))
+                using (var listChild = ImRaii.Child("PluginSettingsListChild", default, true))
                 {
-                    SettingsActive.Draw(this.logic);
+                    if (listChild)
+                    {
+                        SettingsActive.Draw(this.logic);
+                    }
                 }
-                ImGui.EndChild();
-
-                ImGui.EndTable();
             }
         }
     }

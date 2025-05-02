@@ -4,6 +4,7 @@ using System.Numerics;
 using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Interface;
 using Dalamud.Interface.Utility;
+using Dalamud.Interface.Utility.Raii;
 using Dalamud.Interface.Windowing;
 using Dalamud.Utility;
 using ImGuiNET;
@@ -74,11 +75,13 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
             var playersToDraw = this.logic.GetNearbyPlayers();
             var childSize = Services.Configuration.NearbyPlayers.ShowSearchBar ? new Vector2(0, -55) : new Vector2(0, -25);
 
-            if (ImGui.BeginChild("##NearbyChild", childSize))
+            using (var nearbyChild = ImRaii.Child("##NearbyChild", childSize))
             {
-                this.DrawNearbyPlayersTable(playersToDraw);
+                if (nearbyChild)
+                {
+                    this.DrawNearbyPlayersTable(playersToDraw);
+                }
             }
-            ImGui.EndChild();
 
             // Draw the search box & total players text if not in minimal mode
             if (Services.Configuration.NearbyPlayers.ShowSearchBar)
@@ -95,7 +98,8 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// <param name="playersToDraw"></param>
         private void DrawNearbyPlayersTable(List<PlayerInfoSlim> playersToDraw)
         {
-            if (ImGui.BeginTable("##NearbyTable", 6, ImGuiTableFlags.ScrollY | ImGuiTableFlags.Borders | ImGuiTableFlags.Hideable | ImGuiTableFlags.Reorderable | ImGuiTableFlags.Resizable))
+            using var nearbyTable = ImRaii.Table("##NearbyTable", 6, ImGuiTableFlags.ScrollY | ImGuiTableFlags.Borders | ImGuiTableFlags.Hideable | ImGuiTableFlags.Reorderable | ImGuiTableFlags.Resizable);
+            if (nearbyTable)
             {
                 ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Name, ImGuiTableColumnFlags.WidthStretch | ImGuiTableColumnFlags.NoHide, 220);
                 ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Job, ImGuiTableColumnFlags.WidthStretch, 150);
@@ -105,10 +109,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 ImGui.TableSetupColumn(Strings.UserInterface_NearbyPlayers_Players_Distance, ImGuiTableColumnFlags.WidthStretch | ImGuiTableColumnFlags.DefaultHide, 80);
                 ImGui.TableSetupScrollFreeze(0, 1);
                 ImGui.TableHeadersRow();
-
                 ImGuiClip.ClippedDraw(playersToDraw, this.DrawPlayer, ImGui.GetTextLineHeightWithSpacing());
-
-                ImGui.EndTable();
             }
         }
 
@@ -163,7 +164,8 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// <param name="obj"></param>
         private void DrawPlayerContextMenu(PlayerInfoSlim obj)
         {
-            if (ImGui.BeginPopupContextItem($"{obj.Name}{obj.HomeWorld}##WholistPopContext"))
+            using var popupCtx = ImRaii.ContextPopupItem($"{obj.Name}{obj.HomeWorld}##WholistPopContext");
+            if (popupCtx)
             {
                 // Heading.
                 SiGui.Heading(string.Format(Strings.UserInterface_NearbyPlayers_Players_Submenu_Heading, $"{obj.Name}@{obj.HomeWorld}"));
@@ -199,12 +201,13 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 }
 
                 // Add to blacklist.
-                ImGui.BeginDisabled(obj.IsFriend);
-                if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_AddToBlacklist))
+                using (ImRaii.Disabled(obj.IsFriend))
                 {
-                    this.logic.PromptUserBlacklist(obj.Name, obj.HomeWorld);
+                    if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_AddToBlacklist))
+                    {
+                        this.logic.PromptUserBlacklist(obj.Name, obj.HomeWorld);
+                    }
                 }
-                ImGui.EndDisabled();
 
                 // Find on Map.
                 if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap))
@@ -217,8 +220,6 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                 {
                     NearbyPlayersLogic.SearchPlayerOnLodestone(obj.Name, obj.HomeWorld);
                 }
-
-                ImGui.EndPopup();
             }
         }
     }
