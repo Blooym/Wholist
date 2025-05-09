@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 using System.Runtime.InteropServices;
 using Dalamud.Hooking;
@@ -69,23 +70,43 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// <inheritdoc cref="PlayerManager.GetNearbyPlayersSlim" />
         internal List<PlayerInfoSlim> GetNearbyPlayers()
         {
-            var players = new List<PlayerInfoSlim>();
             var nearbyPlayers = PlayerManager.GetNearbyPlayersSlim(
                 Services.Configuration.NearbyPlayers.MaxPlayersToShow,
                 Services.Configuration.NearbyPlayers.FilterAfk,
                 Services.Configuration.NearbyPlayers.PrioritizeKnown,
                 Services.Configuration.NearbyPlayers.FilterLowLevel);
 
-            foreach (var player in nearbyPlayers)
+            if (this.SearchText.IsNullOrWhitespace())
             {
-                if (!this.SearchText.IsNullOrWhitespace() && !player.Name.Contains(this.SearchText, StringComparison.OrdinalIgnoreCase))
-                {
-                    continue;
-                }
-
-                players.Add(player);
+                return nearbyPlayers;
             }
-            return players;
+
+            return [.. nearbyPlayers.Where(player =>
+            {
+                if (!this.SearchText.Contains(':'))
+                {
+                    return player.Name.Contains(this.SearchText, StringComparison.OrdinalIgnoreCase);
+                }
+                return this.SearchText.Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(filter => filter.Split(':', 2))
+                    .Where(parts => parts.Length == 2)
+                    .Select(parts => new { Key = parts[0].Trim().ToLowerInvariant(), Value = parts[1].Trim() })
+                    .ToList()
+                    .All(filter =>
+                {
+                    var match = filter.Key switch
+                    {
+                        "name" => player.Name.Contains(filter.Value, StringComparison.OrdinalIgnoreCase),
+                        "level" => int.TryParse(filter.Value, out var level) && player.Level == level,
+                        "job" => player.Job.Name.Contains(filter.Value, StringComparison.OrdinalIgnoreCase) ||
+                                 player.Job.Abbreviation.Equals(filter.Value, StringComparison.OrdinalIgnoreCase),
+                        "homeworld" => player.HomeWorld.Contains(filter.Value, StringComparison.OrdinalIgnoreCase),
+                        "company" => player.CompanyTag.Equals(filter.Value, StringComparison.OrdinalIgnoreCase),
+                        _ => true
+                    };
+                    return match;
+                });
+            })];
         }
 
         /// <summary>

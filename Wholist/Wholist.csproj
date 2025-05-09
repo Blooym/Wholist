@@ -3,7 +3,7 @@
   <!-- Project Configuration -->
   <PropertyGroup>
     <AssemblyName>Wholist</AssemblyName>
-    <Version>1.9.3.0</Version>
+    <Version>1.9.4.0</Version>
     <PackageProjectUrl>https://github.com/Blooym/Wholist</PackageProjectUrl>
   </PropertyGroup>
 

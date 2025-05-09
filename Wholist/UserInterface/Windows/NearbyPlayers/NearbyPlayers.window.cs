@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Numerics;
 using Dalamud.Game.ClientState.Conditions;
 using Dalamud.Interface;
+using Dalamud.Interface.Components;
 using Dalamud.Interface.Utility;
 using Dalamud.Interface.Utility.Raii;
 using Dalamud.Interface.Windowing;
@@ -119,8 +120,21 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// <param name="searchText"></param>
         private static void DrawSearchBar(ref string searchText)
         {
-            ImGui.SetNextItemWidth(-1);
+            ImGui.SetNextItemWidth(-23 * ImGuiHelpers.GlobalScale);
             ImGui.InputTextWithHint("##NearbySearch", Strings.UserInterface_NearbyPlayers_Search, ref searchText, 100);
+            ImGuiComponents.HelpMarker(@"By default search checks only player name. Use advanced filters for more specific searches.
+
+Filters:
+- ""name:"" (contains)
+- ""level:"" (exact)
+- ""job:"" job name (contains) or abbreviation (exact)
+- ""homeworld:"" (contains)
+- ""company:"" (exact)
+
+Filters are additive, meaning each one will add results that match. This may change in the future.
+
+Any number of filters can be used in one search (e.g. ""name:meteor level:50 job:warrior"").");
+
         }
 
         /// <summary>
