@@ -32,15 +32,13 @@ namespace Wholist.Game
         /// <returns></returns>
         internal static unsafe List<PlayerInfoSlim> GetNearbyPlayersSlim(int maxPlayers = 100, bool filterAfk = false, bool prioritizeKnownPlayers = false, bool filterLowLevel = false)
         {
-            var nearbyPlayers = new List<PlayerInfoSlim>();
+            var players = new List<PlayerInfoSlim>(maxPlayers);
 
             // Get nearby players from the object table and order by them by distance to the local player
             // so that when the list is truncated, the closest players are kept.
-            var players = GetNearbyPlayers(Services.Configuration.NearbyPlayers.FilterBlockedPlayers).OrderBy(x => x.YalmDistanceX);
-
-            foreach (var player in players)
+            foreach (var player in GetNearbyPlayers(Services.Configuration.NearbyPlayers.FilterBlockedPlayers).OrderBy(p => p.YalmDistanceX))
             {
-                if (nearbyPlayers.Count >= maxPlayers)
+                if (players.Count >= maxPlayers)
                 {
                     break;
                 }
@@ -55,16 +53,16 @@ namespace Wholist.Game
                     continue;
                 }
 
-                nearbyPlayers.Add(new(player));
+                players.Add(new(player));
             }
 
             // Filter the list alphabetically and prioritize known players if necessary.
             // We sort alphabetically so the list doesn't jump around when players move.
             if (prioritizeKnownPlayers)
             {
-                return [.. nearbyPlayers.OrderByDescending(p => p.IsKnownPlayer).ThenBy(p => p.Name)];
+                return [.. players.OrderByDescending(p => p.IsKnownPlayer).ThenBy(p => p.Name)];
             }
-            return [.. nearbyPlayers.OrderBy(p => p.Name)];
+            return [.. players.OrderBy(p => p.Name)];
         }
 
         /// <summary>
