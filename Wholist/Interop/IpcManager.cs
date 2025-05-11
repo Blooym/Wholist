@@ -1,46 +1,43 @@
 using System;
 using System.Collections.Generic;
-using System.Timers;
 using Dalamud.Plugin.Ipc;
 using Wholist.Common;
 
 namespace Wholist.Interop
 {
-    internal sealed class IpcManager : IDisposable
+    internal sealed class IpcManager
     {
-        private bool disposedValue;
-
-        // MareSynchronos
-        private readonly Timer mareUpdateActivePairsTimer = new(TimeSpan.FromSeconds(4));
-        private readonly ICallGateSubscriber<List<nint>> mareActivePairCallGateSubscriber = Services.PluginInterface.GetIpcSubscriber<List<nint>>("MareSynchronos.GetHandledAddresses");
-        public List<nint> MareActivePairs { get; private set; } = [];
-        public bool MareActivePairsIpcAvailable => this.mareActivePairCallGateSubscriber.HasFunction;
+        // -- MareSynchronos --
+        // Active Pairs
+        private readonly ICallGateSubscriber<List<nint>> mareActivePairsCallGateSubscriber = Services.PluginInterface.GetIpcSubscriber<List<nint>>("MareSynchronos.GetHandledAddresses");
+        private readonly TimeSpan mareActivePairsCacheDuration = TimeSpan.FromSeconds(5);
+        private DateTime mareActivePairsLastUpdateTime = DateTime.MinValue;
+        private readonly HashSet<nint> mareActivePairs = [];
+        public HashSet<nint> MareActivePairs
+        {
+            get
+            {
+                if (!this.MareActivePairsIpcAvailable)
+                {
+                    return [];
+                }
+                else if ((DateTime.UtcNow - this.mareActivePairsLastUpdateTime) > this.mareActivePairsCacheDuration)
+                {
+                    this.mareActivePairs.Clear();
+                    foreach (var item in this.mareActivePairsCallGateSubscriber.InvokeFunc())
+                    {
+                        this.mareActivePairs.Add(item);
+                    }
+                    this.mareActivePairsLastUpdateTime = DateTime.UtcNow;
+                }
+                return this.mareActivePairs;
+            }
+        }
+        public bool MareActivePairsIpcAvailable => this.mareActivePairsCallGateSubscriber.HasFunction;
 
         private IpcManager()
         {
-            this.UpdateMareActivePairs(null, null);
-            this.mareUpdateActivePairsTimer.Start();
-            this.mareUpdateActivePairsTimer.Elapsed += this.UpdateMareActivePairs;
-        }
 
-        public void Dispose()
-        {
-            if (this.disposedValue)
-            {
-                return;
-            }
-            this.mareUpdateActivePairsTimer.Elapsed -= this.UpdateMareActivePairs;
-            this.mareUpdateActivePairsTimer.Dispose();
-            this.disposedValue = true;
-        }
-
-        private void UpdateMareActivePairs(object? sender, EventArgs? e)
-        {
-            ObjectDisposedException.ThrowIf(this.disposedValue, this);
-            if (this.MareActivePairsIpcAvailable)
-            {
-                this.MareActivePairs = this.mareActivePairCallGateSubscriber.InvokeFunc();
-            }
         }
     }
 }

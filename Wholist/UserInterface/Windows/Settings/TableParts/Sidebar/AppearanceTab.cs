@@ -60,12 +60,9 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             {
                 Services.Configuration.Save();
             }
-            if (Services.IpcManager.MareActivePairsIpcAvailable)
+            if (Services.IpcManager.MareActivePairsIpcAvailable && ColourEdit.Draw("Paired [MareSynchronos]", ref Services.Configuration.Colours.Name.MarePaired))
             {
-                if (ColourEdit.Draw("Paired [MareSynchronos]", ref Services.Configuration.Colours.Name.MarePaired))
-                {
-                    Services.Configuration.Save();
-                }
+                Services.Configuration.Save();
             }
         }
 
