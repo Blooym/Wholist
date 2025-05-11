@@ -92,7 +92,7 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
                     .Where(parts => parts.Length == 2)
                     .Select(parts => new { Key = parts[0].Trim().ToLowerInvariant(), Value = parts[1].Trim() })
                     .ToList()
-                    .All(filter =>
+                    .Any(filter =>
                 {
                     var match = filter.Key switch
                     {
