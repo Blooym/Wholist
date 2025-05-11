@@ -8,6 +8,7 @@ using Sirensong;
 using Sirensong.IoC;
 using Wholist.Configuration;
 using Wholist.DTRHandling;
+using Wholist.Interop;
 using Wholist.Resources.Localization;
 using Wholist.UserInterface;
 
@@ -46,6 +47,7 @@ namespace Wholist.Common
         internal static WindowManager WindowManager { get; private set; } = null!;
         internal static PluginConfiguration Configuration { get; private set; } = null!;
         internal static DTRManager DtrManager { get; private set; } = null!;
+        internal static IpcManager IpcManager { get; private set; } = null!;
 
         /// <summary>
         ///     Initializes the service class.
@@ -54,9 +56,9 @@ namespace Wholist.Common
         {
             SirenCore.InjectServices<Services>();
             pluginInterface.Create<Services>();
-
             Configuration = PluginInterface.GetPluginConfig() as PluginConfiguration ?? new PluginConfiguration();
             ServiceContainer.GetOrCreateService<LocalizationManager>();
+            IpcManager = ServiceContainer.GetOrCreateService<IpcManager>();
             WindowManager = ServiceContainer.GetOrCreateService<WindowManager>();
             DtrManager = ServiceContainer.GetOrCreateService<DTRManager>();
             ServiceContainer.CreateService<CommandHandling.CommandManager>();

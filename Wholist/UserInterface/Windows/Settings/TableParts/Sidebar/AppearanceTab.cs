@@ -60,6 +60,13 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             {
                 Services.Configuration.Save();
             }
+            if (Services.IpcManager.MareActivePairCallGateAvailable)
+            {
+                if (ColourEdit.Draw("Paired [MareSynchronos]", ref Services.Configuration.Colours.Name.MarePaired))
+                {
+                    Services.Configuration.Save();
+                }
+            }
         }
 
         private static void DrawRoleColours()

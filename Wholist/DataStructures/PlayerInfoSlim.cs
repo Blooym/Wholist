@@ -102,9 +102,14 @@ namespace Wholist.DataStructures
         internal readonly bool IsInParty => this.character.ToCsPlayerCharacter()->IsPartyMember;
 
         /// <summary>
+        ///     Whether the player is paired and actively shown via Mare Synchronos.
+        /// </summary>
+        internal readonly bool IsMarePair => Services.IpcManager.MareActivePairCallGateAvailable && Services.IpcManager.MareActivePairCallGateSubscriber.InvokeFunc().Contains(this.character.Address);
+
+        /// <summary>
         ///     Whether the player is known to the local player (i.e. in party or friend).
         /// </summary>
-        internal readonly bool IsKnownPlayer => this.IsInParty || this.IsFriend;
+        internal readonly bool IsKnownPlayer => this.IsInParty || this.IsFriend || this.IsMarePair;
 
         /// <summary>
         ///     The level of the player.

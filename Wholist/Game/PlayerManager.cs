@@ -97,6 +97,10 @@ namespace Wholist.Game
             {
                 return Services.Configuration.Colours.Name.Friend;
             }
+            if (playerInfo.IsMarePair)
+            {
+                return Services.Configuration.Colours.Name.MarePaired;
+            }
             return Services.Configuration.Colours.Name.Default;
         }
     }
