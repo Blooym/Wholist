@@ -60,7 +60,7 @@ namespace Wholist.UserInterface.Windows.Settings.TableParts.Sidebar
             {
                 Services.Configuration.Save();
             }
-            if (Services.IpcManager.MareActivePairCallGateAvailable)
+            if (Services.IpcManager.MareActivePairsIpcAvailable)
             {
                 if (ColourEdit.Draw("Paired [MareSynchronos]", ref Services.Configuration.Colours.Name.MarePaired))
                 {

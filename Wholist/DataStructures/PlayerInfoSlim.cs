@@ -104,7 +104,7 @@ namespace Wholist.DataStructures
         /// <summary>
         ///     Whether the player is paired and actively shown via Mare Synchronos.
         /// </summary>
-        internal readonly bool IsMarePair => Services.IpcManager.MareActivePairCallGateAvailable && Services.IpcManager.MareActivePairCallGateSubscriber.InvokeFunc().Contains(this.character.Address);
+        internal readonly bool IsMarePair => Services.IpcManager.MareActivePairsIpcAvailable && Services.IpcManager.MareActivePairs.Contains(this.character.Address);
 
         /// <summary>
         ///     Whether the player is known to the local player (i.e. in party or friend).
