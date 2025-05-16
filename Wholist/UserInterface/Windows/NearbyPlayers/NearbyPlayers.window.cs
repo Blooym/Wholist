@@ -233,7 +233,7 @@ Any number of filters can be used in one search (e.g. ""name:meteor level:50 job
                 }
 
                 // Find on Map.
-                if (ImGui.Selectable(Strings.w))
+                if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap))
                 {
                     NearbyPlayersLogic.FlagAndOpen(obj.Position, obj.Name);
                 }
