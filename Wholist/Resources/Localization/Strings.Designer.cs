@@ -632,5 +632,17 @@ namespace Wholist.Resources.Localization {
                 return ResourceManager.GetString("UserInterface_Settings_NearbyPlayers_InfoBarPlayers_Description", resourceCulture);
             }
         }
+        
+        internal static string UserInterface_NearbyPlayers_Players_Submenu_InviteToParty {
+            get {
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_Players_Submenu_InviteToParty", resourceCulture);
+            }
+        }
+        
+        internal static string UserInterface_NearbyPlayers_InvitedToParty {
+            get {
+                return ResourceManager.GetString("UserInterface_NearbyPlayers_InvitedToParty", resourceCulture);
+            }
+        }
     }
 }

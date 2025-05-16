@@ -214,6 +214,15 @@ Any number of filters can be used in one search (e.g. ""name:meteor level:50 job
                     NearbyPlayersLogic.SetChatTellTarget(obj.Name, obj.HomeWorld);
                 }
 
+                // Invite to party
+                using (ImRaii.Disabled(obj.IsInParty))
+                {
+                    if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_InviteToParty))
+                    {
+                        this.logic.InviteToParty(obj.Name, obj.HomeWorld);
+                    }
+                }
+
                 // Add to blacklist.
                 using (ImRaii.Disabled(obj.IsFriend))
                 {
@@ -224,7 +233,7 @@ Any number of filters can be used in one search (e.g. ""name:meteor level:50 job
                 }
 
                 // Find on Map.
-                if (ImGui.Selectable(Strings.UserInterface_NearbyPlayers_Players_Submenu_OpenOnMap))
+                if (ImGui.Selectable(Strings.w))
                 {
                     NearbyPlayersLogic.FlagAndOpen(obj.Position, obj.Name);
                 }

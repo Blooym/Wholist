@@ -113,25 +113,25 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         ///     Searches for the player on the lodestone.
         /// </summary>
         /// <param name="name">The name of the player.</param>
-        /// <param name="homeworld">The name of the player's homeworld.</param>
-        internal static void SearchPlayerOnLodestone(string name, string homeworld)
+        /// <param name="homeworldName">The name of the player's homeworld.</param>
+        internal static void SearchPlayerOnLodestone(string name, string homeworldName)
         {
             switch (Services.Configuration.NearbyPlayers.LodestonePlayerSearchRegion)
             {
                 case PluginConfiguration.NearbyPlayersConfiguration.LodestoneSearchRegion.Europe:
-                    Util.OpenLink($"https://eu.finalfantasyxiv.com/lodestone/character/?q={name}&worldname={homeworld}");
+                    Util.OpenLink($"https://eu.finalfantasyxiv.com/lodestone/character/?q={name}&worldname={homeworldName}");
                     break;
                 case PluginConfiguration.NearbyPlayersConfiguration.LodestoneSearchRegion.Germany:
-                    Util.OpenLink($"https://de.finalfantasyxiv.com/lodestone/character/?q={name}&worldname={homeworld}");
+                    Util.OpenLink($"https://de.finalfantasyxiv.com/lodestone/character/?q={name}&worldname={homeworldName}");
                     break;
                 case PluginConfiguration.NearbyPlayersConfiguration.LodestoneSearchRegion.France:
-                    Util.OpenLink($"https://fr.finalfantasyxiv.com/lodestone/character/?q={name}&worldname={homeworld}");
+                    Util.OpenLink($"https://fr.finalfantasyxiv.com/lodestone/character/?q={name}&worldname={homeworldName}");
                     break;
                 case PluginConfiguration.NearbyPlayersConfiguration.LodestoneSearchRegion.NorthAmerica:
-                    Util.OpenLink($"https://na.finalfantasyxiv.com/lodestone/character/?q={name}&worldname={homeworld}");
+                    Util.OpenLink($"https://na.finalfantasyxiv.com/lodestone/character/?q={name}&worldname={homeworldName}");
                     break;
                 case PluginConfiguration.NearbyPlayersConfiguration.LodestoneSearchRegion.Japan:
-                    Util.OpenLink($"https://jp.finalfantasyxiv.com/lodestone/character/?q={name}&worldname={homeworld}");
+                    Util.OpenLink($"https://jp.finalfantasyxiv.com/lodestone/character/?q={name}&worldname={homeworldName}");
                     break;
                 default:
                     throw new NotImplementedException("No link handler for specified region");
@@ -144,11 +144,23 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// </summary>
         /// <param name="name">The name of the player.</param>
         /// <param name="homeworldName">The homeworld name of the player.</param>
-        internal static unsafe void SetChatTellTarget(string name, string homeworld)
+        internal static unsafe void SetChatTellTarget(string name, string homeworldName)
         {
-            UIModule.Instance()->ProcessChatBoxEntry(Utf8String.FromString($"/tell {name}@{homeworld}"));
-            ChatHelper.Print(Strings.UserInterface_NearbyPlayers_SetChatTarget.Format($"{name}@{homeworld}"));
+            UIModule.Instance()->ProcessChatBoxEntry(Utf8String.FromString($"/tell {name}@{homeworldName}"));
+            ChatHelper.Print(Strings.UserInterface_NearbyPlayers_SetChatTarget.Format($"{name}@{homeworldName}"));
             UIGlobals.PlaySoundEffect((uint)SoundEffect.Se16, 0, 0, 0);
+        }
+
+        /// <summary>
+        ///    Invites the given player to the party.
+        /// </summary>
+        /// <param name="name">The name of the player.</param>
+        /// <param name="homeworldName">The homeworld name of the player.</param>
+        internal unsafe void InviteToParty(string name, string homeworldName)
+        {
+            this.replacementName = $"{name}@{homeworldName}";
+            UIModule.Instance()->ProcessChatBoxEntry(Utf8String.FromString($"/partycmd add {this.placeholder}"));
+            ChatHelper.Print(Strings.UserInterface_NearbyPlayers_InvitedToParty.Format($"{name}@{homeworldName}"));
         }
 
         /// <summary>
@@ -156,9 +168,9 @@ namespace Wholist.UserInterface.Windows.NearbyPlayers
         /// </summary>
         /// <param name="name">The name of the player.</param>
         /// <param name="homeworldName">The homeworld name of the player.</param>
-        internal unsafe void PromptUserBlacklist(string name, string homeworld)
+        internal unsafe void PromptUserBlacklist(string name, string homeworldName)
         {
-            this.replacementName = $"{name}@{homeworld}";
+            this.replacementName = $"{name}@{homeworldName}";
             UIModule.Instance()->ProcessChatBoxEntry(Utf8String.FromString($"/blacklist add {this.placeholder}"));
         }
 

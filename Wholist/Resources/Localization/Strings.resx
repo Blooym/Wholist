@@ -320,4 +320,10 @@
   <data name="UserInterface_Settings_NearbyPlayers_InfoBarPlayers_Description" xml:space="preserve">
     <value>Show the number of nearby players in the server info bar. This can be toggled or moved by going to your Dalamud Settings, opening the 'Server Info Bar' tab, and finding the 'Nearby Player Count' entry.</value>
   </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_InviteToParty" xml:space="preserve">
+    <value>Invite to Party</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_InvitedToParty" xml:space="preserve">
+    <value>Invited {0} to party</value>
+  </data>
 </root>
