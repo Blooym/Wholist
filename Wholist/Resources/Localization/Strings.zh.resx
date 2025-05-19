@@ -313,4 +313,10 @@
   <data name="UserInterface_Settings_NearbyPlayers_InfoBarPlayers_Description" xml:space="preserve">
     <value>在服务器信息栏中显示附近玩家的数量。想进行切换或移动，请前往 Dalamud 设置，打开“服务器信息栏 (Server Info Bar)”选项卡，找到“附近玩家数量 (Nearby Player Count)”条目。</value>
   </data>
+  <data name="UserInterface_NearbyPlayers_Players_Submenu_InviteToParty" xml:space="preserve">
+    <value>邀请加入小队</value>
+  </data>
+  <data name="UserInterface_NearbyPlayers_InvitedToParty" xml:space="preserve">
+    <value>邀请 {0} 加入小队</value>
+  </data>
 </root>
