@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using System.Linq;
 using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
-using Lumina.Excel;
 using Lumina.Excel.Sheets;
 using Sirensong;
+using Sirensong.Extensions;
+using Sirensong.Game.Enums;
 using Sirensong.IoC;
 using Wholist.Configuration;
 using Wholist.DTRHandling;
@@ -35,13 +37,9 @@ namespace Wholist.Common
         [PluginService] internal static IDtrBar DtrBar { get; set; } = null!;
         [PluginService] internal static IFramework Framework { get; set; } = null!;
 
-        internal static ExcelSheet<World> WorldSheet { get; set; } = null!;
-        internal static ExcelSheet<ClassJob> ClassJobSheet { get; set; } = null!;
-
-        // Temporary Caches until rewrite
-        internal static Dictionary<uint, string> WorldNames { get; } = [];
-        internal static Dictionary<uint, string> ClassJobNames { get; } = [];
-        internal static Dictionary<uint, string> ClassJobAbbreviations { get; } = [];
+        // Data dictionaries
+        internal static Dictionary<uint, string> WorldNames { get; set; } = null!;
+        internal static Dictionary<uint, (string name, string abbreviation, ClassJobRole role, uint id)> JobNames { get; set; } = null!;
 
         // Plugin services
         internal static WindowManager WindowManager { get; private set; } = null!;
@@ -58,12 +56,35 @@ namespace Wholist.Common
             pluginInterface.Create<Services>();
             Configuration = PluginInterface.GetPluginConfig() as PluginConfiguration ?? new PluginConfiguration();
             ServiceContainer.GetOrCreateService<LocalizationManager>();
+            InitializeDataDictionaries();
+            InitializeServices();
+        }
+
+        /// <summary>
+        ///     Initializes data dictionaries from Excel sheets.
+        /// </summary>
+        private static void InitializeDataDictionaries()
+        {
+            WorldNames = DataManager.GetExcelSheet<World>()
+                .ToDictionary(item => item.RowId, item => item.Name.ExtractText().ToTitleCase());
+            JobNames = DataManager.GetExcelSheet<ClassJob>()
+                .ToDictionary(item => item.RowId, item => (
+                    name: item.Name.ExtractText().ToTitleCase(),
+                    abbreviation: item.Abbreviation.ExtractText().ToUpperInvariant(),
+                    role: (ClassJobRole)item.Role,
+                    id: item.RowId
+                ));
+        }
+
+        /// <summary>
+        ///     Initializes plugin services.
+        /// </summary>
+        private static void InitializeServices()
+        {
             IpcManager = ServiceContainer.GetOrCreateService<IpcManager>();
             WindowManager = ServiceContainer.GetOrCreateService<WindowManager>();
             DtrManager = ServiceContainer.GetOrCreateService<DTRManager>();
             ServiceContainer.CreateService<CommandHandling.CommandManager>();
-            WorldSheet = DataManager.GetExcelSheet<World>();
-            ClassJobSheet = DataManager.GetExcelSheet<ClassJob>();
         }
 
         /// <summary>

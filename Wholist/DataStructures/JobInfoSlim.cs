@@ -1,5 +1,5 @@
+using System.Collections.Generic;
 using System.Numerics;
-using Sirensong.Extensions;
 using Sirensong.Game.Enums;
 using Wholist.Common;
 
@@ -13,25 +13,13 @@ namespace Wholist.DataStructures
         /// <summary>
         ///     Creates a new <see cref="JobInfoSlim" />.
         /// </summary>
-        /// <param name="cj">The <see cref="ClassJob" /> to create the <see cref="JobInfoSlim" /> from.</param>
-        internal JobInfoSlim(uint cj)
+        /// <param name="classJobId">The <see cref="ClassJob" /> to create the <see cref="JobInfoSlim" /> from.</param>
+        internal JobInfoSlim(uint classJobId)
         {
-            // Cache lookups
-            var classJob = Services.ClassJobSheet.GetRow(cj)!;
-            if (!Services.ClassJobNames.TryGetValue(cj, out var name))
-            {
-                name = classJob.Name.ToString().ToTitleCase();
-                Services.ClassJobNames.TryAdd(cj, name);
-            }
+            var (name, abbreviation, role, id) = Services.JobNames.GetValueOrDefault(classJobId);
             this.Name = name;
-            if (!Services.ClassJobAbbreviations.TryGetValue(cj, out var abriv))
-            {
-                abriv = classJob.Abbreviation.ToString().ToUpperInvariant();
-                Services.ClassJobAbbreviations.TryAdd(cj, abriv);
-            }
-            this.Abbreviation = abriv;
-
-            this.RoleColour = classJob.GetJobRole() switch
+            this.Abbreviation = abbreviation;
+            this.RoleColour = role switch
             {
                 ClassJobRole.Tank => Services.Configuration.Colours.Role.Tank,
                 ClassJobRole.Healer => Services.Configuration.Colours.Role.Healer,
@@ -40,8 +28,7 @@ namespace Wholist.DataStructures
                 ClassJobRole.Misc => Services.Configuration.Colours.Role.Other,
                 _ => Services.Configuration.Colours.Role.Other,
             };
-
-            this.JobColour = classJob.RowId switch
+            this.JobColour = id switch
             {
 
                 0 => Services.Configuration.Colours.Job.Other,
