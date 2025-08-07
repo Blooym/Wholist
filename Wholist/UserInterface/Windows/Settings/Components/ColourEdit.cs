@@ -1,5 +1,5 @@
 using System.Numerics;
-using ImGuiNET;
+using Dalamud.Bindings.ImGui;
 
 namespace Wholist.UserInterface.Windows.Settings.Components
 {
@@ -13,7 +13,7 @@ namespace Wholist.UserInterface.Windows.Settings.Components
         /// <returns>True if the colour was changed and the item was deactivated</returns>
         internal static bool Draw(string label, ref Vector4 colour)
         {
-            ImGui.ColorEdit4(label, ref colour, ImGuiColorEditFlags.DisplayRGB | ImGuiColorEditFlags.AlphaPreviewHalf);
+            ImGui.ColorEdit4(label, ref colour, ImGuiColorEditFlags.DisplayRgb | ImGuiColorEditFlags.AlphaPreviewHalf);
             return ImGui.IsItemDeactivatedAfterEdit();
         }
     }

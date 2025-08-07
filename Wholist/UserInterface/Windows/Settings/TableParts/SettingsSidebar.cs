@@ -1,5 +1,5 @@
 using System;
-using ImGuiNET;
+using Dalamud.Bindings.ImGui;
 using Sirensong.UserInterface;
 using Wholist.Resources.Localization;
 

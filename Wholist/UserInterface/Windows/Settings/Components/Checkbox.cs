@@ -1,4 +1,4 @@
-using ImGuiNET;
+using Dalamud.Bindings.ImGui;
 using Sirensong.UserInterface;
 using Sirensong.UserInterface.Style;
 using Wholist.Common;
@@ -22,7 +22,6 @@ namespace Wholist.UserInterface.Windows.Settings.Components
                 Services.Configuration.Save();
             }
             ImGui.Dummy(Spacing.SectionSpacing);
-
             return checkbox;
         }
     }
