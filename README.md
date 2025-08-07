@@ -6,9 +6,9 @@
 
 Show who's nearby you, inspired by the `/who` command from World of Warcraft 
 
-[![Plugin Downloads](https://img.shields.io/endpoint?url=https://dalamud-dl-count.blooym.workers.dev/Wholist&label=Plugin%20Downloads)](https://github.com/Blooym/Wholist)
+[![Plugin Downloads](https://img.shields.io/endpoint?url=https://dalamud-dl-count.blooym.workers.dev/Wholist&label=Plugin%20Downloads)](https://github.com/Blooym/Dalamud.Wholist)
 
-**[Issues](https://github.com/Blooym/Wholist/issues) · [Pull Requests](https://github.com/Blooym/Wholist/pulls) · [Releases](https://github.com/Blooym/Wholist/releases/latest)**
+**[Issues](https://github.com/Blooym/Dalamud.Wholist/issues) · [Pull Requests](https://github.com/Blooym/Dalamud.Wholist/pulls) · [Releases](https://github.com/Blooym/Dalamud.Wholist/releases/latest)**
 
 </div>
 
