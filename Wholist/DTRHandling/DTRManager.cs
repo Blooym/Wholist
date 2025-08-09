@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using Dalamud.Game.Addon.Events.EventDataTypes;
 using Dalamud.Game.Gui.Dtr;
 using Dalamud.Plugin.Services;
 using Wholist.Common;
@@ -29,13 +28,13 @@ namespace Wholist.DTRHandling
             this.nearbyPlayersDtrEntry.Remove();
         }
 
-        private static void DtrOnClick(AddonMouseEventData mouseEventData)
+        private static void DtrOnClick(DtrInteractionEvent mouseEventData)
         {
-            if (mouseEventData.IsLeftClick)
+            if (mouseEventData.ClickType == MouseClickType.Left)
             {
                 Services.WindowManager.ToggleMainWindow();
             }
-            else if (mouseEventData.IsRightClick)
+            else if (mouseEventData.ClickType == MouseClickType.Right)
             {
                 Services.WindowManager.ToggleConfigWindow();
             }
